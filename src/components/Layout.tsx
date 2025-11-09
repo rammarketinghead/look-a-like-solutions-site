@@ -2,6 +2,7 @@ import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Breadcrumb } from '@/components/ui/breadcrumb';
 import { Menu, X, Phone, Mail, MapPin, Search, ChevronDown, Zap, Facebook, Instagram, Youtube } from 'lucide-react';
 import { useState } from 'react';
 
@@ -231,6 +232,9 @@ export default function Layout() {
           )}
         </div>
       </header>
+
+      {/* Breadcrumb */}
+      <Breadcrumb />
 
       {/* Main Content */}
       <main>

@@ -12,6 +12,13 @@ const fadeInVariants = {
   visible: { opacity: 1, y: 0 }
 };
 
+const scrollToContact = () => {
+  const contactSection = document.getElementById('contact-form');
+  if (contactSection) {
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 export default function SEOPage() {
   const seoFAQs = [
     {
@@ -43,31 +50,89 @@ export default function SEOPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="py-32 bg-light-gray">
-        <div className="max-w-[100rem] mx-auto px-8">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeInVariants}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8">
-              <Search className="h-10 w-10 text-primary" />
-            </div>
-            <h1 className="text-5xl font-heading text-dark-gray mb-8">
-              SEO Optimization Services
-            </h1>
-            <p className="text-xl font-paragraph text-secondary max-w-4xl mx-auto mb-12">
-              Boost your search rankings and drive organic traffic with our comprehensive SEO strategies. We help businesses in Bengaluru and beyond achieve top search engine visibility.
-            </p>
-            <Link to="/contact">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg">
-                Get SEO Audit
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </motion.div>
+      <section className="py-32 bg-gradient-to-br from-primary/5 via-background to-light-gray relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23007BFF%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+        <div className="max-w-[100rem] mx-auto px-8 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={fadeInVariants}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-paragraph mb-6">
+                <Search className="h-4 w-4 mr-2" />
+                SEO Optimization Service
+              </div>
+              <h1 className="text-6xl font-heading text-dark-gray mb-8 leading-tight">
+                Dominate Search Results with 
+                <span className="text-primary block">Expert SEO</span>
+              </h1>
+              <p className="text-xl font-paragraph text-secondary mb-12 leading-relaxed">
+                Boost your organic visibility, drive qualified traffic, and increase conversions with our data-driven SEO strategies. Get found by customers actively searching for your services.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6">
+                <Button 
+                  onClick={scrollToContact}
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  Get Free SEO Audit
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg transition-all duration-300"
+                  onClick={scrollToContact}
+                >
+                  View Pricing Plans
+                </Button>
+              </div>
+              
+              {/* Trust Indicators */}
+              <div className="mt-12 grid grid-cols-3 gap-8">
+                {[
+                  { number: '150+', label: 'Websites Optimized' },
+                  { number: '85%', label: 'First Page Rankings' },
+                  { number: '300%', label: 'Average Traffic Increase' }
+                ].map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-3xl font-heading text-primary mb-2">{stat.number}</div>
+                    <div className="text-sm font-paragraph text-secondary">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={fadeInVariants}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="relative bg-white rounded-2xl shadow-2xl p-8 border border-light-gray">
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center">
+                  <TrendingUp className="h-12 w-12 text-primary" />
+                </div>
+                <Image
+                  src="https://static.wixstatic.com/media/f650f9_63037167c6fb4af29e81d6e8faa7770a~mv2.png?originWidth=576&originHeight=384"
+                  alt="SEO Analytics Dashboard"
+                  width={600}
+                  className="w-full h-auto rounded-lg"
+                />
+                <div className="mt-6 grid grid-cols-2 gap-4">
+                  <div className="bg-green-50 p-4 rounded-lg text-center">
+                    <div className="text-2xl font-heading text-green-600 mb-1">↗ 450%</div>
+                    <div className="text-sm font-paragraph text-green-700">Organic Traffic</div>
+                  </div>
+                  <div className="bg-blue-50 p-4 rounded-lg text-center">
+                    <div className="text-2xl font-heading text-blue-600 mb-1">#1-3</div>
+                    <div className="text-sm font-paragraph text-blue-700">Keyword Rankings</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -309,7 +374,10 @@ export default function SEOPage() {
                       </li>
                     ))}
                   </ul>
-                  <Button className={`w-full ${plan.popular ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-background text-primary border border-primary hover:bg-primary hover:text-primary-foreground'}`}>
+                  <Button 
+                    onClick={scrollToContact}
+                    className={`w-full ${plan.popular ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-background text-primary border border-primary hover:bg-primary hover:text-primary-foreground'}`}
+                  >
                     Get Started
                   </Button>
                 </CardContent>
@@ -321,11 +389,13 @@ export default function SEOPage() {
             <p className="font-paragraph text-secondary mb-4">
               Need a custom solution? We offer tailored SEO packages for unique business requirements.
             </p>
-            <Link to="/contact">
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                Request Custom Quote
-              </Button>
-            </Link>
+            <Button 
+              onClick={scrollToContact}
+              variant="outline" 
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+            >
+              Request Custom Quote
+            </Button>
           </div>
         </div>
       </section>
@@ -471,10 +541,12 @@ export default function SEOPage() {
       />
 
       {/* Contact Form Section */}
-      <ServiceContactForm 
-        serviceName="SEO Optimization"
-        serviceDescription="Let's discuss how our SEO expertise can help your business rank higher in search results and drive more organic traffic."
-      />
+      <div id="contact-form">
+        <ServiceContactForm 
+          serviceName="SEO Optimization"
+          serviceDescription="Let's discuss how our SEO expertise can help your business rank higher in search results and drive more organic traffic."
+        />
+      </div>
 
       {/* Results Section */}
       <section className="py-32 bg-background">
@@ -512,12 +584,13 @@ export default function SEOPage() {
             Get a free SEO audit and discover how we can help your business rank higher in search results.
           </p>
           <div className="flex gap-6 justify-center">
-            <Link to="/contact">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg">
-                Get Free SEO Audit
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <Button 
+              onClick={scrollToContact}
+              className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg"
+            >
+              Get Free SEO Audit
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
             <Link to="/case-studies">
               <Button variant="outline" className="border-background text-background hover:bg-background hover:text-dark-gray px-8 py-4 text-lg">
                 View SEO Case Studies

@@ -35,9 +35,40 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Create email content
+      const emailSubject = `New Contact Form Submission from ${formData.name}`;
+      const emailBody = `
+New contact form submission:
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Company: ${formData.company}
+Service: ${formData.service}
+Budget: ${formData.budget}
+Timeline: ${formData.timeline}
+
+Project Details:
+${formData.message}
+
+---
+This inquiry was submitted through the contact page.
+      `;
+
+      // Create mailto links for both email addresses
+      const email1 = 'ram.dmm@lookalikesolutions.com';
+      const email2 = 'rammarketinghead@gmail.com';
+      
+      // Send to first email
+      const mailtoLink1 = `mailto:${email1}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      window.open(mailtoLink1, '_blank');
+      
+      // Send to second email after a short delay
+      setTimeout(() => {
+        const mailtoLink2 = `mailto:${email2}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+        window.open(mailtoLink2, '_blank');
+      }, 1000);
       
       toast({
         title: "Message Sent Successfully!",
@@ -108,7 +139,9 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-heading text-dark-gray mb-2">Phone</h3>
-                    <p className="font-paragraph text-secondary">+91 XXX XXX XXXX</p>
+                    <a href="tel:+919731588244" className="font-paragraph text-secondary hover:text-primary transition-colors">
+                      +91-9731588244
+                    </a>
                     <p className="font-paragraph text-secondary text-sm">Mon-Fri 9AM-6PM IST</p>
                   </div>
                 </div>
@@ -119,7 +152,9 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-heading text-dark-gray mb-2">Email</h3>
-                    <p className="font-paragraph text-secondary">hello@lookalikesolutions.com</p>
+                    <a href="mailto:info@lookalikesolutions.com" className="font-paragraph text-secondary hover:text-primary transition-colors">
+                      info@lookalikesolutions.com
+                    </a>
                     <p className="font-paragraph text-secondary text-sm">We'll respond within 24 hours</p>
                   </div>
                 </div>
