@@ -24,8 +24,24 @@ const containerVariants = {
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
+      {/* Banner Image Section */}
+      <section className="relative h-96 overflow-hidden">
+        <Image
+          src="https://static.wixstatic.com/media/f650f9_a19761649238486fa7792dc7db8ba1c4~mv2.png?originWidth=1600&originHeight=384"
+          alt="Digital marketing excellence"
+          width={1600}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-dark-gray/60 flex items-center justify-center">
+          <div className="text-center text-background">
+            <h2 className="text-4xl font-heading mb-4">Transform Your Digital Presence</h2>
+            <p className="text-xl font-paragraph">Data-driven strategies that deliver real results</p>
+          </div>
+        </div>
+      </section>
+
       {/* Hero Section */}
-      <section className="h-screen grid place-items-center bg-background">
+      <section className="py-32 bg-background">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -99,6 +115,227 @@ export default function HomePage() {
             <Link to="/services">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4">
                 View All Services
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section - Inspired by attached image */}
+      <section className="py-32 bg-background">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="text-center mb-24">
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">
+              Our Simple 4-Step Process
+            </h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              A proven roadmap to take you from unseen to unstoppable.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                step: '01',
+                title: 'Discovery & Strategy',
+                description: 'We listen to your goals and create a tailored strategy.'
+              },
+              {
+                step: '02',
+                title: 'Implementation',
+                description: 'Our experts execute the plan with precision.'
+              },
+              {
+                step: '03',
+                title: 'Optimization',
+                description: 'We continuously monitor and refine for better results.'
+              },
+              {
+                step: '04',
+                title: 'Reporting',
+                description: 'You get clear, actionable insights into your performance.'
+              }
+            ].map((item, index) => (
+              <div key={index} className="text-center relative">
+                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 relative">
+                  <span className="text-2xl font-heading text-primary">{item.step}</span>
+                  {index < 3 && (
+                    <div className="hidden lg:block absolute top-1/2 left-full w-16 h-0.5 bg-light-gray transform -translate-y-1/2 ml-4"></div>
+                  )}
+                </div>
+                <h3 className="text-xl font-heading text-dark-gray mb-4">{item.title}</h3>
+                <p className="font-paragraph text-secondary">{item.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-16">
+            <Link to="/contact">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4">
+                Start Your Project Today
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Trusted By Section - Inspired by attached image */}
+      <section className="py-24 bg-light-gray">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-heading text-dark-gray mb-4">
+              Trusted By Businesses in Bangalore
+            </h2>
+            <p className="font-paragraph text-secondary">
+              We're proud to have worked with industry leaders and ambitious startups alike.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
+            {[
+              'HearFon', 'SAYA', 'UPSTEP', 'MANDANA', 'AUDIOFIN', 'BLUE TRIBE'
+            ].map((company, index) => (
+              <div key={index} className="text-center">
+                <div className="h-12 flex items-center justify-center">
+                  <span className="text-lg font-heading text-secondary">{company}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Results Section - Inspired by attached image */}
+      <section className="py-32 bg-primary text-primary-foreground relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary/80"></div>
+        <div className="max-w-[100rem] mx-auto px-8 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-heading mb-6">
+              Measurable Results We Deliver
+            </h2>
+            <p className="text-lg font-paragraph opacity-90 max-w-3xl mx-auto">
+              We focus on metrics that matter, translating marketing efforts into real business growth.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { number: '500+', label: 'Happy Clients' },
+              { number: '150%', label: 'Average Traffic Increase' },
+              { number: '3X', label: 'Higher Conversion Rates' },
+              { number: '98%', label: 'Client Retention' }
+            ].map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-5xl font-heading mb-4">{stat.number}</div>
+                <div className="text-lg font-paragraph opacity-90">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-16">
+            <Link to="/case-studies">
+              <Button variant="outline" className="border-background text-background hover:bg-background hover:text-primary px-8 py-4">
+                View Our Results
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* What Our Clients Say Section */}
+      <section className="py-32 bg-light-gray">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="text-center mb-24">
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">
+              What Our Clients Say
+            </h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              Real stories of business growth and success from our valued clients across Bengaluru and beyond.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                name: 'Rajesh Kumar',
+                company: 'TechStart Solutions',
+                role: 'CEO',
+                testimonial: 'Look A Like Solutions transformed our online presence completely. Our website traffic increased by 300% in just 6 months, and we\'re getting quality leads daily.',
+                result: '300% traffic increase'
+              },
+              {
+                name: 'Priya Sharma',
+                company: 'Bangalore Boutique',
+                role: 'Founder',
+                testimonial: 'Their social media marketing strategy helped us reach thousands of new customers. Our Instagram following grew from 500 to 15,000 in 4 months!',
+                result: '15K+ new followers'
+              },
+              {
+                name: 'Amit Patel',
+                company: 'Digital Dynamics',
+                role: 'Marketing Director',
+                testimonial: 'The ROI from their paid advertising campaigns exceeded our expectations. We achieved a 5x return on our ad spend within the first quarter.',
+                result: '5x ROAS achieved'
+              },
+              {
+                name: 'Sneha Reddy',
+                company: 'Wellness Hub',
+                role: 'Owner',
+                testimonial: 'Their SEO expertise got us ranking #1 for our main keywords. We went from page 3 to the top of Google search results.',
+                result: '#1 Google rankings'
+              },
+              {
+                name: 'Vikram Singh',
+                company: 'Local Eats',
+                role: 'Restaurant Owner',
+                testimonial: 'Local SEO optimization brought us 40% more foot traffic. Our Google My Business listing now gets hundreds of views daily.',
+                result: '40% more customers'
+              },
+              {
+                name: 'Kavya Nair',
+                company: 'Fashion Forward',
+                role: 'E-commerce Manager',
+                testimonial: 'Their conversion optimization strategies increased our online sales by 250%. The new website design is both beautiful and functional.',
+                result: '250% sales boost'
+              }
+            ].map((testimonial, index) => (
+              <Card key={index} className="border-0 shadow-sm hover:shadow-md transition-shadow">
+                <CardContent className="p-8">
+                  <div className="mb-6">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                        <span className="text-primary font-heading text-lg">
+                          {testimonial.name.charAt(0)}
+                        </span>
+                      </div>
+                      <div>
+                        <h3 className="font-heading text-dark-gray">{testimonial.name}</h3>
+                        <p className="text-sm font-paragraph text-secondary">
+                          {testimonial.role}, {testimonial.company}
+                        </p>
+                      </div>
+                    </div>
+                    <p className="font-paragraph text-secondary mb-4 italic">
+                      "{testimonial.testimonial}"
+                    </p>
+                    <div className="bg-primary/5 rounded-lg p-4">
+                      <span className="text-primary font-heading text-sm">
+                        Key Result: {testimonial.result}
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-16">
+            <Link to="/case-studies">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4">
+                Read More Success Stories
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

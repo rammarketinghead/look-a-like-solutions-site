@@ -9,6 +9,7 @@ import ServicesPage from '@/components/pages/ServicesPage';
 import CaseStudiesPage from '@/components/pages/CaseStudiesPage';
 import BlogPage from '@/components/pages/BlogPage';
 import ContactPage from '@/components/pages/ContactPage';
+import SEOPage from '@/components/pages/services/SEOPage';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "services",
         element: <ServicesPage />,
+      },
+      {
+        path: "services/seo",
+        element: <SEOPage />,
       },
       {
         path: "case-studies",

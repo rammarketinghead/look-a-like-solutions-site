@@ -1,16 +1,32 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Menu, X, Phone, Mail, MapPin, Search, ChevronDown, Zap } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
 
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
+    { 
+      name: 'Services', 
+      href: '/services',
+      dropdown: [
+        { name: 'SEO Optimization', href: '/services/seo' },
+        { name: 'Social Media Marketing', href: '/services/social-media' },
+        { name: 'Paid Advertising', href: '/services/paid-ads' },
+        { name: 'Web Development', href: '/services/web-development' },
+        { name: 'Influencer Marketing', href: '/services/influencer' },
+        { name: 'Content Marketing', href: '/services/content' },
+        { name: 'Data Analytics', href: '/services/analytics' },
+        { name: 'Conversion Optimization', href: '/services/conversion' }
+      ]
+    },
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' }
@@ -23,32 +39,77 @@ export default function Layout() {
     return location.pathname.startsWith(href);
   };
 
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      // Navigate to search results or filter current page
+      console.log('Searching for:', searchQuery);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-background border-b border-light-gray sticky top-0 z-50">
         <div className="max-w-[100rem] mx-auto px-8">
           <div className="flex justify-between items-center py-6">
-            {/* Logo */}
-            <Link to="/" className="text-2xl font-heading text-dark-gray">
+            {/* Logo with Icon */}
+            <Link to="/" className="flex items-center text-2xl font-heading text-dark-gray">
+              <Zap className="h-8 w-8 text-primary mr-3" />
               Look A Like Solutions
             </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8">
               {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`font-paragraph transition-colors ${
-                    isActive(item.href)
-                      ? 'text-primary font-medium'
-                      : 'text-secondary hover:text-dark-gray'
-                  }`}
-                >
-                  {item.name}
-                </Link>
+                item.dropdown ? (
+                  <DropdownMenu key={item.name}>
+                    <DropdownMenuTrigger className="flex items-center font-paragraph transition-colors text-secondary hover:text-dark-gray">
+                      {item.name}
+                      <ChevronDown className="ml-1 h-4 w-4" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                      <DropdownMenuItem asChild>
+                        <Link to={item.href} className="w-full">
+                          All Services
+                        </Link>
+                      </DropdownMenuItem>
+                      {item.dropdown.map((subItem) => (
+                        <DropdownMenuItem key={subItem.name} asChild>
+                          <Link to={subItem.href} className="w-full">
+                            {subItem.name}
+                          </Link>
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`font-paragraph transition-colors ${
+                      isActive(item.href)
+                        ? 'text-primary font-medium'
+                        : 'text-secondary hover:text-dark-gray'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
+              
+              {/* Search Bar */}
+              <form onSubmit={handleSearch} className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-secondary" />
+                <Input
+                  type="text"
+                  placeholder="Search..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10 pr-4 py-2 w-48 border-light-gray focus:border-primary"
+                />
+              </form>
+              
               <Link to="/contact">
                 <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
                   Get Quote
@@ -72,20 +133,60 @@ export default function Layout() {
           {/* Mobile Navigation */}
           {isMenuOpen && (
             <div className="lg:hidden py-6 border-t border-light-gray">
+              {/* Mobile Search */}
+              <form onSubmit={handleSearch} className="relative mb-6">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-secondary" />
+                <Input
+                  type="text"
+                  placeholder="Search..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10 pr-4 py-2 w-full border-light-gray focus:border-primary"
+                />
+              </form>
+              
               <nav className="flex flex-col space-y-4">
                 {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={`font-paragraph transition-colors ${
-                      isActive(item.href)
-                        ? 'text-primary font-medium'
-                        : 'text-secondary hover:text-dark-gray'
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
+                  item.dropdown ? (
+                    <div key={item.name} className="space-y-2">
+                      <Link
+                        to={item.href}
+                        className={`font-paragraph transition-colors ${
+                          isActive(item.href)
+                            ? 'text-primary font-medium'
+                            : 'text-secondary hover:text-dark-gray'
+                        }`}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                      <div className="ml-4 space-y-2">
+                        {item.dropdown.map((subItem) => (
+                          <Link
+                            key={subItem.name}
+                            to={subItem.href}
+                            className="block font-paragraph text-secondary hover:text-dark-gray text-sm"
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className={`font-paragraph transition-colors ${
+                        isActive(item.href)
+                          ? 'text-primary font-medium'
+                          : 'text-secondary hover:text-dark-gray'
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  )
                 ))}
                 <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
                   <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full">
