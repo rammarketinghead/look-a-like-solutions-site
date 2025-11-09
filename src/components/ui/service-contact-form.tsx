@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Phone, Mail, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MessageCircle, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import { BaseCrudService } from '@/integrations';
 import { FormSubmissions } from '@/entities';
 
@@ -22,27 +22,38 @@ export function ServiceContactForm({ serviceName, serviceDescription }: ServiceC
     message: '',
     service: serviceName
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
     
     try {
+      // Validate required fields
+      if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+        throw new Error('Please fill in all required fields');
+      }
+
       // Save form data to CMS
       const submissionData: FormSubmissions = {
         _id: crypto.randomUUID(),
         formType: 'Service Inquiry',
-        submitterName: formData.name,
-        submitterEmail: formData.email,
-        submitterPhone: formData.phone,
-        companyName: formData.company,
+        submitterName: formData.name.trim(),
+        submitterEmail: formData.email.trim(),
+        submitterPhone: formData.phone.trim() || undefined,
+        companyName: formData.company.trim() || undefined,
         interestedService: serviceName,
-        budget: formData.budget,
-        message: formData.message,
+        budget: formData.budget || undefined,
+        message: formData.message.trim(),
         submissionPageUrl: window.location.href,
-        submissionDate: new Date()
+        submissionDate: new Date().toISOString()
       };
 
+      console.log('Saving form submission to CMS:', submissionData);
       await BaseCrudService.create('formsubmissions', submissionData);
+      console.log('Form submission saved successfully');
       
       // Create email content
       const emailSubject = `New ${serviceName} Inquiry from ${formData.name}`;
@@ -51,9 +62,9 @@ New ${serviceName} service inquiry:
 
 Name: ${formData.name}
 Email: ${formData.email}
-Phone: ${formData.phone}
-Company: ${formData.company}
-Budget: ${formData.budget}
+Phone: ${formData.phone || 'Not provided'}
+Company: ${formData.company || 'Not provided'}
+Budget: ${formData.budget || 'Not specified'}
 
 Project Details:
 ${formData.message}
@@ -62,6 +73,7 @@ ${formData.message}
 This inquiry was submitted through the ${serviceName} service page.
 Page URL: ${window.location.href}
 Submission ID: ${submissionData._id}
+Submission Date: ${new Date().toLocaleString()}
       `;
 
       // Create mailto links for both email addresses
@@ -89,11 +101,12 @@ Submission ID: ${submissionData._id}
         service: serviceName
       });
 
-      // Show success message
-      alert('Thank you for your inquiry! Your message has been sent to our team and saved to our system. We will contact you within 24 hours.');
+      setSubmitStatus('success');
     } catch (error) {
       console.error('Error saving form submission:', error);
-      alert('There was an error processing your request. Please try again or contact us directly.');
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -275,9 +288,39 @@ Submission ID: ${submissionData._id}
                   />
                 </div>
 
-                <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-3 sm:py-4 text-sm sm:text-base">
-                  Get Free Consultation
+                <Button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-3 sm:py-4 text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    'Get Free Consultation'
+                  )}
                 </Button>
+
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <div className="flex items-center justify-center p-4 bg-green-50 border border-green-200 rounded-lg">
+                    <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
+                    <p className="text-sm font-paragraph text-green-800">
+                      Thank you! Your inquiry has been submitted successfully. We'll contact you within 24 hours.
+                    </p>
+                  </div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className="flex items-center justify-center p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <AlertCircle className="h-5 w-5 text-red-600 mr-2" />
+                    <p className="text-sm font-paragraph text-red-800">
+                      There was an error submitting your form. Please try again or contact us directly.
+                    </p>
+                  </div>
+                )}
 
                 <p className="text-xs font-paragraph text-secondary text-center">
                   By submitting this form, you agree to our privacy policy and terms of service.

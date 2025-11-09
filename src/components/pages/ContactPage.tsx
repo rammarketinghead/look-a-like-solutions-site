@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Loader2, AlertCircle } from 'lucide-react';
 import { BaseCrudService } from '@/integrations';
 import { FormSubmissions } from '@/entities';
 
@@ -28,6 +28,7 @@ export default function ContactPage() {
     timeline: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -36,25 +37,33 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle');
 
     try {
+      // Validate required fields
+      if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+        throw new Error('Please fill in all required fields');
+      }
+
       // Save form data to CMS
       const submissionData: FormSubmissions = {
         _id: crypto.randomUUID(),
         formType: 'Contact Form',
-        submitterName: formData.name,
-        submitterEmail: formData.email,
-        submitterPhone: formData.phone,
-        companyName: formData.company,
-        interestedService: formData.service,
-        budget: formData.budget,
-        message: formData.message,
-        projectTimeline: formData.timeline,
+        submitterName: formData.name.trim(),
+        submitterEmail: formData.email.trim(),
+        submitterPhone: formData.phone.trim() || undefined,
+        companyName: formData.company.trim() || undefined,
+        interestedService: formData.service || undefined,
+        budget: formData.budget || undefined,
+        message: formData.message.trim(),
+        projectTimeline: formData.timeline || undefined,
         submissionPageUrl: window.location.href,
-        submissionDate: new Date()
+        submissionDate: new Date().toISOString()
       };
 
+      console.log('Saving contact form submission to CMS:', submissionData);
       await BaseCrudService.create('formsubmissions', submissionData);
+      console.log('Contact form submission saved successfully');
 
       // Create email content
       const emailSubject = `New Contact Form Submission from ${formData.name}`;
@@ -63,11 +72,11 @@ New contact form submission:
 
 Name: ${formData.name}
 Email: ${formData.email}
-Phone: ${formData.phone}
-Company: ${formData.company}
-Service: ${formData.service}
-Budget: ${formData.budget}
-Timeline: ${formData.timeline}
+Phone: ${formData.phone || 'Not provided'}
+Company: ${formData.company || 'Not provided'}
+Service: ${formData.service || 'Not specified'}
+Budget: ${formData.budget || 'Not specified'}
+Timeline: ${formData.timeline || 'Not specified'}
 
 Project Details:
 ${formData.message}
@@ -76,6 +85,7 @@ ${formData.message}
 This inquiry was submitted through the contact page.
 Page URL: ${window.location.href}
 Submission ID: ${submissionData._id}
+Submission Date: ${new Date().toLocaleString()}
       `;
 
       // Create mailto links for both email addresses
@@ -108,8 +118,11 @@ Submission ID: ${submissionData._id}
         message: '',
         timeline: ''
       });
+
+      setSubmitStatus('success');
     } catch (error) {
-      console.error('Error saving form submission:', error);
+      console.error('Error saving contact form submission:', error);
+      setSubmitStatus('error');
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",
@@ -350,11 +363,11 @@ Submission ID: ${submissionData._id}
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-4 text-lg"
+                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-4 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
                         <>
-                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                           Sending Message...
                         </>
                       ) : (
@@ -364,6 +377,25 @@ Submission ID: ${submissionData._id}
                         </>
                       )}
                     </Button>
+
+                    {/* Status Messages */}
+                    {submitStatus === 'success' && (
+                      <div className="flex items-center justify-center p-4 bg-green-50 border border-green-200 rounded-lg">
+                        <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
+                        <p className="text-sm font-paragraph text-green-800">
+                          Thank you! Your message has been submitted successfully. We'll contact you within 24 hours.
+                        </p>
+                      </div>
+                    )}
+
+                    {submitStatus === 'error' && (
+                      <div className="flex items-center justify-center p-4 bg-red-50 border border-red-200 rounded-lg">
+                        <AlertCircle className="h-5 w-5 text-red-600 mr-2" />
+                        <p className="text-sm font-paragraph text-red-800">
+                          There was an error submitting your form. Please try again or contact us directly.
+                        </p>
+                      </div>
+                    )}
                   </form>
                 </CardContent>
               </Card>
