@@ -67,45 +67,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Hero Section */}
-      <section className="py-32 bg-background">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="text-center max-w-[120rem] mx-auto px-8"
-        >
-          <motion.h1
-            variants={fadeInVariants}
-            className="text-7xl font-heading text-dark-gray mb-8"
-          >
-            Look A Like Solutions
-          </motion.h1>
-          <motion.p
-            variants={fadeInVariants}
-            className="text-xl font-paragraph text-secondary mt-4 mb-12"
-          >
-            Digital Marketing Agency
-          </motion.p>
-          <motion.div
-            variants={fadeInVariants}
-            className="flex gap-6 justify-center"
-          >
-            <Link to="/services">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg">
-                Explore Services
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link to="/contact">
-              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg">
-                Get Started
-              </Button>
-            </Link>
-          </motion.div>
-        </motion.div>
-      </section>
 
       {/* Services Overview */}
       <section className="py-32 bg-light-gray">
@@ -149,7 +111,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Process Section - Inspired by attached image */}
       <section className="py-32 bg-background">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -208,7 +169,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Trusted By Section - Inspired by attached image */}
       <section className="py-24 bg-light-gray">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -234,7 +194,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Results Section - Inspired by attached image */}
       <section className="py-32 bg-primary text-primary-foreground relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary/80"></div>
@@ -272,7 +231,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* What Our Clients Say Section */}
       <section className="py-32 bg-light-gray">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -370,7 +328,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Why Choose Us */}
       <section className="py-32 bg-background">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -417,13 +374,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* FAQ Section */}
       <FAQSection 
         faqs={homeFAQs}
         description="Get answers to common questions about our digital marketing services and how we can help grow your business."
       />
-
       {/* CTA Section */}
       <section className="py-32 bg-dark-gray">
         <div className="max-w-[100rem] mx-auto px-8 text-center">
