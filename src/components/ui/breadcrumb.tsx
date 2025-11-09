@@ -30,11 +30,15 @@ export function Breadcrumb() {
         'seo': 'SEO Optimization',
         'social-media': 'Social Media Marketing',
         'paid-ads': 'Paid Advertising',
-        'web-development': 'Web Development',
-        'influencer': 'Influencer Marketing',
-        'content': 'Content Marketing',
-        'analytics': 'Data Analytics',
-        'conversion': 'Conversion Optimization'
+        'web-development': 'Web & App Development',
+        'influencer-marketing': 'Influencer Marketing',
+        'content-marketing': 'Content Marketing',
+        'data-analytics': 'Data Analytics & Reporting',
+        'conversion-optimization': 'Conversion Rate Optimization',
+        'email-marketing': 'Email Marketing',
+        'youtube-growth': 'YouTube Channel Growth',
+        'digital-audit': 'Digital Marketing Audit',
+        'digital-training': 'Digital Marketing Training'
       };
 
       const label = customLabels[segment] || segment.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());

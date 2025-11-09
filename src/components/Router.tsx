@@ -11,6 +11,17 @@ import BlogPage from '@/components/pages/BlogPage';
 import BlogPostPage from '@/components/pages/BlogPostPage';
 import ContactPage from '@/components/pages/ContactPage';
 import SEOPage from '@/components/pages/services/SEOPage';
+import SocialMediaPage from '@/components/pages/services/SocialMediaPage';
+import PaidAdsPage from '@/components/pages/services/PaidAdsPage';
+import WebDevelopmentPage from '@/components/pages/services/WebDevelopmentPage';
+import InfluencerMarketingPage from '@/components/pages/services/InfluencerMarketingPage';
+import ContentMarketingPage from '@/components/pages/services/ContentMarketingPage';
+import DataAnalyticsPage from '@/components/pages/services/DataAnalyticsPage';
+import ConversionOptimizationPage from '@/components/pages/services/ConversionOptimizationPage';
+import EmailMarketingPage from '@/components/pages/services/EmailMarketingPage';
+import YouTubeGrowthPage from '@/components/pages/services/YouTubeGrowthPage';
+import DigitalAuditPage from '@/components/pages/services/DigitalAuditPage';
+import DigitalTrainingPage from '@/components/pages/services/DigitalTrainingPage';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +44,50 @@ const router = createBrowserRouter([
       {
         path: "services/seo",
         element: <SEOPage />,
+      },
+      {
+        path: "services/social-media",
+        element: <SocialMediaPage />,
+      },
+      {
+        path: "services/paid-ads",
+        element: <PaidAdsPage />,
+      },
+      {
+        path: "services/web-development",
+        element: <WebDevelopmentPage />,
+      },
+      {
+        path: "services/influencer-marketing",
+        element: <InfluencerMarketingPage />,
+      },
+      {
+        path: "services/content-marketing",
+        element: <ContentMarketingPage />,
+      },
+      {
+        path: "services/data-analytics",
+        element: <DataAnalyticsPage />,
+      },
+      {
+        path: "services/conversion-optimization",
+        element: <ConversionOptimizationPage />,
+      },
+      {
+        path: "services/email-marketing",
+        element: <EmailMarketingPage />,
+      },
+      {
+        path: "services/youtube-growth",
+        element: <YouTubeGrowthPage />,
+      },
+      {
+        path: "services/digital-audit",
+        element: <DigitalAuditPage />,
+      },
+      {
+        path: "services/digital-training",
+        element: <DigitalTrainingPage />,
       },
       {
         path: "case-studies",
