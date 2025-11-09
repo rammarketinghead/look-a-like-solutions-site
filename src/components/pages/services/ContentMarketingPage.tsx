@@ -5,7 +5,7 @@ import { Image } from '@/components/ui/image';
 import { FAQSection } from '@/components/ui/faq-section';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { Link } from 'react-router-dom';
-import { ArrowRight, PenTool, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Zap, Settings, FileText, Video, Mic } from 'lucide-react';
+import { ArrowRight, PenTool, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Zap, Settings, FileText, Video, Headphones } from 'lucide-react';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -207,7 +207,7 @@ export default function ContentMarketingPage() {
                 description: 'Detailed performance tracking and optimization to maximize content ROI.'
               },
               {
-                icon: Mic,
+                icon: Headphones,
                 title: 'Podcast Production',
                 description: 'End-to-end podcast creation from planning to distribution and promotion.'
               },

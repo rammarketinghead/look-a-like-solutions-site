@@ -5,7 +5,7 @@ import { Image } from '@/components/ui/image';
 import { FAQSection } from '@/components/ui/faq-section';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { Link } from 'react-router-dom';
-import { ArrowRight, GraduationCap, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Zap, Settings, BookOpen, Video } from 'lucide-react';
+import { ArrowRight, GraduationCap, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Zap, Settings, Book, Video } from 'lucide-react';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -207,7 +207,7 @@ export default function DigitalTrainingPage() {
                 description: 'Learn Google Ads, Facebook Ads, and other paid advertising platforms.'
               },
               {
-                icon: BookOpen,
+                icon: Book,
                 title: 'Content Marketing',
                 description: 'Develop content strategies that engage audiences and drive conversions.'
               },

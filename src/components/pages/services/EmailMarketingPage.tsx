@@ -5,7 +5,7 @@ import { Image } from '@/components/ui/image';
 import { FAQSection } from '@/components/ui/faq-section';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Mail, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Zap, Settings, Send, Heart, UserPlus } from 'lucide-react';
+import { ArrowRight, Mail, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Zap, Settings, Send, Heart, Plus } from 'lucide-react';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -197,7 +197,7 @@ export default function EmailMarketingPage() {
                 description: 'Automated sequences that nurture leads and customers throughout their journey.'
               },
               {
-                icon: UserPlus,
+                icon: Plus,
                 title: 'List Building',
                 description: 'Strategies and tools to grow your email list with qualified, engaged subscribers.'
               },

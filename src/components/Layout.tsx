@@ -22,10 +22,14 @@ export default function Layout() {
         { name: 'Social Media Marketing', href: '/services/social-media' },
         { name: 'Paid Advertising', href: '/services/paid-ads' },
         { name: 'Web Development', href: '/services/web-development' },
-        { name: 'Influencer Marketing', href: '/services/influencer' },
-        { name: 'Content Marketing', href: '/services/content' },
-        { name: 'Data Analytics', href: '/services/analytics' },
-        { name: 'Conversion Optimization', href: '/services/conversion' }
+        { name: 'Influencer Marketing', href: '/services/influencer-marketing' },
+        { name: 'Content Marketing', href: '/services/content-marketing' },
+        { name: 'Data Analytics', href: '/services/data-analytics' },
+        { name: 'Conversion Optimization', href: '/services/conversion-optimization' },
+        { name: 'Email Marketing', href: '/services/email-marketing' },
+        { name: 'YouTube Growth', href: '/services/youtube-growth' },
+        { name: 'Digital Audit', href: '/services/digital-audit' },
+        { name: 'Digital Training', href: '/services/digital-training' }
       ]
     },
     { name: 'Case Studies', href: '/case-studies' },

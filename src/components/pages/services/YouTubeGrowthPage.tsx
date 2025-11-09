@@ -5,7 +5,7 @@ import { Image } from '@/components/ui/image';
 import { FAQSection } from '@/components/ui/faq-section';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Play, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Zap, Settings, Video, Eye, ThumbsUp } from 'lucide-react';
+import { ArrowRight, Play, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Zap, Settings, Video, Eye, Heart } from 'lucide-react';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -207,7 +207,7 @@ export default function YouTubeGrowthPage() {
                 description: 'Optimize videos for YouTube search and suggested video algorithms.'
               },
               {
-                icon: ThumbsUp,
+                icon: Heart,
                 title: 'Engagement Growth',
                 description: 'Strategies to increase likes, comments, shares, and overall engagement.'
               },

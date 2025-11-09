@@ -5,7 +5,7 @@ import { Image } from '@/components/ui/image';
 import { FAQSection } from '@/components/ui/faq-section';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Target, TrendingUp, DollarSign, CheckCircle, BarChart3, Clock, Users, Award, Zap, Settings, MousePointer, CreditCard } from 'lucide-react';
+import { ArrowRight, Target, TrendingUp, DollarSign, CheckCircle, BarChart3, Clock, Users, Award, Zap, Settings, MousePointer, Wallet } from 'lucide-react';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -207,7 +207,7 @@ export default function PaidAdsPage() {
                 description: 'Continuous testing and optimization to improve performance and reduce costs.'
               },
               {
-                icon: CreditCard,
+                icon: Wallet,
                 title: 'Shopping Campaigns',
                 description: 'E-commerce focused campaigns to showcase products and drive online sales.'
               },

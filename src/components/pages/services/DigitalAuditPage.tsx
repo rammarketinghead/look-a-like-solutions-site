@@ -5,7 +5,7 @@ import { Image } from '@/components/ui/image';
 import { FAQSection } from '@/components/ui/faq-section';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Search, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Zap, Settings, FileText, Eye, Shield } from 'lucide-react';
+import { ArrowRight, Search, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Zap, Settings, FileText, Eye, ShieldCheck } from 'lucide-react';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -212,7 +212,7 @@ export default function DigitalAuditPage() {
                 description: 'Content quality, SEO optimization, engagement metrics, and content gap analysis.'
               },
               {
-                icon: Shield,
+                icon: ShieldCheck,
                 title: 'Competitive Analysis',
                 description: 'Competitor benchmarking, market positioning, and opportunity identification.'
               }

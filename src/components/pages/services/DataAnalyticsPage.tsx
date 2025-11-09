@@ -5,7 +5,7 @@ import { Image } from '@/components/ui/image';
 import { FAQSection } from '@/components/ui/faq-section';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BarChart3, TrendingUp, Target, CheckCircle, Clock, DollarSign, Users, Award, Zap, Settings, PieChart, LineChart, Database } from 'lucide-react';
+import { ArrowRight, BarChart3, TrendingUp, Target, CheckCircle, Clock, DollarSign, Users, Award, Zap, Settings, PieChart, TrendingUp as LineChart, Database } from 'lucide-react';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },

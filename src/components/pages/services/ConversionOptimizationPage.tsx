@@ -5,7 +5,7 @@ import { Image } from '@/components/ui/image';
 import { FAQSection } from '@/components/ui/faq-section';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Settings, MousePointer, TestTube, Eye } from 'lucide-react';
+import { ArrowRight, Zap, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Settings, MousePointer, FlaskConical, Eye } from 'lucide-react';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -187,7 +187,7 @@ export default function ConversionOptimizationPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: TestTube,
+                icon: FlaskConical,
                 title: 'A/B Testing',
                 description: 'Systematic testing of different page elements to identify the highest-converting variations.'
               },
