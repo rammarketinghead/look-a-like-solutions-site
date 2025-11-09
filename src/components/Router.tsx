@@ -1,5 +1,5 @@
 import { MemberProvider } from '@/integrations';
-import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-router-dom';
 import { ScrollToTop } from '@/lib/scroll-to-top';
 import ErrorPage from '@/integrations/errorHandlers/ErrorPage';
 import Layout from '@/components/Layout';
@@ -23,10 +23,20 @@ import YouTubeGrowthPage from '@/components/pages/services/YouTubeGrowthPage';
 import DigitalAuditPage from '@/components/pages/services/DigitalAuditPage';
 import DigitalTrainingPage from '@/components/pages/services/DigitalTrainingPage';
 
+// Layout wrapper that includes ScrollToTop
+function LayoutWithScrollToTop() {
+  return (
+    <>
+      <ScrollToTop />
+      <Layout />
+    </>
+  );
+}
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: <LayoutWithScrollToTop />,
     errorElement: <ErrorPage />,
     children: [
       {
