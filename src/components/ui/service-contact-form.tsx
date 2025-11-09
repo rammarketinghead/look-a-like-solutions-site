@@ -79,59 +79,59 @@ This inquiry was submitted through the ${serviceName} service page.
   };
 
   return (
-    <section className="py-32 bg-light-gray">
-      <div className="max-w-[100rem] mx-auto px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+    <section className="py-16 sm:py-24 lg:py-32 bg-light-gray">
+      <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Contact Information */}
           <div>
-            <h2 className="text-4xl font-heading text-dark-gray mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading text-dark-gray mb-4 sm:mb-6">
               Ready to Get Started with {serviceName}?
             </h2>
-            <p className="text-lg font-paragraph text-secondary mb-8">
+            <p className="text-base sm:text-lg font-paragraph text-secondary mb-6 sm:mb-8">
               {serviceDescription || `Let's discuss how our ${serviceName} services can help grow your business. Get in touch for a free consultation and customized strategy.`}
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
-                  <Phone className="h-6 w-6 text-primary" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center mr-3 sm:mr-4">
+                  <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-heading text-dark-gray mb-1">Call Us</h3>
-                  <a href="tel:+919731588244" className="font-paragraph text-secondary hover:text-primary transition-colors">
+                  <h3 className="font-heading text-dark-gray mb-1 text-sm sm:text-base">Call Us</h3>
+                  <a href="tel:+919731588244" className="font-paragraph text-secondary hover:text-primary transition-colors text-sm sm:text-base">
                     +91-9731588244
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
-                  <Mail className="h-6 w-6 text-primary" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center mr-3 sm:mr-4">
+                  <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-heading text-dark-gray mb-1">Email Us</h3>
-                  <a href="mailto:info@lookalikesolutions.com" className="font-paragraph text-secondary hover:text-primary transition-colors">
+                  <h3 className="font-heading text-dark-gray mb-1 text-sm sm:text-base">Email Us</h3>
+                  <a href="mailto:info@lookalikesolutions.com" className="font-paragraph text-secondary hover:text-primary transition-colors text-sm sm:text-base break-all">
                     info@lookalikesolutions.com
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
-                  <MessageCircle className="h-6 w-6 text-primary" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center mr-3 sm:mr-4">
+                  <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-heading text-dark-gray mb-1">Quick Response</h3>
-                  <p className="font-paragraph text-secondary">
+                  <h3 className="font-heading text-dark-gray mb-1 text-sm sm:text-base">Quick Response</h3>
+                  <p className="font-paragraph text-secondary text-sm sm:text-base">
                     We typically respond within 2 hours during business hours
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-12 p-6 bg-primary/5 rounded-lg">
-              <h4 className="font-heading text-dark-gray mb-3">What Happens Next?</h4>
-              <ul className="space-y-2 font-paragraph text-secondary">
+            <div className="mt-8 sm:mt-12 p-4 sm:p-6 bg-primary/5 rounded-lg">
+              <h4 className="font-heading text-dark-gray mb-3 text-sm sm:text-base">What Happens Next?</h4>
+              <ul className="space-y-2 font-paragraph text-secondary text-sm sm:text-base">
                 <li>• Free consultation call within 24 hours</li>
                 <li>• Customized strategy proposal</li>
                 <li>• Transparent pricing and timeline</li>
@@ -142,14 +142,14 @@ This inquiry was submitted through the ${serviceName} service page.
 
           {/* Contact Form */}
           <Card className="border-0 shadow-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl font-heading text-dark-gray">
+            <CardHeader className="p-4 sm:p-6">
+              <CardTitle className="text-lg sm:text-xl lg:text-2xl font-heading text-dark-gray">
                 Get Your Free {serviceName} Consultation
               </CardTitle>
             </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <CardContent className="p-4 sm:p-6 pt-0">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-paragraph text-dark-gray mb-2">
                       Full Name *
@@ -162,7 +162,7 @@ This inquiry was submitted through the ${serviceName} service page.
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Your full name"
-                      className="border-light-gray focus:border-primary"
+                      className="border-light-gray focus:border-primary h-10 sm:h-11"
                     />
                   </div>
                   <div>
@@ -177,12 +177,12 @@ This inquiry was submitted through the ${serviceName} service page.
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="your@email.com"
-                      className="border-light-gray focus:border-primary"
+                      className="border-light-gray focus:border-primary h-10 sm:h-11"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-paragraph text-dark-gray mb-2">
                       Phone Number
@@ -194,7 +194,7 @@ This inquiry was submitted through the ${serviceName} service page.
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+91 XXXXX XXXXX"
-                      className="border-light-gray focus:border-primary"
+                      className="border-light-gray focus:border-primary h-10 sm:h-11"
                     />
                   </div>
                   <div>
@@ -208,7 +208,7 @@ This inquiry was submitted through the ${serviceName} service page.
                       value={formData.company}
                       onChange={handleChange}
                       placeholder="Your company"
-                      className="border-light-gray focus:border-primary"
+                      className="border-light-gray focus:border-primary h-10 sm:h-11"
                     />
                   </div>
                 </div>
@@ -222,7 +222,7 @@ This inquiry was submitted through the ${serviceName} service page.
                     name="budget"
                     value={formData.budget}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-light-gray rounded-md focus:outline-none focus:border-primary"
+                    className="w-full px-3 py-2 sm:py-3 border border-light-gray rounded-md focus:outline-none focus:border-primary text-sm sm:text-base h-10 sm:h-11"
                   >
                     <option value="">Select budget range</option>
                     <option value="under-25k">Under ₹25,000</option>
@@ -245,11 +245,11 @@ This inquiry was submitted through the ${serviceName} service page.
                     onChange={handleChange}
                     placeholder={`Tell us about your ${serviceName.toLowerCase()} goals, current challenges, and what you'd like to achieve...`}
                     rows={4}
-                    className="border-light-gray focus:border-primary"
+                    className="border-light-gray focus:border-primary text-sm sm:text-base"
                   />
                 </div>
 
-                <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-3">
+                <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-3 sm:py-4 text-sm sm:text-base">
                   Get Free Consultation
                 </Button>
 

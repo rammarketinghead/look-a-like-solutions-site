@@ -56,31 +56,32 @@ export default function Layout() {
     <div className="min-h-screen bg-background">
       {/* Top Contact Bar */}
       <div className="bg-dark-gray text-background py-2">
-        <div className="max-w-[100rem] mx-auto px-8">
-          <div className="flex justify-between items-center text-sm">
-            <div className="flex items-center space-x-6">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center text-xs sm:text-sm">
+            <div className="flex items-center space-x-3 sm:space-x-6">
               <div className="flex items-center">
-                <Phone className="h-4 w-4 mr-2" />
-                <a href="tel:+919731588244" className="hover:text-primary transition-colors">
-                  +91-9731588244
+                <Phone className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
+                <a href="tel:+919731588244" className="hover:text-primary transition-colors truncate">
+                  <span className="hidden sm:inline">+91-9731588244</span>
+                  <span className="sm:hidden">Call Us</span>
                 </a>
               </div>
-              <div className="flex items-center">
+              <div className="hidden sm:flex items-center">
                 <Mail className="h-4 w-4 mr-2" />
                 <a href="mailto:info@lookalikesolutions.com" className="hover:text-primary transition-colors">
                   info@lookalikesolutions.com
                 </a>
               </div>
             </div>
-            <div className="hidden md:flex items-center space-x-4">
+            <div className="flex items-center space-x-2 sm:space-x-4">
               <a href="https://facebook.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                <Facebook className="h-4 w-4" />
+                <Facebook className="h-3 w-3 sm:h-4 sm:w-4" />
               </a>
               <a href="https://instagram.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                <Instagram className="h-4 w-4" />
+                <Instagram className="h-3 w-3 sm:h-4 sm:w-4" />
               </a>
               <a href="https://youtube.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                <Youtube className="h-4 w-4" />
+                <Youtube className="h-3 w-3 sm:h-4 sm:w-4" />
               </a>
             </div>
           </div>
@@ -89,16 +90,17 @@ export default function Layout() {
 
       {/* Header */}
       <header className="bg-background border-b border-light-gray sticky top-0 z-50">
-        <div className="max-w-[100rem] mx-auto px-8">
-          <div className="flex justify-between items-center py-6">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-4 lg:py-6">
             {/* Logo with Icon */}
-            <Link to="/" className="flex items-center text-2xl font-heading text-dark-gray">
-              <Zap className="h-8 w-8 text-primary mr-3" />
-              Look A Like Solutions
+            <Link to="/" className="flex items-center text-lg sm:text-xl lg:text-2xl font-heading text-dark-gray">
+              <Zap className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-primary mr-2 lg:mr-3" />
+              <span className="hidden sm:inline">Look A Like Solutions</span>
+              <span className="sm:hidden">LAS</span>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
               {navigation.map((item) => (
                 item.dropdown ? (
                   <DropdownMenu key={item.name}>
@@ -137,7 +139,7 @@ export default function Layout() {
               ))}
               
               {/* Search Bar */}
-              <form onSubmit={handleSearch} className="relative">
+              <form onSubmit={handleSearch} className="relative hidden xl:block">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-secondary" />
                 <Input
                   type="text"
@@ -149,7 +151,7 @@ export default function Layout() {
               </form>
               
               <Link to="/contact">
-                <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+                <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 text-sm">
                   Get Quote
                 </Button>
               </Link>
@@ -170,26 +172,26 @@ export default function Layout() {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="lg:hidden py-6 border-t border-light-gray">
+            <div className="lg:hidden py-4 border-t border-light-gray">
               {/* Mobile Search */}
-              <form onSubmit={handleSearch} className="relative mb-6">
+              <form onSubmit={handleSearch} className="relative mb-4">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-secondary" />
                 <Input
                   type="text"
                   placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 pr-4 py-2 w-full border-light-gray focus:border-primary"
+                  className="pl-10 pr-4 py-3 w-full border-light-gray focus:border-primary text-base"
                 />
               </form>
               
-              <nav className="flex flex-col space-y-4">
+              <nav className="flex flex-col space-y-3">
                 {navigation.map((item) => (
                   item.dropdown ? (
                     <div key={item.name} className="space-y-2">
                       <Link
                         to={item.href}
-                        className={`font-paragraph transition-colors ${
+                        className={`font-paragraph transition-colors py-2 block ${
                           isActive(item.href)
                             ? 'text-primary font-medium'
                             : 'text-secondary hover:text-dark-gray'
@@ -203,7 +205,7 @@ export default function Layout() {
                           <Link
                             key={subItem.name}
                             to={subItem.href}
-                            className="block font-paragraph text-secondary hover:text-dark-gray text-sm"
+                            className="block font-paragraph text-secondary hover:text-dark-gray text-sm py-1"
                             onClick={() => setIsMenuOpen(false)}
                           >
                             {subItem.name}
@@ -215,7 +217,7 @@ export default function Layout() {
                     <Link
                       key={item.name}
                       to={item.href}
-                      className={`font-paragraph transition-colors ${
+                      className={`font-paragraph transition-colors py-2 block ${
                         isActive(item.href)
                           ? 'text-primary font-medium'
                           : 'text-secondary hover:text-dark-gray'
@@ -226,11 +228,13 @@ export default function Layout() {
                     </Link>
                   )
                 ))}
-                <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
-                  <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full">
-                    Get Quote
-                  </Button>
-                </Link>
+                <div className="pt-2">
+                  <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full py-3 text-base">
+                      Get Quote
+                    </Button>
+                  </Link>
+                </div>
               </nav>
             </div>
           )}
@@ -247,37 +251,37 @@ export default function Layout() {
 
       {/* Footer */}
       <footer className="bg-dark-gray text-background">
-        <div className="max-w-[100rem] mx-auto px-8 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {/* Company Info */}
-            <div>
-              <div className="flex items-center mb-6">
-                <Zap className="h-8 w-8 text-primary mr-3" />
-                <h3 className="text-xl font-heading">Look A Like Solutions</h3>
+            <div className="sm:col-span-2 lg:col-span-1">
+              <div className="flex items-center mb-4 lg:mb-6">
+                <Zap className="h-6 w-6 lg:h-8 lg:w-8 text-primary mr-2 lg:mr-3" />
+                <h3 className="text-lg lg:text-xl font-heading">Look A Like Solutions</h3>
               </div>
-              <p className="font-paragraph text-light-gray mb-6">
+              <p className="font-paragraph text-light-gray mb-4 lg:mb-6 text-sm lg:text-base">
                 Your trusted digital marketing partner in Bengaluru. We help businesses grow their online presence with data-driven strategies.
               </p>
-              <div className="flex space-x-4">
-                <a href="https://facebook.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">
-                  <Facebook className="h-5 w-5" />
+              <div className="flex space-x-3 lg:space-x-4">
+                <a href="https://facebook.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="w-8 h-8 lg:w-10 lg:h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">
+                  <Facebook className="h-4 w-4 lg:h-5 lg:w-5" />
                 </a>
-                <a href="https://instagram.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">
-                  <Instagram className="h-5 w-5" />
+                <a href="https://instagram.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="w-8 h-8 lg:w-10 lg:h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">
+                  <Instagram className="h-4 w-4 lg:h-5 lg:w-5" />
                 </a>
-                <a href="https://youtube.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">
-                  <Youtube className="h-5 w-5" />
+                <a href="https://youtube.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="w-8 h-8 lg:w-10 lg:h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">
+                  <Youtube className="h-4 w-4 lg:h-5 lg:w-5" />
                 </a>
               </div>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-lg font-heading mb-6">Quick Links</h4>
-              <ul className="space-y-3">
+              <h4 className="text-base lg:text-lg font-heading mb-4 lg:mb-6">Quick Links</h4>
+              <ul className="space-y-2 lg:space-y-3">
                 {navigation.slice(0, 6).map((item) => (
                   <li key={item.name}>
-                    <Link to={item.href} className="font-paragraph text-light-gray hover:text-primary transition-colors">
+                    <Link to={item.href} className="font-paragraph text-light-gray hover:text-primary transition-colors text-sm lg:text-base">
                       {item.name}
                     </Link>
                   </li>
@@ -287,11 +291,11 @@ export default function Layout() {
 
             {/* Services */}
             <div>
-              <h4 className="text-lg font-heading mb-6">Our Services</h4>
-              <ul className="space-y-3">
+              <h4 className="text-base lg:text-lg font-heading mb-4 lg:mb-6">Our Services</h4>
+              <ul className="space-y-2 lg:space-y-3">
                 {navigation.find(item => item.dropdown)?.dropdown?.slice(0, 6).map((service) => (
                   <li key={service.name}>
-                    <Link to={service.href} className="font-paragraph text-light-gray hover:text-primary transition-colors">
+                    <Link to={service.href} className="font-paragraph text-light-gray hover:text-primary transition-colors text-sm lg:text-base">
                       {service.name}
                     </Link>
                   </li>
@@ -301,23 +305,23 @@ export default function Layout() {
 
             {/* Contact Info */}
             <div>
-              <h4 className="text-lg font-heading mb-6">Contact Us</h4>
-              <div className="space-y-4">
+              <h4 className="text-base lg:text-lg font-heading mb-4 lg:mb-6">Contact Us</h4>
+              <div className="space-y-3 lg:space-y-4">
                 <div className="flex items-start">
-                  <MapPin className="h-5 w-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                  <span className="font-paragraph text-light-gray">
+                  <MapPin className="h-4 w-4 lg:h-5 lg:w-5 text-primary mr-2 lg:mr-3 mt-1 flex-shrink-0" />
+                  <span className="font-paragraph text-light-gray text-sm lg:text-base">
                     Bengaluru, Karnataka, India
                   </span>
                 </div>
                 <div className="flex items-center">
-                  <Phone className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                  <a href="tel:+919731588244" className="font-paragraph text-light-gray hover:text-primary transition-colors">
+                  <Phone className="h-4 w-4 lg:h-5 lg:w-5 text-primary mr-2 lg:mr-3 flex-shrink-0" />
+                  <a href="tel:+919731588244" className="font-paragraph text-light-gray hover:text-primary transition-colors text-sm lg:text-base">
                     +91-9731588244
                   </a>
                 </div>
                 <div className="flex items-center">
-                  <Mail className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                  <a href="mailto:info@lookalikesolutions.com" className="font-paragraph text-light-gray hover:text-primary transition-colors">
+                  <Mail className="h-4 w-4 lg:h-5 lg:w-5 text-primary mr-2 lg:mr-3 flex-shrink-0" />
+                  <a href="mailto:info@lookalikesolutions.com" className="font-paragraph text-light-gray hover:text-primary transition-colors text-sm lg:text-base break-all">
                     info@lookalikesolutions.com
                   </a>
                 </div>
@@ -325,16 +329,16 @@ export default function Layout() {
             </div>
           </div>
 
-          <div className="border-t border-secondary/20 mt-12 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="font-paragraph text-light-gray text-sm">
+          <div className="border-t border-secondary/20 mt-8 lg:mt-12 pt-6 lg:pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <p className="font-paragraph text-light-gray text-xs lg:text-sm text-center md:text-left">
                 © 2024 Look A Like Solutions. All rights reserved.
               </p>
-              <div className="flex space-x-6 mt-4 md:mt-0">
-                <Link to="/privacy" className="font-paragraph text-light-gray hover:text-primary transition-colors text-sm">
+              <div className="flex space-x-4 lg:space-x-6">
+                <Link to="/privacy" className="font-paragraph text-light-gray hover:text-primary transition-colors text-xs lg:text-sm">
                   Privacy Policy
                 </Link>
-                <Link to="/terms" className="font-paragraph text-light-gray hover:text-primary transition-colors text-sm">
+                <Link to="/terms" className="font-paragraph text-light-gray hover:text-primary transition-colors text-xs lg:text-sm">
                   Terms of Service
                 </Link>
               </div>

@@ -61,22 +61,22 @@ export function Breadcrumb() {
 
   return (
     <nav className="bg-light-gray border-b border-gray-200">
-      <div className="max-w-[100rem] mx-auto px-8 py-4">
-        <ol className="flex items-center space-x-2 text-sm font-paragraph">
+      <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+        <ol className="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm font-paragraph overflow-x-auto">
           {breadcrumbs.map((item, index) => (
-            <li key={item.href} className="flex items-center">
+            <li key={item.href} className="flex items-center whitespace-nowrap">
               {index > 0 && (
-                <ChevronRight className="h-4 w-4 text-secondary mx-2 flex-shrink-0" />
+                <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4 text-secondary mx-1 sm:mx-2 flex-shrink-0" />
               )}
               {index === 0 && (
-                <Home className="h-4 w-4 text-secondary mr-2" />
+                <Home className="h-3 w-3 sm:h-4 sm:w-4 text-secondary mr-1 sm:mr-2" />
               )}
               {index === breadcrumbs.length - 1 ? (
-                <span className="text-primary font-medium">{item.label}</span>
+                <span className="text-primary font-medium truncate">{item.label}</span>
               ) : (
                 <Link
                   to={item.href}
-                  className="text-secondary hover:text-primary transition-colors"
+                  className="text-secondary hover:text-primary transition-colors truncate"
                 >
                   {item.label}
                 </Link>

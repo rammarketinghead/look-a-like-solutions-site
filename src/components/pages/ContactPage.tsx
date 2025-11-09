@@ -100,8 +100,8 @@ This inquiry was submitted through the contact page.
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="py-32 bg-light-gray">
-        <div className="max-w-[100rem] mx-auto px-8">
+      <section className="py-16 sm:py-24 lg:py-32 bg-light-gray">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -109,10 +109,10 @@ This inquiry was submitted through the contact page.
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl font-heading text-dark-gray mb-8">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-dark-gray mb-6 sm:mb-8">
               Get In Touch
             </h1>
-            <p className="text-xl font-paragraph text-secondary max-w-4xl mx-auto">
+            <p className="text-lg sm:text-xl font-paragraph text-secondary max-w-4xl mx-auto">
               Ready to transform your digital presence? Let's discuss your project and create a strategy that drives real results for your business.
             </p>
           </motion.div>
@@ -120,65 +120,65 @@ This inquiry was submitted through the contact page.
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-32 bg-background">
-        <div className="max-w-[100rem] mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+      <section className="py-16 sm:py-24 lg:py-32 bg-background">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
             {/* Contact Information */}
             <div className="lg:col-span-1">
-              <h2 className="text-3xl font-heading text-dark-gray mb-8">
+              <h2 className="text-2xl sm:text-3xl font-heading text-dark-gray mb-6 sm:mb-8">
                 Let's Start a Conversation
               </h2>
-              <p className="font-paragraph text-secondary mb-12">
+              <p className="font-paragraph text-secondary mb-8 sm:mb-12 text-sm sm:text-base">
                 We're here to help you achieve your digital marketing goals. Reach out to us through any of the channels below, and we'll get back to you promptly.
               </p>
 
-              <div className="space-y-8">
+              <div className="space-y-6 sm:space-y-8">
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                    <Phone className="h-6 w-6 text-primary" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                    <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-heading text-dark-gray mb-2">Phone</h3>
-                    <a href="tel:+919731588244" className="font-paragraph text-secondary hover:text-primary transition-colors">
+                    <h3 className="font-heading text-dark-gray mb-1 sm:mb-2 text-sm sm:text-base">Phone</h3>
+                    <a href="tel:+919731588244" className="font-paragraph text-secondary hover:text-primary transition-colors text-sm sm:text-base">
                       +91-9731588244
                     </a>
-                    <p className="font-paragraph text-secondary text-sm">Mon-Fri 9AM-6PM IST</p>
+                    <p className="font-paragraph text-secondary text-xs sm:text-sm">Mon-Fri 9AM-6PM IST</p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                    <Mail className="h-6 w-6 text-primary" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                    <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-heading text-dark-gray mb-2">Email</h3>
-                    <a href="mailto:info@lookalikesolutions.com" className="font-paragraph text-secondary hover:text-primary transition-colors">
+                    <h3 className="font-heading text-dark-gray mb-1 sm:mb-2 text-sm sm:text-base">Email</h3>
+                    <a href="mailto:info@lookalikesolutions.com" className="font-paragraph text-secondary hover:text-primary transition-colors text-sm sm:text-base break-all">
                       info@lookalikesolutions.com
                     </a>
-                    <p className="font-paragraph text-secondary text-sm">We'll respond within 24 hours</p>
+                    <p className="font-paragraph text-secondary text-xs sm:text-sm">We'll respond within 24 hours</p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                    <MapPin className="h-6 w-6 text-primary" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                    <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-heading text-dark-gray mb-2">Office</h3>
-                    <p className="font-paragraph text-secondary">Bengaluru, Karnataka</p>
-                    <p className="font-paragraph text-secondary">India</p>
+                    <h3 className="font-heading text-dark-gray mb-1 sm:mb-2 text-sm sm:text-base">Office</h3>
+                    <p className="font-paragraph text-secondary text-sm sm:text-base">Bengaluru, Karnataka</p>
+                    <p className="font-paragraph text-secondary text-sm sm:text-base">India</p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                    <Clock className="h-6 w-6 text-primary" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                    <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-heading text-dark-gray mb-2">Business Hours</h3>
-                    <p className="font-paragraph text-secondary">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                    <p className="font-paragraph text-secondary">Saturday: 10:00 AM - 2:00 PM</p>
-                    <p className="font-paragraph text-secondary">Sunday: Closed</p>
+                    <h3 className="font-heading text-dark-gray mb-1 sm:mb-2 text-sm sm:text-base">Business Hours</h3>
+                    <p className="font-paragraph text-secondary text-xs sm:text-sm">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    <p className="font-paragraph text-secondary text-xs sm:text-sm">Saturday: 10:00 AM - 2:00 PM</p>
+                    <p className="font-paragraph text-secondary text-xs sm:text-sm">Sunday: Closed</p>
                   </div>
                 </div>
               </div>
@@ -187,15 +187,15 @@ This inquiry was submitted through the contact page.
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <Card className="border-0 shadow-lg">
-                <CardContent className="p-12">
-                  <h2 className="text-3xl font-heading text-dark-gray mb-8">
+                <CardContent className="p-6 sm:p-8 lg:p-12">
+                  <h2 className="text-2xl sm:text-3xl font-heading text-dark-gray mb-6 sm:mb-8">
                     Tell Us About Your Project
                   </h2>
                   
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                       <div>
-                        <label className="block font-paragraph text-dark-gray mb-2">
+                        <label className="block font-paragraph text-dark-gray mb-2 text-sm sm:text-base">
                           Full Name *
                         </label>
                         <Input

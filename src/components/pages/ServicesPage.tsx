@@ -53,8 +53,8 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="py-32 bg-light-gray">
-        <div className="max-w-[100rem] mx-auto px-8">
+      <section className="py-16 sm:py-24 lg:py-32 bg-light-gray">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -62,10 +62,10 @@ export default function ServicesPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl font-heading text-dark-gray mb-8">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-dark-gray mb-6 sm:mb-8">
               Our Services
             </h1>
-            <p className="text-xl font-paragraph text-secondary max-w-4xl mx-auto">
+            <p className="text-lg sm:text-xl font-paragraph text-secondary max-w-4xl mx-auto">
               Comprehensive digital marketing solutions designed to drive growth, enhance your online presence, and deliver measurable results for your business.
             </p>
           </motion.div>
@@ -73,31 +73,31 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-32 bg-background">
-        <div className="max-w-[100rem] mx-auto px-8">
+      <section className="py-16 sm:py-24 lg:py-32 bg-background">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
           {loading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {[...Array(6)].map((_, index) => (
                 <Card key={index} className="border-0 shadow-sm">
-                  <CardContent className="p-8">
-                    <div className="w-16 h-16 bg-light-gray rounded-full mb-6 animate-pulse"></div>
-                    <div className="h-6 bg-light-gray rounded mb-4 animate-pulse"></div>
+                  <CardContent className="p-6 sm:p-8">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-light-gray rounded-full mb-4 sm:mb-6 animate-pulse"></div>
+                    <div className="h-5 sm:h-6 bg-light-gray rounded mb-3 sm:mb-4 animate-pulse"></div>
                     <div className="h-4 bg-light-gray rounded mb-2 animate-pulse"></div>
-                    <div className="h-20 bg-light-gray rounded mb-6 animate-pulse"></div>
-                    <div className="h-10 bg-light-gray rounded animate-pulse"></div>
+                    <div className="h-16 sm:h-20 bg-light-gray rounded mb-4 sm:mb-6 animate-pulse"></div>
+                    <div className="h-8 sm:h-10 bg-light-gray rounded animate-pulse"></div>
                   </CardContent>
                 </Card>
               ))}
             </div>
           ) : services.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {services.map((service) => {
                 const IconComponent = getServiceIcon(service.serviceName || '');
                 return (
                   <Card key={service._id} className="border-0 shadow-sm hover:shadow-lg transition-all duration-300 group">
-                    <CardContent className="p-8 h-full flex flex-col">
-                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                        <IconComponent className="h-8 w-8 text-primary" />
+                    <CardContent className="p-6 sm:p-8 h-full flex flex-col">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-primary/20 transition-colors">
+                        <IconComponent className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
                       </div>
                       
                       {service.serviceImage && (
@@ -105,33 +105,33 @@ export default function ServicesPage() {
                           src={service.serviceImage}
                           alt={service.serviceName || 'Service'}
                           width={400}
-                          className="w-full h-48 object-cover rounded-lg mb-6"
+                          className="w-full h-40 sm:h-48 object-cover rounded-lg mb-4 sm:mb-6"
                         />
                       )}
                       
-                      <h3 className="text-2xl font-heading text-dark-gray mb-4">
+                      <h3 className="text-xl sm:text-2xl font-heading text-dark-gray mb-3 sm:mb-4">
                         {service.serviceName}
                       </h3>
                       
                       {service.tagline && (
-                        <p className="text-primary font-paragraph mb-4 font-medium">
+                        <p className="text-primary font-paragraph mb-3 sm:mb-4 font-medium text-sm sm:text-base">
                           {service.tagline}
                         </p>
                       )}
                       
                       {service.description && (
-                        <p className="font-paragraph text-secondary mb-6 flex-grow">
+                        <p className="font-paragraph text-secondary mb-4 sm:mb-6 flex-grow text-sm sm:text-base">
                           {service.description}
                         </p>
                       )}
                       
                       {service.keyBenefits && (
-                        <div className="mb-6">
-                          <h4 className="font-heading text-dark-gray mb-3">Key Benefits:</h4>
-                          <ul className="space-y-2">
+                        <div className="mb-4 sm:mb-6">
+                          <h4 className="font-heading text-dark-gray mb-2 sm:mb-3 text-sm sm:text-base">Key Benefits:</h4>
+                          <ul className="space-y-1 sm:space-y-2">
                             {service.keyBenefits.split('\n').filter(benefit => benefit.trim()).map((benefit, index) => (
-                              <li key={index} className="font-paragraph text-secondary text-sm flex items-start">
-                                <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                              <li key={index} className="font-paragraph text-secondary text-xs sm:text-sm flex items-start">
+                                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></span>
                                 {benefit.trim()}
                               </li>
                             ))}
@@ -140,9 +140,9 @@ export default function ServicesPage() {
                       )}
                       
                       <Link to="/contact" className="mt-auto">
-                        <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 group-hover:shadow-md transition-all">
+                        <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 group-hover:shadow-md transition-all py-2 sm:py-3 text-sm sm:text-base">
                           {service.callToActionText || 'Get Started'}
-                          <ArrowRight className="ml-2 h-4 w-4" />
+                          <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
                         </Button>
                       </Link>
                     </CardContent>
