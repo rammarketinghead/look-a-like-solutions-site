@@ -1,0 +1,223 @@
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Phone, Mail, MessageCircle } from 'lucide-react';
+
+interface ServiceContactFormProps {
+  serviceName: string;
+  serviceDescription?: string;
+}
+
+export function ServiceContactForm({ serviceName, serviceDescription }: ServiceContactFormProps) {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    budget: '',
+    message: '',
+    service: serviceName
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission
+    console.log('Form submitted:', formData);
+    // You can integrate with your form handling service here
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  return (
+    <section className="py-32 bg-light-gray">
+      <div className="max-w-[100rem] mx-auto px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          {/* Contact Information */}
+          <div>
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">
+              Ready to Get Started with {serviceName}?
+            </h2>
+            <p className="text-lg font-paragraph text-secondary mb-8">
+              {serviceDescription || `Let's discuss how our ${serviceName} services can help grow your business. Get in touch for a free consultation and customized strategy.`}
+            </p>
+
+            <div className="space-y-6">
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                  <Phone className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-dark-gray mb-1">Call Us</h3>
+                  <a href="tel:+919731588244" className="font-paragraph text-secondary hover:text-primary transition-colors">
+                    +91-9731588244
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                  <Mail className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-dark-gray mb-1">Email Us</h3>
+                  <a href="mailto:info@lookalikesolutions.com" className="font-paragraph text-secondary hover:text-primary transition-colors">
+                    info@lookalikesolutions.com
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                  <MessageCircle className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-dark-gray mb-1">Quick Response</h3>
+                  <p className="font-paragraph text-secondary">
+                    We typically respond within 2 hours during business hours
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 p-6 bg-primary/5 rounded-lg">
+              <h4 className="font-heading text-dark-gray mb-3">What Happens Next?</h4>
+              <ul className="space-y-2 font-paragraph text-secondary">
+                <li>• Free consultation call within 24 hours</li>
+                <li>• Customized strategy proposal</li>
+                <li>• Transparent pricing and timeline</li>
+                <li>• No obligation to proceed</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <Card className="border-0 shadow-lg">
+            <CardHeader>
+              <CardTitle className="text-2xl font-heading text-dark-gray">
+                Get Your Free {serviceName} Consultation
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-paragraph text-dark-gray mb-2">
+                      Full Name *
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Your full name"
+                      className="border-light-gray focus:border-primary"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-paragraph text-dark-gray mb-2">
+                      Email Address *
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="your@email.com"
+                      className="border-light-gray focus:border-primary"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-paragraph text-dark-gray mb-2">
+                      Phone Number
+                    </label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="+91 XXXXX XXXXX"
+                      className="border-light-gray focus:border-primary"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="company" className="block text-sm font-paragraph text-dark-gray mb-2">
+                      Company Name
+                    </label>
+                    <Input
+                      id="company"
+                      name="company"
+                      type="text"
+                      value={formData.company}
+                      onChange={handleChange}
+                      placeholder="Your company"
+                      className="border-light-gray focus:border-primary"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="budget" className="block text-sm font-paragraph text-dark-gray mb-2">
+                    Monthly Budget Range
+                  </label>
+                  <select
+                    id="budget"
+                    name="budget"
+                    value={formData.budget}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 border border-light-gray rounded-md focus:outline-none focus:border-primary"
+                  >
+                    <option value="">Select budget range</option>
+                    <option value="under-25k">Under ₹25,000</option>
+                    <option value="25k-50k">₹25,000 - ₹50,000</option>
+                    <option value="50k-100k">₹50,000 - ₹1,00,000</option>
+                    <option value="100k-200k">₹1,00,000 - ₹2,00,000</option>
+                    <option value="200k-plus">₹2,00,000+</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-paragraph text-dark-gray mb-2">
+                    Project Details *
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    required
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder={`Tell us about your ${serviceName.toLowerCase()} goals, current challenges, and what you'd like to achieve...`}
+                    rows={4}
+                    className="border-light-gray focus:border-primary"
+                  />
+                </div>
+
+                <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-3">
+                  Get Free Consultation
+                </Button>
+
+                <p className="text-xs font-paragraph text-secondary text-center">
+                  By submitting this form, you agree to our privacy policy and terms of service.
+                </p>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+}

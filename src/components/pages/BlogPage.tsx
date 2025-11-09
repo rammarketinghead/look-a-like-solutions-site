@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
 import { Input } from '@/components/ui/input';
+import { FAQSection } from '@/components/ui/faq-section';
 import { BaseCrudService } from '@/integrations';
 import { BlogPosts } from '@/entities';
 import { Link } from 'react-router-dom';
@@ -19,6 +20,25 @@ export default function BlogPage() {
   const [filteredPosts, setFilteredPosts] = useState<BlogPosts[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+
+  const blogFAQs = [
+    {
+      question: "How often do you publish new blog content?",
+      answer: "We publish new digital marketing insights and tips regularly, typically 2-3 times per week. Our content covers the latest trends, strategies, and best practices in SEO, social media marketing, paid advertising, and more."
+    },
+    {
+      question: "Can I suggest topics for your blog?",
+      answer: "Absolutely! We welcome topic suggestions from our readers. If there's a specific digital marketing challenge you're facing or a topic you'd like us to cover, please reach out to us through our contact form."
+    },
+    {
+      question: "Do you offer guest posting opportunities?",
+      answer: "Yes, we occasionally accept high-quality guest posts from industry experts. Guest posts should provide valuable insights and align with our content standards. Please contact us with your proposal and writing samples."
+    },
+    {
+      question: "How can I stay updated with your latest posts?",
+      answer: "You can subscribe to our newsletter to receive our latest blog posts directly in your inbox. We also share our content on our social media channels - Facebook, Instagram, and YouTube."
+    }
+  ];
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
@@ -287,6 +307,13 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        faqs={blogFAQs}
+        title="Blog & Content FAQs"
+        description="Common questions about our blog content and digital marketing insights."
+      />
 
       {/* CTA Section */}
       <section className="py-32 bg-dark-gray">

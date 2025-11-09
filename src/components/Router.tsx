@@ -8,6 +8,7 @@ import AboutPage from '@/components/pages/AboutPage';
 import ServicesPage from '@/components/pages/ServicesPage';
 import CaseStudiesPage from '@/components/pages/CaseStudiesPage';
 import BlogPage from '@/components/pages/BlogPage';
+import BlogPostPage from '@/components/pages/BlogPostPage';
 import ContactPage from '@/components/pages/ContactPage';
 import SEOPage from '@/components/pages/services/SEOPage';
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "blog",
         element: <BlogPage />,
+      },
+      {
+        path: "blog/:slug",
+        element: <BlogPostPage />,
       },
       {
         path: "contact",
