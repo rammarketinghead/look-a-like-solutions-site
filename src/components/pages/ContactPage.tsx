@@ -7,6 +7,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
+import { BaseCrudService } from '@/integrations';
+import { FormSubmissions } from '@/entities';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -36,6 +38,24 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
+      // Save form data to CMS
+      const submissionData: FormSubmissions = {
+        _id: crypto.randomUUID(),
+        formType: 'Contact Form',
+        submitterName: formData.name,
+        submitterEmail: formData.email,
+        submitterPhone: formData.phone,
+        companyName: formData.company,
+        interestedService: formData.service,
+        budget: formData.budget,
+        message: formData.message,
+        projectTimeline: formData.timeline,
+        submissionPageUrl: window.location.href,
+        submissionDate: new Date()
+      };
+
+      await BaseCrudService.create('formsubmissions', submissionData);
+
       // Create email content
       const emailSubject = `New Contact Form Submission from ${formData.name}`;
       const emailBody = `
@@ -54,6 +74,8 @@ ${formData.message}
 
 ---
 This inquiry was submitted through the contact page.
+Page URL: ${window.location.href}
+Submission ID: ${submissionData._id}
       `;
 
       // Create mailto links for both email addresses
@@ -87,6 +109,7 @@ This inquiry was submitted through the contact page.
         timeline: ''
       });
     } catch (error) {
+      console.error('Error saving form submission:', error);
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",

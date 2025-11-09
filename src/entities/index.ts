@@ -58,6 +58,39 @@ export interface CaseStudies {
 
 
 /**
+ * Collection ID: formsubmissions
+ * Interface for FormSubmissions
+ */
+export interface FormSubmissions {
+  _id: string;
+  _createdDate?: Date;
+  _updatedDate?: Date;
+  /** @wixFieldType text */
+  formType?: string;
+  /** @wixFieldType text */
+  submitterName?: string;
+  /** @wixFieldType text */
+  submitterEmail?: string;
+  /** @wixFieldType text */
+  submitterPhone?: string;
+  /** @wixFieldType text */
+  companyName?: string;
+  /** @wixFieldType text */
+  interestedService?: string;
+  /** @wixFieldType text */
+  budget?: string;
+  /** @wixFieldType text */
+  message?: string;
+  /** @wixFieldType text */
+  projectTimeline?: string;
+  /** @wixFieldType url */
+  submissionPageUrl?: string;
+  /** @wixFieldType datetime */
+  submissionDate?: Date | string;
+}
+
+
+/**
  * Collection ID: jobopenings
  * Interface for JobOpenings
  */
@@ -127,4 +160,37 @@ export interface TeamMembers {
   linkedinProfile?: string;
   /** @wixFieldType text */
   specialization?: string;
+}
+
+
+/**
+ * Collection ID: formsubmissions
+ * Interface for FormSubmissions
+ */
+export interface FormSubmissions {
+  _id: string;
+  _createdDate?: Date;
+  _updatedDate?: Date;
+  /** @wixFieldType text */
+  formType?: string;
+  /** @wixFieldType text */
+  submitterName?: string;
+  /** @wixFieldType text */
+  submitterEmail?: string;
+  /** @wixFieldType text */
+  submitterPhone?: string;
+  /** @wixFieldType text */
+  companyName?: string;
+  /** @wixFieldType text */
+  interestedService?: string;
+  /** @wixFieldType text */
+  budget?: string;
+  /** @wixFieldType text */
+  message?: string;
+  /** @wixFieldType text */
+  projectTimeline?: string;
+  /** @wixFieldType url */
+  submissionPageUrl?: string;
+  /** @wixFieldType datetime */
+  submissionDate?: Date | string;
 }

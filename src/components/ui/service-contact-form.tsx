@@ -4,6 +4,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Phone, Mail, MessageCircle } from 'lucide-react';
+import { BaseCrudService } from '@/integrations';
+import { FormSubmissions } from '@/entities';
 
 interface ServiceContactFormProps {
   serviceName: string;
@@ -21,12 +23,30 @@ export function ServiceContactForm({ serviceName, serviceDescription }: ServiceC
     service: serviceName
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Create email content
-    const emailSubject = `New ${serviceName} Inquiry from ${formData.name}`;
-    const emailBody = `
+    try {
+      // Save form data to CMS
+      const submissionData: FormSubmissions = {
+        _id: crypto.randomUUID(),
+        formType: 'Service Inquiry',
+        submitterName: formData.name,
+        submitterEmail: formData.email,
+        submitterPhone: formData.phone,
+        companyName: formData.company,
+        interestedService: serviceName,
+        budget: formData.budget,
+        message: formData.message,
+        submissionPageUrl: window.location.href,
+        submissionDate: new Date()
+      };
+
+      await BaseCrudService.create('formsubmissions', submissionData);
+      
+      // Create email content
+      const emailSubject = `New ${serviceName} Inquiry from ${formData.name}`;
+      const emailBody = `
 New ${serviceName} service inquiry:
 
 Name: ${formData.name}
@@ -40,35 +60,41 @@ ${formData.message}
 
 ---
 This inquiry was submitted through the ${serviceName} service page.
-    `;
+Page URL: ${window.location.href}
+Submission ID: ${submissionData._id}
+      `;
 
-    // Create mailto links for both email addresses
-    const email1 = 'ram.dmm@lookalikesolutions.com';
-    const email2 = 'rammarketinghead@gmail.com';
-    
-    // Send to first email
-    const mailtoLink1 = `mailto:${email1}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-    window.open(mailtoLink1, '_blank');
-    
-    // Send to second email after a short delay
-    setTimeout(() => {
-      const mailtoLink2 = `mailto:${email2}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-      window.open(mailtoLink2, '_blank');
-    }, 1000);
+      // Create mailto links for both email addresses
+      const email1 = 'ram.dmm@lookalikesolutions.com';
+      const email2 = 'rammarketinghead@gmail.com';
+      
+      // Send to first email
+      const mailtoLink1 = `mailto:${email1}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      window.open(mailtoLink1, '_blank');
+      
+      // Send to second email after a short delay
+      setTimeout(() => {
+        const mailtoLink2 = `mailto:${email2}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+        window.open(mailtoLink2, '_blank');
+      }, 1000);
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      budget: '',
-      message: '',
-      service: serviceName
-    });
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        budget: '',
+        message: '',
+        service: serviceName
+      });
 
-    // Show success message
-    alert('Thank you for your inquiry! Your message has been sent to our team. We will contact you within 24 hours.');
+      // Show success message
+      alert('Thank you for your inquiry! Your message has been sent to our team and saved to our system. We will contact you within 24 hours.');
+    } catch (error) {
+      console.error('Error saving form submission:', error);
+      alert('There was an error processing your request. Please try again or contact us directly.');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
