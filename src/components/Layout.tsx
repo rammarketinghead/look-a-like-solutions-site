@@ -5,6 +5,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Breadcrumb } from '@/components/ui/breadcrumb';
 import ChatWidget from '@/components/ui/chat-widget';
 import WhatsAppButton from '@/components/ui/whatsapp-button';
+import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
 import { Menu, X, Phone, Mail, MapPin, Search, ChevronDown, Zap, Facebook, Instagram, Youtube } from 'lucide-react';
 import { useState } from 'react';
 
@@ -12,6 +13,9 @@ export default function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
+
+  // Determine if we should show the exit intent popup
+  const shouldShowExitIntent = !location.pathname.includes('/contact') && !location.pathname.includes('/thank-you');
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -365,6 +369,9 @@ export default function Layout() {
         phoneNumber="+919731588244"
         message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
       />
+
+      {/* Exit Intent Popup */}
+      {shouldShowExitIntent && <ExitIntentPopup />}
     </div>
   );
 }

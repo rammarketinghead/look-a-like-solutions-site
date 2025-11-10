@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
 import { FAQSection } from '@/components/ui/faq-section';
+import { BlogSidebar } from '@/components/ui/blog-sidebar';
 import { ArrowLeft, Calendar, User, Clock, Share2, Facebook, Twitter, Linkedin } from 'lucide-react';
 import { format } from 'date-fns';
 
@@ -153,14 +154,14 @@ export default function BlogPostPage() {
       {/* Content Section */}
       <section className="py-16 bg-background">
         <div className="max-w-[100rem] mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main Content */}
-            <div className="lg:col-span-3">
-              <div className="max-w-3xl">
+            <div className="lg:col-span-2">
+              <div className="max-w-none">
                 <div className="prose prose-lg max-w-none">
                   {post.content && (
                     <div 
-                      className="font-paragraph text-secondary leading-relaxed"
+                      className="font-paragraph text-secondary leading-relaxed text-lg"
                       dangerouslySetInnerHTML={{ 
                         __html: post.content.replace(/\n/g, '<br />') 
                       }}
@@ -200,78 +201,53 @@ export default function BlogPostPage() {
                     </div>
                   </div>
                 </div>
+
+                {/* Author Info - Mobile */}
+                <div className="lg:hidden mt-12">
+                  {post.author && (
+                    <Card className="border-0 shadow-sm">
+                      <CardContent className="p-6">
+                        <h4 className="font-heading text-dark-gray mb-4">About the Author</h4>
+                        <div className="flex items-center mb-4">
+                          <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                            <span className="text-primary font-heading text-lg">
+                              {post.author.charAt(0)}
+                            </span>
+                          </div>
+                          <div>
+                            <h5 className="font-heading text-dark-gray">{post.author}</h5>
+                            <p className="text-sm font-paragraph text-secondary">Digital Marketing Expert</p>
+                          </div>
+                        </div>
+                        <p className="font-paragraph text-secondary text-sm">
+                          Passionate about helping businesses grow through effective digital marketing strategies.
+                        </p>
+                      </CardContent>
+                    </Card>
+                  )}
+                </div>
               </div>
             </div>
 
-            {/* Sidebar */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-32 space-y-8">
-                {/* Author Info */}
-                {post.author && (
-                  <Card className="border-0 shadow-sm">
-                    <CardContent className="p-6">
-                      <h4 className="font-heading text-dark-gray mb-4">About the Author</h4>
-                      <div className="flex items-center mb-4">
-                        <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
-                          <span className="text-primary font-heading text-lg">
-                            {post.author.charAt(0)}
-                          </span>
-                        </div>
-                        <div>
-                          <h5 className="font-heading text-dark-gray">{post.author}</h5>
-                          <p className="text-sm font-paragraph text-secondary">Digital Marketing Expert</p>
-                        </div>
-                      </div>
-                      <p className="font-paragraph text-secondary text-sm">
-                        Passionate about helping businesses grow through effective digital marketing strategies.
-                      </p>
-                    </CardContent>
-                  </Card>
-                )}
-
-                {/* Related Posts */}
-                {relatedPosts.length > 0 && (
-                  <Card className="border-0 shadow-sm">
-                    <CardContent className="p-6">
-                      <h4 className="font-heading text-dark-gray mb-4">Related Posts</h4>
-                      <div className="space-y-4">
-                        {relatedPosts.map((relatedPost) => (
-                          <Link
-                            key={relatedPost._id}
-                            to={`/blog/${relatedPost.slug}`}
-                            className="block group"
-                          >
-                            <h5 className="font-heading text-dark-gray group-hover:text-primary transition-colors text-sm mb-2">
-                              {relatedPost.title}
-                            </h5>
-                            {relatedPost.publishedDate && (
-                              <p className="text-xs font-paragraph text-secondary">
-                                {format(new Date(relatedPost.publishedDate), 'MMM dd, yyyy')}
-                              </p>
-                            )}
-                          </Link>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                )}
-
-                {/* CTA */}
-                <Card className="border-0 shadow-sm bg-primary/5">
-                  <CardContent className="p-6 text-center">
-                    <h4 className="font-heading text-dark-gray mb-4">Need Help with Digital Marketing?</h4>
-                    <p className="font-paragraph text-secondary text-sm mb-6">
-                      Get expert advice and strategies tailored to your business.
-                    </p>
-                    <Link to="/contact">
-                      <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full">
-                        Get Free Consultation
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
+            {/* Sidebar - Desktop */}
+            <div className="lg:col-span-1 hidden lg:block">
+              <div className="sticky top-32">
+                <BlogSidebar 
+                  relatedPosts={relatedPosts}
+                  currentPostId={post._id}
+                  categories={['SEO & Search Marketing', 'Content Marketing', 'Digital Strategy']}
+                />
               </div>
             </div>
+          </div>
+
+          {/* Mobile Sidebar Content */}
+          <div className="lg:hidden mt-12">
+            <BlogSidebar 
+              relatedPosts={relatedPosts}
+              currentPostId={post._id}
+              categories={['SEO & Search Marketing', 'Content Marketing', 'Digital Strategy']}
+            />
           </div>
         </div>
       </section>
