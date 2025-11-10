@@ -3,6 +3,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Breadcrumb } from '@/components/ui/breadcrumb';
+import ChatWidget from '@/components/ui/chat-widget';
+import WhatsAppButton from '@/components/ui/whatsapp-button';
 import { Menu, X, Phone, Mail, MapPin, Search, ChevronDown, Zap, Facebook, Instagram, Youtube } from 'lucide-react';
 import { useState } from 'react';
 
@@ -325,6 +327,14 @@ export default function Layout() {
                     info@lookalikesolutions.com
                   </a>
                 </div>
+                <div className="mt-4">
+                  <WhatsAppButton 
+                    variant="inline" 
+                    phoneNumber="+919731588244"
+                    message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
+                    className="w-full"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -346,6 +356,15 @@ export default function Layout() {
           </div>
         </div>
       </footer>
+
+      {/* Chat Widget */}
+      <ChatWidget />
+      
+      {/* WhatsApp Floating Button */}
+      <WhatsAppButton 
+        phoneNumber="+919731588244"
+        message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
+      />
     </div>
   );
 }
