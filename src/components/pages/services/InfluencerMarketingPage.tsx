@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
 import { FAQSection } from '@/components/ui/faq-section';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
+import { ROICalculator } from '@/components/ui/roi-calculator';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Users, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Award, Zap, Settings, Heart, Star, Image as ImageIcon } from 'lucide-react';
 
@@ -343,6 +344,19 @@ export default function InfluencerMarketingPage() {
               Request Custom Quote
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* ROI Calculator Section */}
+      <section className="py-32 bg-light-gray">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">Calculate Your Influencer Marketing ROI</h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              See the potential return on investment from our influencer marketing services. Input your business metrics to estimate your growth potential.
+            </p>
+          </div>
+          <ROICalculator serviceName="Influencer Marketing" />
         </div>
       </section>
 
