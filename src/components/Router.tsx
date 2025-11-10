@@ -28,6 +28,11 @@ import EmailSubjectTesterPage from '@/components/pages/tools/EmailSubjectTesterP
 import PPCAdGeneratorPage from '@/components/pages/tools/PPCAdGeneratorPage';
 import KeywordGroupingPage from '@/components/pages/tools/KeywordGroupingPage';
 import KeywordMatchTypesPage from '@/components/pages/tools/KeywordMatchTypesPage';
+import MetaTitleDescriptionGeneratorPage from '@/components/pages/tools/MetaTitleDescriptionGeneratorPage';
+import SERPSnippetPreviewPage from '@/components/pages/tools/SERPSnippetPreviewPage';
+import BacklinkCheckerPage from '@/components/pages/tools/BacklinkCheckerPage';
+import UTMLinkBuilderPage from '@/components/pages/tools/UTMLinkBuilderPage';
+import WebsiteSpeedTestPage from '@/components/pages/tools/WebsiteSpeedTestPage';
 
 // Layout wrapper that includes ScrollToTop
 function LayoutWithScrollToTop() {
@@ -80,6 +85,26 @@ const router = createBrowserRouter([
       {
         path: "tools/keyword-match-types",
         element: <KeywordMatchTypesPage />,
+      },
+      {
+        path: "tools/meta-title-description-generator",
+        element: <MetaTitleDescriptionGeneratorPage />,
+      },
+      {
+        path: "tools/serp-snippet-preview",
+        element: <SERPSnippetPreviewPage />,
+      },
+      {
+        path: "tools/backlink-checker",
+        element: <BacklinkCheckerPage />,
+      },
+      {
+        path: "tools/utm-link-builder",
+        element: <UTMLinkBuilderPage />,
+      },
+      {
+        path: "tools/website-speed-test",
+        element: <WebsiteSpeedTestPage />,
       },
       {
         path: "services/seo",

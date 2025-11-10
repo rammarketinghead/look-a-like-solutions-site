@@ -46,7 +46,22 @@ export default function Layout() {
         { name: 'Email Subject Line Tester', href: '/tools/email-subject-tester' },
         { name: 'PPC Ad Copy Generator', href: '/tools/ppc-ad-generator' },
         { name: 'Keyword Grouping Tool', href: '/tools/keyword-grouping' },
-        { name: 'Keyword Match Types', href: '/tools/keyword-match-types' }
+        { name: 'Keyword Match Types', href: '/tools/keyword-match-types' },
+        { name: 'Meta Title & Description Generator', href: '/tools/meta-title-description-generator' },
+        { name: 'SERP Snippet Preview', href: '/tools/serp-snippet-preview' },
+        { name: 'Backlink Checker', href: '/tools/backlink-checker' },
+        { name: 'UTM Link Builder', href: '/tools/utm-link-builder' },
+        { name: 'Website Speed Test', href: '/tools/website-speed-test' },
+        { name: 'Social Media Post Ideas', href: '/tools/social-media-post-generator' },
+        { name: 'Image Alt Text Generator', href: '/tools/image-alt-text-generator' },
+        { name: 'Blog Topic Generator', href: '/tools/blog-topic-generator' },
+        { name: 'Google Ads Generator', href: '/tools/google-ads-generator' },
+        { name: 'Content Readability Checker', href: '/tools/content-readability-checker' },
+        { name: 'Hashtag Generator', href: '/tools/hashtag-generator' },
+        { name: 'Robots.txt Generator', href: '/tools/robots-txt-generator' },
+        { name: 'XML Sitemap Generator', href: '/tools/xml-sitemap-generator' },
+        { name: 'Favicon Generator', href: '/tools/favicon-generator' },
+        { name: 'Open Graph Tag Generator', href: '/tools/open-graph-generator' }
       ]
     },
     { name: 'Case Studies', href: '/case-studies' },
