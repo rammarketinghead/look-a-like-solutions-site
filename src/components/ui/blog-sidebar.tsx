@@ -26,7 +26,7 @@ export function BlogSidebar({ relatedPosts = [], categories = [], currentPostId 
       title: '10 SEO Strategies That Actually Work in 2024',
       slug: '10-seo-strategies-2024',
       excerpt: 'Discover the latest SEO techniques that are driving real results for businesses this year.',
-      featuredImage: 'https://static.wixstatic.com/media/12d367_71ebdd7141d041e4be3d91d80d4578dd~mv2.png?id=seo-strategies',
+      featuredImage: 'https://static.wixstatic.com/media/f650f9_2fba726c8ed148b88ce871dbc0489061~mv2.png?originWidth=128&originHeight=128',
       publishedDate: '2024-01-15',
       author: 'Sarah Johnson'
     },
@@ -35,7 +35,7 @@ export function BlogSidebar({ relatedPosts = [], categories = [], currentPostId 
       title: 'Social Media Marketing Trends to Watch',
       slug: 'social-media-trends-2024',
       excerpt: 'Stay ahead of the curve with these emerging social media marketing trends.',
-      featuredImage: 'https://static.wixstatic.com/media/12d367_71ebdd7141d041e4be3d91d80d4578dd~mv2.png?id=social-trends',
+      featuredImage: 'https://static.wixstatic.com/media/f650f9_936ce6ef11d245e8b19243031ddf9db6~mv2.png?originWidth=128&originHeight=128',
       publishedDate: '2024-01-12',
       author: 'Mike Chen'
     },
@@ -44,7 +44,7 @@ export function BlogSidebar({ relatedPosts = [], categories = [], currentPostId 
       title: 'Email Marketing Best Practices for 2024',
       slug: 'email-marketing-best-practices',
       excerpt: 'Learn how to create email campaigns that convert and build lasting relationships.',
-      featuredImage: 'https://static.wixstatic.com/media/12d367_71ebdd7141d041e4be3d91d80d4578dd~mv2.png?id=email-marketing',
+      featuredImage: 'https://static.wixstatic.com/media/f650f9_2f5b2329e9804d829cd2164ba80b9756~mv2.png?originWidth=128&originHeight=128',
       publishedDate: '2024-01-10',
       author: 'Lisa Rodriguez'
     }

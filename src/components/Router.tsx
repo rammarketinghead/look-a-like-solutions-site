@@ -10,6 +10,7 @@ import CaseStudiesPage from '@/components/pages/CaseStudiesPage';
 import BlogPage from '@/components/pages/BlogPage';
 import BlogPostPage from '@/components/pages/BlogPostPage';
 import ContactPage from '@/components/pages/ContactPage';
+import ToolsPage from '@/components/pages/ToolsPage';
 import SEOPage from '@/components/pages/services/SEOPage';
 import SocialMediaPage from '@/components/pages/services/SocialMediaPage';
 import PaidAdsPage from '@/components/pages/services/PaidAdsPage';
@@ -22,6 +23,11 @@ import EmailMarketingPage from '@/components/pages/services/EmailMarketingPage';
 import YouTubeGrowthPage from '@/components/pages/services/YouTubeGrowthPage';
 import DigitalAuditPage from '@/components/pages/services/DigitalAuditPage';
 import DigitalTrainingPage from '@/components/pages/services/DigitalTrainingPage';
+import SEOKeywordResearchPage from '@/components/pages/tools/SEOKeywordResearchPage';
+import EmailSubjectTesterPage from '@/components/pages/tools/EmailSubjectTesterPage';
+import PPCAdGeneratorPage from '@/components/pages/tools/PPCAdGeneratorPage';
+import KeywordGroupingPage from '@/components/pages/tools/KeywordGroupingPage';
+import KeywordMatchTypesPage from '@/components/pages/tools/KeywordMatchTypesPage';
 
 // Layout wrapper that includes ScrollToTop
 function LayoutWithScrollToTop() {
@@ -50,6 +56,30 @@ const router = createBrowserRouter([
       {
         path: "services",
         element: <ServicesPage />,
+      },
+      {
+        path: "tools",
+        element: <ToolsPage />,
+      },
+      {
+        path: "tools/seo-keyword-research",
+        element: <SEOKeywordResearchPage />,
+      },
+      {
+        path: "tools/email-subject-tester",
+        element: <EmailSubjectTesterPage />,
+      },
+      {
+        path: "tools/ppc-ad-generator",
+        element: <PPCAdGeneratorPage />,
+      },
+      {
+        path: "tools/keyword-grouping",
+        element: <KeywordGroupingPage />,
+      },
+      {
+        path: "tools/keyword-match-types",
+        element: <KeywordMatchTypesPage />,
       },
       {
         path: "services/seo",

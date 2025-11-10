@@ -38,6 +38,17 @@ export default function Layout() {
         { name: 'Digital Training', href: '/services/digital-training' }
       ]
     },
+    { 
+      name: 'Free Tools', 
+      href: '/tools',
+      dropdown: [
+        { name: 'SEO Keyword Research', href: '/tools/seo-keyword-research' },
+        { name: 'Email Subject Line Tester', href: '/tools/email-subject-tester' },
+        { name: 'PPC Ad Copy Generator', href: '/tools/ppc-ad-generator' },
+        { name: 'Keyword Grouping Tool', href: '/tools/keyword-grouping' },
+        { name: 'Keyword Match Types', href: '/tools/keyword-match-types' }
+      ]
+    },
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' }
