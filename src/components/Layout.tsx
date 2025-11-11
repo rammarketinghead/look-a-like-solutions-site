@@ -1,12 +1,13 @@
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Image } from '@/components/ui/image';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Breadcrumb } from '@/components/ui/breadcrumb';
 import ChatWidget from '@/components/ui/chat-widget';
 import WhatsAppButton from '@/components/ui/whatsapp-button';
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
-import { Menu, X, Phone, Mail, MapPin, Search, ChevronDown, Zap, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Menu, X, Phone, Mail, MapPin, Search, ChevronDown, Facebook, Instagram, Youtube } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Layout() {
@@ -125,10 +126,15 @@ export default function Layout() {
         <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4 lg:py-6">
             {/* Logo with Icon */}
-            <Link to="/" className="flex items-center text-lg sm:text-xl lg:text-2xl font-heading text-dark-gray">
-              <Zap className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 text-primary mr-2 lg:mr-3" />
-              <span className="hidden sm:inline">Look A Like Solutions</span>
-              <span className="sm:hidden">LAS</span>
+            <Link to="/" className="flex items-center text-lg sm:text-xl lg:text-2xl font-heading">
+              <Image 
+                src="https://static.wixstatic.com/media/f650f9_8f4cac9948dd449e824fcf229233b85e~mv2.png"
+                alt="Look A Like Solutions Logo"
+                width={32}
+                className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 mr-2 lg:mr-3"
+              />
+              <span className="hidden sm:inline text-primary">Look A Like Solutions</span>
+              <span className="sm:hidden text-primary">LAS</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -288,8 +294,13 @@ export default function Layout() {
             {/* Company Info */}
             <div className="sm:col-span-2 lg:col-span-1">
               <div className="flex items-center mb-4 lg:mb-6">
-                <Zap className="h-6 w-6 lg:h-8 lg:w-8 text-primary mr-2 lg:mr-3" />
-                <h3 className="text-lg lg:text-xl font-heading">Look A Like Solutions</h3>
+                <Image 
+                  src="https://static.wixstatic.com/media/f650f9_8f4cac9948dd449e824fcf229233b85e~mv2.png"
+                  alt="Look A Like Solutions Logo"
+                  width={32}
+                  className="h-6 w-6 lg:h-8 lg:w-8 mr-2 lg:mr-3"
+                />
+                <h3 className="text-lg lg:text-xl font-heading text-primary">Look A Like Solutions</h3>
               </div>
               <p className="font-paragraph text-light-gray mb-4 lg:mb-6 text-sm lg:text-base">
                 Your trusted digital marketing partner in Bengaluru. We help businesses grow their online presence with data-driven strategies.
