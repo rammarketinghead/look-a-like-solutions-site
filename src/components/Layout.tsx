@@ -7,7 +7,7 @@ import { Breadcrumb } from '@/components/ui/breadcrumb';
 import ChatWidget from '@/components/ui/chat-widget';
 import WhatsAppButton from '@/components/ui/whatsapp-button';
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
-import { Menu, X, Phone, Mail, MapPin, Search, ChevronDown, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Menu, X, Phone, Mail, MapPin, Search, ChevronDown, Facebook, Instagram, Youtube, Linkedin, Heart } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Layout() {
@@ -288,111 +288,219 @@ export default function Layout() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-dark-gray text-background">
-        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 bg-white text-foreground">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-            {/* Company Info */}
-            <div className="sm:col-span-2 lg:col-span-1">
-              <div className="flex items-center mb-4 lg:mb-6">
-                <Image 
-                  src="https://static.wixstatic.com/media/f650f9_8f4cac9948dd449e824fcf229233b85e~mv2.png"
-                  alt="Look A Like Solutions Logo"
-                  width={32}
-                  className="h-6 w-6 lg:h-8 lg:w-8 mr-2 lg:mr-3"
-                />
-                <h3 className="text-lg lg:text-xl font-heading text-primary">Look A Like Solutions</h3>
-              </div>
-              <p className="font-paragraph text-light-gray mb-4 lg:mb-6 text-sm lg:text-base">
-                Your trusted digital marketing partner in Bengaluru. We help businesses grow their online presence with data-driven strategies.
-              </p>
-              <div className="flex space-x-3 lg:space-x-4">
-                <a href="https://facebook.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="w-8 h-8 lg:w-10 lg:h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">
-                  <Facebook className="h-4 w-4 lg:h-5 lg:w-5" />
-                </a>
-                <a href="https://instagram.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="w-8 h-8 lg:w-10 lg:h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">
-                  <Instagram className="h-4 w-4 lg:h-5 lg:w-5" />
-                </a>
-                <a href="https://youtube.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="w-8 h-8 lg:w-10 lg:h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">
-                  <Youtube className="h-4 w-4 lg:h-5 lg:w-5" />
-                </a>
-              </div>
-            </div>
-
-            {/* Quick Links */}
-            <div>
-              <h4 className="text-base lg:text-lg font-heading mb-4 lg:mb-6">Quick Links</h4>
-              <ul className="space-y-2 lg:space-y-3">
-                {navigation.slice(0, 6).map((item) => (
-                  <li key={item.name}>
-                    <Link to={item.href} className="font-paragraph text-light-gray hover:text-primary transition-colors text-sm lg:text-base">
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Services */}
-            <div>
-              <h4 className="text-base lg:text-lg font-heading mb-4 lg:mb-6">Our Services</h4>
-              <ul className="space-y-2 lg:space-y-3">
-                {navigation.find(item => item.dropdown)?.dropdown?.slice(0, 6).map((service) => (
-                  <li key={service.name}>
-                    <Link to={service.href} className="font-paragraph text-light-gray hover:text-primary transition-colors text-sm lg:text-base">
-                      {service.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact Info */}
-            <div>
-              <h4 className="text-base lg:text-lg font-heading mb-4 lg:mb-6">Contact Us</h4>
-              <div className="space-y-3 lg:space-y-4">
-                <div className="flex items-start">
-                  <MapPin className="h-4 w-4 lg:h-5 lg:w-5 text-primary mr-2 lg:mr-3 mt-1 flex-shrink-0" />
-                  <span className="font-paragraph text-light-gray text-sm lg:text-base">
-                    Bengaluru, Karnataka, India
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <Phone className="h-4 w-4 lg:h-5 lg:w-5 text-primary mr-2 lg:mr-3 flex-shrink-0" />
-                  <a href="tel:+919731588244" className="font-paragraph text-light-gray hover:text-primary transition-colors text-sm lg:text-base">
-                    +91-9731588244
-                  </a>
-                </div>
-                <div className="flex items-center">
-                  <Mail className="h-4 w-4 lg:h-5 lg:w-5 text-primary mr-2 lg:mr-3 flex-shrink-0" />
-                  <a href="mailto:info@lookalikesolutions.com" className="font-paragraph text-light-gray hover:text-primary transition-colors text-sm lg:text-base break-all">
-                    info@lookalikesolutions.com
-                  </a>
-                </div>
-                <div className="mt-4">
-                  <WhatsAppButton 
-                    variant="inline" 
-                    phoneNumber="+919731588244"
-                    message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
-                    className="w-full"
+      <footer className="bg-gradient-to-br from-dark-gray to-foreground text-white" role="contentinfo" aria-label="Site footer">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Main Footer Content */}
+          <div className="py-16 lg:py-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+              {/* Company Info - Takes more space on larger screens */}
+              <div className="lg:col-span-4">
+                <div className="flex items-center mb-6">
+                  <Image 
+                    src="https://static.wixstatic.com/media/f650f9_8f4cac9948dd449e824fcf229233b85e~mv2.png"
+                    alt="Look A Like Solutions Logo"
+                    width={40}
+                    className="h-8 w-8 lg:h-10 lg:w-10 mr-3"
                   />
+                  <h2 className="text-xl lg:text-2xl font-heading text-white">Look A Like Solutions</h2>
+                </div>
+                <p className="font-paragraph text-gray-300 mb-6 text-base lg:text-lg leading-relaxed">
+                  Your trusted digital marketing partner in Bengaluru. We help businesses grow their online presence with data-driven strategies and innovative solutions.
+                </p>
+                
+                {/* Social Media Links with improved accessibility */}
+                <div className="mb-6">
+                  <h3 className="text-sm font-heading text-white mb-3 uppercase tracking-wide">Follow Us</h3>
+                  <div className="flex space-x-4">
+                    <a 
+                      href="https://facebook.com/lookalikesolutions" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="group w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray"
+                      aria-label="Follow us on Facebook"
+                    >
+                      <Facebook className="h-5 w-5 text-white group-hover:text-white transition-colors" />
+                    </a>
+                    <a 
+                      href="https://instagram.com/lookalikesolutions" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="group w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray"
+                      aria-label="Follow us on Instagram"
+                    >
+                      <Instagram className="h-5 w-5 text-white group-hover:text-white transition-colors" />
+                    </a>
+                    <a 
+                      href="https://youtube.com/lookalikesolutions" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="group w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray"
+                      aria-label="Follow us on YouTube"
+                    >
+                      <Youtube className="h-5 w-5 text-white group-hover:text-white transition-colors" />
+                    </a>
+                    <a 
+                      href="https://linkedin.com/company/lookalikesolutions" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="group w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray"
+                      aria-label="Connect with us on LinkedIn"
+                    >
+                      <Linkedin className="h-5 w-5 text-white group-hover:text-white transition-colors" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Links */}
+              <div className="lg:col-span-2">
+                <h3 className="text-lg font-heading text-white mb-6">Quick Links</h3>
+                <nav aria-label="Footer navigation">
+                  <ul className="space-y-3">
+                    {navigation.slice(0, 6).map((item) => (
+                      <li key={item.name}>
+                        <Link 
+                          to={item.href} 
+                          className="font-paragraph text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm lg:text-base inline-block"
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </div>
+
+              {/* Services */}
+              <div className="lg:col-span-3">
+                <h3 className="text-lg font-heading text-white mb-6">Our Services</h3>
+                <nav aria-label="Services navigation">
+                  <ul className="space-y-3">
+                    {navigation.find(item => item.dropdown)?.dropdown?.slice(0, 6).map((service) => (
+                      <li key={service.name}>
+                        <Link 
+                          to={service.href} 
+                          className="font-paragraph text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm lg:text-base inline-block"
+                        >
+                          {service.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </div>
+
+              {/* Contact Info */}
+              <div className="lg:col-span-3">
+                <h3 className="text-lg font-heading text-white mb-6">Get In Touch</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start group">
+                    <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-primary/30 transition-colors">
+                      <MapPin className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-paragraph text-gray-300 text-sm lg:text-base leading-relaxed">
+                        Bengaluru, Karnataka<br />India
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center group">
+                    <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-primary/30 transition-colors">
+                      <Phone className="h-5 w-5 text-primary" />
+                    </div>
+                    <a 
+                      href="tel:+919731588244" 
+                      className="font-paragraph text-gray-300 hover:text-white transition-colors text-sm lg:text-base focus:outline-none focus:text-white"
+                      aria-label="Call us at +91-9731588244"
+                    >
+                      +91-9731588244
+                    </a>
+                  </div>
+                  
+                  <div className="flex items-center group">
+                    <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-primary/30 transition-colors">
+                      <Mail className="h-5 w-5 text-primary" />
+                    </div>
+                    <a 
+                      href="mailto:info@lookalikesolutions.com" 
+                      className="font-paragraph text-gray-300 hover:text-white transition-colors text-sm lg:text-base break-all focus:outline-none focus:text-white"
+                      aria-label="Email us at info@lookalikesolutions.com"
+                    >
+                      info@lookalikesolutions.com
+                    </a>
+                  </div>
+                  
+                  <div className="mt-6 pt-4 border-t border-white/10">
+                    <WhatsAppButton 
+                      variant="inline" 
+                      phoneNumber="+919731588244"
+                      message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
+                      className="w-full bg-green-600 hover:bg-green-700 text-white border-0 rounded-lg py-3 px-4 font-medium transition-colors duration-200"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="border-t border-secondary/20 mt-8 lg:mt-12 pt-6 lg:pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <p className="font-paragraph text-light-gray text-xs lg:text-sm text-center md:text-left">
-                © 2024 Look A Like Solutions. All rights reserved.
+          {/* Newsletter Signup Section */}
+          <div className="border-t border-white/10 py-8">
+            <div className="text-center">
+              <h3 className="text-xl font-heading text-white mb-3">Stay Updated</h3>
+              <p className="text-gray-300 mb-6 max-w-md mx-auto">
+                Get the latest digital marketing insights and tips delivered to your inbox.
               </p>
-              <div className="flex space-x-4 lg:space-x-6">
-                <Link to="/privacy" className="font-paragraph text-light-gray hover:text-primary transition-colors text-xs lg:text-sm">
-                  Privacy Policy
-                </Link>
-                <Link to="/terms" className="font-paragraph text-light-gray hover:text-primary transition-colors text-xs lg:text-sm">
-                  Terms of Service
-                </Link>
+              <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  aria-label="Email address for newsletter"
+                />
+                <button className="px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray">
+                  Subscribe
+                </button>
               </div>
+            </div>
+          </div>
+
+          {/* Bottom Footer */}
+          <div className="border-t border-white/10 py-6">
+            <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+              <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
+                <p className="font-paragraph text-gray-400 text-sm text-center sm:text-left">
+                  © 2024 Look A Like Solutions. All rights reserved.
+                </p>
+                <div className="flex items-center space-x-2 text-gray-400 text-sm">
+                  <span>Made with</span>
+                  <Heart className="h-4 w-4 text-red-500 fill-current" />
+                  <span>in Bengaluru</span>
+                </div>
+              </div>
+              
+              <nav aria-label="Legal links">
+                <div className="flex flex-wrap justify-center lg:justify-end space-x-6">
+                  <Link 
+                    to="/privacy" 
+                    className="font-paragraph text-gray-400 hover:text-white transition-colors text-sm focus:outline-none focus:text-white"
+                  >
+                    Privacy Policy
+                  </Link>
+                  <Link 
+                    to="/terms" 
+                    className="font-paragraph text-gray-400 hover:text-white transition-colors text-sm focus:outline-none focus:text-white"
+                  >
+                    Terms of Service
+                  </Link>
+                  <Link 
+                    to="/sitemap" 
+                    className="font-paragraph text-gray-400 hover:text-white transition-colors text-sm focus:outline-none focus:text-white"
+                  >
+                    Sitemap
+                  </Link>
+                </div>
+              </nav>
             </div>
           </div>
         </div>
