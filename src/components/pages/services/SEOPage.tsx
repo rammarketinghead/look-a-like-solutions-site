@@ -65,7 +65,7 @@ export default function SEOPage() {
                 <Search className="h-4 w-4 mr-2" />
                 SEO Optimization Service
               </div>
-              <h1 className="text-6xl font-heading text-dark-gray mb-8 leading-tight">
+              <h1 className="font-heading text-dark-gray mb-8 text-6xl">
                 Dominate Search Results with 
                 <span className="text-primary block">Expert SEO</span>
               </h1>
@@ -136,7 +136,6 @@ export default function SEOPage() {
           </div>
         </div>
       </section>
-
       {/* Service Overview */}
       <section className="py-32 bg-background">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -174,7 +173,6 @@ export default function SEOPage() {
           </div>
         </div>
       </section>
-
       {/* SEO Services */}
       <section className="py-32 bg-light-gray">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -231,7 +229,6 @@ export default function SEOPage() {
           </div>
         </div>
       </section>
-
       {/* Our Process Section */}
       <section className="py-32 bg-background">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -286,7 +283,6 @@ export default function SEOPage() {
           </div>
         </div>
       </section>
-
       {/* Our Pricing Section */}
       <section className="py-32 bg-light-gray">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -400,7 +396,6 @@ export default function SEOPage() {
           </div>
         </div>
       </section>
-
       {/* Tools & Technologies Section */}
       <section className="py-32 bg-background">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -447,7 +442,6 @@ export default function SEOPage() {
           </div>
         </div>
       </section>
-
       {/* Client Success Story Section */}
       <section className="py-32 bg-light-gray">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -533,7 +527,6 @@ export default function SEOPage() {
           </div>
         </div>
       </section>
-
       {/* ROI Calculator Section */}
       <section className="py-32 bg-background">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -546,14 +539,12 @@ export default function SEOPage() {
           <ROICalculator serviceName="SEO" />
         </div>
       </section>
-
       {/* FAQ Section */}
       <FAQSection 
         faqs={seoFAQs}
         title="SEO Frequently Asked Questions"
         description="Get answers to common questions about our SEO services and how we can help improve your search rankings."
       />
-
       {/* Contact Form Section */}
       <div id="contact-form">
         <ServiceContactForm 
@@ -561,7 +552,6 @@ export default function SEOPage() {
           serviceDescription="Let's discuss how our SEO expertise can help your business rank higher in search results and drive more organic traffic."
         />
       </div>
-
       {/* Results Section */}
       <section className="py-32 bg-background">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -587,7 +577,6 @@ export default function SEOPage() {
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="py-32 bg-dark-gray">
         <div className="max-w-[100rem] mx-auto px-8 text-center">
