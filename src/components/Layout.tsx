@@ -350,7 +350,7 @@ export default function Layout() {
                       href="https://youtube.com/lookalikesolutions" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="group w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray"
+                      className="group w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray bg-secondary"
                       aria-label="Follow us on YouTube"
                     >
                       <Youtube className="h-4 w-4 sm:h-5 sm:w-5 text-white group-hover:text-white transition-colors" />
@@ -359,7 +359,7 @@ export default function Layout() {
                       href="https://linkedin.com/company/lookalikesolutions" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="group w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray"
+                      className="group w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray bg-secondary"
                       aria-label="Connect with us on LinkedIn"
                     >
                       <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 text-white group-hover:text-white transition-colors" />
@@ -377,7 +377,7 @@ export default function Layout() {
                       <li key={item.name}>
                         <Link 
                           to={item.href} 
-                          className="mobile-text-body text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
+                          className="mobile-text-body hover:text-white hover:translate-x-1 transition-all duration-200 inline-block text-secondary"
                         >
                           {item.name}
                         </Link>
@@ -396,7 +396,7 @@ export default function Layout() {
                       <li key={service.name}>
                         <Link 
                           to={service.href} 
-                          className="mobile-text-body text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
+                          className="mobile-text-body hover:text-white hover:translate-x-1 transition-all duration-200 inline-block text-secondary"
                         >
                           {service.name}
                         </Link>
@@ -415,7 +415,7 @@ export default function Layout() {
                       <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="mobile-text-body text-gray-300 leading-relaxed">
+                      <p className="mobile-text-body leading-relaxed text-secondary">
                         Bengaluru, Karnataka<br />India
                       </p>
                     </div>
