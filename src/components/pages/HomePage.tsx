@@ -53,7 +53,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Banner Image Section */}
-      <section className="relative h-64 sm:h-80 lg:h-96 overflow-hidden">
+      <section className="relative h-56 sm:h-64 md:h-80 lg:h-96 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-light-gray"></div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23007BFF%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
         <Image
@@ -63,33 +63,33 @@ export default function HomePage() {
           className="w-full h-full object-cover opacity-80"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-dark-gray/80 to-primary/60 flex items-center justify-center">
-          <div className="text-center text-background max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center text-background max-w-4xl mx-auto mobile-container-spacing">
             <motion.div
               initial="hidden"
               animate="visible"
               variants={fadeInVariants}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center bg-background/20 backdrop-blur-sm text-background px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-paragraph mb-4 sm:mb-6">
-                <Target className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />
+              <div className="inline-flex items-center bg-background/20 backdrop-blur-sm text-background px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mobile-text-small mb-3 sm:mb-4 lg:mb-6">
+                <Target className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                 <span className="hidden sm:inline">#1 Digital Marketing Agency in Bengaluru</span>
                 <span className="sm:hidden">#1 Agency in Bengaluru</span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-heading mb-4 sm:mb-6 leading-tight">
+              <h1 className="mobile-heading-primary mb-3 sm:mb-4 lg:mb-6 leading-tight">
                 Transform Your Digital Presence
               </h1>
-              <p className="text-base sm:text-lg lg:text-xl font-paragraph mb-6 sm:mb-8 opacity-90">
+              <p className="mobile-text-body mb-4 sm:mb-6 lg:mb-8 opacity-90">
                 Data-driven strategies that deliver real results for businesses in Bengaluru and beyond
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 justify-center">
                 <Link to="/contact">
-                  <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto">
+                  <Button className="bg-primary text-primary-foreground hover:bg-primary/90 mobile-button-primary shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto">
                     Get Free Consultation
                     <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                   </Button>
                 </Link>
                 <Link to="/services">
-                  <Button variant="outline" className="border-2 border-background text-background hover:bg-background hover:text-dark-gray px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg transition-all duration-300 w-full sm:w-auto">
+                  <Button variant="outline" className="border-2 border-background text-background hover:bg-background hover:text-dark-gray mobile-button-primary transition-all duration-300 w-full sm:w-auto">
                     Explore Services
                   </Button>
                 </Link>
@@ -101,19 +101,19 @@ export default function HomePage() {
       {/* Hero Section */}
 
       {/* Services Overview */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-background">
-        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16 lg:mb-24">
+      <section className="mobile-section-spacing bg-background">
+        <div className="max-w-[100rem] mx-auto mobile-container-spacing">
+          <div className="text-center mobile-margin-section">
             <motion.div
               initial="hidden"
               animate="visible"
               variants={fadeInVariants}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-dark-gray mb-4 sm:mb-6">
+              <h2 className="mobile-heading-primary text-dark-gray mobile-margin-element">
                 Comprehensive Digital Marketing Solutions
               </h2>
-              <p className="text-lg sm:text-xl font-paragraph text-secondary max-w-4xl mx-auto">
+              <p className="mobile-text-body text-secondary max-w-4xl mx-auto">
                 From SEO to social media, we deliver results-driven strategies that help your business grow in the digital landscape.
               </p>
             </motion.div>
@@ -123,7 +123,7 @@ export default function HomePage() {
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+            className="mobile-grid-responsive"
           >
             {[
               { title: 'SEO Optimization', description: 'Boost your search rankings and organic traffic', icon: '🔍' },
@@ -137,23 +137,23 @@ export default function HomePage() {
             ].map((service, index) => (
               <motion.div key={index} variants={fadeInVariants}>
                 <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 group h-full">
-                  <CardContent className="p-6 sm:p-8 text-center h-full flex flex-col">
-                    <div className="text-3xl sm:text-4xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <CardContent className="mobile-card-spacing text-center h-full flex flex-col">
+                    <div className="text-2xl sm:text-3xl lg:text-4xl mb-3 sm:mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-300">
                       {service.icon}
                     </div>
-                    <h3 className="text-lg sm:text-xl font-heading text-dark-gray mb-3 sm:mb-4 group-hover:text-primary transition-colors">
+                    <h3 className="mobile-heading-tertiary text-dark-gray mb-2 sm:mb-3 lg:mb-4 group-hover:text-primary transition-colors">
                       {service.title}
                     </h3>
-                    <p className="font-paragraph text-secondary flex-grow text-sm sm:text-base">{service.description}</p>
+                    <p className="mobile-text-body text-secondary flex-grow">{service.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
           </motion.div>
 
-          <div className="text-center mt-12 sm:mt-16">
+          <div className="text-center mt-8 sm:mt-12 lg:mt-16">
             <Link to="/services">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 mobile-button-primary shadow-lg hover:shadow-xl transition-all duration-300">
                 View All Services
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
@@ -162,25 +162,25 @@ export default function HomePage() {
         </div>
       </section>
       {/* Process Section - Inspired by attached image */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-light-gray">
-        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16 lg:mb-24">
+      <section className="mobile-section-spacing bg-light-gray">
+        <div className="max-w-[100rem] mx-auto mobile-container-spacing">
+          <div className="text-center mobile-margin-section">
             <motion.div
               initial="hidden"
               animate="visible"
               variants={fadeInVariants}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-dark-gray mb-4 sm:mb-6">
+              <h2 className="mobile-heading-primary text-dark-gray mobile-margin-element">
                 Our Simple 4-Step Process
               </h2>
-              <p className="text-lg sm:text-xl font-paragraph text-secondary max-w-4xl mx-auto">
+              <p className="mobile-text-body text-secondary max-w-4xl mx-auto">
                 A proven roadmap to take you from unseen to unstoppable.
               </p>
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8">
+          <div className="mobile-grid-responsive">
             {[
               {
                 step: '01',
@@ -208,24 +208,24 @@ export default function HomePage() {
               }
             ].map((item, index) => (
               <div key={index} className="text-center relative group">
-                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 relative group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <div className="text-2xl sm:text-3xl mb-2">{item.icon}</div>
-                  <div className="absolute -top-2 -right-2 w-6 h-6 sm:w-8 sm:h-8 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                    <span className="text-xs sm:text-sm font-heading text-primary-foreground">{item.step}</span>
+                <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 lg:mb-6 relative group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <div className="text-xl sm:text-2xl lg:text-3xl mb-2">{item.icon}</div>
+                  <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                    <span className="text-xs sm:text-xs lg:text-sm font-heading text-primary-foreground">{item.step}</span>
                   </div>
                   {index < 3 && (
-                    <div className="hidden lg:block absolute top-1/2 left-full w-16 h-0.5 bg-gradient-to-r from-primary/30 to-transparent transform -translate-y-1/2 ml-4"></div>
+                    <div className="hidden lg:block absolute top-1/2 left-full w-12 xl:w-16 h-0.5 bg-gradient-to-r from-primary/30 to-transparent transform -translate-y-1/2 ml-3 xl:ml-4"></div>
                   )}
                 </div>
-                <h3 className="text-lg sm:text-xl font-heading text-dark-gray mb-3 sm:mb-4 group-hover:text-primary transition-colors">{item.title}</h3>
-                <p className="font-paragraph text-secondary text-sm sm:text-base">{item.description}</p>
+                <h3 className="mobile-heading-tertiary text-dark-gray mb-2 sm:mb-3 lg:mb-4 group-hover:text-primary transition-colors">{item.title}</h3>
+                <p className="mobile-text-body text-secondary">{item.description}</p>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12 sm:mt-16">
+          <div className="text-center mt-8 sm:mt-12 lg:mt-16">
             <Link to="/contact">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 mobile-button-primary shadow-lg hover:shadow-xl transition-all duration-300">
                 Start Your Project Today
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
@@ -234,24 +234,24 @@ export default function HomePage() {
         </div>
       </section>
       {/* Trusted By Section - Inspired by attached image */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-background">
-        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl font-heading text-dark-gray mb-3 sm:mb-4">
+      <section className="mobile-section-spacing bg-background">
+        <div className="max-w-[100rem] mx-auto mobile-container-spacing">
+          <div className="text-center mobile-margin-element">
+            <h2 className="mobile-heading-secondary text-dark-gray mb-2 sm:mb-3 lg:mb-4">
               Trusted By Businesses in Bangalore
             </h2>
-            <p className="font-paragraph text-secondary text-sm sm:text-base">
+            <p className="mobile-text-body text-secondary">
               We're proud to have worked with industry leaders and ambitious startups alike.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-8 items-center">
             {[
               'HearFon', 'SAYA', 'UPSTEP', 'MANDANA', 'AUDIOFIN', 'BLUE TRIBE'
             ].map((company, index) => (
               <div key={index} className="text-center group">
-                <div className="h-12 sm:h-16 flex items-center justify-center bg-light-gray rounded-lg p-3 sm:p-4 group-hover:bg-primary/5 transition-colors duration-300">
-                  <span className="text-sm sm:text-lg font-heading text-secondary group-hover:text-primary transition-colors">{company}</span>
+                <div className="h-10 sm:h-12 lg:h-16 flex items-center justify-center bg-light-gray rounded-lg p-2 sm:p-3 lg:p-4 group-hover:bg-primary/5 transition-colors duration-300">
+                  <span className="mobile-text-small sm:text-base lg:text-lg font-heading text-secondary group-hover:text-primary transition-colors">{company}</span>
                 </div>
               </div>
             ))}
@@ -259,20 +259,20 @@ export default function HomePage() {
         </div>
       </section>
       {/* Results Section - Inspired by attached image */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground relative overflow-hidden">
+      <section className="mobile-section-spacing bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
-        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12 sm:mb-16">
+        <div className="max-w-[100rem] mx-auto mobile-container-spacing relative z-10">
+          <div className="text-center mobile-margin-element">
             <motion.div
               initial="hidden"
               animate="visible"
               variants={fadeInVariants}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading mb-4 sm:mb-6">
+              <h2 className="mobile-heading-primary mb-3 sm:mb-4 lg:mb-6">
                 Measurable Results We Deliver
               </h2>
-              <p className="text-lg sm:text-xl font-paragraph opacity-90 max-w-4xl mx-auto">
+              <p className="mobile-text-body opacity-90 max-w-4xl mx-auto">
                 We focus on metrics that matter, translating marketing efforts into real business growth.
               </p>
             </motion.div>
@@ -282,7 +282,7 @@ export default function HomePage() {
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+            className="mobile-grid-responsive"
           >
             {[
               { number: '500+', label: 'Happy Clients', icon: '😊' },
@@ -291,18 +291,18 @@ export default function HomePage() {
               { number: '98%', label: 'Client Retention', icon: '🤝' }
             ].map((stat, index) => (
               <motion.div key={index} variants={fadeInVariants} className="text-center group">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 group-hover:bg-white/20 transition-all duration-300">
-                  <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">{stat.icon}</div>
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-heading mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">{stat.number}</div>
-                  <div className="text-base sm:text-lg font-paragraph opacity-90">{stat.label}</div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl mobile-card-spacing group-hover:bg-white/20 transition-all duration-300">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl mb-2 sm:mb-3 lg:mb-4">{stat.icon}</div>
+                  <div className="mobile-heading-primary mb-2 sm:mb-3 lg:mb-4 group-hover:scale-110 transition-transform duration-300">{stat.number}</div>
+                  <div className="mobile-text-body opacity-90">{stat.label}</div>
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
-          <div className="text-center mt-12 sm:mt-16">
+          <div className="text-center mt-8 sm:mt-12 lg:mt-16">
             <Link to="/case-studies">
-              <Button variant="outline" className="border-2 border-background text-background hover:bg-background hover:text-primary px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button variant="outline" className="border-2 border-background text-background hover:bg-background hover:text-primary mobile-button-primary shadow-lg hover:shadow-xl transition-all duration-300">
                 View Our Results
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
@@ -311,18 +311,18 @@ export default function HomePage() {
         </div>
       </section>
       {/* What Our Clients Say Section */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-light-gray">
-        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16 lg:mb-24">
-            <h2 className="text-3xl sm:text-4xl font-heading text-dark-gray mb-4 sm:mb-6">
+      <section className="mobile-section-spacing bg-light-gray">
+        <div className="max-w-[100rem] mx-auto mobile-container-spacing">
+          <div className="text-center mobile-margin-section">
+            <h2 className="mobile-heading-primary text-dark-gray mobile-margin-element">
               What Our Clients Say
             </h2>
-            <p className="text-base sm:text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+            <p className="mobile-text-body text-secondary max-w-3xl mx-auto">
               Real stories of business growth and success from our valued clients across Bengaluru and beyond.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {[
               {
                 name: 'Rajesh Kumar',
@@ -368,26 +368,26 @@ export default function HomePage() {
               }
             ].map((testimonial, index) => (
               <Card key={index} className="border-0 shadow-sm hover:shadow-md transition-shadow">
-                <CardContent className="p-6 sm:p-8">
-                  <div className="mb-6">
-                    <div className="flex items-center mb-4">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center mr-3 sm:mr-4">
-                        <span className="text-primary font-heading text-base sm:text-lg">
+                <CardContent className="mobile-card-spacing">
+                  <div className="mb-4 sm:mb-6">
+                    <div className="flex items-center mb-3 sm:mb-4">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-primary/10 rounded-full flex items-center justify-center mr-2 sm:mr-3 lg:mr-4">
+                        <span className="text-primary font-heading mobile-text-small sm:text-base lg:text-lg">
                           {testimonial.name.charAt(0)}
                         </span>
                       </div>
                       <div>
-                        <h3 className="font-heading text-dark-gray text-sm sm:text-base">{testimonial.name}</h3>
-                        <p className="text-xs sm:text-sm font-paragraph text-secondary">
+                        <h3 className="font-heading text-dark-gray mobile-text-small sm:text-base">{testimonial.name}</h3>
+                        <p className="mobile-text-small text-secondary">
                           {testimonial.role}, {testimonial.company}
                         </p>
                       </div>
                     </div>
-                    <p className="font-paragraph text-secondary mb-4 italic text-sm sm:text-base">
+                    <p className="mobile-text-body text-secondary mb-3 sm:mb-4 italic">
                       "{testimonial.testimonial}"
                     </p>
-                    <div className="bg-primary/5 rounded-lg p-3 sm:p-4">
-                      <span className="text-primary font-heading text-xs sm:text-sm">
+                    <div className="bg-primary/5 rounded-lg p-2 sm:p-3 lg:p-4">
+                      <span className="text-primary font-heading mobile-text-small">
                         Key Result: {testimonial.result}
                       </span>
                     </div>
@@ -397,9 +397,9 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="text-center mt-12 sm:mt-16">
+          <div className="text-center mt-8 sm:mt-12 lg:mt-16">
             <Link to="/case-studies">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 mobile-button-primary">
                 Read More Success Stories
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
@@ -408,18 +408,18 @@ export default function HomePage() {
         </div>
       </section>
       {/* Why Choose Us */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-background">
-        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16 lg:mb-24">
-            <h2 className="text-3xl sm:text-4xl font-heading text-dark-gray mb-4 sm:mb-6">
+      <section className="mobile-section-spacing bg-background">
+        <div className="max-w-[100rem] mx-auto mobile-container-spacing">
+          <div className="text-center mobile-margin-section">
+            <h2 className="mobile-heading-primary text-dark-gray mobile-margin-element">
               Why Choose Look A Like Solutions?
             </h2>
-            <p className="text-base sm:text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+            <p className="mobile-text-body text-secondary max-w-3xl mx-auto">
               We combine creativity with data-driven strategies to deliver exceptional results for businesses in Bengaluru and beyond.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="mobile-grid-responsive">
             {[
               {
                 icon: Target,
@@ -443,11 +443,11 @@ export default function HomePage() {
               }
             ].map((item, index) => (
               <div key={index} className="text-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                  <item.icon className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 lg:mb-6">
+                  <item.icon className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8 text-primary" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-heading text-dark-gray mb-3 sm:mb-4">{item.title}</h3>
-                <p className="font-paragraph text-secondary text-sm sm:text-base">{item.description}</p>
+                <h3 className="mobile-heading-tertiary text-dark-gray mb-2 sm:mb-3 lg:mb-4">{item.title}</h3>
+                <p className="mobile-text-body text-secondary">{item.description}</p>
               </div>
             ))}
           </div>
@@ -459,23 +459,23 @@ export default function HomePage() {
         description="Get answers to common questions about our digital marketing services and how we can help grow your business."
       />
       {/* CTA Section */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-dark-gray">
-        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-heading text-background mb-4 sm:mb-6">
+      <section className="mobile-section-spacing bg-dark-gray">
+        <div className="max-w-[100rem] mx-auto mobile-container-spacing text-center">
+          <h2 className="mobile-heading-primary text-background mobile-margin-element">
             Ready to Transform Your Digital Presence?
           </h2>
-          <p className="text-base sm:text-lg font-paragraph text-light-gray mb-8 sm:mb-12 max-w-2xl mx-auto">
+          <p className="mobile-text-body text-light-gray mb-6 sm:mb-8 lg:mb-12 max-w-2xl mx-auto">
             Let's discuss how we can help your business achieve its digital marketing goals. Get in touch for a free consultation.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 justify-center">
             <Link to="/contact">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto">
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 mobile-button-primary w-full sm:w-auto">
                 Start Your Project
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
               </Button>
             </Link>
             <Link to="/case-studies">
-              <Button variant="outline" className="border-background text-background hover:bg-background hover:text-dark-gray px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto">
+              <Button variant="outline" className="border-background text-background hover:bg-background hover:text-dark-gray mobile-button-primary w-full sm:w-auto">
                 View Our Work
               </Button>
             </Link>

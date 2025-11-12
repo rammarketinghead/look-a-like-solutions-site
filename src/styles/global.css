@@ -3,3 +3,88 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Mobile-optimized spacing and typography */
+@layer base {
+  /* Smooth scrolling for better mobile experience */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Mobile-optimized body defaults */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  /* Mobile-specific spacing utilities */
+  .mobile-section-spacing {
+    @apply py-8 sm:py-12 lg:py-16;
+  }
+  
+  .mobile-container-spacing {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .mobile-text-spacing {
+    @apply space-y-3 sm:space-y-4 lg:space-y-6;
+  }
+  
+  .mobile-card-spacing {
+    @apply p-4 sm:p-6 lg:p-8;
+  }
+  
+  /* Mobile-optimized typography */
+  .mobile-heading-primary {
+    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-heading leading-tight;
+  }
+  
+  .mobile-heading-secondary {
+    @apply text-xl sm:text-2xl lg:text-3xl font-heading leading-snug;
+  }
+  
+  .mobile-heading-tertiary {
+    @apply text-lg sm:text-xl lg:text-2xl font-heading leading-snug;
+  }
+  
+  .mobile-text-body {
+    @apply text-sm sm:text-base lg:text-lg font-paragraph leading-relaxed;
+  }
+  
+  .mobile-text-small {
+    @apply text-xs sm:text-sm font-paragraph;
+  }
+  
+  /* Mobile-optimized button sizes */
+  .mobile-button-primary {
+    @apply px-4 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base;
+  }
+  
+  .mobile-button-secondary {
+    @apply px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm;
+  }
+  
+  /* Mobile grid optimizations */
+  .mobile-grid-responsive {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8;
+  }
+  
+  .mobile-grid-2col {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8;
+  }
+  
+  /* Mobile-optimized margins and padding */
+  .mobile-margin-section {
+    @apply mb-8 sm:mb-12 lg:mb-16;
+  }
+  
+  .mobile-margin-element {
+    @apply mb-4 sm:mb-6 lg:mb-8;
+  }
+  
+  .mobile-padding-card {
+    @apply p-4 sm:p-6 lg:p-8;
+  }
+}

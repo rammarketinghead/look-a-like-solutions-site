@@ -88,8 +88,8 @@ export default function Layout() {
   return (
     <div className="min-h-screen bg-background">
       {/* Top Contact Bar */}
-      <div className="bg-dark-gray text-background py-2">
-        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="bg-dark-gray text-background py-1.5 sm:py-2">
+        <div className="max-w-[100rem] mx-auto mobile-container-spacing">
           <div className="flex justify-between items-center text-xs sm:text-sm">
             <div className="flex items-center space-x-3 sm:space-x-6">
               <div className="flex items-center">
@@ -122,8 +122,8 @@ export default function Layout() {
       </div>
       {/* Header */}
       <header className="bg-background border-b border-light-gray sticky top-0 z-50">
-        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4 lg:py-6">
+        <div className="max-w-[100rem] mx-auto mobile-container-spacing">
+          <div className="flex justify-between items-center py-3 sm:py-4 lg:py-6">
             {/* Logo with Icon */}
             <Link to="/" className="flex items-center text-lg sm:text-xl lg:text-2xl font-heading">
               <Image 
@@ -209,20 +209,20 @@ export default function Layout() {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="lg:hidden py-4 border-t border-light-gray">
+            <div className="lg:hidden py-3 sm:py-4 border-t border-light-gray">
               {/* Mobile Search */}
-              <form onSubmit={handleSearch} className="relative mb-4">
+              <form onSubmit={handleSearch} className="relative mb-3 sm:mb-4">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-secondary" />
                 <Input
                   type="text"
                   placeholder="Search..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 pr-4 py-3 w-full border-light-gray focus:border-primary text-base"
+                  className="pl-10 pr-4 py-2.5 sm:py-3 w-full border-light-gray focus:border-primary text-sm sm:text-base"
                 />
               </form>
               
-              <nav className="flex flex-col space-y-3">
+              <nav className="flex flex-col space-y-2 sm:space-y-3">
                 {navigation.map((item) => (
                   item.dropdown ? (
                     <div key={item.name} className="space-y-2">
@@ -265,9 +265,9 @@ export default function Layout() {
                     </Link>
                   )
                 ))}
-                <div className="pt-2">
+                <div className="pt-3 sm:pt-4">
                   <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
-                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full py-3 text-base">
+                    <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full py-2.5 sm:py-3 text-sm sm:text-base">
                       Get Quote
                     </Button>
                   </Link>
@@ -285,84 +285,84 @@ export default function Layout() {
       </main>
       {/* Footer */}
       <footer className="bg-gradient-to-br from-dark-gray to-foreground text-white" role="contentinfo" aria-label="Site footer">
-        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[100rem] mx-auto mobile-container-spacing">
           {/* Main Footer Content */}
-          <div className="border-t border-white/10 py-8">
+          <div className="border-t border-white/10 py-6 sm:py-8">
             <div className="text-center">
-              <h3 className="text-xl font-heading text-white mb-3">Stay Updated</h3>
-              <p className="text-gray-300 mb-6 max-w-md mx-auto">
+              <h3 className="mobile-heading-tertiary text-white mb-3">Stay Updated</h3>
+              <p className="mobile-text-body text-gray-300 mb-4 sm:mb-6 max-w-md mx-auto">
                 Get the latest digital marketing insights and tips delivered to your inbox.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 max-w-md mx-auto">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="flex-1 px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm sm:text-base"
                   aria-label="Email address for newsletter"
                 />
-                <button className="px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray">
+                <button className="px-4 sm:px-6 py-2 sm:py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray text-sm sm:text-base">
                   Subscribe
                 </button>
               </div>
             </div>
           </div>
 
-          <div className="py-16 lg:py-20">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+          <div className="py-12 sm:py-16 lg:py-20">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12">
               {/* Company Info - Takes more space on larger screens */}
               <div className="lg:col-span-4">
-                <div className="flex items-center mb-6">
+                <div className="flex items-center mb-4 sm:mb-6">
                   <Image 
                     src="https://static.wixstatic.com/media/f650f9_8f4cac9948dd449e824fcf229233b85e~mv2.png"
                     alt="Look A Like Solutions Logo"
                     width={40}
-                    className="h-8 w-8 lg:h-10 lg:w-10 mr-3"
+                    className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 mr-2 sm:mr-3"
                   />
-                  <h2 className="text-xl lg:text-2xl font-heading text-white">Look A Like Solutions</h2>
+                  <h2 className="mobile-heading-tertiary lg:text-2xl font-heading text-white">Look A Like Solutions</h2>
                 </div>
-                <p className="font-paragraph text-gray-300 mb-6 text-base lg:text-lg leading-relaxed">
+                <p className="mobile-text-body text-gray-300 mb-4 sm:mb-6 lg:text-lg leading-relaxed">
                   Your trusted digital marketing partner in Bengaluru. We help businesses grow their online presence with data-driven strategies and innovative solutions.
                 </p>
                 
                 {/* Social Media Links with improved accessibility */}
-                <div className="mb-6">
-                  <h3 className="text-sm font-heading text-white mb-3 uppercase tracking-wide">Follow Us</h3>
-                  <div className="flex space-x-4">
+                <div className="mb-4 sm:mb-6">
+                  <h3 className="mobile-text-small font-heading text-white mb-2 sm:mb-3 uppercase tracking-wide">Follow Us</h3>
+                  <div className="flex space-x-3 sm:space-x-4">
                     <a 
                       href="https://facebook.com/lookalikesolutions" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="group w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray"
+                      className="group w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray"
                       aria-label="Follow us on Facebook"
                     >
-                      <Facebook className="h-5 w-5 text-white group-hover:text-white transition-colors" />
+                      <Facebook className="h-4 w-4 sm:h-5 sm:w-5 text-white group-hover:text-white transition-colors" />
                     </a>
                     <a 
                       href="https://instagram.com/lookalikesolutions" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="group w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray"
+                      className="group w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray"
                       aria-label="Follow us on Instagram"
                     >
-                      <Instagram className="h-5 w-5 text-white group-hover:text-white transition-colors" />
+                      <Instagram className="h-4 w-4 sm:h-5 sm:w-5 text-white group-hover:text-white transition-colors" />
                     </a>
                     <a 
                       href="https://youtube.com/lookalikesolutions" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="group w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray"
+                      className="group w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray"
                       aria-label="Follow us on YouTube"
                     >
-                      <Youtube className="h-5 w-5 text-white group-hover:text-white transition-colors" />
+                      <Youtube className="h-4 w-4 sm:h-5 sm:w-5 text-white group-hover:text-white transition-colors" />
                     </a>
                     <a 
                       href="https://linkedin.com/company/lookalikesolutions" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="group w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray"
+                      className="group w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray"
                       aria-label="Connect with us on LinkedIn"
                     >
-                      <Linkedin className="h-5 w-5 text-white group-hover:text-white transition-colors" />
+                      <Linkedin className="h-4 w-4 sm:h-5 sm:w-5 text-white group-hover:text-white transition-colors" />
                     </a>
                   </div>
                 </div>
@@ -370,14 +370,14 @@ export default function Layout() {
 
               {/* Quick Links */}
               <div className="lg:col-span-2">
-                <h3 className="text-lg font-heading text-white mb-6">Quick Links</h3>
+                <h3 className="mobile-heading-tertiary text-white mb-4 sm:mb-6">Quick Links</h3>
                 <nav aria-label="Footer navigation">
-                  <ul className="space-y-3">
+                  <ul className="space-y-2 sm:space-y-3">
                     {navigation.slice(0, 6).map((item) => (
                       <li key={item.name}>
                         <Link 
                           to={item.href} 
-                          className="font-paragraph text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm lg:text-base inline-block"
+                          className="mobile-text-body text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
                         >
                           {item.name}
                         </Link>
@@ -389,14 +389,14 @@ export default function Layout() {
 
               {/* Services */}
               <div className="lg:col-span-3">
-                <h3 className="text-lg font-heading text-white mb-6">Our Services</h3>
+                <h3 className="mobile-heading-tertiary text-white mb-4 sm:mb-6">Our Services</h3>
                 <nav aria-label="Services navigation">
-                  <ul className="space-y-3">
+                  <ul className="space-y-2 sm:space-y-3">
                     {navigation.find(item => item.dropdown)?.dropdown?.slice(0, 6).map((service) => (
                       <li key={service.name}>
                         <Link 
                           to={service.href} 
-                          className="font-paragraph text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 text-sm lg:text-base inline-block"
+                          className="mobile-text-body text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
                         >
                           {service.name}
                         </Link>
@@ -408,26 +408,26 @@ export default function Layout() {
 
               {/* Contact Info */}
               <div className="lg:col-span-3">
-                <h3 className="text-lg font-heading text-white mb-6">Get In Touch</h3>
-                <div className="space-y-4">
+                <h3 className="mobile-heading-tertiary text-white mb-4 sm:mb-6">Get In Touch</h3>
+                <div className="space-y-3 sm:space-y-4">
                   <div className="flex items-start group">
-                    <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-primary/30 transition-colors">
-                      <MapPin className="h-5 w-5 text-primary" />
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary/20 rounded-lg flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0 group-hover:bg-primary/30 transition-colors">
+                      <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-paragraph text-gray-300 text-sm lg:text-base leading-relaxed">
+                      <p className="mobile-text-body text-gray-300 leading-relaxed">
                         Bengaluru, Karnataka<br />India
                       </p>
                     </div>
                   </div>
                   
                   <div className="flex items-center group">
-                    <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-primary/30 transition-colors">
-                      <Phone className="h-5 w-5 text-primary" />
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary/20 rounded-lg flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0 group-hover:bg-primary/30 transition-colors">
+                      <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                     </div>
                     <a 
                       href="tel:+919731588244" 
-                      className="font-paragraph text-gray-300 hover:text-white transition-colors text-sm lg:text-base focus:outline-none focus:text-white"
+                      className="mobile-text-body text-gray-300 hover:text-white transition-colors focus:outline-none focus:text-white"
                       aria-label="Call us at +91-9731588244"
                     >
                       +91-9731588244
@@ -435,24 +435,24 @@ export default function Layout() {
                   </div>
                   
                   <div className="flex items-center group">
-                    <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-primary/30 transition-colors">
-                      <Mail className="h-5 w-5 text-primary" />
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-primary/20 rounded-lg flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0 group-hover:bg-primary/30 transition-colors">
+                      <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                     </div>
                     <a 
                       href="mailto:info@lookalikesolutions.com" 
-                      className="font-paragraph text-gray-300 hover:text-white transition-colors text-sm lg:text-base break-all focus:outline-none focus:text-white"
+                      className="mobile-text-body text-gray-300 hover:text-white transition-colors break-all focus:outline-none focus:text-white"
                       aria-label="Email us at info@lookalikesolutions.com"
                     >
                       info@lookalikesolutions.com
                     </a>
                   </div>
                   
-                  <div className="mt-6 pt-4 border-t border-white/10">
+                  <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-white/10">
                     <WhatsAppButton 
                       variant="inline" 
                       phoneNumber="+919731588244"
                       message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
-                      className="w-full bg-green-600 hover:bg-green-700 text-white border-0 rounded-lg py-3 px-4 font-medium transition-colors duration-200"
+                      className="w-full bg-green-600 hover:bg-green-700 text-white border-0 rounded-lg py-2.5 sm:py-3 px-3 sm:px-4 font-medium transition-colors duration-200 text-sm sm:text-base"
                     />
                   </div>
                 </div>
@@ -462,36 +462,36 @@ export default function Layout() {
 
           {/* Newsletter Signup Section */}
           {/* Bottom Footer */}
-          <div className="border-t border-white/10 py-6">
-            <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
-              <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
-                <p className="font-paragraph text-gray-400 text-sm text-center sm:text-left">
+          <div className="border-t border-white/10 py-4 sm:py-6">
+            <div className="flex flex-col lg:flex-row justify-between items-center space-y-3 sm:space-y-4 lg:space-y-0">
+              <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 lg:space-x-6">
+                <p className="mobile-text-small text-gray-400 text-center sm:text-left">
                   © 2024 Look A Like Solutions. All rights reserved.
                 </p>
-                <div className="flex items-center space-x-2 text-gray-400 text-sm">
+                <div className="flex items-center space-x-2 text-gray-400 mobile-text-small">
                   <span>Made with</span>
-                  <Heart className="h-4 w-4 text-red-500 fill-current" />
+                  <Heart className="h-3 w-3 sm:h-4 sm:w-4 text-red-500 fill-current" />
                   <span>in Bengaluru</span>
                 </div>
               </div>
               
               <nav aria-label="Legal links">
-                <div className="flex flex-wrap justify-center lg:justify-end space-x-6">
+                <div className="flex flex-wrap justify-center lg:justify-end space-x-4 sm:space-x-6">
                   <Link 
                     to="/privacy" 
-                    className="font-paragraph text-gray-400 hover:text-white transition-colors text-sm focus:outline-none focus:text-white"
+                    className="mobile-text-small text-gray-400 hover:text-white transition-colors focus:outline-none focus:text-white"
                   >
                     Privacy Policy
                   </Link>
                   <Link 
                     to="/terms" 
-                    className="font-paragraph text-gray-400 hover:text-white transition-colors text-sm focus:outline-none focus:text-white"
+                    className="mobile-text-small text-gray-400 hover:text-white transition-colors focus:outline-none focus:text-white"
                   >
                     Terms of Service
                   </Link>
                   <Link 
                     to="/sitemap" 
-                    className="font-paragraph text-gray-400 hover:text-white transition-colors text-sm focus:outline-none focus:text-white"
+                    className="mobile-text-small text-gray-400 hover:text-white transition-colors focus:outline-none focus:text-white"
                   >
                     Sitemap
                   </Link>

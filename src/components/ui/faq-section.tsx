@@ -21,26 +21,26 @@ export function FAQSection({ faqs, title = "Frequently Asked Questions", descrip
   };
 
   return (
-    <section className="py-16 sm:py-24 lg:py-32 bg-light-gray">
-      <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-heading text-dark-gray mb-4 sm:mb-6">{title}</h2>
+    <section className="mobile-section-spacing bg-light-gray">
+      <div className="max-w-[100rem] mx-auto mobile-container-spacing">
+        <div className="text-center mobile-margin-element">
+          <h2 className="mobile-heading-primary text-dark-gray mobile-margin-element">{title}</h2>
           {description && (
-            <p className="text-base sm:text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+            <p className="mobile-text-body text-secondary max-w-3xl mx-auto">
               {description}
             </p>
           )}
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-3 sm:space-y-4">
+        <div className="max-w-4xl mx-auto space-y-2 sm:space-y-3 lg:space-y-4">
           {faqs.map((faq, index) => (
             <Card key={index} className="border-0 shadow-sm">
               <CardContent className="p-0">
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full p-4 sm:p-6 text-left flex justify-between items-start hover:bg-gray-50 transition-colors"
+                  className="w-full p-3 sm:p-4 lg:p-6 text-left flex justify-between items-start hover:bg-gray-50 transition-colors"
                 >
-                  <h3 className="text-base sm:text-lg font-heading text-dark-gray pr-3 sm:pr-4 leading-relaxed">
+                  <h3 className="mobile-heading-tertiary text-dark-gray pr-2 sm:pr-3 lg:pr-4 leading-relaxed">
                     {faq.question}
                   </h3>
                   {openIndex === index ? (
@@ -50,8 +50,8 @@ export function FAQSection({ faqs, title = "Frequently Asked Questions", descrip
                   )}
                 </button>
                 {openIndex === index && (
-                  <div className="px-4 pb-4 sm:px-6 sm:pb-6">
-                    <p className="font-paragraph text-secondary leading-relaxed text-sm sm:text-base">
+                  <div className="px-3 pb-3 sm:px-4 sm:pb-4 lg:px-6 lg:pb-6">
+                    <p className="mobile-text-body text-secondary leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
