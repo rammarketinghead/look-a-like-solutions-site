@@ -289,7 +289,7 @@ export default function Layout() {
 
       {/* Footer */}
       <footer className="bg-dark-gray text-background">
-        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 bg-white text-secondary">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 bg-white text-foreground">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {/* Company Info */}
             <div className="sm:col-span-2 lg:col-span-1">
