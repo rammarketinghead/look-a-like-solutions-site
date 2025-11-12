@@ -290,14 +290,14 @@ export default function Layout() {
           <div className="border-t border-white/10 py-6 sm:py-8">
             <div className="text-center">
               <h3 className="mobile-heading-tertiary text-white mb-3">Stay Updated</h3>
-              <p className="mobile-text-body text-gray-300 mb-4 sm:mb-6 max-w-md mx-auto">
+              <p className="mobile-text-body mb-4 sm:mb-6 max-w-md mx-auto text-dark-gray">
                 Get the latest digital marketing insights and tips delivered to your inbox.
               </p>
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 max-w-md mx-auto">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm sm:text-base"
+                  className="flex-1 px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm sm:text-base border-[1px] border-[#6c757d] border-solid"
                   aria-label="Email address for newsletter"
                 />
                 <button className="px-4 sm:px-6 py-2 sm:py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray text-sm sm:text-base">
