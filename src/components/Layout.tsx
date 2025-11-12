@@ -285,7 +285,7 @@ export default function Layout() {
       </main>
       {/* Footer */}
       <footer className="bg-gradient-to-br from-dark-gray to-foreground text-white" role="contentinfo" aria-label="Site footer">
-        <div className="max-w-[100rem] mx-auto mobile-container-spacing">
+        <div className="max-w-[100rem] mx-auto mobile-container-spacing bg-primary-foreground">
           {/* Main Footer Content */}
           <div className="border-t border-white/10 py-6 sm:py-8">
             <div className="text-center">
@@ -318,9 +318,9 @@ export default function Layout() {
                     width={40}
                     className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 mr-2 sm:mr-3"
                   />
-                  <h2 className="mobile-heading-tertiary lg:text-2xl font-heading text-white">Look A Like Solutions</h2>
+                  <h2 className="mobile-heading-tertiary lg:text-2xl font-heading text-primary">Look A Like Solutions</h2>
                 </div>
-                <p className="mobile-text-body text-gray-300 mb-4 sm:mb-6 lg:text-lg leading-relaxed">
+                <p className="mobile-text-body mb-4 sm:mb-6 lg:text-lg leading-relaxed text-secondary">
                   Your trusted digital marketing partner in Bengaluru. We help businesses grow their online presence with data-driven strategies and innovative solutions.
                 </p>
                 
@@ -332,7 +332,7 @@ export default function Layout() {
                       href="https://facebook.com/lookalikesolutions" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="group w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray"
+                      className="group w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray bg-secondary"
                       aria-label="Follow us on Facebook"
                     >
                       <Facebook className="h-4 w-4 sm:h-5 sm:w-5 text-white group-hover:text-white transition-colors" />
@@ -341,7 +341,7 @@ export default function Layout() {
                       href="https://instagram.com/lookalikesolutions" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="group w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray"
+                      className="group w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray bg-secondary"
                       aria-label="Follow us on Instagram"
                     >
                       <Instagram className="h-4 w-4 sm:h-5 sm:w-5 text-white group-hover:text-white transition-colors" />
