@@ -427,7 +427,7 @@ export default function Layout() {
                     </div>
                     <a 
                       href="tel:+919731588244" 
-                      className="mobile-text-body text-gray-300 hover:text-white transition-colors focus:outline-none focus:text-white"
+                      className="mobile-text-body hover:text-white transition-colors focus:outline-none focus:text-white text-secondary"
                       aria-label="Call us at +91-9731588244"
                     >
                       +91-9731588244
@@ -440,7 +440,7 @@ export default function Layout() {
                     </div>
                     <a 
                       href="mailto:info@lookalikesolutions.com" 
-                      className="mobile-text-body text-gray-300 hover:text-white transition-colors break-all focus:outline-none focus:text-white"
+                      className="mobile-text-body hover:text-white transition-colors break-all focus:outline-none focus:text-white text-secondary"
                       aria-label="Email us at info@lookalikesolutions.com"
                     >
                       info@lookalikesolutions.com
