@@ -21,32 +21,6 @@ const scrollToContact = () => {
 };
 
 export default function DigitalTrainingPage() {
-  const trainingFAQs = [
-    {
-      question: "Who should attend digital marketing training?",
-      answer: "Our training is perfect for business owners, marketing professionals, entrepreneurs, students, and anyone looking to enhance their digital marketing skills. We offer different levels from beginner to advanced, so no prior experience is required for entry-level courses."
-    },
-    {
-      question: "Are the training sessions conducted online or offline?",
-      answer: "We offer both online and offline training options. Online sessions are conducted via Zoom with interactive elements, while offline sessions are held at our Bengaluru office or your location for corporate training. All sessions include hands-on practical exercises."
-    },
-    {
-      question: "Do you provide certificates upon completion?",
-      answer: "Yes! All participants receive a certificate of completion from Look A Like Solutions. Our advanced courses also include industry-recognized certifications from Google, Facebook, and other platforms as part of the curriculum."
-    },
-    {
-      question: "What is included in the training materials?",
-      answer: "Training includes comprehensive course materials, video recordings of sessions, practical worksheets, case studies, templates, tools access, and ongoing support. You'll also get access to our private community for continued learning and networking."
-    },
-    {
-      question: "Do you offer customized training for companies?",
-      answer: "Absolutely! We provide customized corporate training programs tailored to your team's needs and industry. This includes on-site training, specific use cases, and integration with your existing marketing tools and processes."
-    },
-    {
-      question: "What support is available after the training?",
-      answer: "We provide 3 months of post-training support including Q&A sessions, email support, access to updated materials, and invitations to our monthly digital marketing workshops. Advanced course participants also get 1-on-1 consultation sessions."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -359,12 +333,7 @@ export default function DigitalTrainingPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <FAQSection 
-        faqs={trainingFAQs}
-        title="Digital Marketing Training FAQ"
-        description="Get answers to common questions about our digital marketing training programs."
-      />
+
 
       {/* Contact Form Section */}
       <div id="contact-form">

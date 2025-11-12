@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
-import { FAQSection } from '@/components/ui/faq-section';
+
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { ROICalculator } from '@/components/ui/roi-calculator';
 import { Link } from 'react-router-dom';
@@ -21,32 +21,6 @@ const scrollToContact = () => {
 };
 
 export default function DataAnalyticsPage() {
-  const analyticsFAQs = [
-    {
-      question: "What analytics tools and platforms do you use?",
-      answer: "We work with Google Analytics, Google Tag Manager, Facebook Analytics, LinkedIn Analytics, Adobe Analytics, Mixpanel, Hotjar, and custom dashboard solutions. We choose the best tools based on your specific needs and integrate them for comprehensive data collection and analysis."
-    },
-    {
-      question: "How often do you provide analytics reports?",
-      answer: "We provide monthly comprehensive reports with weekly performance summaries. For active campaigns, we offer real-time dashboard access and can provide daily updates if needed. Emergency alerts are sent immediately for any significant performance changes."
-    },
-    {
-      question: "Can you help us understand what the data means for our business?",
-      answer: "Absolutely! We don't just provide data - we translate it into actionable insights. Our reports include clear explanations, recommendations, and strategic guidance on how to use the data to improve your marketing performance and business outcomes."
-    },
-    {
-      question: "Do you set up tracking for new campaigns and websites?",
-      answer: "Yes, we handle complete analytics setup including goal configuration, conversion tracking, custom events, audience segmentation, and attribution modeling. We ensure all your marketing activities are properly tracked from day one."
-    },
-    {
-      question: "How do you ensure data accuracy and privacy compliance?",
-      answer: "We follow strict data governance practices, implement proper tracking protocols, and ensure GDPR compliance. We regularly audit data quality, remove bot traffic, and maintain clean, accurate datasets for reliable insights."
-    },
-    {
-      question: "Can you create custom dashboards for our specific needs?",
-      answer: "Yes, we create custom dashboards using tools like Google Data Studio, Tableau, or Power BI. These dashboards are tailored to your KPIs and provide real-time visibility into the metrics that matter most to your business."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -359,12 +333,7 @@ export default function DataAnalyticsPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <FAQSection 
-        faqs={analyticsFAQs}
-        title="Data Analytics FAQ"
-        description="Get answers to common questions about our data analytics and reporting services."
-      />
+
 
       {/* Contact Form Section */}
       <div id="contact-form">

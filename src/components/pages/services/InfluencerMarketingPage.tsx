@@ -21,32 +21,6 @@ const scrollToContact = () => {
 };
 
 export default function InfluencerMarketingPage() {
-  const influencerFAQs = [
-    {
-      question: "How do you find the right influencers for my brand?",
-      answer: "We use advanced tools and our extensive network to identify influencers who align with your brand values, target audience, and campaign goals. We analyze engagement rates, audience demographics, content quality, and brand safety to ensure the perfect match."
-    },
-    {
-      question: "What's the typical ROI for influencer marketing campaigns?",
-      answer: "Our influencer campaigns typically generate 4-6x ROI, with some campaigns achieving even higher returns. ROI varies based on campaign objectives, influencer tier, and industry. We track metrics like engagement, reach, website traffic, and conversions to measure success."
-    },
-    {
-      question: "Do you work with micro-influencers or only major influencers?",
-      answer: "We work with influencers across all tiers - from nano-influencers (1K-10K followers) to mega-influencers (1M+ followers). Often, micro-influencers provide better engagement rates and more authentic connections with niche audiences, making them highly effective for many campaigns."
-    },
-    {
-      question: "How do you ensure content quality and brand alignment?",
-      answer: "We provide detailed briefs, review content before publication, and maintain ongoing communication with influencers. Our team ensures all content meets brand guidelines while allowing influencers creative freedom to maintain authenticity with their audience."
-    },
-    {
-      question: "What platforms do you focus on for influencer marketing?",
-      answer: "We manage influencer campaigns across Instagram, YouTube, Facebook, LinkedIn, Twitter, and emerging platforms like TikTok. Platform selection depends on your target audience, campaign objectives, and where your potential customers are most active."
-    },
-    {
-      question: "How long does it take to see results from influencer campaigns?",
-      answer: "Initial engagement and brand awareness can be seen immediately during campaign launch. Meaningful metrics like website traffic and conversions typically show within 1-2 weeks. Long-term brand building and follower growth develop over 1-3 months of consistent campaigns."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background">

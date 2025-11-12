@@ -33,6 +33,7 @@ import SERPSnippetPreviewPage from '@/components/pages/tools/SERPSnippetPreviewP
 import BacklinkCheckerPage from '@/components/pages/tools/BacklinkCheckerPage';
 import UTMLinkBuilderPage from '@/components/pages/tools/UTMLinkBuilderPage';
 import WebsiteSpeedTestPage from '@/components/pages/tools/WebsiteSpeedTestPage';
+import SocialMediaPostGeneratorPage from '@/components/pages/tools/SocialMediaPostGeneratorPage';
 
 // Layout wrapper that includes ScrollToTop
 function LayoutWithScrollToTop() {
@@ -105,6 +106,10 @@ const router = createBrowserRouter([
       {
         path: "tools/website-speed-test",
         element: <WebsiteSpeedTestPage />,
+      },
+      {
+        path: "tools/social-media-post-generator",
+        element: <SocialMediaPostGeneratorPage />,
       },
       {
         path: "services/seo",

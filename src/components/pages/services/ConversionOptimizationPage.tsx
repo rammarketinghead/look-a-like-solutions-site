@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
-import { FAQSection } from '@/components/ui/faq-section';
+
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { ROICalculator } from '@/components/ui/roi-calculator';
 import { Link } from 'react-router-dom';
@@ -21,32 +21,6 @@ const scrollToContact = () => {
 };
 
 export default function ConversionOptimizationPage() {
-  const croFAQs = [
-    {
-      question: "What is conversion rate optimization (CRO)?",
-      answer: "CRO is the systematic process of increasing the percentage of website visitors who complete desired actions (conversions). This includes purchases, form submissions, newsletter signups, or any other goal. We use data analysis, user feedback, and A/B testing to improve conversion rates."
-    },
-    {
-      question: "How long does it take to see results from CRO?",
-      answer: "Initial improvements can often be seen within 2-4 weeks of implementing changes. However, meaningful CRO results typically develop over 2-3 months as we gather sufficient data, run multiple tests, and implement optimizations. Long-term CRO is an ongoing process."
-    },
-    {
-      question: "What tools do you use for conversion optimization?",
-      answer: "We use tools like Google Optimize, Hotjar, Crazy Egg, Optimizely, VWO, Google Analytics, and heat mapping software. We also conduct user surveys, usability testing, and analyze user behavior to identify optimization opportunities."
-    },
-    {
-      question: "How do you determine what to test first?",
-      answer: "We start with a comprehensive audit of your website, analyzing user behavior data, conversion funnels, and identifying the biggest opportunities for improvement. We prioritize tests based on potential impact, traffic volume, and ease of implementation."
-    },
-    {
-      question: "What types of elements do you typically test?",
-      answer: "We test headlines, call-to-action buttons, forms, page layouts, images, pricing displays, navigation, checkout processes, landing page designs, and overall user experience elements. Every element that could impact conversions is a potential test candidate."
-    },
-    {
-      question: "How do you measure the success of CRO efforts?",
-      answer: "We track conversion rates, revenue per visitor, average order value, form completion rates, bounce rates, and other relevant KPIs. We provide detailed reports showing the impact of each optimization and the overall improvement in your conversion performance."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -359,12 +333,7 @@ export default function ConversionOptimizationPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <FAQSection 
-        faqs={croFAQs}
-        title="Conversion Optimization FAQ"
-        description="Get answers to common questions about our conversion rate optimization services."
-      />
+
 
       {/* Contact Form Section */}
       <div id="contact-form">

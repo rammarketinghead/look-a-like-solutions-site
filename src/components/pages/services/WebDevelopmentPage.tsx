@@ -23,28 +23,28 @@ const scrollToContact = () => {
 export default function WebDevelopmentPage() {
   const webDevFAQs = [
     {
-      question: "How long does it take to build a website?",
-      answer: "Timeline varies based on complexity. A basic business website takes 2-4 weeks, e-commerce sites take 4-8 weeks, and custom web applications can take 8-16 weeks. We provide detailed timelines during project planning and keep you updated throughout development."
+      question: "How long does it take to develop a website?",
+      answer: "Development timelines vary based on complexity. A basic website takes 2-4 weeks, professional websites take 4-8 weeks, and e-commerce solutions take 8-12 weeks. We provide detailed timelines during project planning and keep you updated throughout the process."
     },
     {
-      question: "Do you provide website maintenance after launch?",
-      answer: "Yes, we offer comprehensive maintenance packages including security updates, content updates, performance optimization, backup management, and technical support. Our maintenance plans start from ₹5,000/month and ensure your website stays secure and up-to-date."
+      question: "Do you provide ongoing maintenance and support?",
+      answer: "Yes! We offer comprehensive maintenance packages including security updates, content updates, performance optimization, backup management, and technical support. Our maintenance plans ensure your website stays secure, fast, and up-to-date."
     },
     {
       question: "Will my website be mobile-friendly and responsive?",
-      answer: "Absolutely! All our websites are built with mobile-first design principles and are fully responsive across all devices. We test on multiple screen sizes and browsers to ensure optimal user experience everywhere."
+      answer: "Absolutely! All our websites are built with mobile-first design principles and are fully responsive across all devices. We test on various screen sizes and ensure optimal user experience on smartphones, tablets, and desktops."
     },
     {
-      question: "Can you help with website content and SEO?",
-      answer: "Yes, we provide content creation services and build all websites with SEO best practices. This includes optimized page structure, meta tags, fast loading speeds, and clean code. We can also integrate with our SEO services for ongoing optimization."
+      question: "Can you help with website hosting and domain setup?",
+      answer: "Yes, we can handle all technical aspects including domain registration, hosting setup, SSL certificates, and email configuration. We work with reliable hosting providers and can recommend the best solution for your needs and budget."
     },
     {
-      question: "What platforms and technologies do you use?",
-      answer: "We work with various technologies including WordPress, React, Next.js, Shopify, WooCommerce, and custom solutions. We choose the best technology stack based on your specific needs, budget, and long-term goals."
+      question: "Do you develop mobile apps for both iOS and Android?",
+      answer: "Yes, we develop native apps for both iOS and Android platforms, as well as cross-platform solutions using React Native and Flutter. We'll recommend the best approach based on your target audience, budget, and feature requirements."
     },
     {
-      question: "Do you provide hosting and domain services?",
-      answer: "Yes, we can handle domain registration and provide reliable hosting solutions. We work with premium hosting providers to ensure fast loading speeds, 99.9% uptime, and robust security. Hosting costs are separate from development fees."
+      question: "What technologies do you use for web development?",
+      answer: "We use modern technologies including React, Next.js, TypeScript, Node.js, and various CMS platforms like WordPress and Shopify. We choose the best technology stack based on your project requirements, scalability needs, and long-term goals."
     }
   ];
 

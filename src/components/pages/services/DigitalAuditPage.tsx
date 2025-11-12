@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
-import { FAQSection } from '@/components/ui/faq-section';
+
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { ROICalculator } from '@/components/ui/roi-calculator';
 import { Link } from 'react-router-dom';
@@ -21,32 +21,6 @@ const scrollToContact = () => {
 };
 
 export default function DigitalAuditPage() {
-  const auditFAQs = [
-    {
-      question: "What does a digital marketing audit include?",
-      answer: "Our comprehensive audit covers website performance, SEO analysis, social media presence, content quality, paid advertising effectiveness, email marketing performance, conversion optimization opportunities, competitor analysis, and technical infrastructure. You'll receive a detailed report with actionable recommendations."
-    },
-    {
-      question: "How long does a digital marketing audit take?",
-      answer: "A complete digital marketing audit typically takes 7-14 business days, depending on the complexity of your digital presence. We'll provide you with a timeline during our initial consultation and keep you updated throughout the process."
-    },
-    {
-      question: "What will I receive after the audit is complete?",
-      answer: "You'll receive a comprehensive 30-50 page report with detailed findings, prioritized recommendations, implementation roadmap, competitive analysis, and a 60-minute strategy session to discuss the results and next steps. All findings include specific action items and expected outcomes."
-    },
-    {
-      question: "Do you provide implementation services after the audit?",
-      answer: "Yes! While the audit provides the roadmap, we offer full implementation services to execute the recommendations. We can handle everything from technical fixes to complete digital marketing strategy implementation, or work with your existing team."
-    },
-    {
-      question: "How often should I get a digital marketing audit?",
-      answer: "We recommend annual comprehensive audits for most businesses, with quarterly mini-audits for rapidly growing companies or those in competitive markets. Major website changes, new product launches, or significant business pivots also warrant fresh audits."
-    },
-    {
-      question: "What makes your audit different from free online tools?",
-      answer: "Our audits combine advanced tools with human expertise and industry experience. We provide context, prioritization, and actionable strategies that automated tools can't offer. Our recommendations are tailored to your specific business goals and market conditions."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -359,12 +333,7 @@ export default function DigitalAuditPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <FAQSection 
-        faqs={auditFAQs}
-        title="Digital Marketing Audit FAQ"
-        description="Get answers to common questions about our digital marketing audit services."
-      />
+
 
       {/* Contact Form Section */}
       <div id="contact-form">

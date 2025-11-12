@@ -6,7 +6,7 @@ import { BlogPosts } from '@/entities';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
-import { FAQSection } from '@/components/ui/faq-section';
+
 import { BlogSidebar } from '@/components/ui/blog-sidebar';
 import { 
   ArrowLeft, 
@@ -588,12 +588,7 @@ export default function BlogPostPage() {
         </section>
       )}
 
-      {/* FAQ Section */}
-      <FAQSection 
-        faqs={blogFAQs}
-        title="Blogging & Content Marketing FAQs"
-        description="Common questions about content marketing and blogging for business growth."
-      />
+
 
       {/* CTA Section */}
       <section className="mobile-section bg-dark-gray">

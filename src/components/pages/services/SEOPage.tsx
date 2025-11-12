@@ -21,32 +21,6 @@ const scrollToContact = () => {
 };
 
 export default function SEOPage() {
-  const seoFAQs = [
-    {
-      question: "How long does it take to see SEO results?",
-      answer: "SEO is a long-term strategy that typically shows initial improvements in 3-4 months, with significant results visible in 6-12 months. The timeline depends on your website's current state, competition level, and the keywords you're targeting. We provide monthly progress reports to track improvements."
-    },
-    {
-      question: "What's included in your SEO audit?",
-      answer: "Our comprehensive SEO audit includes technical SEO analysis, on-page optimization review, keyword research, competitor analysis, backlink profile assessment, site speed evaluation, mobile-friendliness check, and content gap analysis. You'll receive a detailed report with actionable recommendations."
-    },
-    {
-      question: "Do you guarantee first page rankings?",
-      answer: "While we can't guarantee specific rankings due to Google's algorithm changes, we focus on sustainable, white-hat techniques that improve your overall search visibility. Our track record shows 85% of our clients achieve first-page rankings for their target keywords within 6-12 months."
-    },
-    {
-      question: "How do you choose keywords for my business?",
-      answer: "We conduct thorough keyword research using industry tools, analyzing search volume, competition level, user intent, and relevance to your business. We focus on a mix of high-volume competitive keywords and long-tail keywords with higher conversion potential."
-    },
-    {
-      question: "What's the difference between on-page and off-page SEO?",
-      answer: "On-page SEO involves optimizing elements on your website like content, meta tags, headers, and site structure. Off-page SEO focuses on external factors like backlinks, social signals, and online reputation. Both are crucial for comprehensive SEO success."
-    },
-    {
-      question: "How do you measure SEO success?",
-      answer: "We track multiple metrics including organic traffic growth, keyword rankings, click-through rates, conversion rates, bounce rate, page load speed, and ultimately, leads and sales generated from organic search. Monthly reports show progress across all these metrics."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background">

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
 import { FAQSection } from '@/components/ui/faq-section';
+
 import { ArrowRight, Target, TrendingUp, Users, Award, Play, Star, CheckCircle } from 'lucide-react';
 
 const fadeInVariants = {
@@ -503,11 +504,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <FAQSection 
-        faqs={homeFAQs}
-        description="Get answers to common questions about our digital marketing services and how we can help grow your business."
-      />
+
 
       {/* CTA Section */}
       <section className="mobile-section bg-dark-gray">

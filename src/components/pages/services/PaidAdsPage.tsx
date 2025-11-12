@@ -21,32 +21,6 @@ const scrollToContact = () => {
 };
 
 export default function PaidAdsPage() {
-  const paidAdsFAQs = [
-    {
-      question: "What's the minimum budget needed for paid advertising?",
-      answer: "We recommend a minimum monthly ad spend of ₹20,000 for Google Ads and ₹15,000 for Facebook/Instagram ads to see meaningful results. However, we can work with smaller budgets for local businesses. Our management fee is separate from your ad spend and varies based on campaign complexity."
-    },
-    {
-      question: "How quickly can I see results from paid advertising?",
-      answer: "Paid advertising can generate immediate traffic and leads. You'll typically see initial results within 24-48 hours of campaign launch. However, optimal performance and cost efficiency usually develop over 2-4 weeks as we gather data and optimize campaigns."
-    },
-    {
-      question: "Which platforms should I advertise on?",
-      answer: "The best platforms depend on your target audience and business goals. Google Ads is excellent for capturing high-intent searches, Facebook/Instagram for brand awareness and targeting specific demographics, LinkedIn for B2B, and YouTube for video marketing. We'll recommend the optimal platform mix based on your objectives."
-    },
-    {
-      question: "How do you ensure my ad budget isn't wasted?",
-      answer: "We use advanced targeting, negative keywords, audience exclusions, and continuous optimization to minimize wasted spend. Our team monitors campaigns daily, adjusts bids, pauses underperforming ads, and reallocates budget to top-performing campaigns to maximize your ROI."
-    },
-    {
-      question: "What kind of ROI can I expect from paid advertising?",
-      answer: "ROI varies by industry and campaign type, but our clients typically see 3-5x return on ad spend (ROAS) for well-optimized campaigns. E-commerce businesses often achieve higher ROAS, while service-based businesses focus on cost per lead. We provide detailed ROI reports monthly."
-    },
-    {
-      question: "Do you create ad creatives or do I need to provide them?",
-      answer: "We provide complete creative services including ad copy, graphics, videos, and landing page recommendations. Our creative team develops multiple ad variations for testing to find the highest-performing combinations. We can also work with existing brand assets if preferred."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background">

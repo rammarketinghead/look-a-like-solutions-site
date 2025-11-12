@@ -21,32 +21,6 @@ const scrollToContact = () => {
 };
 
 export default function SocialMediaPage() {
-  const socialMediaFAQs = [
-    {
-      question: "Which social media platforms should my business be on?",
-      answer: "The best platforms depend on your target audience and business type. We typically recommend starting with Facebook and Instagram for most businesses, LinkedIn for B2B companies, and YouTube for content-heavy brands. We'll analyze your audience and competitors to determine the optimal platform mix for your business."
-    },
-    {
-      question: "How often should we post on social media?",
-      answer: "Posting frequency varies by platform and audience. Generally, we recommend 1-2 posts per day on Instagram, 3-5 posts per week on Facebook, daily posts on LinkedIn for B2B, and 3-4 videos per week on YouTube. We create a custom content calendar based on your audience engagement patterns."
-    },
-    {
-      question: "How do you measure social media success?",
-      answer: "We track engagement rates, follower growth, reach, website traffic from social media, lead generation, and conversions. Our monthly reports include detailed analytics showing which content performs best and how social media contributes to your business goals."
-    },
-    {
-      question: "Do you create content or do we need to provide it?",
-      answer: "We offer full content creation services including graphics, videos, captions, and hashtag research. We can also work with content you provide. Our team includes graphic designers, video editors, and copywriters to ensure high-quality, engaging content."
-    },
-    {
-      question: "How long does it take to see results from social media marketing?",
-      answer: "Initial engagement improvements can be seen within 2-4 weeks. Significant follower growth and brand awareness typically develop over 2-3 months. Lead generation and sales results usually become apparent after 3-6 months of consistent, strategic posting."
-    },
-    {
-      question: "Can you help with social media advertising?",
-      answer: "Yes! We manage paid social media campaigns across Facebook, Instagram, LinkedIn, and YouTube. Our advertising services include audience targeting, ad creative development, campaign optimization, and detailed ROI reporting to maximize your advertising budget."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background">

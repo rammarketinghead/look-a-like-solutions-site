@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
 import { Input } from '@/components/ui/input';
-import { FAQSection } from '@/components/ui/faq-section';
+
 import { BaseCrudService } from '@/integrations';
 import { BlogPosts } from '@/entities';
 import { Link } from 'react-router-dom';
@@ -308,12 +308,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <FAQSection 
-        faqs={blogFAQs}
-        title="Blog & Content FAQs"
-        description="Common questions about our blog content and digital marketing insights."
-      />
+
 
       {/* CTA Section */}
       <section className="py-32 bg-dark-gray">

@@ -23,28 +23,28 @@ const scrollToContact = () => {
 export default function YouTubeGrowthPage() {
   const youtubeFAQs = [
     {
-      question: "How long does it take to grow a YouTube channel?",
-      answer: "YouTube growth varies significantly based on niche, content quality, and consistency. Typically, you'll see initial growth within 3-6 months with consistent posting and optimization. Significant growth (10K+ subscribers) usually takes 6-12 months of dedicated effort and strategic content creation."
+      question: "How long does it take to see results from YouTube growth services?",
+      answer: "Initial improvements in video optimization and channel setup can be seen within 2-4 weeks. Significant subscriber and view growth typically occurs within 2-3 months of consistent content creation and optimization. Long-term growth and monetization usually develop over 6-12 months."
     },
     {
-      question: "What type of content should I create for my business?",
-      answer: "Content strategy depends on your business and audience. We typically recommend educational content, behind-the-scenes videos, customer testimonials, product demonstrations, industry insights, and how-to tutorials. We'll develop a content strategy tailored to your specific business goals."
+      question: "Do you help with YouTube monetization and revenue generation?",
+      answer: "Yes! We help you qualify for YouTube Partner Program, optimize for ad revenue, develop sponsorship opportunities, create merchandise strategies, and explore other monetization methods like channel memberships and Super Chat. We focus on building sustainable revenue streams."
     },
     {
-      question: "Do you help with video production or just strategy?",
-      answer: "We offer both! Our services include content strategy, video production, editing, thumbnail design, SEO optimization, and channel management. We can handle everything from concept to publication, or work with your existing content creation process."
+      question: "What type of content performs best on YouTube?",
+      answer: "High-performing content varies by niche, but generally includes educational tutorials, entertaining content, behind-the-scenes videos, and content that solves specific problems. We analyze your audience and competitors to develop a content strategy that resonates with your target viewers."
     },
     {
       question: "How do you optimize videos for YouTube's algorithm?",
-      answer: "We optimize through keyword research, compelling titles and descriptions, custom thumbnails, proper tags, engagement optimization, watch time improvement, and strategic posting schedules. We stay updated with YouTube's algorithm changes and adjust strategies accordingly."
+      answer: "We optimize through strategic keyword research, compelling titles and thumbnails, proper tags and descriptions, engaging introductions, optimal video length, and encouraging viewer engagement. We also focus on watch time, click-through rates, and audience retention metrics."
     },
     {
-      question: "Can you help monetize my YouTube channel?",
-      answer: "Yes! We help with YouTube Partner Program qualification, ad revenue optimization, sponsorship opportunities, affiliate marketing integration, merchandise promotion, and developing multiple revenue streams. Monetization strategies are customized based on your niche and audience."
+      question: "Can you help with video production and editing?",
+      answer: "Absolutely! Our services include full video production from concept to final edit, including scripting, filming, professional editing, graphics, animations, and thumbnail design. We can work with your existing content or create everything from scratch."
     },
     {
-      question: "What analytics do you track for YouTube growth?",
-      answer: "We track views, watch time, subscriber growth, engagement rates, click-through rates, audience retention, traffic sources, demographics, and revenue metrics. Our monthly reports show progress and provide actionable insights for continued growth."
+      question: "How do you measure YouTube channel success?",
+      answer: "We track key metrics including subscriber growth, view counts, watch time, engagement rates (likes, comments, shares), click-through rates, audience retention, and revenue generation. Our monthly reports show progress and identify opportunities for improvement."
     }
   ];
 

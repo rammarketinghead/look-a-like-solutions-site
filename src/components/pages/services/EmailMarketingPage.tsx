@@ -21,32 +21,6 @@ const scrollToContact = () => {
 };
 
 export default function EmailMarketingPage() {
-  const emailFAQs = [
-    {
-      question: "What email marketing platforms do you work with?",
-      answer: "We work with all major email platforms including Mailchimp, Constant Contact, SendinBlue, ConvertKit, ActiveCampaign, HubSpot, and custom solutions. We'll recommend the best platform based on your needs, budget, and technical requirements."
-    },
-    {
-      question: "How do you ensure emails don't go to spam?",
-      answer: "We follow email best practices including proper authentication (SPF, DKIM, DMARC), maintaining clean lists, using reputable sending platforms, crafting compliant content, and monitoring sender reputation. We also conduct deliverability tests before major campaigns."
-    },
-    {
-      question: "What kind of open and click rates can I expect?",
-      answer: "Average open rates vary by industry but typically range from 15-25%. Click rates usually range from 2-5%. Our optimized campaigns often achieve above-average rates through targeted segmentation, compelling subject lines, and relevant content."
-    },
-    {
-      question: "Do you help with email list building?",
-      answer: "Yes! We create lead magnets, design opt-in forms, set up landing pages, and implement strategies to grow your email list organically. We focus on quality subscribers who are genuinely interested in your business rather than just quantity."
-    },
-    {
-      question: "How often should we send emails to our subscribers?",
-      answer: "Email frequency depends on your audience and content type. Generally, we recommend weekly newsletters for most businesses, with additional promotional emails as needed. We test different frequencies to find the optimal balance for your audience."
-    },
-    {
-      question: "Can you create automated email sequences?",
-      answer: "Absolutely! We specialize in creating automated email sequences including welcome series, abandoned cart recovery, post-purchase follow-ups, re-engagement campaigns, and nurture sequences. Automation helps maintain consistent communication while saving time."
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background">
