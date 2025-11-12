@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
-import { FAQSection } from '@/components/ui/faq-section';
+
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { ROICalculator } from '@/components/ui/roi-calculator';
 import { Link } from 'react-router-dom';
@@ -360,12 +360,7 @@ export default function InfluencerMarketingPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <FAQSection 
-        faqs={influencerFAQs}
-        title="Influencer Marketing FAQ"
-        description="Get answers to common questions about our influencer marketing services and how we can help amplify your brand."
-      />
+
 
       {/* Contact Form Section */}
       <div id="contact-form">

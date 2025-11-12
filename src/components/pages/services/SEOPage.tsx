@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
-import { FAQSection } from '@/components/ui/faq-section';
+
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { ROICalculator } from '@/components/ui/roi-calculator';
 import { Link } from 'react-router-dom';
@@ -539,12 +539,7 @@ export default function SEOPage() {
           <ROICalculator serviceName="SEO" />
         </div>
       </section>
-      {/* FAQ Section */}
-      <FAQSection 
-        faqs={seoFAQs}
-        title="SEO Frequently Asked Questions"
-        description="Get answers to common questions about our SEO services and how we can help improve your search rankings."
-      />
+
       {/* Contact Form Section */}
       <div id="contact-form">
         <ServiceContactForm 
