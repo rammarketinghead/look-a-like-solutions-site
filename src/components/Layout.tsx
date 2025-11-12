@@ -120,7 +120,6 @@ export default function Layout() {
           </div>
         </div>
       </div>
-
       {/* Header */}
       <header className="bg-background border-b border-light-gray sticky top-0 z-50">
         <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
@@ -278,19 +277,36 @@ export default function Layout() {
           )}
         </div>
       </header>
-
       {/* Breadcrumb */}
       <Breadcrumb />
-
       {/* Main Content */}
       <main>
         <Outlet />
       </main>
-
       {/* Footer */}
       <footer className="bg-gradient-to-br from-dark-gray to-foreground text-white" role="contentinfo" aria-label="Site footer">
         <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main Footer Content */}
+          <div className="border-t border-white/10 py-8">
+            <div className="text-center">
+              <h3 className="text-xl font-heading text-white mb-3">Stay Updated</h3>
+              <p className="text-gray-300 mb-6 max-w-md mx-auto">
+                Get the latest digital marketing insights and tips delivered to your inbox.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  aria-label="Email address for newsletter"
+                />
+                <button className="px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+
           <div className="py-16 lg:py-20">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
               {/* Company Info - Takes more space on larger screens */}
@@ -445,26 +461,6 @@ export default function Layout() {
           </div>
 
           {/* Newsletter Signup Section */}
-          <div className="border-t border-white/10 py-8">
-            <div className="text-center">
-              <h3 className="text-xl font-heading text-white mb-3">Stay Updated</h3>
-              <p className="text-gray-300 mb-6 max-w-md mx-auto">
-                Get the latest digital marketing insights and tips delivered to your inbox.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  aria-label="Email address for newsletter"
-                />
-                <button className="px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray">
-                  Subscribe
-                </button>
-              </div>
-            </div>
-          </div>
-
           {/* Bottom Footer */}
           <div className="border-t border-white/10 py-6">
             <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
@@ -505,16 +501,13 @@ export default function Layout() {
           </div>
         </div>
       </footer>
-
       {/* Chat Widget */}
       <ChatWidget />
-      
       {/* WhatsApp Floating Button */}
       <WhatsAppButton 
         phoneNumber="+919731588244"
         message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
       />
-
       {/* Exit Intent Popup */}
       {shouldShowExitIntent && <ExitIntentPopup />}
     </div>
