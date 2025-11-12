@@ -133,7 +133,7 @@ export default function Layout() {
                 className="h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 mr-2 lg:mr-3"
               />
               <span className="hidden sm:inline text-primary">Look A Like Solutions</span>
-              <span className="sm:hidden text-primary">LAS</span>
+              <span className="sm:hidden text-primary">{"Look A Like Solutions"}</span>
             </Link>
 
             {/* Desktop Navigation */}
