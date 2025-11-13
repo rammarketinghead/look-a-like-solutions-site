@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BaseCrudService } from '@/integrations';
 import { BlogPosts, CaseStudies } from '@/entities';
+import { fixSlug } from '@/utils/slugUtils';
 
 export default function SitemapPage() {
   const [sitemapXml, setSitemapXml] = useState<string>('');
@@ -72,7 +73,7 @@ export default function SitemapPage() {
       const blogPostPages = blogPosts
         .filter(post => post.slug) // Only include posts with slugs
         .map(post => ({
-          url: `/blog/${post.slug}`,
+          url: `/blog/${fixSlug(post.slug || '')}`,
           priority: '0.6',
           changefreq: 'monthly',
           lastmod: post._updatedDate ? new Date(post._updatedDate).toISOString().split('T')[0] : currentDate

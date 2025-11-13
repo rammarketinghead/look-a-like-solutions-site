@@ -38,6 +38,7 @@ import SitemapPage from '@/components/pages/SitemapPage';
 import PrivacyPolicyPage from '@/components/pages/PrivacyPolicyPage';
 import TermsOfServicePage from '@/components/pages/TermsOfServicePage';
 import CaseStudyDetailPage from '@/components/pages/CaseStudyDetailPage';
+import BlogSlugFixPage from '@/components/pages/BlogSlugFixPage';
 
 // Layout wrapper that includes ScrollToTop
 function LayoutWithScrollToTop() {
@@ -194,6 +195,10 @@ const router = createBrowserRouter([
       {
         path: "sitemap.xml",
         element: <SitemapPage />,
+      },
+      {
+        path: "admin/blog-slug-fix",
+        element: <BlogSlugFixPage />,
       },
       {
         path: "*",

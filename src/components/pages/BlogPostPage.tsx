@@ -6,6 +6,7 @@ import { BlogPosts } from '@/entities';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
+import { fixSlug, isValidSlug } from '@/utils/slugUtils';
 
 import { BlogSidebar } from '@/components/ui/blog-sidebar';
 import { 
@@ -80,12 +81,46 @@ export default function BlogPostPage() {
     const fetchPost = async () => {
       try {
         const { items } = await BaseCrudService.getAll<BlogPosts>('blogposts');
-        const foundPost = items.find(p => p.slug === slug);
+        
+        // First try to find by exact slug match
+        let foundPost = items.find(p => p.slug === slug);
+        
+        // If not found and slug looks like it might be malformed, try to find by fixed slug
+        if (!foundPost && slug) {
+          const fixedSlug = fixSlug(slug);
+          foundPost = items.find(p => fixSlug(p.slug || '') === fixedSlug);
+        }
+        
+        // If still not found, try partial matching for URLs that might contain the slug
+        if (!foundPost && slug) {
+          foundPost = items.find(p => {
+            if (!p.slug) return false;
+            const postSlug = fixSlug(p.slug);
+            return postSlug === slug || p.slug.includes(slug) || slug.includes(postSlug);
+          });
+        }
         
         if (foundPost) {
           setPost(foundPost);
+          
+          // Auto-fix the slug if it's malformed
+          if (foundPost.slug && !isValidSlug(foundPost.slug)) {
+            const correctedSlug = fixSlug(foundPost.slug);
+            if (correctedSlug && correctedSlug !== foundPost.slug) {
+              try {
+                await BaseCrudService.update<BlogPosts>('blogposts', {
+                  _id: foundPost._id,
+                  slug: correctedSlug
+                });
+                console.log(`Auto-fixed slug for post ${foundPost._id}: ${foundPost.slug} → ${correctedSlug}`);
+              } catch (error) {
+                console.error('Error auto-fixing slug:', error);
+              }
+            }
+          }
+          
           // Get related posts (excluding current post)
-          const related = items.filter(p => p.slug !== slug).slice(0, 3);
+          const related = items.filter(p => p.slug !== slug && p._id !== foundPost._id).slice(0, 3);
           setRelatedPosts(related);
         }
       } catch (error) {
@@ -106,7 +141,7 @@ export default function BlogPostPage() {
     return Math.ceil(wordCount / wordsPerMinute);
   };
 
-  const shareUrl = typeof window !== 'undefined' ? `${window.location.origin}/blog/${post?.slug}` : '';
+  const shareUrl = typeof window !== 'undefined' ? `${window.location.origin}/blog/${fixSlug(post?.slug || '')}` : '';
 
   const handleShare = async (platform: string) => {
     const title = post?.title || '';
@@ -559,7 +594,7 @@ export default function BlogPostPage() {
                         </div>
                       )}
                       <h3 className="mobile-h4 text-dark-gray mb-3 group-hover:text-primary transition-colors">
-                        <Link to={`/blog/${relatedPost.slug}`}>
+                        <Link to={`/blog/${fixSlug(relatedPost.slug || '')}`}>
                           {relatedPost.title}
                         </Link>
                       </h3>
@@ -573,7 +608,7 @@ export default function BlogPostPage() {
                           <Calendar className="h-4 w-4 mr-1" />
                           {relatedPost.publishedDate && format(new Date(relatedPost.publishedDate), 'MMM dd')}
                         </div>
-                        <Link to={`/blog/${relatedPost.slug}`}>
+                        <Link to={`/blog/${fixSlug(relatedPost.slug || '')}`}>
                           <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80">
                             Read More
                           </Button>

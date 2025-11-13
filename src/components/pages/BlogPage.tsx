@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
 import { Input } from '@/components/ui/input';
+import { fixSlug } from '@/utils/slugUtils';
 
 import { BaseCrudService } from '@/integrations';
 import { BlogPosts } from '@/entities';
@@ -233,7 +234,7 @@ export default function BlogPage() {
                         className="text-primary hover:text-primary/80 p-0 h-auto"
                         asChild
                       >
-                        <Link to={`/blog/${post.slug || post._id}`}>
+                        <Link to={`/blog/${fixSlug(post.slug || post._id)}`}>
                           Read More
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
