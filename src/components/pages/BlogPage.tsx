@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
 import { Input } from '@/components/ui/input';
+import { SEOHead } from '@/components/ui/seo-head';
 import { fixSlug } from '@/utils/slugUtils';
 
 import { BaseCrudService } from '@/integrations';
@@ -95,6 +96,13 @@ export default function BlogPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Digital Marketing Blog & Insights"
+        description="Stay updated with the latest digital marketing trends, SEO tips, social media strategies, and industry insights from Look A Like Solutions. Expert advice to grow your business online."
+        keywords="digital marketing blog, SEO tips, social media marketing, content marketing, digital marketing insights, online marketing strategies, Bengaluru digital marketing"
+        type="website"
+      />
+      
       {/* Hero Section */}
       <section className="py-32 bg-light-gray">
         <div className="max-w-[100rem] mx-auto px-8">

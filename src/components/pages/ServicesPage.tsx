@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
+import { SEOHead } from '@/components/ui/seo-head';
 import { BaseCrudService } from '@/integrations';
 import { Services } from '@/entities';
 import { Link } from 'react-router-dom';
@@ -52,6 +53,13 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Digital Marketing Services - SEO, Social Media & More"
+        description="Comprehensive digital marketing services including SEO optimization, social media marketing, paid advertising, web development, content marketing, and data analytics. Grow your business with proven strategies."
+        keywords="digital marketing services, SEO services, social media marketing, paid advertising, web development, content marketing, data analytics, conversion optimization, email marketing"
+        type="website"
+      />
+      
       {/* Hero Section */}
       <section className="py-16 sm:py-24 lg:py-32 bg-light-gray">
         <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">

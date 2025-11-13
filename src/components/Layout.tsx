@@ -7,6 +7,7 @@ import { Breadcrumb } from '@/components/ui/breadcrumb';
 import ChatWidget from '@/components/ui/chat-widget';
 import WhatsAppButton from '@/components/ui/whatsapp-button';
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
+import { SEOHead } from '@/components/ui/seo-head';
 import { Menu, X, Phone, Mail, MapPin, Search, ChevronDown, ChevronRight, Facebook, Instagram, Youtube, Linkedin, Heart, ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
@@ -95,6 +96,9 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Default SEO for pages that don't have specific SEO */}
+      <SEOHead />
+      
       {/* Top Contact Bar - Hidden on mobile for cleaner look */}
       <div className="hidden sm:block bg-dark-gray text-background py-2">
         <div className="mobile-container">

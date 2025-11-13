@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
+import { SEOHead } from '@/components/ui/seo-head';
 import { BaseCrudService } from '@/integrations';
 import { TeamMembers, JobOpenings } from '@/entities';
 import { Link } from 'react-router-dom';
@@ -40,6 +41,13 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="About Us - Digital Marketing Experts in Bengaluru"
+        description="Learn about Look A Like Solutions, a leading digital marketing agency in Bengaluru. Meet our expert team and discover our mission to help businesses grow online with innovative strategies."
+        keywords="about Look A Like Solutions, digital marketing team Bengaluru, digital marketing experts, about us, company profile, digital marketing agency team"
+        type="website"
+      />
+      
       {/* Hero Section */}
       <section className="py-32 bg-light-gray">
         <div className="max-w-[100rem] mx-auto px-8">

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
 import { FAQSection } from '@/components/ui/faq-section';
+import { SEOHead } from '@/components/ui/seo-head';
 
 import { ArrowRight, Target, TrendingUp, Users, Award, Play, Star, CheckCircle } from 'lucide-react';
 
@@ -58,6 +59,13 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Look A Like Solutions - Digital Marketing Agency in Bengaluru"
+        description="Leading digital marketing agency in Bengaluru offering SEO, social media marketing, paid ads, web development, and more. Grow your business with data-driven strategies and proven results."
+        keywords="digital marketing agency Bengaluru, SEO services, social media marketing, paid advertising, web development, content marketing, digital marketing company India"
+        type="website"
+      />
+      
       {/* Mobile-First Hero Section */}
       <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Elements */}

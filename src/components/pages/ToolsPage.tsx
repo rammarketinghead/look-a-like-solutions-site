@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { SEOHead } from '@/components/ui/seo-head';
 import { Link } from 'react-router-dom';
 import { 
   Search, Mail, PenTool, Layers, Target, ArrowRight, Zap, CheckCircle, Users, TrendingUp,
@@ -253,6 +254,13 @@ export default function ToolsPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Free Digital Marketing Tools - SEO, PPC & Social Media Tools"
+        description="Access our collection of free digital marketing tools including SEO keyword research, PPC ad generator, email subject tester, meta title generator, and more. Boost your marketing efforts with professional tools."
+        keywords="free digital marketing tools, SEO tools, keyword research tool, PPC ad generator, email subject tester, meta title generator, SERP preview tool, UTM builder, social media tools"
+        type="website"
+      />
+      
       {/* Hero Section */}
       <section className="py-24 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-primary/10">
         <div className="max-w-[100rem] mx-auto px-8">

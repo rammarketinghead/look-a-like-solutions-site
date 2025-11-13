@@ -6,6 +6,7 @@ import { BlogPosts } from '@/entities';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
+import { SEOHead } from '@/components/ui/seo-head';
 import { fixSlug, isValidSlug } from '@/utils/slugUtils';
 
 import { BlogSidebar } from '@/components/ui/blog-sidebar';
@@ -229,6 +230,19 @@ export default function BlogPostPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      {post && (
+        <SEOHead 
+          title={post.title || 'Blog Post'}
+          description={post.metaDescription || post.excerpt || 'Read our latest insights on digital marketing, SEO, and business growth strategies.'}
+          keywords={`${post.title}, digital marketing, SEO, social media marketing, content marketing, online marketing`}
+          image={post.featuredImage}
+          type="article"
+          author={post.author}
+          publishedTime={post.publishedDate ? new Date(post.publishedDate).toISOString() : undefined}
+          modifiedTime={post._updatedDate ? new Date(post._updatedDate).toISOString() : undefined}
+        />
+      )}
+      
       {/* Modern Hero Section */}
       <section className="relative min-h-[70vh] sm:min-h-[80vh] flex items-center justify-center overflow-hidden">
         {/* Background Elements */}

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
+import { SEOHead } from '@/components/ui/seo-head';
 import { BaseCrudService } from '@/integrations';
 import { CaseStudies } from '@/entities';
 import { Link } from 'react-router-dom';
@@ -34,6 +35,13 @@ export default function CaseStudiesPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Case Studies - Digital Marketing Success Stories"
+        description="Explore our digital marketing case studies and success stories. See how we've helped businesses grow with SEO, social media marketing, paid advertising, and comprehensive digital strategies."
+        keywords="digital marketing case studies, SEO success stories, social media marketing results, paid advertising case studies, digital marketing portfolio, client success stories"
+        type="website"
+      />
+      
       {/* Hero Section */}
       <section className="py-32 bg-light-gray">
         <div className="max-w-[100rem] mx-auto px-8">

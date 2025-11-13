@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { SEOHead } from '@/components/ui/seo-head';
 import { useToast } from '@/hooks/use-toast';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Loader2, AlertCircle } from 'lucide-react';
 import { BaseCrudService } from '@/integrations';
@@ -135,6 +136,13 @@ Submission Date: ${new Date().toLocaleString()}
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Contact Us - Get Your Free Digital Marketing Consultation"
+        description="Ready to grow your business? Contact Look A Like Solutions for a free digital marketing consultation. Get expert advice on SEO, social media, paid ads, and more. Based in Bengaluru, serving clients globally."
+        keywords="contact digital marketing agency, free consultation, digital marketing quote, SEO consultation, social media marketing consultation, Bengaluru digital marketing contact"
+        type="website"
+      />
+      
       {/* Hero Section */}
       <section className="py-16 sm:py-24 lg:py-32 bg-light-gray">
         <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
