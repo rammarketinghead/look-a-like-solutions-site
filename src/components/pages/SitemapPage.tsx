@@ -13,46 +13,54 @@ export default function SitemapPage() {
     const baseUrl = 'https://lookalikesolutions.com';
     const currentDate = new Date().toISOString().split('T')[0];
     
+    // Define the page type
+    type SitemapPage = {
+      url: string;
+      priority: string;
+      changefreq: string;
+      lastmod?: string;
+    };
+
     // Static pages with their priorities and change frequencies
-    const staticPages = [
-      { url: '', priority: '1.0', changefreq: 'weekly', lastmod: currentDate }, // Homepage
-      { url: '/about', priority: '0.8', changefreq: 'monthly', lastmod: currentDate },
-      { url: '/services', priority: '0.9', changefreq: 'weekly', lastmod: currentDate },
-      { url: '/tools', priority: '0.8', changefreq: 'weekly', lastmod: currentDate },
-      { url: '/case-studies', priority: '0.8', changefreq: 'weekly', lastmod: currentDate },
-      { url: '/blog', priority: '0.8', changefreq: 'daily', lastmod: currentDate },
-      { url: '/contact', priority: '0.7', changefreq: 'monthly', lastmod: currentDate },
+    const staticPages: SitemapPage[] = [
+      { url: '', priority: '1.0', changefreq: 'weekly' }, // Homepage
+      { url: '/about', priority: '0.8', changefreq: 'monthly' },
+      { url: '/services', priority: '0.9', changefreq: 'weekly' },
+      { url: '/tools', priority: '0.8', changefreq: 'weekly' },
+      { url: '/case-studies', priority: '0.8', changefreq: 'weekly' },
+      { url: '/blog', priority: '0.8', changefreq: 'daily' },
+      { url: '/contact', priority: '0.7', changefreq: 'monthly' },
     ];
 
     // Service pages
-    const servicePages = [
-      { url: '/services/seo', priority: '0.9', changefreq: 'weekly', lastmod: currentDate },
-      { url: '/services/social-media', priority: '0.9', changefreq: 'weekly', lastmod: currentDate },
-      { url: '/services/paid-ads', priority: '0.9', changefreq: 'weekly', lastmod: currentDate },
-      { url: '/services/web-development', priority: '0.9', changefreq: 'weekly', lastmod: currentDate },
-      { url: '/services/influencer-marketing', priority: '0.9', changefreq: 'weekly', lastmod: currentDate },
-      { url: '/services/content-marketing', priority: '0.9', changefreq: 'weekly', lastmod: currentDate },
-      { url: '/services/data-analytics', priority: '0.9', changefreq: 'weekly', lastmod: currentDate },
-      { url: '/services/conversion-optimization', priority: '0.9', changefreq: 'weekly', lastmod: currentDate },
-      { url: '/services/email-marketing', priority: '0.9', changefreq: 'weekly', lastmod: currentDate },
-      { url: '/services/youtube-growth', priority: '0.9', changefreq: 'weekly', lastmod: currentDate },
-      { url: '/services/digital-audit', priority: '0.9', changefreq: 'weekly', lastmod: currentDate },
-      { url: '/services/digital-training', priority: '0.9', changefreq: 'weekly', lastmod: currentDate },
+    const servicePages: SitemapPage[] = [
+      { url: '/services/seo', priority: '0.9', changefreq: 'weekly' },
+      { url: '/services/social-media', priority: '0.9', changefreq: 'weekly' },
+      { url: '/services/paid-ads', priority: '0.9', changefreq: 'weekly' },
+      { url: '/services/web-development', priority: '0.9', changefreq: 'weekly' },
+      { url: '/services/influencer-marketing', priority: '0.9', changefreq: 'weekly' },
+      { url: '/services/content-marketing', priority: '0.9', changefreq: 'weekly' },
+      { url: '/services/data-analytics', priority: '0.9', changefreq: 'weekly' },
+      { url: '/services/conversion-optimization', priority: '0.9', changefreq: 'weekly' },
+      { url: '/services/email-marketing', priority: '0.9', changefreq: 'weekly' },
+      { url: '/services/youtube-growth', priority: '0.9', changefreq: 'weekly' },
+      { url: '/services/digital-audit', priority: '0.9', changefreq: 'weekly' },
+      { url: '/services/digital-training', priority: '0.9', changefreq: 'weekly' },
     ];
 
     // Tool pages
-    const toolPages = [
-      { url: '/tools/seo-keyword-research', priority: '0.7', changefreq: 'monthly', lastmod: currentDate },
-      { url: '/tools/email-subject-tester', priority: '0.7', changefreq: 'monthly', lastmod: currentDate },
-      { url: '/tools/ppc-ad-generator', priority: '0.7', changefreq: 'monthly', lastmod: currentDate },
-      { url: '/tools/keyword-grouping', priority: '0.7', changefreq: 'monthly', lastmod: currentDate },
-      { url: '/tools/keyword-match-types', priority: '0.7', changefreq: 'monthly', lastmod: currentDate },
-      { url: '/tools/meta-title-description-generator', priority: '0.7', changefreq: 'monthly', lastmod: currentDate },
-      { url: '/tools/serp-snippet-preview', priority: '0.7', changefreq: 'monthly', lastmod: currentDate },
-      { url: '/tools/backlink-checker', priority: '0.7', changefreq: 'monthly', lastmod: currentDate },
-      { url: '/tools/utm-link-builder', priority: '0.7', changefreq: 'monthly', lastmod: currentDate },
-      { url: '/tools/website-speed-test', priority: '0.7', changefreq: 'monthly', lastmod: currentDate },
-      { url: '/tools/social-media-post-generator', priority: '0.7', changefreq: 'monthly', lastmod: currentDate },
+    const toolPages: SitemapPage[] = [
+      { url: '/tools/seo-keyword-research', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/email-subject-tester', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/ppc-ad-generator', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/keyword-grouping', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/keyword-match-types', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/meta-title-description-generator', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/serp-snippet-preview', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/backlink-checker', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/utm-link-builder', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/website-speed-test', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/social-media-post-generator', priority: '0.7', changefreq: 'monthly' },
     ];
 
     try {

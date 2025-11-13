@@ -181,24 +181,23 @@ export default function CaseStudiesPage() {
                         )}
 
                         <div className="flex gap-4">
-                          {study.projectUrl ? (
+                          <Link to={`/case-studies/${study._id}`}>
+                            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+                              View Details
+                              <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                          </Link>
+                          {study.projectUrl && (
                             <a
                               href={study.projectUrl}
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-                                View Project
+                              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                                Live Project
                                 <ExternalLink className="ml-2 h-4 w-4" />
                               </Button>
                             </a>
-                          ) : (
-                            <Link to="/contact">
-                              <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-                                Discuss Your Project
-                                <ArrowRight className="ml-2 h-4 w-4" />
-                              </Button>
-                            </Link>
                           )}
                         </div>
                       </div>

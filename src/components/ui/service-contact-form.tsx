@@ -51,9 +51,7 @@ export function ServiceContactForm({ serviceName, serviceDescription }: ServiceC
         submissionDate: new Date().toISOString()
       };
 
-      console.log('Saving form submission to CMS:', submissionData);
       await BaseCrudService.create('formsubmissions', submissionData);
-      console.log('Form submission saved successfully');
       
       // Create email content
       const emailSubject = `New ${serviceName} Inquiry from ${formData.name}`;

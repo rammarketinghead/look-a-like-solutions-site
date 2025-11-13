@@ -34,6 +34,10 @@ import BacklinkCheckerPage from '@/components/pages/tools/BacklinkCheckerPage';
 import UTMLinkBuilderPage from '@/components/pages/tools/UTMLinkBuilderPage';
 import WebsiteSpeedTestPage from '@/components/pages/tools/WebsiteSpeedTestPage';
 import SocialMediaPostGeneratorPage from '@/components/pages/tools/SocialMediaPostGeneratorPage';
+import SitemapPage from '@/components/pages/SitemapPage';
+import PrivacyPolicyPage from '@/components/pages/PrivacyPolicyPage';
+import TermsOfServicePage from '@/components/pages/TermsOfServicePage';
+import CaseStudyDetailPage from '@/components/pages/CaseStudyDetailPage';
 
 // Layout wrapper that includes ScrollToTop
 function LayoutWithScrollToTop() {
@@ -164,6 +168,10 @@ const router = createBrowserRouter([
         element: <CaseStudiesPage />,
       },
       {
+        path: "case-studies/:id",
+        element: <CaseStudyDetailPage />,
+      },
+      {
         path: "blog",
         element: <BlogPage />,
       },
@@ -174,6 +182,18 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <ContactPage />,
+      },
+      {
+        path: "privacy",
+        element: <PrivacyPolicyPage />,
+      },
+      {
+        path: "terms",
+        element: <TermsOfServicePage />,
+      },
+      {
+        path: "sitemap.xml",
+        element: <SitemapPage />,
       },
       {
         path: "*",

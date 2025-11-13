@@ -83,7 +83,9 @@ export default function Layout() {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      console.log('Searching for:', searchQuery);
+      // Implement search functionality here
+      // For now, we'll redirect to a search results page or show a message
+      alert(`Search functionality coming soon! You searched for: ${searchQuery}`);
     }
   };
 
@@ -550,7 +552,7 @@ export default function Layout() {
                   {[
                     { name: 'Privacy Policy', href: '/privacy' },
                     { name: 'Terms of Service', href: '/terms' },
-                    { name: 'Sitemap', href: '/sitemap' }
+                    { name: 'Sitemap', href: '/sitemap.xml' }
                   ].map((link) => (
                     <Link 
                       key={link.name}
