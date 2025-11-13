@@ -46,12 +46,21 @@ export default function BlogPage() {
     const fetchBlogPosts = async () => {
       try {
         const { items } = await BaseCrudService.getAll<BlogPosts>('blogposts');
+        
+        // Filter out blog posts with empty or invalid titles and content
+        const validPosts = items.filter(post => {
+          const hasValidTitle = post.title && post.title.trim().length > 0;
+          const hasValidContent = post.content && post.content.trim().length > 0;
+          return hasValidTitle && hasValidContent;
+        });
+        
         // Sort by published date (newest first)
-        const sortedPosts = items.sort((a, b) => {
+        const sortedPosts = validPosts.sort((a, b) => {
           const dateA = new Date(a.publishedDate || a._createdDate || 0);
           const dateB = new Date(b.publishedDate || b._createdDate || 0);
           return dateB.getTime() - dateA.getTime();
         });
+        
         setBlogPosts(sortedPosts);
         setFilteredPosts(sortedPosts);
       } catch (error) {
@@ -68,11 +77,13 @@ export default function BlogPage() {
     if (searchTerm.trim() === '') {
       setFilteredPosts(blogPosts);
     } else {
-      const filtered = blogPosts.filter(post =>
-        post.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.excerpt?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.author?.toLowerCase().includes(searchTerm.toLowerCase())
-      );
+      const filtered = blogPosts.filter(post => {
+        // Only search in posts that have valid title and content (already filtered)
+        const titleMatch = post.title?.toLowerCase().includes(searchTerm.toLowerCase());
+        const excerptMatch = post.excerpt?.toLowerCase().includes(searchTerm.toLowerCase());
+        const authorMatch = post.author?.toLowerCase().includes(searchTerm.toLowerCase());
+        return titleMatch || excerptMatch || authorMatch;
+      });
       setFilteredPosts(filtered);
     }
   }, [searchTerm, blogPosts]);
