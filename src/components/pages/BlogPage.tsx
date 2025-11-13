@@ -186,25 +186,27 @@ export default function BlogPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPosts.map((post) => (
                 <Card key={post._id} className="border-0 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group">
-                  <div className="relative overflow-hidden">
-                    {post.featuredImage ? (
-                      <Image
-                        src={post.featuredImage}
-                        alt={post.title || 'Blog post'}
-                        width={400}
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    ) : (
-                      <div className="w-full h-48 bg-primary/10 flex items-center justify-center">
-                        <div className="text-primary text-4xl font-heading">
-                          {post.title?.charAt(0) || 'B'}
+                  <Link to={`/blog/${fixSlug(post.slug || post._id)}`} className="block">
+                    <div className="relative overflow-hidden">
+                      {post.featuredImage ? (
+                        <Image
+                          src={post.featuredImage}
+                          alt={post.title || 'Blog post'}
+                          width={400}
+                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      ) : (
+                        <div className="w-full h-48 bg-primary/10 flex items-center justify-center">
+                          <div className="text-primary text-4xl font-heading">
+                            {post.title?.charAt(0) || 'B'}
+                          </div>
                         </div>
+                      )}
+                      <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-paragraph">
+                        Digital Marketing
                       </div>
-                    )}
-                    <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-paragraph">
-                      Digital Marketing
                     </div>
-                  </div>
+                  </Link>
                   
                   <CardContent className="p-6">
                     <div className="flex items-center text-secondary text-sm mb-3">
@@ -219,9 +221,11 @@ export default function BlogPage() {
                       </span>
                     </div>
                     
-                    <h3 className="text-xl font-heading text-dark-gray mb-3 line-clamp-2 group-hover:text-primary transition-colors">
-                      {post.title}
-                    </h3>
+                    <Link to={`/blog/${fixSlug(post.slug || post._id)}`}>
+                      <h3 className="text-xl font-heading text-dark-gray mb-3 line-clamp-2 group-hover:text-primary transition-colors cursor-pointer">
+                        {post.title}
+                      </h3>
+                    </Link>
                     
                     {post.excerpt && (
                       <p className="font-paragraph text-secondary mb-4 line-clamp-3">
