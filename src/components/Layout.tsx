@@ -36,7 +36,6 @@ export default function Layout() {
   const shouldShowExitIntent = !location.pathname.includes('/contact') && !location.pathname.includes('/thank-you');
 
   const navigation = [
-    { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { 
       name: 'Services', 
@@ -71,8 +70,6 @@ export default function Layout() {
         { name: 'Speed Test', href: '/tools/website-speed-test', icon: '⚡' }
       ]
     },
-    { name: 'Case Studies', href: '/case-studies' },
-    { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' }
   ];
 
@@ -431,7 +428,7 @@ export default function Layout() {
                 <h3 className="mobile-h4 text-white mb-6">Quick Links</h3>
                 <nav aria-label="Footer navigation">
                   <ul className="mobile-space-y-sm">
-                    {navigation.slice(0, 6).map((item) => (
+                    {navigation.map((item) => (
                       <li key={item.name}>
                         <Link 
                           to={item.href} 
@@ -441,6 +438,22 @@ export default function Layout() {
                         </Link>
                       </li>
                     ))}
+                    <li>
+                      <Link 
+                        to="/case-studies" 
+                        className="mobile-body text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
+                      >
+                        Case Studies
+                      </Link>
+                    </li>
+                    <li>
+                      <Link 
+                        to="/blog" 
+                        className="mobile-body text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
+                      >
+                        Blog
+                      </Link>
+                    </li>
                   </ul>
                 </nav>
               </div>
