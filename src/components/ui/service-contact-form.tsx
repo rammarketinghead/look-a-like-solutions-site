@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { AutosaveFormWrapper } from '@/components/ui/autosave-form-wrapper';
 import { Phone, Mail, MessageCircle, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
 import { BaseCrudService } from '@/integrations';
 import { FormSubmissions } from '@/entities';

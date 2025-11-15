@@ -116,6 +116,52 @@ export interface JobOpenings {
 
 
 /**
+ * Collection ID: partialformdata
+ * Interface for PartialFormData
+ */
+export interface PartialFormData {
+  _id: string;
+  _createdDate?: Date;
+  _updatedDate?: Date;
+  /** @wixFieldType text */
+  sessionId?: string;
+  /** @wixFieldType text */
+  formType?: string;
+  /** @wixFieldType text */
+  formData?: string;
+  /** @wixFieldType text */
+  userInfo?: string;
+  /** @wixFieldType text */
+  submissionStatus?: string;
+  /** @wixFieldType url */
+  pageUrl?: string;
+}
+
+
+/**
+ * Collection ID: searchanalytics
+ * Interface for SearchAnalytics
+ */
+export interface SearchAnalytics {
+  _id: string;
+  _createdDate?: Date;
+  _updatedDate?: Date;
+  /** @wixFieldType text */
+  queryString?: string;
+  /** @wixFieldType number */
+  searchCount?: number;
+  /** @wixFieldType datetime */
+  firstSearchedAt?: Date | string;
+  /** @wixFieldType datetime */
+  lastSearchedAt?: Date | string;
+  /** @wixFieldType boolean */
+  hasResults?: boolean;
+  /** @wixFieldType text */
+  lastSearchUserAgent?: string;
+}
+
+
+/**
  * Collection ID: services
  * Interface for Services
  */

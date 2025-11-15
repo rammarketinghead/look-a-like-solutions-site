@@ -173,27 +173,29 @@ export default function HomePage() {
             className="mobile-grid-3 xl:grid-cols-4"
           >
             {[
-              { title: 'SEO Optimization', description: 'Dominate search results and drive organic traffic', icon: '🔍', color: 'bg-blue-50 text-blue-600' },
-              { title: 'Social Media Marketing', description: 'Build engaged communities across all platforms', icon: '📱', color: 'bg-purple-50 text-purple-600' },
-              { title: 'Paid Advertising', description: 'Maximize ROI with targeted ad campaigns', icon: '🎯', color: 'bg-green-50 text-green-600' },
-              { title: 'Web Development', description: 'Create high-converting, mobile-first websites', icon: '💻', color: 'bg-orange-50 text-orange-600' },
-              { title: 'Content Marketing', description: 'Engage audiences with compelling content', icon: '✍️', color: 'bg-pink-50 text-pink-600' },
-              { title: 'Data Analytics', description: 'Make informed decisions with actionable insights', icon: '📊', color: 'bg-indigo-50 text-indigo-600' },
-              { title: 'Email Marketing', description: 'Nurture leads with personalized campaigns', icon: '📧', color: 'bg-red-50 text-red-600' },
-              { title: 'Conversion Optimization', description: 'Turn more visitors into paying customers', icon: '⚡', color: 'bg-yellow-50 text-yellow-600' }
+              { title: 'SEO Optimization', description: 'Dominate search results and drive organic traffic', icon: '🔍', color: 'bg-blue-50 text-blue-600', link: '/services/seo' },
+              { title: 'Social Media Marketing', description: 'Build engaged communities across all platforms', icon: '📱', color: 'bg-purple-50 text-purple-600', link: '/services/social-media' },
+              { title: 'Paid Advertising', description: 'Maximize ROI with targeted ad campaigns', icon: '🎯', color: 'bg-green-50 text-green-600', link: '/services/paid-ads' },
+              { title: 'Web Development', description: 'Create high-converting, mobile-first websites', icon: '💻', color: 'bg-orange-50 text-orange-600', link: '/services/web-development' },
+              { title: 'Content Marketing', description: 'Engage audiences with compelling content', icon: '✍️', color: 'bg-pink-50 text-pink-600', link: '/services/content-marketing' },
+              { title: 'Data Analytics', description: 'Make informed decisions with actionable insights', icon: '📊', color: 'bg-indigo-50 text-indigo-600', link: '/services/data-analytics' },
+              { title: 'Email Marketing', description: 'Nurture leads with personalized campaigns', icon: '📧', color: 'bg-red-50 text-red-600', link: '/services/email-marketing' },
+              { title: 'Conversion Optimization', description: 'Turn more visitors into paying customers', icon: '⚡', color: 'bg-yellow-50 text-yellow-600', link: '/services/conversion-optimization' }
             ].map((service, index) => (
               <motion.div key={index} variants={scaleInVariants}>
-                <Card className="mobile-card group hover:shadow-xl transition-all duration-300 h-full border-0">
-                  <CardContent className="mobile-card-padding text-center h-full flex flex-col">
-                    <div className={`w-16 h-16 ${service.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <span className="text-2xl">{service.icon}</span>
-                    </div>
-                    <h3 className="mobile-h4 text-dark-gray mb-3 group-hover:text-primary transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="mobile-body text-secondary flex-grow">{service.description}</p>
-                  </CardContent>
-                </Card>
+                <Link to={service.link} className="block h-full">
+                  <Card className="mobile-card group hover:shadow-xl transition-all duration-300 h-full border-0 cursor-pointer">
+                    <CardContent className="mobile-card-padding text-center h-full flex flex-col">
+                      <div className={`w-16 h-16 ${service.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                        <span className="text-2xl">{service.icon}</span>
+                      </div>
+                      <h3 className="mobile-h4 text-dark-gray mb-3 group-hover:text-primary transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="mobile-body text-secondary flex-grow">{service.description}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
               </motion.div>
             ))}
           </motion.div>

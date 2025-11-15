@@ -45,6 +45,7 @@ import SpecificBlogRecoveryPage from '@/components/pages/SpecificBlogRecoveryPag
 import BlogAnalysisPage from '@/components/pages/BlogAnalysisPage';
 import SitemapAdminPage from '@/components/pages/SitemapAdminPage';
 import SitemapHtmlPage from '@/components/pages/SitemapHtmlPage';
+import SearchAnalyticsPage from '@/components/pages/SearchAnalyticsPage';
 
 // Layout wrapper that includes ScrollToTop
 function LayoutWithScrollToTop() {
@@ -229,6 +230,10 @@ const router = createBrowserRouter([
       {
         path: "admin/sitemap",
         element: <SitemapAdminPage />,
+      },
+      {
+        path: "admin/search-analytics",
+        element: <SearchAnalyticsPage />,
       },
       {
         path: "*",
