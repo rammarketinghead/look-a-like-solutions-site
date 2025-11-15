@@ -161,3 +161,45 @@ export interface TeamMembers {
   /** @wixFieldType text */
   specialization?: string;
 }
+
+
+/**
+ * Collection ID: trustedbusinesses
+ * Interface for TrustedBusinesses
+ */
+export interface TrustedBusinesses {
+  _id: string;
+  _createdDate?: Date;
+  _updatedDate?: Date;
+  /** @wixFieldType text */
+  brandName?: string;
+  /** @wixFieldType image */
+  brandLogo?: string;
+  /** @wixFieldType url */
+  websiteUrl?: string;
+  /** @wixFieldType number */
+  displayOrder?: number;
+  /** @wixFieldType text */
+  businessDescription?: string;
+}
+
+
+/**
+ * Collection ID: trustedbusinesses
+ * Interface for TrustedBusinesses
+ */
+export interface TrustedBusinesses {
+  _id: string;
+  _createdDate?: Date;
+  _updatedDate?: Date;
+  /** @wixFieldType text */
+  brandName?: string;
+  /** @wixFieldType image */
+  brandLogo?: string;
+  /** @wixFieldType url */
+  websiteUrl?: string;
+  /** @wixFieldType number */
+  displayOrder?: number;
+  /** @wixFieldType text */
+  businessDescription?: string;
+}

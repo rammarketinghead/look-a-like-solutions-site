@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
 import { FAQSection } from '@/components/ui/faq-section';
 import { SEOHead } from '@/components/ui/seo-head';
+import { TrustedBusinessesCarousel } from '@/components/ui/trusted-businesses-carousel';
 
 import { ArrowRight, Target, TrendingUp, Users, Award, Play, Star, CheckCircle } from 'lucide-react';
 
@@ -293,29 +294,13 @@ export default function HomePage() {
       </section>
 
       {/* Trusted By Section */}
-      <section className="mobile-section-compact bg-background">
-        <div className="mobile-container">
-          <div className="text-center mb-8">
-            <h2 className="mobile-h3 text-dark-gray mb-4">
-              Trusted By Businesses in Bengaluru
-            </h2>
-            <p className="mobile-body text-secondary">
-              We're proud to have worked with industry leaders and ambitious startups alike.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 items-center">
-            {[
-              'HearFon', 'SAYA', 'UPSTEP', 'MANDANA', 'AUDIOFIN', 'BLUE TRIBE'
-            ].map((company, index) => (
-              <div key={index} className="text-center group">
-                <div className="h-12 sm:h-16 flex items-center justify-center bg-light-gray rounded-lg p-3 group-hover:bg-primary/5 transition-colors duration-300">
-                  <span className="mobile-body font-heading text-secondary group-hover:text-primary transition-colors">{company}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      <section className="bg-background">
+        <TrustedBusinessesCarousel 
+          className="max-w-[120rem] mx-auto px-6"
+          showTitle={true}
+          title="Trusted by Businesses in Bengaluru"
+          speed={25}
+        />
       </section>
 
       {/* Results Section */}
