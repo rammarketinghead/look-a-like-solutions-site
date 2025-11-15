@@ -122,7 +122,7 @@ export default function DigitalAuditPage() {
               <p className="text-lg font-paragraph text-secondary mb-8">
                 Our digital marketing audits provide deep insights into your current performance and identify opportunities for improvement. We analyze every aspect of your digital presence to create a roadmap for sustainable growth.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-4 mb-8">
                 {[
                   'Complete website and technical SEO analysis',
                   'Social media performance evaluation',
@@ -135,6 +135,24 @@ export default function DigitalAuditPage() {
                     <span className="font-paragraph text-secondary">{feature}</span>
                   </div>
                 ))}
+              </div>
+              
+              {/* CTA Button for Comprehensive Digital Analysis */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  onClick={scrollToContact}
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base shadow-md hover:shadow-lg transition-all duration-300"
+                >
+                  Get Your Free Digital Marketing Audit Consultation
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+                <Button 
+                  onClick={scrollToContact}
+                  variant="outline" 
+                  className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 text-base transition-all duration-300"
+                >
+                  Start Your Analysis Today
+                </Button>
               </div>
             </div>
             <div className="relative">
@@ -154,9 +172,27 @@ export default function DigitalAuditPage() {
         <div className="max-w-[100rem] mx-auto px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-heading text-dark-gray mb-6">What We Audit</h2>
-            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto mb-8">
               Comprehensive analysis of all your digital marketing channels and performance metrics.
             </p>
+            
+            {/* CTA Button for What We Audit section */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                onClick={scrollToContact}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base shadow-md hover:shadow-lg transition-all duration-300"
+              >
+                Get Your Free Digital Marketing Audit Consultation
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+              <Button 
+                onClick={scrollToContact}
+                variant="outline" 
+                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 text-base transition-all duration-300"
+              >
+                Schedule Your Audit
+              </Button>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
