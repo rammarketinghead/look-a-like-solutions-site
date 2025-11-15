@@ -5,8 +5,9 @@ import { Image } from '@/components/ui/image';
 
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { ROICalculator } from '@/components/ui/roi-calculator';
+import { TrustedBusinessesCarousel } from '@/components/ui/trusted-businesses-carousel';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Search, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Zap, Settings, FileText, Eye, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Search, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Zap, Settings, FileText, Eye, ShieldCheck, Star, Quote, Shield, Lightbulb, HeadphonesIcon } from 'lucide-react';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -238,6 +239,383 @@ export default function DigitalAuditPage() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trusted by Businesses Section */}
+      <section className="py-24 bg-background">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <TrustedBusinessesCarousel 
+            title="Trusted by Businesses in Bengaluru"
+            showTitle={true}
+            speed={25}
+          />
+        </div>
+      </section>
+
+      {/* Measurable Results Section */}
+      <section className="py-32 bg-light-gray">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">Measurable Results We Deliver</h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              Our digital audits don't just identify problems—they deliver measurable improvements that drive real business growth.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {[
+              {
+                metric: '150%',
+                label: 'Average ROI Increase',
+                description: 'Clients see significant return on investment improvements within 3-6 months',
+                icon: TrendingUp,
+                color: 'text-green-600'
+              },
+              {
+                metric: '85%',
+                label: 'Traffic Growth',
+                description: 'Average organic traffic increase after implementing our audit recommendations',
+                icon: BarChart3,
+                color: 'text-blue-600'
+              },
+              {
+                metric: '67%',
+                label: 'Conversion Rate Boost',
+                description: 'Improvement in conversion rates through optimized user experience and funnels',
+                icon: Target,
+                color: 'text-purple-600'
+              },
+              {
+                metric: '48hrs',
+                label: 'Initial Findings',
+                description: 'Quick turnaround for initial audit findings and priority recommendations',
+                icon: Clock,
+                color: 'text-orange-600'
+              }
+            ].map((result, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-background rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow text-center"
+              >
+                <div className={`w-16 h-16 ${result.color} bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6`}>
+                  <result.icon className={`h-8 w-8 ${result.color}`} />
+                </div>
+                <div className={`text-4xl font-heading ${result.color} mb-2`}>{result.metric}</div>
+                <h3 className="text-xl font-heading text-dark-gray mb-3">{result.label}</h3>
+                <p className="font-paragraph text-secondary text-sm">{result.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="bg-background rounded-2xl p-8 shadow-lg">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 className="text-3xl font-heading text-dark-gray mb-6">Real Impact, Real Results</h3>
+                <div className="space-y-6">
+                  {[
+                    {
+                      title: 'Technical SEO Improvements',
+                      description: 'Average 40% improvement in Core Web Vitals and site speed optimization',
+                      percentage: '92%'
+                    },
+                    {
+                      title: 'Content Performance',
+                      description: 'Content optimization leads to 60% better engagement and search rankings',
+                      percentage: '78%'
+                    },
+                    {
+                      title: 'Paid Campaign Efficiency',
+                      description: 'Reduced cost-per-acquisition while increasing conversion quality',
+                      percentage: '85%'
+                    }
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                        <span className="text-primary font-heading text-sm">{item.percentage}</span>
+                      </div>
+                      <div>
+                        <h4 className="font-heading text-dark-gray mb-2">{item.title}</h4>
+                        <p className="font-paragraph text-secondary text-sm">{item.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="relative">
+                <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8">
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="text-center">
+                      <div className="text-3xl font-heading text-primary mb-2">300+</div>
+                      <div className="text-sm font-paragraph text-secondary">Audits Completed</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-heading text-primary mb-2">95%</div>
+                      <div className="text-sm font-paragraph text-secondary">Client Satisfaction</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-heading text-primary mb-2">₹2.5Cr+</div>
+                      <div className="text-sm font-paragraph text-secondary">Revenue Generated</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-heading text-primary mb-2">24/7</div>
+                      <div className="text-sm font-paragraph text-secondary">Support Available</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Client Testimonials Section */}
+      <section className="py-32 bg-background">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">What Our Clients Say</h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              Don't just take our word for it. Here's what businesses say about our digital audit services.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                name: 'Rajesh Kumar',
+                company: 'TechStart Solutions',
+                role: 'CEO',
+                testimonial: 'The digital audit from Look A Like Solutions was a game-changer. They identified critical issues we never knew existed and provided a clear roadmap that increased our online revenue by 180% in just 4 months.',
+                rating: 5,
+                image: 'https://static.wixstatic.com/media/f650f9_54af45e23e834c6a9ef6b181f6def5fa~mv2.png?originWidth=192&originHeight=192'
+              },
+              {
+                name: 'Priya Sharma',
+                company: 'Bangalore Fashion Hub',
+                role: 'Marketing Director',
+                testimonial: 'Their comprehensive audit revealed so many optimization opportunities. The detailed report and actionable recommendations helped us improve our conversion rate by 65% and reduce our ad spend by 30%.',
+                rating: 5,
+                image: 'https://static.wixstatic.com/media/f650f9_37a3d0a7c1c64db982736c50ccc0de50~mv2.png?originWidth=192&originHeight=192'
+              },
+              {
+                name: 'Arjun Patel',
+                company: 'HealthCare Plus',
+                role: 'Founder',
+                testimonial: 'The audit was incredibly thorough and professional. They found technical SEO issues that were hurting our rankings and provided solutions that boosted our organic traffic by 120% within 6 months.',
+                rating: 5,
+                image: 'https://static.wixstatic.com/media/f650f9_a9238347861043ac89955a64a1e3727b~mv2.png?originWidth=192&originHeight=192'
+              },
+              {
+                name: 'Meera Reddy',
+                company: 'Eco-Friendly Products',
+                role: 'Co-founder',
+                testimonial: 'Look A Like Solutions delivered beyond our expectations. Their audit uncovered hidden opportunities in our social media strategy that resulted in 200% growth in engagement and 85% increase in sales.',
+                rating: 5,
+                image: 'https://static.wixstatic.com/media/f650f9_13fc9afdcd88409cb78b5086be031d30~mv2.png?originWidth=192&originHeight=192'
+              },
+              {
+                name: 'Vikram Singh',
+                company: 'Real Estate Ventures',
+                role: 'Marketing Head',
+                testimonial: 'The detailed competitor analysis and market positioning insights were invaluable. We implemented their recommendations and saw a 150% increase in qualified leads within 3 months.',
+                rating: 5,
+                image: 'https://static.wixstatic.com/media/f650f9_2fe1b1edade24cba9efb5c2de2328805~mv2.png?originWidth=192&originHeight=192'
+              },
+              {
+                name: 'Anita Joshi',
+                company: 'Educational Services',
+                role: 'Director',
+                testimonial: 'Their audit process was systematic and insightful. The recommendations were practical and easy to implement. Our website performance improved dramatically, leading to 90% more student enrollments.',
+                rating: 5,
+                image: 'https://static.wixstatic.com/media/f650f9_1cf1b54f1fdf4976a269c525e30420c7~mv2.png?originWidth=192&originHeight=192'
+              }
+            ].map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-light-gray rounded-2xl p-8 relative hover:shadow-lg transition-shadow"
+              >
+                <div className="absolute -top-4 left-8">
+                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                    <Quote className="h-4 w-4 text-primary-foreground" />
+                  </div>
+                </div>
+                
+                <div className="flex items-center mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                
+                <p className="font-paragraph text-secondary mb-6 italic">
+                  "{testimonial.testimonial}"
+                </p>
+                
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                    <Users className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-heading text-dark-gray">{testimonial.name}</h4>
+                    <p className="text-sm font-paragraph text-secondary">{testimonial.role}</p>
+                    <p className="text-sm font-paragraph text-primary">{testimonial.company}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button 
+              onClick={scrollToContact}
+              className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              Join Our Success Stories
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Look A Like Solutions Section */}
+      <section className="py-32 bg-light-gray">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">Why Choose Look A Like Solutions?</h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              We're not just another digital marketing agency. Here's what makes our audit services stand out from the competition.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16">
+            <div>
+              <h3 className="text-3xl font-heading text-dark-gray mb-8">Our Unique Approach</h3>
+              <div className="space-y-6">
+                {[
+                  {
+                    icon: Shield,
+                    title: 'Data-Driven Methodology',
+                    description: 'We use advanced analytics tools and proprietary frameworks to ensure every recommendation is backed by solid data and industry best practices.'
+                  },
+                  {
+                    icon: Lightbulb,
+                    title: 'Actionable Insights',
+                    description: 'Our audits don\'t just identify problems—we provide clear, prioritized action plans with step-by-step implementation guides.'
+                  },
+                  {
+                    icon: HeadphonesIcon,
+                    title: 'Ongoing Support',
+                    description: 'Unlike other agencies, we provide continued support and consultation to ensure successful implementation of our recommendations.'
+                  }
+                ].map((feature, index) => (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                      <feature.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-heading text-dark-gray mb-2">{feature.title}</h4>
+                      <p className="font-paragraph text-secondary">{feature.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="bg-background rounded-2xl p-8 shadow-lg">
+                <h4 className="text-2xl font-heading text-dark-gray mb-6 text-center">What Sets Us Apart</h4>
+                <div className="space-y-4">
+                  {[
+                    { label: 'Industry Experience', value: '8+ Years' },
+                    { label: 'Certified Experts', value: '15+ Team Members' },
+                    { label: 'Tools & Technologies', value: '25+ Premium Tools' },
+                    { label: 'Average Project ROI', value: '150%+' },
+                    { label: 'Client Retention Rate', value: '95%' },
+                    { label: 'Response Time', value: '< 2 Hours' }
+                  ].map((stat, index) => (
+                    <div key={index} className="flex justify-between items-center py-2 border-b border-light-gray last:border-b-0">
+                      <span className="font-paragraph text-secondary">{stat.label}</span>
+                      <span className="font-heading text-primary">{stat.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: Award,
+                title: 'Proven Track Record',
+                description: 'Over 300 successful audits with measurable results and satisfied clients across various industries.'
+              },
+              {
+                icon: Zap,
+                title: 'Fast Turnaround',
+                description: 'Quick delivery without compromising quality. Get initial findings within 48 hours of project start.'
+              },
+              {
+                icon: Settings,
+                title: 'Custom Solutions',
+                description: 'Every audit is tailored to your specific business needs, industry requirements, and growth objectives.'
+              },
+              {
+                icon: ShieldCheck,
+                title: 'Quality Guarantee',
+                description: 'We stand behind our work with a satisfaction guarantee and ongoing support for implementation.'
+              }
+            ].map((value, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-background rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <value.icon className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-lg font-heading text-dark-gray mb-3">{value.title}</h3>
+                <p className="font-paragraph text-secondary text-sm">{value.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <div className="bg-background rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
+              <h3 className="text-2xl font-heading text-dark-gray mb-4">Ready to Transform Your Digital Presence?</h3>
+              <p className="font-paragraph text-secondary mb-6">
+                Join hundreds of businesses that have already benefited from our comprehensive digital audits. 
+                Get started today and discover the hidden opportunities in your digital marketing strategy.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  onClick={scrollToContact}
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  Get Your Free Audit Consultation
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                <Link to="/case-studies">
+                  <Button 
+                    variant="outline" 
+                    className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg transition-all duration-300"
+                  >
+                    View Our Success Stories
+                  </Button>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
