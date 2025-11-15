@@ -8,6 +8,7 @@ import ChatWidget from '@/components/ui/chat-widget';
 import WhatsAppButton from '@/components/ui/whatsapp-button';
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
 import { SEOHead } from '@/components/ui/seo-head';
+import { useSitemapUpdater } from '@/hooks/useSitemapUpdater';
 import { Menu, X, Phone, Mail, MapPin, Search, ChevronDown, ChevronRight, Facebook, Instagram, Youtube, Linkedin, Heart, ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
@@ -17,6 +18,9 @@ export default function Layout() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null);
   const location = useLocation();
+
+  // Initialize sitemap auto-updater
+  useSitemapUpdater();
 
   // Handle scroll effect for header
   useEffect(() => {

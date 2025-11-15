@@ -13,6 +13,7 @@ interface SEOHeadProps {
   modifiedTime?: string;
   siteName?: string;
   twitterCard?: 'summary' | 'summary_large_image';
+  noIndex?: boolean;
 }
 
 export function SEOHead({
@@ -26,7 +27,8 @@ export function SEOHead({
   publishedTime,
   modifiedTime,
   siteName = 'Look A Like Solutions',
-  twitterCard = 'summary_large_image'
+  twitterCard = 'summary_large_image',
+  noIndex = false
 }: SEOHeadProps) {
   const location = useLocation();
   
@@ -99,7 +101,7 @@ export function SEOHead({
     updateMetaTag('twitter:url', finalUrl);
     
     // Additional SEO tags
-    updateMetaTag('robots', 'index, follow');
+    updateMetaTag('robots', noIndex ? 'noindex, nofollow' : 'index, follow');
     updateMetaTag('viewport', 'width=device-width, initial-scale=1.0');
     
     // Canonical URL
@@ -145,7 +147,7 @@ export function SEOHead({
       script.textContent = JSON.stringify(structuredData);
     }
     
-  }, [finalTitle, finalDescription, finalImage, finalUrl, type, author, publishedTime, modifiedTime, keywords, siteName, twitterCard]);
+  }, [finalTitle, finalDescription, finalImage, finalUrl, type, author, publishedTime, modifiedTime, keywords, siteName, twitterCard, noIndex]);
   
   return null; // This component doesn't render anything
 }
