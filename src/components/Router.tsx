@@ -41,6 +41,8 @@ import CaseStudyDetailPage from '@/components/pages/CaseStudyDetailPage';
 import BlogSlugFixPage from '@/components/pages/BlogSlugFixPage';
 import BlogDataProtectionPage from '@/components/pages/BlogDataProtectionPage';
 import BlogDataRecoveryPage from '@/components/pages/BlogDataRecoveryPage';
+import SpecificBlogRecoveryPage from '@/components/pages/SpecificBlogRecoveryPage';
+import BlogAnalysisPage from '@/components/pages/BlogAnalysisPage';
 
 // Layout wrapper that includes ScrollToTop
 function LayoutWithScrollToTop() {
@@ -209,6 +211,14 @@ const router = createBrowserRouter([
       {
         path: "admin/blog-data-recovery",
         element: <BlogDataRecoveryPage />,
+      },
+      {
+        path: "admin/specific-blog-recovery",
+        element: <SpecificBlogRecoveryPage />,
+      },
+      {
+        path: "admin/blog-analysis",
+        element: <BlogAnalysisPage />,
       },
       {
         path: "*",
