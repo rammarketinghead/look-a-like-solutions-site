@@ -77,8 +77,8 @@ export function TrustedBusinessesCarousel({
     );
   }
 
-  // Duplicate the array to create seamless loop
-  const duplicatedBusinesses = [...businesses, ...businesses];
+  // Triple the array for truly seamless infinite scroll
+  const tripleBusinesses = [...businesses, ...businesses, ...businesses];
 
   return (
     <div className={`py-12 overflow-hidden ${className}`}>
@@ -94,11 +94,11 @@ export function TrustedBusinessesCarousel({
       )}
       
       <div className="relative">
-        <div className="flex">
+        <div className="flex overflow-hidden">
           <motion.div
-            className="flex gap-8 md:gap-12"
+            className="flex gap-6 md:gap-8 lg:gap-12 items-center"
             animate={{
-              x: [0, -50 * businesses.length + '%']
+              x: [0, -(businesses.length * (120 + 32))] // 120px logo width + 32px gap (8*4)
             }}
             transition={{
               x: {
@@ -109,37 +109,36 @@ export function TrustedBusinessesCarousel({
               },
             }}
             style={{
-              width: `${200 * businesses.length}%`
+              minWidth: 'max-content'
             }}
           >
-            {duplicatedBusinesses.map((business, index) => (
+            {tripleBusinesses.map((business, index) => (
               <div
                 key={`${business._id}-${index}`}
-                className="flex-shrink-0 flex items-center justify-center"
-                style={{ width: `${100 / duplicatedBusinesses.length}%` }}
+                className="flex-shrink-0 flex items-center justify-center w-[120px] h-16 md:h-20"
               >
                 {business.websiteUrl ? (
                   <a
                     href={business.websiteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block transition-all duration-300 hover:scale-110 hover:opacity-80"
+                    className="block transition-all duration-300 hover:scale-110 hover:opacity-80 w-full h-full flex items-center justify-center"
                     title={business.brandName}
                   >
                     <Image
                       src={business.brandLogo || ''}
                       alt={`${business.brandName} logo`}
                       width={120}
-                      className="h-12 md:h-16 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                      className="max-h-12 md:max-h-16 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                     />
                   </a>
                 ) : (
-                  <div className="transition-all duration-300 hover:scale-110">
+                  <div className="transition-all duration-300 hover:scale-110 w-full h-full flex items-center justify-center">
                     <Image
                       src={business.brandLogo || ''}
                       alt={`${business.brandName} logo`}
                       width={120}
-                      className="h-12 md:h-16 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                      className="max-h-12 md:max-h-16 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                     />
                   </div>
                 )}
@@ -148,9 +147,9 @@ export function TrustedBusinessesCarousel({
           </motion.div>
         </div>
         
-        {/* Gradient overlays for smooth fade effect */}
-        <div className="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-white to-transparent pointer-events-none z-10"></div>
-        <div className="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-white to-transparent pointer-events-none z-10"></div>
+        {/* Enhanced gradient overlays for smooth fade effect */}
+        <div className="absolute top-0 left-0 w-16 md:w-24 h-full bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none z-10"></div>
+        <div className="absolute top-0 right-0 w-16 md:w-24 h-full bg-gradient-to-l from-white via-white/80 to-transparent pointer-events-none z-10"></div>
       </div>
       
       {/* Optional business count indicator */}
