@@ -26,6 +26,7 @@ export function ExitIntentPopup({
   const [email, setEmail] = useState('');
   const [hasShown, setHasShown] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [canShowPopup, setCanShowPopup] = useState(false);
 
   useEffect(() => {
     // Check if popup has been shown in this session
@@ -35,12 +36,17 @@ export function ExitIntentPopup({
       return;
     }
 
+    // Set a 60-second delay before the popup can be shown
+    const delayTimer = setTimeout(() => {
+      setCanShowPopup(true);
+    }, 60000); // 60 seconds
+
     let timeoutId: NodeJS.Timeout;
     let isExiting = false;
 
     const handleMouseLeave = (e: MouseEvent) => {
-      // Only trigger if mouse is leaving from the top of the page
-      if (e.clientY <= 0 && !hasShown && !isExiting) {
+      // Only trigger if mouse is leaving from the top of the page and delay has passed
+      if (e.clientY <= 0 && !hasShown && !isExiting && canShowPopup) {
         isExiting = true;
         setIsVisible(true);
         setHasShown(true);
@@ -49,9 +55,9 @@ export function ExitIntentPopup({
     };
 
     const handleScroll = () => {
-      // Show popup if user scrolls down 70% of the page and hasn't seen it
+      // Show popup if user scrolls down 70% of the page, hasn't seen it, and delay has passed
       const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-      if (scrollPercent > 70 && !hasShown && !isExiting) {
+      if (scrollPercent > 70 && !hasShown && !isExiting && canShowPopup) {
         timeoutId = setTimeout(() => {
           if (!hasShown) {
             setIsVisible(true);
@@ -70,8 +76,9 @@ export function ExitIntentPopup({
       document.removeEventListener('mouseleave', handleMouseLeave);
       window.removeEventListener('scroll', handleScroll);
       if (timeoutId) clearTimeout(timeoutId);
+      if (delayTimer) clearTimeout(delayTimer);
     };
-  }, [hasShown]);
+  }, [hasShown, canShowPopup]);
 
   const handleClose = () => {
     setIsVisible(false);
