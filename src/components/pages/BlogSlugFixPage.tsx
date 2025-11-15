@@ -93,9 +93,10 @@ export default function BlogSlugFixPage() {
       const postsToUpdate = analysis.filter(item => item.needsUpdate);
       
       for (const item of postsToUpdate) {
+        // CRITICAL: Preserve all existing data when updating
         await BaseCrudService.update<BlogPosts>('blogposts', {
-          _id: item.post._id,
-          slug: item.fixedSlug
+          ...item.post, // Preserve all existing fields
+          slug: item.fixedSlug // Only update the slug
         });
       }
       

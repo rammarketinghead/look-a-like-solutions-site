@@ -104,14 +104,15 @@ export default function BlogPostPage() {
         if (foundPost) {
           setPost(foundPost);
           
-          // Auto-fix the slug if it's malformed
+          // Auto-fix the slug if it's malformed - PRESERVE ALL EXISTING DATA
           if (foundPost.slug && !isValidSlug(foundPost.slug)) {
             const correctedSlug = fixSlug(foundPost.slug);
             if (correctedSlug && correctedSlug !== foundPost.slug) {
               try {
+                // CRITICAL: Preserve all existing data when updating
                 await BaseCrudService.update<BlogPosts>('blogposts', {
-                  _id: foundPost._id,
-                  slug: correctedSlug
+                  ...foundPost, // Preserve all existing fields
+                  slug: correctedSlug // Only update the slug
                 });
                 console.log(`Auto-fixed slug for post ${foundPost._id}: ${foundPost.slug} → ${correctedSlug}`);
               } catch (error) {

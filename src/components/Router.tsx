@@ -39,6 +39,7 @@ import PrivacyPolicyPage from '@/components/pages/PrivacyPolicyPage';
 import TermsOfServicePage from '@/components/pages/TermsOfServicePage';
 import CaseStudyDetailPage from '@/components/pages/CaseStudyDetailPage';
 import BlogSlugFixPage from '@/components/pages/BlogSlugFixPage';
+import BlogDataProtectionPage from '@/components/pages/BlogDataProtectionPage';
 
 // Layout wrapper that includes ScrollToTop
 function LayoutWithScrollToTop() {
@@ -199,6 +200,10 @@ const router = createBrowserRouter([
       {
         path: "admin/blog-slug-fix",
         element: <BlogSlugFixPage />,
+      },
+      {
+        path: "admin/blog-data-protection",
+        element: <BlogDataProtectionPage />,
       },
       {
         path: "*",

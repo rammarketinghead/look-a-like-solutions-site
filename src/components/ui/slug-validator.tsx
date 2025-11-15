@@ -66,9 +66,10 @@ export function SlugValidator({ onValidationComplete, autoFix = false }: SlugVal
     try {
       for (const issue of issuesToFix) {
         if (issue.fixedSlug) {
+          // CRITICAL: Preserve all existing data when updating
           await BaseCrudService.update<BlogPosts>('blogposts', {
-            _id: issue.post._id,
-            slug: issue.fixedSlug
+            ...issue.post, // Preserve all existing fields
+            slug: issue.fixedSlug // Only update the slug
           });
           fixed++;
         }
