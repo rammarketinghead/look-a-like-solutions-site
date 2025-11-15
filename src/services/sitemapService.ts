@@ -30,6 +30,7 @@ export class SitemapService {
       { url: '/contact', priority: '0.7', changefreq: 'monthly' },
       { url: '/privacy', priority: '0.5', changefreq: 'yearly' },
       { url: '/terms', priority: '0.5', changefreq: 'yearly' },
+      { url: '/sitemap', priority: '0.6', changefreq: 'weekly' }, // HTML sitemap
     ];
 
     // Service pages
