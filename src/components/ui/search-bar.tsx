@@ -24,7 +24,7 @@ interface SearchResult {
 interface SearchBarProps {
   placeholder?: string;
   showResults?: boolean;
-  onSearch?: (query: string, results: SearchResult[]) => void;
+  onSearch?: (query: string) => void;
   className?: string;
   variant?: 'default' | 'compact' | 'full';
 }
@@ -383,9 +383,9 @@ export function SearchBar({
       saveRecentSearch(searchQuery);
       await recordSearch(searchQuery, allResults.length > 0);
 
-      // Call onSearch callback if provided
+      // Call onSearch callback if provided (navigate to search results page)
       if (onSearch) {
-        onSearch(searchQuery, allResults);
+        onSearch(searchQuery);
       }
 
     } catch (error) {

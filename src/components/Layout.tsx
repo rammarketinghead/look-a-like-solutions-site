@@ -1,6 +1,6 @@
-import { Outlet, Link, useLocation } from 'react-router-dom';
+import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { SearchBar } from '@/components/ui/search-bar';
 import { Image } from '@/components/ui/image';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Breadcrumb } from '@/components/ui/breadcrumb';
@@ -9,15 +9,15 @@ import WhatsAppButton from '@/components/ui/whatsapp-button';
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
 import { SEOHead } from '@/components/ui/seo-head';
 import { useSitemapUpdater } from '@/hooks/useSitemapUpdater';
-import { Menu, X, Phone, Mail, MapPin, Search, ChevronDown, ChevronRight, Facebook, Instagram, Youtube, Linkedin, Heart, ArrowRight } from 'lucide-react';
+import { Menu, Phone, Mail, MapPin, ChevronDown, ChevronRight, Facebook, Instagram, Youtube, Linkedin, Heart, ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 export default function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
   const [isScrolled, setIsScrolled] = useState(false);
   const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Initialize sitemap auto-updater
   useSitemapUpdater();
@@ -86,13 +86,8 @@ export default function Layout() {
     return location.pathname.startsWith(href);
   };
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      // Implement search functionality here
-      // For now, we'll redirect to a search results page or show a message
-      alert(`Search functionality coming soon! You searched for: ${searchQuery}`);
-    }
+  const handleSearchNavigation = (query: string) => {
+    navigate(`/search?q=${encodeURIComponent(query)}`);
   };
 
   const toggleMobileSubmenu = (itemName: string) => {
@@ -204,16 +199,12 @@ export default function Layout() {
 
             {/* Desktop Search & CTA */}
             <div className="hidden lg:flex items-center space-x-4">
-              <form onSubmit={handleSearch} className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-secondary" />
-                <Input
-                  type="text"
-                  placeholder="Search..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 pr-4 w-48 mobile-input"
-                />
-              </form>
+              <SearchBar 
+                placeholder="Search..." 
+                variant="compact"
+                className="w-64"
+                onSearch={handleSearchNavigation}
+              />
               <Link to="/contact">
                 <Button className="mobile-btn-primary">
                   Get Quote
@@ -245,16 +236,11 @@ export default function Layout() {
 
                   {/* Mobile Search */}
                   <div className="p-4 border-b border-gray-200">
-                    <form onSubmit={handleSearch} className="relative">
-                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-secondary" />
-                      <Input
-                        type="text"
-                        placeholder="Search..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        className="pl-10 pr-4 w-full mobile-input"
-                      />
-                    </form>
+                    <SearchBar 
+                      placeholder="Search..." 
+                      variant="compact"
+                      onSearch={handleSearchNavigation}
+                    />
                   </div>
 
                   {/* Mobile Navigation */}

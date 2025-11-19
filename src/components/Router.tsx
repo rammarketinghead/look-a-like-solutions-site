@@ -46,6 +46,7 @@ import BlogAnalysisPage from '@/components/pages/BlogAnalysisPage';
 import SitemapAdminPage from '@/components/pages/SitemapAdminPage';
 import SitemapHtmlPage from '@/components/pages/SitemapHtmlPage';
 import SearchAnalyticsPage from '@/components/pages/SearchAnalyticsPage';
+import SearchResultsPage from '@/components/pages/SearchResultsPage';
 
 // Layout wrapper that includes ScrollToTop
 function LayoutWithScrollToTop() {
@@ -190,6 +191,10 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <ContactPage />,
+      },
+      {
+        path: "search",
+        element: <SearchResultsPage />,
       },
       {
         path: "privacy",
