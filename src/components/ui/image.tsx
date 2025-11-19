@@ -62,7 +62,7 @@ const WixImage = forwardRef<HTMLImageElement, WixImageProps>(
 )
 WixImage.displayName = 'WixImage'
 
-export const Image = forwardRef<HTMLImageElement, ImageProps>(({ src, ...props }, ref) => {
+export const Image = forwardRef<HTMLImageElement, ImageProps>(({ src, loading = 'lazy', decoding = 'async', ...props }, ref) => {
   const [imgSrc, setImgSrc] = useState<string | undefined>(src)
 
   useEffect(() => {
@@ -79,7 +79,12 @@ export const Image = forwardRef<HTMLImageElement, ImageProps>(({ src, ...props }
     return <div data-empty-image ref={ref} {...props} />
   }
 
-  const imageProps = {...props, onError: () => setImgSrc(FALLBACK_IMAGE_URL)}
+  const imageProps = {
+    ...props, 
+    loading, 
+    decoding,
+    onError: () => setImgSrc(FALLBACK_IMAGE_URL)
+  }
   const imageData = getImageData(imgSrc)
 
   if (!imageData) {

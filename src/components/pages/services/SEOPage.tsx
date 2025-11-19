@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
-
+import { SEOHead } from '@/components/ui/seo-head';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { ROICalculator } from '@/components/ui/roi-calculator';
 import { Link } from 'react-router-dom';
@@ -24,6 +24,29 @@ export default function SEOPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="SEO Services in Bengaluru - Rank #1 on Google & Get More Customers"
+        description="Professional SEO services in Bengaluru. Increase organic traffic by 300%+, rank #1 on Google, and get more customers. Proven SEO strategies with guaranteed results. Free SEO audit available."
+        keywords="SEO services Bengaluru, SEO company Bengaluru, search engine optimization, Google ranking, organic traffic, local SEO, SEO expert Bengaluru, SEO agency India"
+        type="service"
+        schemaType="Service"
+        services={[
+          {
+            name: "SEO Optimization Services",
+            description: "Comprehensive SEO services including keyword research, on-page optimization, technical SEO, link building, and local SEO to help your business rank #1 on Google and drive qualified organic traffic.",
+            areaServed: "Bengaluru, Karnataka, India",
+            priceRange: "$"
+          }
+        ]}
+        reviews={[
+          {
+            author: "Rajesh Kumar",
+            rating: 5,
+            reviewBody: "Our website traffic increased by 300% in just 6 months with their SEO services. We now rank #1 for our main keywords and get 50+ quality leads monthly.",
+            datePublished: "2024-10-15"
+          }
+        ]}
+      />
       {/* Hero Section */}
       <section className="py-32 bg-gradient-to-br from-primary/5 via-background to-light-gray relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23007BFF%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>

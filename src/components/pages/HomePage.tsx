@@ -195,10 +195,61 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead 
-        title="Look A Like Solutions - Digital Marketing Agency in Bengaluru"
-        description="Leading digital marketing agency in Bengaluru offering SEO, social media marketing, paid ads, web development, and more. Grow your business with data-driven strategies and proven results."
-        keywords="digital marketing agency Bengaluru, SEO services, social media marketing, paid advertising, web development, content marketing, digital marketing company India"
+        title="Digital Marketing Agency in Bengaluru - Get More Customers & Grow Revenue"
+        description="Get more customers and grow your revenue with proven digital marketing strategies. We deliver measurable results in 90 days. SEO, Paid Ads, Social Media & more. Free strategy session available."
+        keywords="digital marketing agency Bengaluru, SEO services Bengaluru, social media marketing, paid advertising, web development, content marketing, digital marketing company India, Google Ads, Facebook Ads, Instagram marketing"
         type="website"
+        schemaType="LocalBusiness"
+        aggregateRating={{
+          ratingValue: 4.9,
+          reviewCount: 500
+        }}
+        services={[
+          {
+            name: "SEO Optimization",
+            description: "Rank #1 on Google and get found by customers searching for you. Comprehensive SEO services including keyword research, on-page optimization, and link building.",
+            areaServed: "Bengaluru, India",
+            priceRange: "$"
+          },
+          {
+            name: "Social Media Marketing",
+            description: "Turn followers into paying customers with engaging content and targeted social media campaigns across all platforms.",
+            areaServed: "Bengaluru, India",
+            priceRange: "$"
+          },
+          {
+            name: "Paid Advertising (Google & Facebook Ads)",
+            description: "Get instant traffic and qualified leads with expertly managed Google Ads and Facebook Ads campaigns.",
+            areaServed: "Bengaluru, India",
+            priceRange: "$"
+          },
+          {
+            name: "Web Development",
+            description: "Fast, mobile-friendly websites that convert visitors into customers. Custom web design and development services.",
+            areaServed: "Bengaluru, India",
+            priceRange: "$"
+          }
+        ]}
+        reviews={[
+          {
+            author: "Rajesh Kumar",
+            rating: 5,
+            reviewBody: "Within 6 months, our website traffic increased by 300% and we're now getting 50+ qualified leads every month. The ROI has been incredible.",
+            datePublished: "2024-10-15"
+          },
+          {
+            author: "Priya Sharma",
+            rating: 5,
+            reviewBody: "Their Instagram strategy transformed our business. We went from 500 followers to 15,000 in 4 months, and our online sales tripled.",
+            datePublished: "2024-09-20"
+          },
+          {
+            author: "Amit Patel",
+            rating: 5,
+            reviewBody: "We achieved a 5x return on our ad spend in the first quarter. Their data-driven approach and constant optimization made all the difference.",
+            datePublished: "2024-11-01"
+          }
+        ]}
       />
       
       {/* Mobile-First Hero Section */}

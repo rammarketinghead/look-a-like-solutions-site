@@ -1,19 +1,42 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
+interface Review {
+  author: string;
+  rating: number;
+  reviewBody: string;
+  datePublished?: string;
+}
+
+interface Service {
+  name: string;
+  description: string;
+  provider?: string;
+  areaServed?: string;
+  priceRange?: string;
+}
+
 interface SEOHeadProps {
   title?: string;
   description?: string;
   keywords?: string;
   image?: string;
   url?: string;
-  type?: 'website' | 'article';
+  type?: 'website' | 'article' | 'service';
   author?: string;
   publishedTime?: string;
   modifiedTime?: string;
   siteName?: string;
   twitterCard?: 'summary' | 'summary_large_image';
   noIndex?: boolean;
+  // Schema markup props
+  schemaType?: 'Organization' | 'LocalBusiness' | 'Service' | 'Article' | 'Product';
+  reviews?: Review[];
+  services?: Service[];
+  aggregateRating?: {
+    ratingValue: number;
+    reviewCount: number;
+  };
 }
 
 export function SEOHead({
@@ -28,7 +51,11 @@ export function SEOHead({
   modifiedTime,
   siteName = 'Look A Like Solutions',
   twitterCard = 'summary_large_image',
-  noIndex = false
+  noIndex = false,
+  schemaType,
+  reviews,
+  services,
+  aggregateRating
 }: SEOHeadProps) {
   const location = useLocation();
   
@@ -113,9 +140,54 @@ export function SEOHead({
     }
     canonical.setAttribute('href', finalUrl);
     
-    // JSON-LD structured data for articles
+    // Remove existing JSON-LD scripts
+    const existingScripts = document.querySelectorAll('script[type="application/ld+json"]');
+    existingScripts.forEach(script => script.remove());
+    
+    // Create schema markup based on type
+    const schemas: any[] = [];
+    
+    // Organization schema (always include)
+    const organizationSchema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": siteName,
+      "url": baseUrl,
+      "logo": defaultImage,
+      "description": "Leading digital marketing agency in Bengaluru offering SEO, social media marketing, paid ads, web development, and comprehensive digital solutions.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-XXXXXXXXXX",
+        "contactType": "Customer Service",
+        "areaServed": "IN",
+        "availableLanguage": ["English", "Hindi"]
+      },
+      "sameAs": [
+        "https://www.facebook.com/lookalikesolutions",
+        "https://www.linkedin.com/company/lookalikesolutions",
+        "https://twitter.com/lookalikesol"
+      ]
+    };
+    
+    if (aggregateRating) {
+      organizationSchema["aggregateRating"] = {
+        "@type": "AggregateRating",
+        "ratingValue": aggregateRating.ratingValue,
+        "reviewCount": aggregateRating.reviewCount
+      };
+    }
+    
+    schemas.push(organizationSchema);
+    
+    // Article schema
     if (type === 'article') {
-      const structuredData = {
+      schemas.push({
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": title || finalTitle,
@@ -136,18 +208,98 @@ export function SEOHead({
             "url": defaultImage
           }
         }
-      };
-      
-      let script = document.querySelector('script[type="application/ld+json"]') as HTMLScriptElement;
-      if (!script) {
-        script = document.createElement('script');
-        script.setAttribute('type', 'application/ld+json');
-        document.head.appendChild(script);
-      }
-      script.textContent = JSON.stringify(structuredData);
+      });
     }
     
-  }, [finalTitle, finalDescription, finalImage, finalUrl, type, author, publishedTime, modifiedTime, keywords, siteName, twitterCard, noIndex]);
+    // Service schema
+    if (schemaType === 'Service' && services && services.length > 0) {
+      services.forEach(service => {
+        schemas.push({
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": service.name,
+          "description": service.description,
+          "provider": {
+            "@type": "Organization",
+            "name": service.provider || siteName,
+            "url": baseUrl
+          },
+          "areaServed": {
+            "@type": "Place",
+            "name": service.areaServed || "Bengaluru, India"
+          },
+          "serviceType": service.name,
+          "priceRange": service.priceRange || "$"
+        });
+      });
+    }
+    
+    // Review schema
+    if (reviews && reviews.length > 0) {
+      reviews.forEach(review => {
+        schemas.push({
+          "@context": "https://schema.org",
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": review.author
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": review.rating,
+            "bestRating": 5
+          },
+          "reviewBody": review.reviewBody,
+          "datePublished": review.datePublished || new Date().toISOString(),
+          "itemReviewed": {
+            "@type": "Organization",
+            "name": siteName
+          }
+        });
+      });
+    }
+    
+    // LocalBusiness schema for location-based pages
+    if (schemaType === 'LocalBusiness') {
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": siteName,
+        "image": defaultImage,
+        "url": baseUrl,
+        "telephone": "+91-XXXXXXXXXX",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Your Street Address",
+          "addressLocality": "Bengaluru",
+          "addressRegion": "Karnataka",
+          "postalCode": "560001",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 12.9716,
+          "longitude": 77.5946
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        "priceRange": "$"
+      });
+    }
+    
+    // Insert all schemas
+    schemas.forEach(schema => {
+      const script = document.createElement('script');
+      script.setAttribute('type', 'application/ld+json');
+      script.textContent = JSON.stringify(schema);
+      document.head.appendChild(script);
+    });
+    
+  }, [finalTitle, finalDescription, finalImage, finalUrl, type, author, publishedTime, modifiedTime, keywords, siteName, twitterCard, noIndex, schemaType, reviews, services, aggregateRating]);
   
   return null; // This component doesn't render anything
 }

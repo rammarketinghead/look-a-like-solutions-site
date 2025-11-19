@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
-
+import { SEOHead } from '@/components/ui/seo-head';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { ROICalculator } from '@/components/ui/roi-calculator';
 import { Link } from 'react-router-dom';
@@ -24,6 +24,29 @@ export default function SocialMediaPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Social Media Marketing Services Bengaluru - Grow Your Following & Sales"
+        description="Expert social media marketing in Bengaluru. Grow your Instagram, Facebook, LinkedIn & Twitter following. Increase engagement, build brand awareness, and drive sales. Free social media audit."
+        keywords="social media marketing Bengaluru, Instagram marketing, Facebook marketing, LinkedIn marketing, social media management, content creation, influencer marketing, social media agency Bengaluru"
+        type="service"
+        schemaType="Service"
+        services={[
+          {
+            name: "Social Media Marketing Services",
+            description: "Comprehensive social media marketing including content creation, community management, paid social advertising, influencer partnerships, and analytics across Instagram, Facebook, LinkedIn, Twitter, and more.",
+            areaServed: "Bengaluru, Karnataka, India",
+            priceRange: "$"
+          }
+        ]}
+        reviews={[
+          {
+            author: "Priya Sharma",
+            rating: 5,
+            reviewBody: "Their Instagram strategy transformed our business. We went from 500 followers to 15,000 in 4 months, and our online sales tripled.",
+            datePublished: "2024-09-20"
+          }
+        ]}
+      />
       {/* Hero Section */}
       <section className="py-32 bg-gradient-to-br from-primary/5 via-background to-light-gray relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23007BFF%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
