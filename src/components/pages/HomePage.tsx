@@ -233,6 +233,18 @@ export default function HomePage() {
               </div>
             </motion.div>
 
+            {/* Value Proposition - Short & Punchy */}
+            <motion.div 
+              variants={fadeInVariants} 
+              className="mb-8 px-4 sm:px-0"
+            >
+              <p className="text-xl sm:text-2xl md:text-3xl font-heading text-dark-gray leading-tight">
+                <span className="text-primary font-bold">Real Results.</span>{' '}
+                <span className="text-dark-gray font-bold">Real Growth.</span>{' '}
+                <span className="text-secondary font-normal">No Fluff.</span>
+              </p>
+            </motion.div>
+
             {/* Main Heading */}
             <motion.h1 variants={fadeInVariants} className="mobile-h1 text-dark-gray mb-6">
               Transform Your Digital Presence with 
