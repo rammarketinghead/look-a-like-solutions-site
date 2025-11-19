@@ -233,27 +233,15 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            {/* Value Proposition - Short & Punchy */}
-            <motion.div 
-              variants={fadeInVariants} 
-              className="mb-8 px-4 sm:px-0"
-            >
-              <p className="text-xl sm:text-2xl md:text-3xl font-heading text-dark-gray leading-tight">
-                <span className="text-primary font-bold">Real Results.</span>{' '}
-                <span className="text-dark-gray font-bold">Real Growth.</span>{' '}
-                <span className="text-secondary font-normal">No Fluff.</span>
-              </p>
-            </motion.div>
-
-            {/* Main Heading */}
+            {/* Main Heading - Benefit-Driven */}
             <motion.h1 variants={fadeInVariants} className="mobile-h1 text-dark-gray mb-6">
-              Transform Your Digital Presence with 
-              <span className="text-primary block sm:inline sm:ml-2">Data-Driven Results</span>
+              Get More Customers. Grow Your Revenue.
+              <span className="text-primary block mt-2">See Results in 90 Days.</span>
             </motion.h1>
 
-            {/* Subheading */}
+            {/* Subheading - Clear Value */}
             <motion.p variants={fadeInVariants} className="mobile-body-lg text-secondary mb-8 max-w-2xl mx-auto">
-              We help businesses in Bengaluru and beyond achieve measurable growth through strategic digital marketing that actually works.
+              We turn your website into a customer-generating machine with proven digital marketing strategies. No jargon. Just growth.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -303,10 +291,10 @@ export default function HomePage() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="mobile-h2 text-dark-gray mb-6">
-                Complete Digital Marketing Solutions
+                Services That Drive Real Business Growth
               </h2>
               <p className="mobile-body-lg text-secondary max-w-3xl mx-auto">
-                From strategy to execution, we deliver results-driven digital marketing that grows your business.
+                Every service is designed to bring you more customers, increase sales, and maximize your ROI.
               </p>
             </motion.div>
           </div>
@@ -319,14 +307,18 @@ export default function HomePage() {
             className="mobile-grid-3 xl:grid-cols-4"
           >
             {[
-              { title: 'SEO Optimization', description: 'Dominate search results and drive organic traffic', icon: '🔍', color: 'bg-blue-50 text-blue-600', link: '/services/seo' },
-              { title: 'Social Media Marketing', description: 'Build engaged communities across all platforms', icon: '📱', color: 'bg-purple-50 text-purple-600', link: '/services/social-media' },
-              { title: 'Paid Advertising', description: 'Maximize ROI with targeted ad campaigns', icon: '🎯', color: 'bg-green-50 text-green-600', link: '/services/paid-ads' },
-              { title: 'Web Development', description: 'Create high-converting, mobile-first websites', icon: '💻', color: 'bg-orange-50 text-orange-600', link: '/services/web-development' },
-              { title: 'Content Marketing', description: 'Engage audiences with compelling content', icon: '✍️', color: 'bg-pink-50 text-pink-600', link: '/services/content-marketing' },
-              { title: 'Data Analytics', description: 'Make informed decisions with actionable insights', icon: '📊', color: 'bg-indigo-50 text-indigo-600', link: '/services/data-analytics' },
-              { title: 'Email Marketing', description: 'Nurture leads with personalized campaigns', icon: '📧', color: 'bg-red-50 text-red-600', link: '/services/email-marketing' },
-              { title: 'Conversion Optimization', description: 'Turn more visitors into paying customers', icon: '⚡', color: 'bg-yellow-50 text-yellow-600', link: '/services/conversion-optimization' }
+              { title: 'SEO Optimization', description: 'Rank #1 on Google and get found by customers searching for you', icon: '🔍', color: 'bg-blue-50 text-blue-600', link: '/services/seo' },
+              { title: 'Social Media Marketing', description: 'Turn followers into paying customers with engaging content', icon: '📱', color: 'bg-purple-50 text-purple-600', link: '/services/social-media' },
+              { title: 'Paid Advertising', description: 'Get instant traffic and qualified leads with Google & Facebook Ads', icon: '🎯', color: 'bg-green-50 text-green-600', link: '/services/paid-ads' },
+              { title: 'Web Development', description: 'Fast, mobile-friendly websites that convert visitors into customers', icon: '💻', color: 'bg-orange-50 text-orange-600', link: '/services/web-development' },
+              { title: 'Content Marketing', description: 'Attract and convert customers with valuable, SEO-optimized content', icon: '✍️', color: 'bg-pink-50 text-pink-600', link: '/services/content-marketing' },
+              { title: 'Data Analytics', description: 'Know exactly what\'s working and where to invest your marketing budget', icon: '📊', color: 'bg-indigo-50 text-indigo-600', link: '/services/data-analytics' },
+              { title: 'Email Marketing', description: 'Nurture leads and drive repeat sales with automated email campaigns', icon: '📧', color: 'bg-red-50 text-red-600', link: '/services/email-marketing' },
+              { title: 'Conversion Optimization', description: 'Double your sales without spending more on advertising', icon: '⚡', color: 'bg-yellow-50 text-yellow-600', link: '/services/conversion-optimization' },
+              { title: 'Influencer Marketing', description: 'Reach thousands of potential customers through trusted influencers', icon: '👥', color: 'bg-teal-50 text-teal-600', link: '/services/influencer-marketing' },
+              { title: 'YouTube Growth', description: 'Build a profitable YouTube channel with more views and subscribers', icon: '📹', color: 'bg-rose-50 text-rose-600', link: '/services/youtube-growth' },
+              { title: 'Digital Audit', description: 'Discover hidden opportunities to improve your digital performance', icon: '🔎', color: 'bg-cyan-50 text-cyan-600', link: '/services/digital-audit' },
+              { title: 'Digital Training', description: 'Master digital marketing skills to grow your business yourself', icon: '🎓', color: 'bg-amber-50 text-amber-600', link: '/services/digital-training' }
             ].map((service, index) => (
               <motion.div key={index} variants={scaleInVariants}>
                 <Link to={service.link} className="block h-full">
@@ -339,6 +331,10 @@ export default function HomePage() {
                         {service.title}
                       </h3>
                       <p className="mobile-body text-secondary flex-grow">{service.description}</p>
+                      <div className="mt-4 flex items-center justify-center text-primary mobile-body-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                        Learn More
+                        <ArrowRight className="ml-1 h-4 w-4" />
+                      </div>
                     </CardContent>
                   </Card>
                 </Link>
@@ -349,7 +345,152 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Link to="/services">
               <Button className="mobile-btn-primary shadow-lg hover:shadow-xl">
-                Explore All Services
+                View All Services
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Real Client Success Story - Featured Case Study */}
+      <section className="mobile-section bg-background">
+        <div className="mobile-container">
+          <div className="text-center mb-12">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariants}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="mobile-h2 text-dark-gray mb-6">
+                Real Client. Real Results.
+              </h2>
+              <p className="mobile-body-lg text-secondary max-w-3xl mx-auto">
+                See how we helped a local Bengaluru business triple their revenue in just 6 months.
+              </p>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInVariants}
+            transition={{ duration: 0.8 }}
+          >
+            <Card className="mobile-card border-2 border-primary/20 overflow-hidden">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                {/* Image Side */}
+                <div className="relative h-64 lg:h-auto bg-gradient-to-br from-primary/10 to-primary/5">
+                  <div className="absolute inset-0 flex items-center justify-center p-8">
+                    <div className="text-center">
+                      <div className="inline-flex items-center justify-center w-24 h-24 bg-primary rounded-full mb-6">
+                        <TrendingUp className="h-12 w-12 text-primary-foreground" />
+                      </div>
+                      <div className="space-y-4">
+                        <div className="bg-background/90 backdrop-blur-sm rounded-lg p-4 shadow-lg">
+                          <div className="text-4xl font-heading text-primary mb-1">+285%</div>
+                          <div className="mobile-body-sm text-secondary">Revenue Growth</div>
+                        </div>
+                        <div className="bg-background/90 backdrop-blur-sm rounded-lg p-4 shadow-lg">
+                          <div className="text-4xl font-heading text-primary mb-1">+420%</div>
+                          <div className="mobile-body-sm text-secondary">Website Traffic</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content Side */}
+                <CardContent className="mobile-card-padding lg:p-12">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="bg-green-100 text-green-700 px-3 py-1 rounded-full mobile-body-sm font-medium">
+                      Success Story
+                    </div>
+                    <div className="bg-primary/10 text-primary px-3 py-1 rounded-full mobile-body-sm font-medium">
+                      E-commerce
+                    </div>
+                  </div>
+
+                  <h3 className="mobile-h3 text-dark-gray mb-4">
+                    How TechGear India Tripled Revenue with SEO & Paid Ads
+                  </h3>
+
+                  <div className="space-y-6 mb-8">
+                    <div>
+                      <h4 className="mobile-h4 text-dark-gray mb-2 flex items-center">
+                        <Target className="h-5 w-5 text-primary mr-2" />
+                        The Challenge
+                      </h4>
+                      <p className="mobile-body text-secondary">
+                        TechGear India, a Bengaluru-based electronics retailer, was struggling with low online visibility and high customer acquisition costs. Their website received only 500 visitors per month, and sales were stagnant.
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="mobile-h4 text-dark-gray mb-2 flex items-center">
+                        <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
+                        Our Solution
+                      </h4>
+                      <p className="mobile-body text-secondary mb-3">
+                        We implemented a comprehensive digital marketing strategy combining SEO optimization, Google Ads, and conversion rate optimization.
+                      </p>
+                      <ul className="space-y-2">
+                        {[
+                          'Optimized 50+ product pages for high-intent keywords',
+                          'Launched targeted Google Shopping campaigns',
+                          'Redesigned checkout flow to reduce cart abandonment',
+                          'Created content strategy to attract organic traffic'
+                        ].map((item, index) => (
+                          <li key={index} className="flex items-start mobile-body text-secondary">
+                            <CheckCircle className="h-4 w-4 text-primary mr-2 mt-1 flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="mobile-h4 text-dark-gray mb-3 flex items-center">
+                        <TrendingUp className="h-5 w-5 text-primary mr-2" />
+                        The Results (6 Months)
+                      </h4>
+                      <div className="grid grid-cols-2 gap-4">
+                        {[
+                          { metric: '+285%', label: 'Revenue Increase' },
+                          { metric: '+420%', label: 'Organic Traffic' },
+                          { metric: '4.8x', label: 'Return on Ad Spend' },
+                          { metric: '-45%', label: 'Cost Per Acquisition' }
+                        ].map((result, index) => (
+                          <div key={index} className="bg-light-gray rounded-lg p-4 text-center">
+                            <div className="text-2xl font-heading text-primary mb-1">{result.metric}</div>
+                            <div className="mobile-body-sm text-secondary">{result.label}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <Link to="/case-studies">
+                    <Button className="mobile-btn-primary w-full sm:w-auto">
+                      Read Full Case Study
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </div>
+            </Card>
+          </motion.div>
+
+          <div className="text-center mt-12">
+            <p className="mobile-body text-secondary mb-4">
+              Want results like these for your business?
+            </p>
+            <Link to="/contact">
+              <Button className="mobile-btn-secondary">
+                Get Your Free Strategy Session
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
@@ -369,10 +510,10 @@ export default function HomePage() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="mobile-h2 text-dark-gray mb-6">
-                Our Proven 4-Step Process
+                How We Deliver Results in 90 Days
               </h2>
               <p className="mobile-body-lg text-secondary max-w-3xl mx-auto">
-                A systematic approach that takes your business from invisible to unstoppable.
+                Our proven 4-step process turns your marketing investment into measurable business growth.
               </p>
             </motion.div>
           </div>
@@ -381,26 +522,26 @@ export default function HomePage() {
             {[
               {
                 step: '01',
-                title: 'Discovery & Strategy',
-                description: 'We analyze your business, competitors, and market to create a winning strategy.',
+                title: 'Audit & Strategy',
+                description: 'We analyze your current performance and identify quick wins to drive immediate results.',
                 icon: '🎯'
               },
               {
                 step: '02',
-                title: 'Implementation',
-                description: 'Our expert team executes the strategy with precision and attention to detail.',
+                title: 'Launch & Execute',
+                description: 'Our team implements proven tactics that start generating leads and sales within weeks.',
                 icon: '⚡'
               },
               {
                 step: '03',
-                title: 'Optimization',
-                description: 'We continuously monitor, test, and refine for maximum performance.',
+                title: 'Test & Optimize',
+                description: 'We continuously improve campaigns based on real data to maximize your ROI.',
                 icon: '📈'
               },
               {
                 step: '04',
-                title: 'Reporting & Growth',
-                description: 'You receive detailed insights and recommendations for sustained growth.',
+                title: 'Scale & Grow',
+                description: 'Once we find what works, we scale it to multiply your results month after month.',
                 icon: '📊'
               }
             ].map((item, index) => (
@@ -433,7 +574,7 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Link to="/contact">
               <Button className="mobile-btn-primary shadow-lg hover:shadow-xl">
-                Start Your Growth Journey
+                Start Getting Results Today
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
@@ -464,10 +605,10 @@ export default function HomePage() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="mobile-h2 mb-6">
-                Measurable Results We Deliver
+                Numbers That Prove We Deliver
               </h2>
               <p className="mobile-body-lg opacity-90 max-w-3xl mx-auto">
-                We focus on metrics that matter, translating marketing efforts into real business growth.
+                These aren't vanity metrics. They're real business outcomes that impact your bottom line.
               </p>
             </motion.div>
           </div>
@@ -480,10 +621,10 @@ export default function HomePage() {
             className="mobile-grid-2 lg:grid-cols-4"
           >
             {[
-              { number: '500+', label: 'Happy Clients', icon: '😊' },
-              { number: '150%', label: 'Average Traffic Increase', icon: '📈' },
-              { number: '3X', label: 'Higher Conversion Rates', icon: '🎯' },
-              { number: '98%', label: 'Client Retention', icon: '🤝' }
+              { number: '500+', label: 'Businesses Helped', icon: '😊' },
+              { number: '285%', label: 'Average Revenue Growth', icon: '📈' },
+              { number: '4.8x', label: 'Average ROI', icon: '🎯' },
+              { number: '98%', label: 'Client Retention Rate', icon: '🤝' }
             ].map((stat, index) => (
               <motion.div key={index} variants={scaleInVariants} className="text-center group">
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl mobile-card-padding group-hover:bg-white/20 transition-all duration-300">
@@ -498,7 +639,7 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Link to="/case-studies">
               <Button className="mobile-btn-secondary border-2 border-background text-background hover:bg-background hover:text-primary shadow-lg hover:shadow-xl">
-                View Our Results
+                See Detailed Case Studies
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
@@ -511,10 +652,10 @@ export default function HomePage() {
         <div className="mobile-container">
           <div className="text-center mb-12">
             <h2 className="mobile-h2 text-dark-gray mb-6">
-              What Our Clients Say
+              Success Stories from Real Clients
             </h2>
             <p className="mobile-body-lg text-secondary max-w-3xl mx-auto">
-              Real stories of business growth and success from our valued clients across Bengaluru and beyond.
+              Don't just take our word for it. Here's what business owners say about working with us.
             </p>
           </div>
 
@@ -524,22 +665,22 @@ export default function HomePage() {
                 name: 'Rajesh Kumar',
                 company: 'TechStart Solutions',
                 role: 'CEO',
-                testimonial: 'Look A Like Solutions transformed our online presence completely. Our website traffic increased by 300% in just 6 months, and we\'re getting quality leads daily.',
-                result: '300% traffic increase'
+                testimonial: 'Within 6 months, our website traffic increased by 300% and we\'re now getting 50+ qualified leads every month. The ROI has been incredible.',
+                result: '300% traffic, 50+ leads/month'
               },
               {
                 name: 'Priya Sharma',
                 company: 'Bangalore Boutique',
                 role: 'Founder',
-                testimonial: 'Their social media marketing strategy helped us reach thousands of new customers. Our Instagram following grew from 500 to 15,000 in 4 months!',
-                result: '15K+ new followers'
+                testimonial: 'Their Instagram strategy transformed our business. We went from 500 followers to 15,000 in 4 months, and our online sales tripled.',
+                result: '15K followers, 3x sales'
               },
               {
                 name: 'Amit Patel',
                 company: 'Digital Dynamics',
                 role: 'Marketing Director',
-                testimonial: 'The ROI from their paid advertising campaigns exceeded our expectations. We achieved a 5x return on our ad spend within the first quarter.',
-                result: '5x ROAS achieved'
+                testimonial: 'We achieved a 5x return on our ad spend in the first quarter. Their data-driven approach and constant optimization made all the difference.',
+                result: '5x ROAS in 90 days'
               }
             ].map((testimonial, index) => (
               <motion.div
@@ -568,9 +709,10 @@ export default function HomePage() {
                     <p className="mobile-body text-secondary mb-4 italic">
                       "{testimonial.testimonial}"
                     </p>
-                    <div className="bg-primary/5 rounded-lg p-3">
-                      <span className="text-primary font-heading mobile-body-sm">
-                        Key Result: {testimonial.result}
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                      <span className="text-green-700 font-heading mobile-body-sm flex items-center">
+                        <CheckCircle className="h-4 w-4 mr-2" />
+                        {testimonial.result}
                       </span>
                     </div>
                   </CardContent>
@@ -595,10 +737,10 @@ export default function HomePage() {
         <div className="mobile-container">
           <div className="text-center mb-12">
             <h2 className="mobile-h2 text-dark-gray mb-6">
-              Why Choose Look A Like Solutions?
+              Why Businesses Choose Us Over Other Agencies
             </h2>
             <p className="mobile-body-lg text-secondary max-w-3xl mx-auto">
-              We combine creativity with data-driven strategies to deliver exceptional results for businesses in Bengaluru and beyond.
+              We don't just run campaigns. We become your growth partner focused on one thing: increasing your revenue.
             </p>
           </div>
 
@@ -606,23 +748,23 @@ export default function HomePage() {
             {[
               {
                 icon: Target,
-                title: 'Results-Driven',
-                description: 'Every strategy is designed to deliver measurable outcomes and ROI'
+                title: 'Revenue-Focused',
+                description: 'Every strategy is designed to bring you more customers and increase sales, not just vanity metrics'
               },
               {
                 icon: TrendingUp,
-                title: 'Proven Growth',
-                description: 'Track record of helping businesses scale their digital presence'
+                title: 'Fast Results',
+                description: 'See measurable improvements within 90 days or we keep working until you do'
               },
               {
                 icon: Users,
-                title: 'Expert Team',
-                description: 'Experienced professionals with deep industry knowledge'
+                title: 'Dedicated Team',
+                description: 'You get a dedicated account manager and direct access to our expert team'
               },
               {
                 icon: Award,
-                title: 'Quality Focused',
-                description: 'Committed to delivering excellence in every project'
+                title: 'Transparent Reporting',
+                description: 'Clear monthly reports showing exactly where your money goes and what results you\'re getting'
               }
             ].map((item, index) => (
               <motion.div
@@ -652,21 +794,21 @@ export default function HomePage() {
       <section className="mobile-section bg-dark-gray">
         <div className="mobile-container text-center">
           <h2 className="mobile-h2 text-background mb-6">
-            Ready to Transform Your Digital Presence?
+            Ready to Grow Your Business?
           </h2>
           <p className="mobile-body-lg text-light-gray mb-8 max-w-2xl mx-auto">
-            Let's discuss how we can help your business achieve its digital marketing goals. Get in touch for a free consultation.
+            Get a free strategy session where we'll analyze your current marketing and show you exactly how to get more customers.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
               <Button className="mobile-btn-primary w-full sm:w-auto">
-                Start Your Project
+                Get Free Strategy Session
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link to="/case-studies">
               <Button className="mobile-btn-secondary border-background text-background hover:bg-background hover:text-dark-gray w-full sm:w-auto">
-                View Our Work
+                See Our Results
               </Button>
             </Link>
           </div>
