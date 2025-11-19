@@ -135,6 +135,7 @@ export default function Layout() {
       {/* Mobile-First Header */}
       <header className={`mobile-sticky-header transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
         <div className="mobile-container">
+          {/* Main Header Row */}
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2 z-50">
@@ -212,13 +213,23 @@ export default function Layout() {
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
-            <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="lg:hidden">
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
+            {/* Mobile Menu Button & Search */}
+            <div className="flex items-center gap-2 lg:hidden">
+              {/* Mobile Search - Always Visible */}
+              <div className="w-48 sm:w-64">
+                <SearchBar 
+                  placeholder="Search..." 
+                  variant="compact"
+                  onSearch={handleSearchNavigation}
+                />
+              </div>
+              
+              <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="flex-shrink-0">
+                    <Menu className="h-6 w-6" />
+                  </Button>
+                </SheetTrigger>
               <SheetContent side="right" className="w-full sm:w-80 p-0">
                 <div className="flex flex-col h-full">
                   {/* Mobile Header */}
@@ -232,15 +243,6 @@ export default function Layout() {
                       />
                       <span className="mobile-h4 text-primary font-bold">LAS</span>
                     </div>
-                  </div>
-
-                  {/* Mobile Search */}
-                  <div className="p-4 border-b border-gray-200">
-                    <SearchBar 
-                      placeholder="Search..." 
-                      variant="compact"
-                      onSearch={handleSearchNavigation}
-                    />
                   </div>
 
                   {/* Mobile Navigation */}
@@ -342,6 +344,7 @@ export default function Layout() {
               </SheetContent>
             </Sheet>
           </div>
+        </div>
         </div>
       </header>
 
