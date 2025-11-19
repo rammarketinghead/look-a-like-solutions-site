@@ -47,6 +47,7 @@ import SitemapAdminPage from '@/components/pages/SitemapAdminPage';
 import SitemapHtmlPage from '@/components/pages/SitemapHtmlPage';
 import SearchAnalyticsPage from '@/components/pages/SearchAnalyticsPage';
 import SearchResultsPage from '@/components/pages/SearchResultsPage';
+import GoogleAdsTrainingPage from '@/components/pages/GoogleAdsTrainingPage';
 
 // Layout wrapper that includes ScrollToTop
 function LayoutWithScrollToTop() {
@@ -239,6 +240,10 @@ const router = createBrowserRouter([
       {
         path: "admin/search-analytics",
         element: <SearchAnalyticsPage />,
+      },
+      {
+        path: "google-ads-training",
+        element: <GoogleAdsTrainingPage />,
       },
       {
         path: "*",
