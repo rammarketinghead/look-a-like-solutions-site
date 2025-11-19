@@ -75,6 +75,7 @@ export default function Layout() {
         { name: 'Speed Test', href: '/tools/website-speed-test', icon: '⚡' }
       ]
     },
+    { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' }
   ];
 

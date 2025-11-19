@@ -6,8 +6,11 @@ import { Image } from '@/components/ui/image';
 import { FAQSection } from '@/components/ui/faq-section';
 import { SEOHead } from '@/components/ui/seo-head';
 import { TrustedBusinessesCarousel } from '@/components/ui/trusted-businesses-carousel';
+import { useState, useEffect } from 'react';
+import { BaseCrudService } from '@/integrations';
+import { BlogPosts } from '@/entities';
 
-import { ArrowRight, Target, TrendingUp, Users, Award, Play, Star, CheckCircle } from 'lucide-react';
+import { ArrowRight, Target, TrendingUp, Users, Award, Play, Star, CheckCircle, Calendar, Clock } from 'lucide-react';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -29,6 +32,137 @@ const scaleInVariants = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: { opacity: 1, scale: 1 }
 };
+
+// Blog Section Component
+function BlogSection() {
+  const [blogPosts, setBlogPosts] = useState<BlogPosts[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogPosts = async () => {
+      try {
+        const { items } = await BaseCrudService.getAll<BlogPosts>('blogposts');
+        
+        // Filter and sort posts
+        const validPosts = items
+          .filter(post => post.title && post.content && post.slug)
+          .sort((a, b) => {
+            const dateA = a.publishedDate ? new Date(a.publishedDate).getTime() : 0;
+            const dateB = b.publishedDate ? new Date(b.publishedDate).getTime() : 0;
+            return dateB - dateA;
+          })
+          .slice(0, 3); // Get only the 3 most recent posts
+        
+        setBlogPosts(validPosts);
+      } catch (error) {
+        console.error('Error fetching blog posts:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogPosts();
+  }, []);
+
+  const formatDate = (date: Date | string | undefined) => {
+    if (!date) return 'Recently';
+    const d = new Date(date);
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  };
+
+  const calculateReadTime = (content: string | undefined) => {
+    if (!content) return '5 min read';
+    const wordsPerMinute = 200;
+    const wordCount = content.split(/\s+/).length;
+    const minutes = Math.ceil(wordCount / wordsPerMinute);
+    return `${minutes} min read`;
+  };
+
+  if (loading || blogPosts.length === 0) {
+    return null;
+  }
+
+  return (
+    <section className="mobile-section bg-light-gray">
+      <div className="mobile-container">
+        <div className="text-center mb-12">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInVariants}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="mobile-h2 text-dark-gray mb-6">
+              Latest Insights from Our Blog
+            </h2>
+            <p className="mobile-body-lg text-secondary max-w-3xl mx-auto">
+              Stay updated with the latest digital marketing trends, tips, and strategies to grow your business.
+            </p>
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="mobile-grid-1 lg:grid-cols-3"
+        >
+          {blogPosts.map((post, index) => (
+            <motion.div key={post._id} variants={scaleInVariants}>
+              <Link to={`/blog/${post.slug}`} className="block h-full">
+                <Card className="mobile-card group hover:shadow-xl transition-all duration-300 h-full overflow-hidden">
+                  {post.featuredImage && (
+                    <div className="relative h-48 overflow-hidden">
+                      <Image
+                        src={post.featuredImage}
+                        alt={post.title || 'Blog post'}
+                        width={400}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
+                  <CardContent className="mobile-card-padding">
+                    <div className="flex items-center gap-4 mb-3 mobile-body-sm text-secondary">
+                      <div className="flex items-center">
+                        <Calendar className="h-4 w-4 mr-1" />
+                        {formatDate(post.publishedDate)}
+                      </div>
+                      <div className="flex items-center">
+                        <Clock className="h-4 w-4 mr-1" />
+                        {calculateReadTime(post.content)}
+                      </div>
+                    </div>
+                    <h3 className="mobile-h4 text-dark-gray mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+                    <p className="mobile-body text-secondary line-clamp-3 mb-4">
+                      {post.excerpt || post.content?.substring(0, 150) + '...'}
+                    </p>
+                    <div className="flex items-center text-primary mobile-body-sm font-medium group-hover:gap-2 transition-all">
+                      Read More
+                      <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <div className="text-center mt-12">
+          <Link to="/blog">
+            <Button className="mobile-btn-primary shadow-lg hover:shadow-xl">
+              View All Blog Posts
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function HomePage() {
   const homeFAQs = [
@@ -499,7 +633,8 @@ export default function HomePage() {
         </div>
       </section>
 
-
+      {/* Blog Section */}
+      <BlogSection />
 
       {/* CTA Section */}
       <section className="mobile-section bg-dark-gray">
