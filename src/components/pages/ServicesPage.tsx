@@ -216,81 +216,94 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Grid - All 12 Services */}
+      {/* Services Grid - All 12 Services with Alternating Layout */}
       <section className="py-16 sm:py-24 lg:py-32 bg-background">
         <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+            className="space-y-16 sm:space-y-20 lg:space-y-24"
           >
-            {allServices.map((service) => {
+            {allServices.map((service, index) => {
               const IconComponent = service.icon;
               const cmsService = services.find(s => 
                 s.serviceName?.toLowerCase() === service.name.toLowerCase()
               );
               
+              // Alternate layout: left-right-left pattern for visual variety
+              const isEven = index % 2 === 0;
+              
               return (
                 <motion.div key={service.id} variants={itemVariants}>
-                  <Link to={service.href}>
-                    <Card className="border-0 shadow-sm hover:shadow-xl transition-all duration-300 group h-full cursor-pointer">
-                      <CardContent className="p-6 sm:p-8 h-full flex flex-col">
-                        {/* Icon with gradient background */}
-                        <div className={`w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br ${service.color} rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                          <IconComponent className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
+                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center ${!isEven ? 'lg:grid-flow-dense' : ''}`}>
+                    {/* Content Section */}
+                    <div className={isEven ? 'lg:col-start-1' : 'lg:col-start-2'}>
+                      {/* Icon */}
+                      <div className={`w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br ${service.color} rounded-lg flex items-center justify-center mb-6`}>
+                        <IconComponent className="h-6 w-6 sm:h-7 sm:w-7 text-white" />
+                      </div>
+                      
+                      {/* Service Name */}
+                      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading text-dark-gray mb-4 sm:mb-6">
+                        {service.name}
+                      </h2>
+                      
+                      {/* Tagline from CMS if available */}
+                      {cmsService?.tagline && (
+                        <p className="text-primary font-paragraph mb-6 sm:mb-8 font-medium text-base sm:text-lg">
+                          {cmsService.tagline}
+                        </p>
+                      )}
+                      
+                      {/* Description */}
+                      <p className="font-paragraph text-secondary mb-8 sm:mb-10 text-base sm:text-lg leading-relaxed">
+                        {cmsService?.description || service.description}
+                      </p>
+                      
+                      {/* Key Benefits from CMS if available */}
+                      {cmsService?.keyBenefits && (
+                        <div className="mb-10 sm:mb-12">
+                          <h3 className="font-heading text-dark-gray mb-4 sm:mb-6 text-base sm:text-lg font-semibold">Key Benefits:</h3>
+                          <ul className="space-y-3 sm:space-y-4">
+                            {cmsService.keyBenefits.split('\n').filter(benefit => benefit.trim()).slice(0, 4).map((benefit, benefitIndex) => (
+                              <li key={benefitIndex} className="font-paragraph text-secondary text-sm sm:text-base flex items-start">
+                                <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-primary rounded-full mt-2 mr-3 sm:mr-4 flex-shrink-0"></span>
+                                <span>{benefit.trim()}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
-                        
-                        {/* Service Image if available from CMS */}
-                        {cmsService?.serviceImage && (
+                      )}
+                      
+                      {/* CTA Button */}
+                      <Link to={service.href}>
+                        <Button className={`bg-gradient-to-r ${service.color} text-white hover:opacity-90 hover:shadow-lg transition-all py-3 sm:py-4 px-6 sm:px-8 text-base sm:text-lg font-medium`}>
+                          {cmsService?.callToActionText || 'Learn More'}
+                          <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                        </Button>
+                      </Link>
+                    </div>
+                    
+                    {/* Image Section */}
+                    <div className={isEven ? 'lg:col-start-2' : 'lg:col-start-1'}>
+                      {cmsService?.serviceImage ? (
+                        <div className="relative group">
                           <Image
                             src={cmsService.serviceImage}
                             alt={service.name}
-                            width={400}
-                            className="w-full h-40 sm:h-48 object-cover rounded-lg mb-6 group-hover:scale-105 transition-transform duration-300"
+                            width={600}
+                            className="w-full h-auto rounded-xl shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105"
                           />
-                        )}
-                        
-                        {/* Service Name */}
-                        <h3 className="text-xl sm:text-2xl font-heading text-dark-gray mb-3 sm:mb-4 group-hover:text-primary transition-colors">
-                          {service.name}
-                        </h3>
-                        
-                        {/* Tagline from CMS if available */}
-                        {cmsService?.tagline && (
-                          <p className="text-primary font-paragraph mb-3 sm:mb-4 font-medium text-sm sm:text-base">
-                            {cmsService.tagline}
-                          </p>
-                        )}
-                        
-                        {/* Description */}
-                        <p className="font-paragraph text-secondary mb-6 flex-grow text-sm sm:text-base">
-                          {cmsService?.description || service.description}
-                        </p>
-                        
-                        {/* Key Benefits from CMS if available */}
-                        {cmsService?.keyBenefits && (
-                          <div className="mb-6">
-                            <h4 className="font-heading text-dark-gray mb-3 text-sm font-medium">Key Benefits:</h4>
-                            <ul className="space-y-2">
-                              {cmsService.keyBenefits.split('\n').filter(benefit => benefit.trim()).slice(0, 3).map((benefit, index) => (
-                                <li key={index} className="font-paragraph text-secondary text-xs sm:text-sm flex items-start">
-                                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full mt-1.5 mr-2 sm:mr-3 flex-shrink-0"></span>
-                                  {benefit.trim()}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                        
-                        {/* CTA Button */}
-                        <Button className={`w-full bg-gradient-to-r ${service.color} text-white hover:opacity-90 group-hover:shadow-lg transition-all py-2 sm:py-3 text-sm sm:text-base mt-auto`}>
-                          {cmsService?.callToActionText || 'Learn More'}
-                          <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </Link>
+                          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                      ) : (
+                        <div className={`w-full h-64 sm:h-80 lg:h-96 bg-gradient-to-br ${service.color} rounded-xl shadow-lg flex items-center justify-center`}>
+                          <IconComponent className="h-24 w-24 sm:h-32 sm:w-32 text-white/30" />
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </motion.div>
               );
             })}
