@@ -7,7 +7,7 @@ import { SEOHead } from '@/components/ui/seo-head';
 import { BaseCrudService } from '@/integrations';
 import { Services } from '@/entities';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Search, Share2, Target, Code, Users, PenTool, BarChart3, TrendingUp, Mail, Eye, BookOpen } from 'lucide-react';
+import { ArrowRight, Search, Share2, Target, Code, Users, PenTool, BarChart3, TrendingUp, Mail, Eye, BookOpen, Star, Award, CheckCircle2, Zap } from 'lucide-react';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -153,27 +153,6 @@ export default function ServicesPage() {
     fetchServices();
   }, []);
 
-  const getServiceIcon = (serviceName: string) => {
-    const service = allServices.find(s => 
-      s.name.toLowerCase() === serviceName?.toLowerCase()
-    );
-    return service?.icon || Target;
-  };
-
-  const getServiceColor = (serviceName: string) => {
-    const service = allServices.find(s => 
-      s.name.toLowerCase() === serviceName?.toLowerCase()
-    );
-    return service?.color || 'from-blue-500 to-blue-600';
-  };
-
-  const getServiceRoute = (serviceName: string) => {
-    const service = allServices.find(s => 
-      s.name.toLowerCase() === serviceName?.toLowerCase()
-    );
-    return service?.href || '/contact';
-  };
-
   return (
     <div className="min-h-screen bg-background">
       <SEOHead 
@@ -231,7 +210,6 @@ export default function ServicesPage() {
                 s.serviceName?.toLowerCase() === service.name.toLowerCase()
               );
               
-              // Alternate layout: left-right-left pattern for visual variety
               const isEven = index % 2 === 0;
               
               return (
@@ -307,6 +285,238 @@ export default function ServicesPage() {
                 </motion.div>
               );
             })}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Client Testimonials Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-background">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeInVariants}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-dark-gray mb-4 sm:mb-6">
+              What Our Clients Say
+            </h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              Real results from real businesses. See how we've helped companies like yours achieve their digital marketing goals.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {[
+              {
+                name: 'Sarah Johnson',
+                company: 'Tech Startup Inc.',
+                role: 'Marketing Director',
+                testimonial: 'Their SEO strategy increased our organic traffic by 250% in just 6 months. The team is professional, responsive, and truly invested in our success.',
+                rating: 5
+              },
+              {
+                name: 'Michael Chen',
+                company: 'E-commerce Solutions',
+                role: 'CEO',
+                testimonial: 'The paid advertising campaigns delivered a 320% ROI. We\'ve never seen results like this before. Highly recommend their services!',
+                rating: 5
+              },
+              {
+                name: 'Emma Rodriguez',
+                company: 'Digital Agency Partners',
+                role: 'Business Owner',
+                testimonial: 'Their content marketing strategy transformed our brand presence. We went from 0 to 50K followers in 8 months with engaged, loyal customers.',
+                rating: 5
+              },
+              {
+                name: 'David Thompson',
+                company: 'B2B Services Ltd.',
+                role: 'Operations Manager',
+                testimonial: 'The conversion optimization work increased our sales by 180%. Their data-driven approach and transparent reporting are exceptional.',
+                rating: 5
+              },
+              {
+                name: 'Lisa Anderson',
+                company: 'Fashion & Lifestyle',
+                role: 'Brand Manager',
+                testimonial: 'Influencer marketing campaigns exceeded all expectations. Our brand awareness skyrocketed and sales followed. Outstanding partnership!',
+                rating: 5
+              },
+              {
+                name: 'James Wilson',
+                company: 'SaaS Platform Co.',
+                role: 'Growth Lead',
+                testimonial: 'Their email marketing strategy generated 45% of our new customer acquisitions. Professional, creative, and results-driven team.',
+                rating: 5
+              }
+            ].map((testimonial, index) => (
+              <motion.div key={index} variants={itemVariants}>
+                <Card className="border-0 shadow-sm hover:shadow-lg transition-all h-full bg-light-gray">
+                  <CardContent className="p-6 sm:p-8 h-full flex flex-col">
+                    {/* Star Rating */}
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                    
+                    {/* Testimonial Text */}
+                    <p className="font-paragraph text-secondary mb-6 flex-grow text-sm sm:text-base leading-relaxed">
+                      "{testimonial.testimonial}"
+                    </p>
+                    
+                    {/* Author Info */}
+                    <div className="border-t border-primary/10 pt-4">
+                      <p className="font-heading text-dark-gray font-semibold text-sm sm:text-base">
+                        {testimonial.name}
+                      </p>
+                      <p className="font-paragraph text-secondary text-xs sm:text-sm">
+                        {testimonial.role}, {testimonial.company}
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Awards & Recognition Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-light-gray">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeInVariants}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-dark-gray mb-4 sm:mb-6">
+              Awards & Recognition
+            </h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              Industry-leading expertise recognized by top organizations and publications.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {[
+              {
+                icon: Award,
+                title: 'Best Digital Agency',
+                subtitle: '2024 Marketing Excellence Awards',
+                description: 'Recognized for outstanding digital marketing services and client results.'
+              },
+              {
+                icon: Zap,
+                title: 'Top 10 SEO Agencies',
+                subtitle: 'Digital Marketing Institute',
+                description: 'Ranked among the top SEO agencies for innovative strategies and measurable results.'
+              },
+              {
+                icon: TrendingUp,
+                title: 'Excellence in ROI',
+                subtitle: '2024 Performance Awards',
+                description: 'Awarded for delivering exceptional return on investment for clients.'
+              },
+              {
+                icon: CheckCircle2,
+                title: 'Certified Partners',
+                subtitle: 'Google, Facebook, HubSpot',
+                description: 'Official certified partners with major platforms and marketing tools.'
+              }
+            ].map((award, index) => {
+              const IconComponent = award.icon;
+              return (
+                <motion.div key={index} variants={itemVariants}>
+                  <Card className="border-0 shadow-sm hover:shadow-lg transition-all h-full">
+                    <CardContent className="p-6 sm:p-8 text-center h-full flex flex-col">
+                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <IconComponent className="h-8 w-8 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-heading text-dark-gray mb-2">{award.title}</h3>
+                      <p className="text-primary font-paragraph text-sm font-medium mb-3">{award.subtitle}</p>
+                      <p className="font-paragraph text-secondary text-sm flex-grow">{award.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Key Statistics Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-background">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeInVariants}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-dark-gray mb-4 sm:mb-6">
+              Proven Results by the Numbers
+            </h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              Our track record speaks for itself. Here's what we've accomplished for our clients.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
+          >
+            {[
+              {
+                number: '500+',
+                label: 'Successful Projects',
+                description: 'Delivered across diverse industries and business sizes'
+              },
+              {
+                number: '250%',
+                label: 'Average Traffic Growth',
+                description: 'Organic traffic increase for SEO clients in first year'
+              },
+              {
+                number: '320%',
+                label: 'Average ROI',
+                description: 'Return on investment from paid advertising campaigns'
+              },
+              {
+                number: '98%',
+                label: 'Client Satisfaction',
+                description: 'Retention rate and positive client feedback score'
+              }
+            ].map((stat, index) => (
+              <motion.div key={index} variants={itemVariants}>
+                <Card className="border-0 shadow-sm hover:shadow-lg transition-all h-full bg-light-gray">
+                  <CardContent className="p-6 sm:p-8 text-center h-full flex flex-col">
+                    <div className="text-4xl sm:text-5xl font-heading text-primary mb-3">
+                      {stat.number}
+                    </div>
+                    <h3 className="text-lg font-heading text-dark-gray mb-2">{stat.label}</h3>
+                    <p className="font-paragraph text-secondary text-sm flex-grow">{stat.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
