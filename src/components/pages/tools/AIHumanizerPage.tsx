@@ -6,7 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Link } from 'react-router-dom';
-import { Wand2, Copy, Download, ArrowLeft, Zap, CheckCircle, AlertCircle, RefreshCw } from 'lucide-react';
+import { Wand2, Copy, Download, ArrowLeft, Zap, CheckCircle, AlertCircle, RefreshCw, Lightbulb } from 'lucide-react';
 import { SEOHead } from '@/components/ui/seo-head';
 
 const fadeInVariants = {
