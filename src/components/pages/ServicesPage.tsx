@@ -486,7 +486,7 @@ export default function ServicesPage() {
             {[
               {
                 number: '500+',
-                label: 'Successful Projects',
+                label: 'Successful Campaigns',
                 description: 'Delivered across diverse industries and business sizes'
               },
               {
