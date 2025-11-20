@@ -35,6 +35,15 @@ import UTMLinkBuilderPage from '@/components/pages/tools/UTMLinkBuilderPage';
 import WebsiteSpeedTestPage from '@/components/pages/tools/WebsiteSpeedTestPage';
 import SocialMediaPostGeneratorPage from '@/components/pages/tools/SocialMediaPostGeneratorPage';
 import AIHumanizerPage from '@/components/pages/tools/AIHumanizerPage';
+import OpenGraphTagGeneratorPage from '@/components/pages/tools/OpenGraphTagGeneratorPage';
+import FaviconGeneratorPage from '@/components/pages/tools/FaviconGeneratorPage';
+import XMLSitemapGeneratorPage from '@/components/pages/tools/XMLSitemapGeneratorPage';
+import RobotsTxtGeneratorPage from '@/components/pages/tools/RobotsTxtGeneratorPage';
+import HashtagGeneratorPage from '@/components/pages/tools/HashtagGeneratorPage';
+import ContentReadabilityCheckerPage from '@/components/pages/tools/ContentReadabilityCheckerPage';
+import GoogleAdsHeadlineGeneratorPage from '@/components/pages/tools/GoogleAdsHeadlineGeneratorPage';
+import BlogTopicGeneratorPage from '@/components/pages/tools/BlogTopicGeneratorPage';
+import ImageAltTextGeneratorPage from '@/components/pages/tools/ImageAltTextGeneratorPage';
 import SitemapPage from '@/components/pages/SitemapPage';
 import PrivacyPolicyPage from '@/components/pages/PrivacyPolicyPage';
 import TermsOfServicePage from '@/components/pages/TermsOfServicePage';
@@ -129,6 +138,42 @@ const router = createBrowserRouter([
       {
         path: "tools/ai-humanizer",
         element: <AIHumanizerPage />,
+      },
+      {
+        path: "tools/open-graph-tag-generator",
+        element: <OpenGraphTagGeneratorPage />,
+      },
+      {
+        path: "tools/favicon-generator",
+        element: <FaviconGeneratorPage />,
+      },
+      {
+        path: "tools/xml-sitemap-generator",
+        element: <XMLSitemapGeneratorPage />,
+      },
+      {
+        path: "tools/robots-txt-generator",
+        element: <RobotsTxtGeneratorPage />,
+      },
+      {
+        path: "tools/hashtag-generator",
+        element: <HashtagGeneratorPage />,
+      },
+      {
+        path: "tools/content-readability-checker",
+        element: <ContentReadabilityCheckerPage />,
+      },
+      {
+        path: "tools/google-ads-headline-generator",
+        element: <GoogleAdsHeadlineGeneratorPage />,
+      },
+      {
+        path: "tools/blog-topic-generator",
+        element: <BlogTopicGeneratorPage />,
+      },
+      {
+        path: "tools/image-alt-text-generator",
+        element: <ImageAltTextGeneratorPage />,
       },
       {
         path: "services/seo",

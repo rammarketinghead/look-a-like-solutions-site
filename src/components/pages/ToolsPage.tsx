@@ -162,7 +162,7 @@ export default function ToolsPage() {
       title: 'Google Ads Headline/Description Generator',
       description: 'Create high-converting Google Ads headlines and descriptions. Optimize for better click-through rates.',
       icon: Megaphone,
-      href: '/tools/google-ads-generator',
+      href: '/tools/google-ads-headline-generator',
       features: ['Character Limits', 'A/B Variations', 'Industry Templates', 'Performance Tips'],
       color: 'from-rose-500 to-rose-600',
       category: 'PPC'
@@ -222,7 +222,7 @@ export default function ToolsPage() {
       title: 'Open Graph Tag Generator',
       description: 'Generate Open Graph meta tags for better social media sharing. Control how your content appears when shared.',
       icon: Globe,
-      href: '/tools/open-graph-generator',
+      href: '/tools/open-graph-tag-generator',
       features: ['Social Preview', 'Multiple Platforms', 'Image Optimization', 'Validation'],
       color: 'from-neutral-500 to-neutral-600',
       category: 'Social Media'
