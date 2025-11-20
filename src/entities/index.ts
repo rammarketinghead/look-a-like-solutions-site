@@ -27,6 +27,12 @@ export interface BlogPosts {
   excerpt?: string;
   /** @wixFieldType text */
   metaDescription?: string;
+  /** @wixFieldType array_string */
+  arraystring?: any;
+  /** @wixFieldType multi_reference */
+  multireference?: BlogPosts[];
+  /** @wixFieldType multi_reference */
+  blogposts_multireference?: BlogPosts[];
 }
 
 

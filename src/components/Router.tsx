@@ -34,6 +34,7 @@ import BacklinkCheckerPage from '@/components/pages/tools/BacklinkCheckerPage';
 import UTMLinkBuilderPage from '@/components/pages/tools/UTMLinkBuilderPage';
 import WebsiteSpeedTestPage from '@/components/pages/tools/WebsiteSpeedTestPage';
 import SocialMediaPostGeneratorPage from '@/components/pages/tools/SocialMediaPostGeneratorPage';
+import AIHumanizerPage from '@/components/pages/tools/AIHumanizerPage';
 import SitemapPage from '@/components/pages/SitemapPage';
 import PrivacyPolicyPage from '@/components/pages/PrivacyPolicyPage';
 import TermsOfServicePage from '@/components/pages/TermsOfServicePage';
@@ -124,6 +125,10 @@ const router = createBrowserRouter([
       {
         path: "tools/social-media-post-generator",
         element: <SocialMediaPostGeneratorPage />,
+      },
+      {
+        path: "tools/ai-humanizer",
+        element: <AIHumanizerPage />,
       },
       {
         path: "services/seo",

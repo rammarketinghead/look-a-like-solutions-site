@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { 
   Search, Mail, PenTool, Layers, Target, ArrowRight, Zap, CheckCircle, Users, TrendingUp,
   FileText, Eye, Link2, Gauge, Share2, ImageIcon, Lightbulb, Megaphone, BookOpen,
-  Hash, Settings, Palette, Globe, Network
+  Hash, Settings, Palette, Globe, Network, Wand2
 } from 'lucide-react';
 
 const fadeInVariants = {
@@ -226,6 +226,16 @@ export default function ToolsPage() {
       features: ['Social Preview', 'Multiple Platforms', 'Image Optimization', 'Validation'],
       color: 'from-neutral-500 to-neutral-600',
       category: 'Social Media'
+    },
+    {
+      id: 'ai-humanizer',
+      title: 'AI Humanizer',
+      description: 'Transform AI-generated content into natural, warm, human-sounding text. Remove robotic tone and add genuine personality.',
+      icon: Wand2,
+      href: '/tools/ai-humanizer',
+      features: ['Remove Robotic Tone', 'Natural Flow', 'Multiple Tones', 'Preserve Meaning'],
+      color: 'from-purple-500 to-purple-600',
+      category: 'Content Marketing'
     }
   ];
 
