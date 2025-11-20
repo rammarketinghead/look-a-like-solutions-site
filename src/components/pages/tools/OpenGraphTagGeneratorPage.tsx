@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Link } from 'react-router-dom';
-import { Copy, Download, ArrowLeft, Share2, RefreshCw } from 'lucide-react';
+import { Copy, Download, ArrowLeft, Share2 } from 'lucide-react';
 import { SEOHead } from '@/components/ui/seo-head';
 
 const fadeInVariants = {
