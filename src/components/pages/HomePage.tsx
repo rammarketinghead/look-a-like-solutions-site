@@ -37,11 +37,20 @@ const scaleInVariants = {
 function BlogSection() {
   const [blogPosts, setBlogPosts] = useState<BlogPosts[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
       try {
-        const { items } = await BaseCrudService.getAll<BlogPosts>('blogposts');
+        setError(null);
+        const result = await BaseCrudService.getAll<BlogPosts>('blogposts');
+        
+        if (!result || !result.items) {
+          setLoading(false);
+          return;
+        }
+
+        const { items } = result;
         
         // Filter and sort posts
         const validPosts = items
@@ -54,8 +63,9 @@ function BlogSection() {
           .slice(0, 3); // Get only the 3 most recent posts
         
         setBlogPosts(validPosts);
-      } catch (error) {
-        console.error('Error fetching blog posts:', error);
+      } catch (err) {
+        console.error('Error fetching blog posts:', err);
+        setError(null); // Don't show error to user, just hide the section
       } finally {
         setLoading(false);
       }
