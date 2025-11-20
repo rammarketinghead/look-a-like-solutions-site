@@ -7,23 +7,132 @@ import { SEOHead } from '@/components/ui/seo-head';
 import { BaseCrudService } from '@/integrations';
 import { Services } from '@/entities';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Search, Share2, Target, Code, Users, PenTool, BarChart3, TrendingUp } from 'lucide-react';
+import { ArrowRight, Search, Share2, Target, Code, Users, PenTool, BarChart3, TrendingUp, Mail, Eye, BookOpen } from 'lucide-react';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 }
 };
 
-const serviceIcons = {
-  'SEO': Search,
-  'Social Media': Share2,
-  'Paid Advertising': Target,
-  'Web Development': Code,
-  'Influencer Marketing': Users,
-  'Content Marketing': PenTool,
-  'Data Analytics': BarChart3,
-  'Conversion Optimization': TrendingUp
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
 };
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 }
+  }
+};
+
+// All services with their details and routes
+const allServices = [
+  {
+    id: 'seo',
+    name: 'SEO Optimization',
+    href: '/services/seo',
+    icon: Search,
+    color: 'from-blue-500 to-blue-600',
+    description: 'Improve your search engine rankings and drive organic traffic with our comprehensive SEO strategies.'
+  },
+  {
+    id: 'social-media',
+    name: 'Social Media Marketing',
+    href: '/services/social-media',
+    icon: Share2,
+    color: 'from-pink-500 to-pink-600',
+    description: 'Build your brand presence and engage your audience across all major social media platforms.'
+  },
+  {
+    id: 'paid-ads',
+    name: 'Paid Advertising',
+    href: '/services/paid-ads',
+    icon: Target,
+    color: 'from-purple-500 to-purple-600',
+    description: 'Maximize your ROI with targeted paid advertising campaigns across Google, Facebook, and more.'
+  },
+  {
+    id: 'web-development',
+    name: 'Web Development',
+    href: '/services/web-development',
+    icon: Code,
+    color: 'from-green-500 to-green-600',
+    description: 'Create stunning, high-performance websites that convert visitors into customers.'
+  },
+  {
+    id: 'influencer-marketing',
+    name: 'Influencer Marketing',
+    href: '/services/influencer-marketing',
+    icon: Users,
+    color: 'from-orange-500 to-orange-600',
+    description: 'Leverage influencer partnerships to amplify your brand message and reach new audiences.'
+  },
+  {
+    id: 'content-marketing',
+    name: 'Content Marketing',
+    href: '/services/content-marketing',
+    icon: PenTool,
+    color: 'from-red-500 to-red-600',
+    description: 'Create compelling content that attracts, engages, and converts your target audience.'
+  },
+  {
+    id: 'data-analytics',
+    name: 'Data Analytics',
+    href: '/services/data-analytics',
+    icon: BarChart3,
+    color: 'from-cyan-500 to-cyan-600',
+    description: 'Gain actionable insights from your data to make informed business decisions.'
+  },
+  {
+    id: 'conversion-optimization',
+    name: 'Conversion Optimization',
+    href: '/services/conversion-optimization',
+    icon: TrendingUp,
+    color: 'from-yellow-500 to-yellow-600',
+    description: 'Optimize your website and campaigns to increase conversion rates and revenue.'
+  },
+  {
+    id: 'email-marketing',
+    name: 'Email Marketing',
+    href: '/services/email-marketing',
+    icon: Mail,
+    color: 'from-indigo-500 to-indigo-600',
+    description: 'Build lasting customer relationships through targeted email marketing campaigns.'
+  },
+  {
+    id: 'youtube-growth',
+    name: 'YouTube Growth',
+    href: '/services/youtube-growth',
+    icon: Eye,
+    color: 'from-red-600 to-red-700',
+    description: 'Grow your YouTube channel with proven strategies for views, subscribers, and engagement.'
+  },
+  {
+    id: 'digital-audit',
+    name: 'Digital Audit',
+    href: '/services/digital-audit',
+    icon: Search,
+    color: 'from-slate-500 to-slate-600',
+    description: 'Get a comprehensive analysis of your digital presence and identify growth opportunities.'
+  },
+  {
+    id: 'digital-training',
+    name: 'Digital Training',
+    href: '/services/digital-training',
+    icon: BookOpen,
+    color: 'from-teal-500 to-teal-600',
+    description: 'Upskill your team with hands-on training in the latest digital marketing strategies.'
+  }
+];
 
 export default function ServicesPage() {
   const [services, setServices] = useState<Services[]>([]);
@@ -45,23 +154,37 @@ export default function ServicesPage() {
   }, []);
 
   const getServiceIcon = (serviceName: string) => {
-    const iconKey = Object.keys(serviceIcons).find(key => 
-      serviceName?.toLowerCase().includes(key.toLowerCase())
+    const service = allServices.find(s => 
+      s.name.toLowerCase() === serviceName?.toLowerCase()
     );
-    return iconKey ? serviceIcons[iconKey as keyof typeof serviceIcons] : Target;
+    return service?.icon || Target;
+  };
+
+  const getServiceColor = (serviceName: string) => {
+    const service = allServices.find(s => 
+      s.name.toLowerCase() === serviceName?.toLowerCase()
+    );
+    return service?.color || 'from-blue-500 to-blue-600';
+  };
+
+  const getServiceRoute = (serviceName: string) => {
+    const service = allServices.find(s => 
+      s.name.toLowerCase() === serviceName?.toLowerCase()
+    );
+    return service?.href || '/contact';
   };
 
   return (
     <div className="min-h-screen bg-background">
       <SEOHead 
         title="Digital Marketing Services - SEO, Social Media & More"
-        description="Comprehensive digital marketing services including SEO optimization, social media marketing, paid advertising, web development, content marketing, and data analytics. Grow your business with proven strategies."
-        keywords="digital marketing services, SEO services, social media marketing, paid advertising, web development, content marketing, data analytics, conversion optimization, email marketing"
+        description="Comprehensive digital marketing services including SEO optimization, social media marketing, paid advertising, web development, content marketing, data analytics, and more. Grow your business with proven strategies."
+        keywords="digital marketing services, SEO services, social media marketing, paid advertising, web development, content marketing, data analytics, conversion optimization, email marketing, YouTube growth"
         type="website"
       />
       
       {/* Hero Section */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-light-gray">
+      <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-primary/10 border-b">
         <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="hidden"
@@ -70,164 +193,264 @@ export default function ServicesPage() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-dark-gray mb-6 sm:mb-8">
-              Our Services
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading text-dark-gray mb-6 sm:mb-8">
+              Our Digital Marketing Services
             </h1>
-            <p className="text-lg sm:text-xl font-paragraph text-secondary max-w-4xl mx-auto">
-              Comprehensive digital marketing solutions designed to drive growth, enhance your online presence, and deliver measurable results for your business.
+            <p className="text-lg sm:text-xl font-paragraph text-secondary max-w-4xl mx-auto mb-8">
+              Comprehensive solutions designed to drive growth, enhance your online presence, and deliver measurable results for your business.
             </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/contact">
+                <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-base">
+                  Get Started Today
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link to="/case-studies">
+                <Button variant="outline" className="border-primary text-primary hover:bg-primary/10 px-8 py-3 text-base">
+                  View Case Studies
+                </Button>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services Grid - All 12 Services */}
       <section className="py-16 sm:py-24 lg:py-32 bg-background">
         <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
-          {loading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {[...Array(6)].map((_, index) => (
-                <Card key={index} className="border-0 shadow-sm">
-                  <CardContent className="p-6 sm:p-8">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-light-gray rounded-full mb-4 sm:mb-6 animate-pulse"></div>
-                    <div className="h-5 sm:h-6 bg-light-gray rounded mb-3 sm:mb-4 animate-pulse"></div>
-                    <div className="h-4 bg-light-gray rounded mb-2 animate-pulse"></div>
-                    <div className="h-16 sm:h-20 bg-light-gray rounded mb-4 sm:mb-6 animate-pulse"></div>
-                    <div className="h-8 sm:h-10 bg-light-gray rounded animate-pulse"></div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          ) : services.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {services.map((service) => {
-                const IconComponent = getServiceIcon(service.serviceName || '');
-                return (
-                  <Card key={service._id} className="border-0 shadow-sm hover:shadow-lg transition-all duration-300 group">
-                    <CardContent className="p-6 sm:p-8 h-full flex flex-col">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-primary/20 transition-colors">
-                        <IconComponent className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
-                      </div>
-                      
-                      {service.serviceImage && (
-                        <Image
-                          src={service.serviceImage}
-                          alt={service.serviceName || 'Service'}
-                          width={400}
-                          className="w-full h-40 sm:h-48 object-cover rounded-lg mb-4 sm:mb-6"
-                        />
-                      )}
-                      
-                      <h3 className="text-xl sm:text-2xl font-heading text-dark-gray mb-3 sm:mb-4">
-                        {service.serviceName}
-                      </h3>
-                      
-                      {service.tagline && (
-                        <p className="text-primary font-paragraph mb-3 sm:mb-4 font-medium text-sm sm:text-base">
-                          {service.tagline}
-                        </p>
-                      )}
-                      
-                      {service.description && (
-                        <p className="font-paragraph text-secondary mb-4 sm:mb-6 flex-grow text-sm sm:text-base">
-                          {service.description}
-                        </p>
-                      )}
-                      
-                      {service.keyBenefits && (
-                        <div className="mb-4 sm:mb-6">
-                          <h4 className="font-heading text-dark-gray mb-2 sm:mb-3 text-sm sm:text-base">Key Benefits:</h4>
-                          <ul className="space-y-1 sm:space-y-2">
-                            {service.keyBenefits.split('\n').filter(benefit => benefit.trim()).map((benefit, index) => (
-                              <li key={index} className="font-paragraph text-secondary text-xs sm:text-sm flex items-start">
-                                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full mt-1.5 sm:mt-2 mr-2 sm:mr-3 flex-shrink-0"></span>
-                                {benefit.trim()}
-                              </li>
-                            ))}
-                          </ul>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          >
+            {allServices.map((service) => {
+              const IconComponent = service.icon;
+              const cmsService = services.find(s => 
+                s.serviceName?.toLowerCase() === service.name.toLowerCase()
+              );
+              
+              return (
+                <motion.div key={service.id} variants={itemVariants}>
+                  <Link to={service.href}>
+                    <Card className="border-0 shadow-sm hover:shadow-xl transition-all duration-300 group h-full cursor-pointer">
+                      <CardContent className="p-6 sm:p-8 h-full flex flex-col">
+                        {/* Icon with gradient background */}
+                        <div className={`w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br ${service.color} rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                          <IconComponent className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
                         </div>
-                      )}
-                      
-                      <Link to="/contact" className="mt-auto">
-                        <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 group-hover:shadow-md transition-all py-2 sm:py-3 text-sm sm:text-base">
-                          {service.callToActionText || 'Get Started'}
+                        
+                        {/* Service Image if available from CMS */}
+                        {cmsService?.serviceImage && (
+                          <Image
+                            src={cmsService.serviceImage}
+                            alt={service.name}
+                            width={400}
+                            className="w-full h-40 sm:h-48 object-cover rounded-lg mb-6 group-hover:scale-105 transition-transform duration-300"
+                          />
+                        )}
+                        
+                        {/* Service Name */}
+                        <h3 className="text-xl sm:text-2xl font-heading text-dark-gray mb-3 sm:mb-4 group-hover:text-primary transition-colors">
+                          {service.name}
+                        </h3>
+                        
+                        {/* Tagline from CMS if available */}
+                        {cmsService?.tagline && (
+                          <p className="text-primary font-paragraph mb-3 sm:mb-4 font-medium text-sm sm:text-base">
+                            {cmsService.tagline}
+                          </p>
+                        )}
+                        
+                        {/* Description */}
+                        <p className="font-paragraph text-secondary mb-6 flex-grow text-sm sm:text-base">
+                          {cmsService?.description || service.description}
+                        </p>
+                        
+                        {/* Key Benefits from CMS if available */}
+                        {cmsService?.keyBenefits && (
+                          <div className="mb-6">
+                            <h4 className="font-heading text-dark-gray mb-3 text-sm font-medium">Key Benefits:</h4>
+                            <ul className="space-y-2">
+                              {cmsService.keyBenefits.split('\n').filter(benefit => benefit.trim()).slice(0, 3).map((benefit, index) => (
+                                <li key={index} className="font-paragraph text-secondary text-xs sm:text-sm flex items-start">
+                                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full mt-1.5 mr-2 sm:mr-3 flex-shrink-0"></span>
+                                  {benefit.trim()}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        
+                        {/* CTA Button */}
+                        <Button className={`w-full bg-gradient-to-r ${service.color} text-white hover:opacity-90 group-hover:shadow-lg transition-all py-2 sm:py-3 text-sm sm:text-base mt-auto`}>
+                          {cmsService?.callToActionText || 'Learn More'}
                           <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
                         </Button>
-                      </Link>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-          ) : (
-            <div className="text-center py-16">
-              <h3 className="text-2xl font-heading text-dark-gray mb-4">
-                Services Coming Soon
-              </h3>
-              <p className="text-lg font-paragraph text-secondary mb-8">
-                We're currently updating our services information. Please contact us directly to learn about our offerings.
-              </p>
-              <Link to="/contact">
-                <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-                  Contact Us
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
-          )}
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-32 bg-light-gray">
-        <div className="max-w-[100rem] mx-auto px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-heading text-dark-gray mb-6">Our Process</h2>
+      {/* Service Categories Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-light-gray">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeInVariants}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-dark-gray mb-4 sm:mb-6">
+              Service Categories
+            </h2>
             <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
-              We follow a proven methodology to ensure every project delivers exceptional results and exceeds your expectations.
+              Our services are organized into key areas to help you find exactly what you need.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {[
+              {
+                title: 'Search & Discovery',
+                services: ['SEO Optimization', 'Digital Audit'],
+                icon: Search
+              },
+              {
+                title: 'Social & Engagement',
+                services: ['Social Media Marketing', 'Influencer Marketing', 'YouTube Growth'],
+                icon: Share2
+              },
+              {
+                title: 'Paid Campaigns',
+                services: ['Paid Advertising', 'Email Marketing'],
+                icon: Target
+              },
+              {
+                title: 'Content & Strategy',
+                services: ['Content Marketing', 'Digital Training'],
+                icon: PenTool
+              },
+              {
+                title: 'Technical & Development',
+                services: ['Web Development', 'Conversion Optimization'],
+                icon: Code
+              },
+              {
+                title: 'Analytics & Insights',
+                services: ['Data Analytics'],
+                icon: BarChart3
+              }
+            ].map((category, index) => (
+              <motion.div key={index} variants={itemVariants}>
+                <Card className="border-0 shadow-sm hover:shadow-lg transition-all h-full">
+                  <CardContent className="p-6 sm:p-8">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      <category.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-heading text-dark-gray mb-4">{category.title}</h3>
+                    <ul className="space-y-2">
+                      {category.services.map((serviceName, idx) => {
+                        const serviceRoute = allServices.find(s => s.name === serviceName)?.href || '/contact';
+                        return (
+                          <li key={idx}>
+                            <Link to={serviceRoute} className="text-secondary hover:text-primary font-paragraph text-sm transition-colors flex items-center">
+                              <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></span>
+                              {serviceName}
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Our Process Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-background">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeInVariants}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-dark-gray mb-4 sm:mb-6">
+              Our Proven Process
+            </h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              We follow a systematic approach to ensure every project delivers exceptional results.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
+          >
             {[
               {
                 step: '01',
-                title: 'Discovery',
-                description: 'We analyze your business, goals, and target audience to create a tailored strategy.'
+                title: 'Discovery & Analysis',
+                description: 'We analyze your business, goals, target audience, and current digital presence.'
               },
               {
                 step: '02',
-                title: 'Strategy',
-                description: 'Develop a comprehensive plan with clear objectives and measurable KPIs.'
+                title: 'Strategy Development',
+                description: 'Create a comprehensive plan with clear objectives, KPIs, and measurable goals.'
               },
               {
                 step: '03',
-                title: 'Execution',
-                description: 'Implement the strategy with precision, creativity, and attention to detail.'
+                title: 'Implementation',
+                description: 'Execute the strategy with precision, creativity, and attention to detail.'
               },
               {
                 step: '04',
-                title: 'Optimization',
-                description: 'Monitor performance and continuously optimize for better results.'
+                title: 'Optimization & Growth',
+                description: 'Monitor performance, analyze data, and continuously optimize for better results.'
               }
             ].map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-heading">
+              <motion.div key={index} variants={itemVariants} className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-heading">
                   {item.step}
                 </div>
-                <h3 className="text-xl font-heading text-dark-gray mb-4">{item.title}</h3>
-                <p className="font-paragraph text-secondary">{item.description}</p>
-              </div>
+                <h3 className="text-xl font-heading text-dark-gray mb-3">{item.title}</h3>
+                <p className="font-paragraph text-secondary text-sm">{item.description}</p>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-32 bg-background">
-        <div className="max-w-[100rem] mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl font-heading text-dark-gray mb-8">
+      {/* Why Choose Us Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-light-gray">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={fadeInVariants}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-dark-gray mb-8">
                 Why Choose Our Services?
               </h2>
               <div className="space-y-6">
@@ -253,52 +476,118 @@ export default function ServicesPage() {
                     description: 'Track record of helping businesses achieve significant growth and success.'
                   }
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start">
+                  <motion.div key={index} variants={itemVariants} className="flex items-start">
                     <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
                       <div className="w-2 h-2 bg-primary rounded-full"></div>
                     </div>
                     <div>
                       <h3 className="text-lg font-heading text-dark-gray mb-2">{item.title}</h3>
-                      <p className="font-paragraph text-secondary">{item.description}</p>
+                      <p className="font-paragraph text-secondary text-sm">{item.description}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
-            <div className="relative">
+            </motion.div>
+            
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={fadeInVariants}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative"
+            >
               <Image
                 src="https://static.wixstatic.com/media/f650f9_ea933df3cd384594a3eb1bc28f0ea03c~mv2.png?originWidth=576&originHeight=448"
                 alt="Why choose our services"
                 width={600}
                 className="w-full h-auto rounded-lg"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-32 bg-dark-gray">
-        <div className="max-w-[100rem] mx-auto px-8 text-center">
-          <h2 className="text-4xl font-heading text-background mb-6">
-            Ready to Accelerate Your Growth?
-          </h2>
-          <p className="text-lg font-paragraph text-light-gray mb-12 max-w-2xl mx-auto">
-            Let's discuss how our services can help your business achieve its digital marketing goals. Get a free consultation today.
-          </p>
-          <div className="flex gap-6 justify-center">
-            <Link to="/contact">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg">
-                Get Free Consultation
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link to="/case-studies">
-              <Button variant="outline" className="border-background text-background hover:bg-background hover:text-dark-gray px-8 py-4 text-lg">
-                View Case Studies
-              </Button>
-            </Link>
-          </div>
+      {/* Service Comparison Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-background">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeInVariants}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-dark-gray mb-4 sm:mb-6">
+              Quick Service Overview
+            </h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              Find the right service for your business needs.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="overflow-x-auto"
+          >
+            <div className="min-w-full">
+              <div className="grid grid-cols-1 gap-4">
+                {allServices.map((service, index) => (
+                  <motion.div key={index} variants={itemVariants}>
+                    <Link to={service.href}>
+                      <div className="bg-light-gray hover:bg-primary/5 p-4 sm:p-6 rounded-lg transition-colors cursor-pointer border border-transparent hover:border-primary">
+                        <div className="flex items-start justify-between">
+                          <div className="flex items-start gap-4 flex-grow">
+                            <div className={`w-10 h-10 bg-gradient-to-br ${service.color} rounded-lg flex items-center justify-center flex-shrink-0 mt-1`}>
+                              <service.icon className="h-5 w-5 text-white" />
+                            </div>
+                            <div className="flex-grow">
+                              <h3 className="text-lg font-heading text-dark-gray mb-1">{service.name}</h3>
+                              <p className="font-paragraph text-secondary text-sm">{service.description}</p>
+                            </div>
+                          </div>
+                          <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 ml-4 mt-1" />
+                        </div>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-gradient-to-br from-dark-gray to-foreground">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeInVariants}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-white mb-4 sm:mb-6">
+              Ready to Transform Your Digital Presence?
+            </h2>
+            <p className="text-lg font-paragraph text-light-gray mb-8 sm:mb-12 max-w-3xl mx-auto">
+              Let's discuss how our services can help your business achieve its digital marketing goals. Get a free consultation with our experts today.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/contact">
+                <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-base w-full sm:w-auto">
+                  Get Free Consultation
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link to="/case-studies">
+                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-dark-gray px-8 py-3 text-base w-full sm:w-auto">
+                  View Case Studies
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>
