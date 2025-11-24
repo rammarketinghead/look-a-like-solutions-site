@@ -448,10 +448,10 @@ export default function ThankYouPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
             <a
-              href="mailto:hello@agency.com"
+              href="mailto:info@lookalikesolutions.com"
               className="flex items-center gap-2 text-primary hover:text-blue-700 font-heading font-semibold transition-colors"
             >
-              <span>hello@agency.com</span>
+              <span>info@lookalikesolutions.com</span>
               <ArrowRight className="w-4 h-4" />
             </a>
             <div className="hidden sm:block w-1 h-6 bg-light-gray" />
