@@ -234,18 +234,3 @@ export interface TrustedBusinesses {
   /** @wixFieldType text */
   businessDescription?: string;
 }
-
-
-/**
- * Collection ID: newslettersubscribers
- * Interface for NewsletterSubscribers
- */
-export interface NewsletterSubscribers {
-  _id: string;
-  _createdDate?: Date;
-  _updatedDate?: Date;
-  /** @wixFieldType text */
-  email?: string;
-  /** @wixFieldType datetime */
-  subscribedDate?: Date | string;
-}
