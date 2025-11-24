@@ -9,13 +9,18 @@ import WhatsAppButton from '@/components/ui/whatsapp-button';
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
 import { SEOHead } from '@/components/ui/seo-head';
 import { useSitemapUpdater } from '@/hooks/useSitemapUpdater';
-import { Menu, Phone, Mail, MapPin, ChevronDown, ChevronRight, Facebook, Instagram, Youtube, Linkedin, Heart, ArrowRight } from 'lucide-react';
+import { Menu, Phone, Mail, MapPin, ChevronDown, ChevronRight, Facebook, Instagram, Youtube, Linkedin, Heart, ArrowRight, Check } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { BaseCrudService } from '@/integrations';
 
 export default function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null);
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [isSubscribing, setIsSubscribing] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -92,6 +97,27 @@ export default function Layout() {
 
   const toggleMobileSubmenu = (itemName: string) => {
     setExpandedMobileMenu(expandedMobileMenu === itemName ? null : itemName);
+  };
+
+  const handleNewsletterSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail.trim()) return;
+
+    setIsSubscribing(true);
+    try {
+      await BaseCrudService.create('newslettersubscribers', {
+        _id: crypto.randomUUID(),
+        email: newsletterEmail.trim(),
+        subscribedDate: new Date(),
+      });
+      setShowSuccessMessage(true);
+      setNewsletterEmail('');
+      setTimeout(() => setShowSuccessMessage(false), 4000);
+    } catch (error) {
+      console.error('Error subscribing:', error);
+    } finally {
+      setIsSubscribing(false);
+    }
   };
 
   return (
@@ -361,22 +387,45 @@ export default function Layout() {
         <div className="mobile-container">
           {/* Newsletter Section */}
           <div className="border-t border-white/10 py-8 sm:py-12">
-            <div className="text-center">
+            <div className="text-center relative">
               <h3 className="mobile-h3 text-white mb-4">Stay Updated</h3>
               <p className="mobile-body text-gray-300 mb-6 max-w-md mx-auto">
                 Get the latest digital marketing insights and tips delivered to your inbox.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <form onSubmit={handleNewsletterSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
                 <input
                   type="email"
                   placeholder="Enter your email"
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
                   className="flex-1 mobile-input bg-white/10 border-white/20 text-white placeholder-gray-400 focus:ring-primary focus:border-primary"
                   aria-label="Email address for newsletter"
+                  disabled={isSubscribing}
                 />
-                <button className="mobile-btn-primary bg-primary hover:bg-primary/90">
-                  Subscribe
+                <button 
+                  type="submit"
+                  disabled={isSubscribing}
+                  className="mobile-btn-primary bg-primary hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                >
+                  {isSubscribing ? 'Subscribing...' : 'Subscribe'}
                 </button>
-              </div>
+              </form>
+
+              {/* Success Message */}
+              <AnimatePresence>
+                {showSuccessMessage && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute top-0 left-1/2 transform -translate-x-1/2 mt-2 bg-green-500 text-white px-6 py-3 rounded-lg flex items-center gap-2 whitespace-nowrap shadow-lg"
+                  >
+                    <Check className="h-5 w-5" />
+                    <span className="mobile-body font-medium">Thank you for subscribing with us.</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
 
