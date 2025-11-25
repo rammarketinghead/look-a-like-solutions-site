@@ -5,6 +5,7 @@ import { Image } from '@/components/ui/image';
 import { SEOHead } from '@/components/ui/seo-head';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { ROICalculator } from '@/components/ui/roi-calculator';
+import { NewsletterSection } from '@/components/ui/newsletter-section';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Share2, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Zap, Settings, Heart, MessageCircle, Eye } from 'lucide-react';
 
@@ -391,6 +392,9 @@ export default function SocialMediaPage() {
           </div>
         </div>
       </section>
+
+      {/* Newsletter Section */}
+      <NewsletterSection />
     </div>
   );
 }

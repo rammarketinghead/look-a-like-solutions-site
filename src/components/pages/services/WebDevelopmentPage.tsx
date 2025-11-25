@@ -5,6 +5,7 @@ import { Image } from '@/components/ui/image';
 import { FAQSection } from '@/components/ui/faq-section';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { ROICalculator } from '@/components/ui/roi-calculator';
+import { NewsletterSection } from '@/components/ui/newsletter-section';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Code, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Zap, Settings, Smartphone, Laptop } from 'lucide-react';
 
@@ -400,6 +401,9 @@ export default function WebDevelopmentPage() {
           </div>
         </div>
       </section>
+
+      {/* Newsletter Section */}
+      <NewsletterSection />
     </div>
   );
 }
