@@ -23,10 +23,11 @@ export default function ThankYouPage() {
 
     setIsSubscribing(true);
     try {
-      await BaseCrudService.create('newslettersubscribers', {
+      await BaseCrudService.create('NewsletterSubscribers', {
         _id: crypto.randomUUID(),
-        email: email.trim(),
-        subscribedDate: new Date(),
+        emailAddress: email.trim(),
+        subscriptionDate: new Date(),
+        isActive: true,
       });
       setShowSuccessMessage(true);
       setEmail('');
