@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
 import { Input } from '@/components/ui/input';
 import { SEOHead } from '@/components/ui/seo-head';
+import { NewsletterSection } from '@/components/ui/newsletter-section';
 import { fixSlug } from '@/utils/slugUtils';
 
 import { BaseCrudService } from '@/integrations';
@@ -358,6 +359,9 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
+
+      {/* Newsletter Section */}
+      <NewsletterSection />
     </div>
   );
 }

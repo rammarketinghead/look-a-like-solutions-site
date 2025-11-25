@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
 import { SEOHead } from '@/components/ui/seo-head';
 import { TrustedBusinessesCarousel } from '@/components/ui/trusted-businesses-carousel';
+import { NewsletterSection } from '@/components/ui/newsletter-section';
 import { BaseCrudService } from '@/integrations';
 import { TeamMembers, JobOpenings } from '@/entities';
 import { Link } from 'react-router-dom';
@@ -608,6 +609,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Newsletter Section */}
+      <NewsletterSection />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
 import { SEOHead } from '@/components/ui/seo-head';
+import { NewsletterSection } from '@/components/ui/newsletter-section';
 import { BaseCrudService } from '@/integrations';
 import { CaseStudies } from '@/entities';
 import { Link } from 'react-router-dom';
@@ -302,6 +303,9 @@ export default function CaseStudiesPage() {
           </div>
         </div>
       </section>
+
+      {/* Newsletter Section */}
+      <NewsletterSection />
     </div>
   );
 }
