@@ -70,42 +70,6 @@ export default function SEOLeadGenerationPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="w-full max-w-[120rem] mx-auto px-4 py-16 md:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h1 className="text-5xl md:text-6xl font-heading font-bold text-foreground mb-6">
-              Unlock Your Website's Full SEO Potential
-            </h1>
-            <p className="text-lg text-secondary mb-8 font-paragraph">
-              Get a personalized SEO strategy tailored to your business goals. Our experts will analyze your website, competitors, and market to create a roadmap for sustainable growth.
-            </p>
-            <div className="flex gap-4 flex-wrap">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-primary" />
-                <span className="font-paragraph text-foreground">Free Initial Audit</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-primary" />
-                <span className="font-paragraph text-foreground">Expert Consultation</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-5 h-5 text-primary" />
-                <span className="font-paragraph text-foreground">Custom Strategy</span>
-              </div>
-            </div>
-          </div>
-          <div className="relative">
-            <Image
-              src="https://static.wixstatic.com/media/f650f9_beb940410cf646648796bc983dc046eb~mv2.png?originWidth=448&originHeight=384"
-              alt="SEO Strategy Illustration"
-              width={500}
-              height={400}
-              className="w-full rounded-lg"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Form Section */}
       <section className="w-full max-w-[120rem] mx-auto px-4 py-16 md:py-24 bg-light-gray rounded-lg">
         <div className="max-w-3xl mx-auto">
@@ -295,7 +259,41 @@ export default function SEOLeadGenerationPage() {
           </form>
         </div>
       </section>
-
+      <section className="w-full max-w-[120rem] mx-auto px-4 py-16 md:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 className="text-5xl md:text-6xl font-heading font-bold text-foreground mb-6">
+              Unlock Your Website's Full SEO Potential
+            </h1>
+            <p className="text-lg text-secondary mb-8 font-paragraph">
+              Get a personalized SEO strategy tailored to your business goals. Our experts will analyze your website, competitors, and market to create a roadmap for sustainable growth.
+            </p>
+            <div className="flex gap-4 flex-wrap">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-primary" />
+                <span className="font-paragraph text-foreground">Free Initial Audit</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-primary" />
+                <span className="font-paragraph text-foreground">Expert Consultation</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-5 h-5 text-primary" />
+                <span className="font-paragraph text-foreground">Custom Strategy</span>
+              </div>
+            </div>
+          </div>
+          <div className="relative">
+            <Image
+              src="https://static.wixstatic.com/media/f650f9_beb940410cf646648796bc983dc046eb~mv2.png?originWidth=448&originHeight=384"
+              alt="SEO Strategy Illustration"
+              width={500}
+              height={400}
+              className="w-full rounded-lg"
+            />
+          </div>
+        </div>
+      </section>
       {/* What Happens Next Section */}
       <section className="w-full max-w-[120rem] mx-auto px-4 py-16 md:py-24">
         <h2 className="text-4xl font-heading font-bold text-foreground mb-12 text-center">
@@ -339,7 +337,6 @@ export default function SEOLeadGenerationPage() {
           </Card>
         </div>
       </section>
-
       {/* Why Work With Us Section */}
       <section className="w-full max-w-[120rem] mx-auto px-4 py-16 md:py-24 bg-light-gray rounded-lg">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -416,7 +413,6 @@ export default function SEOLeadGenerationPage() {
           </div>
         </div>
       </section>
-
       {/* Final CTA Section */}
       <section className="w-full max-w-[120rem] mx-auto px-4 py-16 md:py-24">
         <div className="bg-primary rounded-lg p-12 text-center">
