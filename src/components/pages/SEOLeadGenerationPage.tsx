@@ -21,12 +21,20 @@ interface FormData {
 }
 
 export default function SEOLeadGenerationPage() {
-  const { register, handleSubmit, formState: { errors }, reset, watch } = useForm<FormData>();
+  const { register, handleSubmit, formState: { errors }, reset, setValue, watch } = useForm<FormData>({
+    defaultValues: {
+      websiteUrl: '',
+      competitors: '',
+      goals: '',
+      timeline: '',
+      budget: '',
+      targetLocation: '',
+      contactTime: '',
+      notes: '',
+    }
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [selectedBudget, setSelectedBudget] = useState('');
-  const [selectedTimeline, setSelectedTimeline] = useState('');
-  const [selectedContactTime, setSelectedContactTime] = useState('');
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
@@ -48,9 +56,6 @@ export default function SEOLeadGenerationPage() {
 
       setSubmitSuccess(true);
       reset();
-      setSelectedBudget('');
-      setSelectedTimeline('');
-      setSelectedContactTime('');
 
       setTimeout(() => {
         setSubmitSuccess(false);
@@ -91,7 +96,7 @@ export default function SEOLeadGenerationPage() {
           </div>
           <div className="relative">
             <Image
-              src="https://static.wixstatic.com/media/f650f9_8d9310e83f784a298e4c3b25a3ad1878~mv2.png?originWidth=448&originHeight=384"
+              src="https://static.wixstatic.com/media/f650f9_beb940410cf646648796bc983dc046eb~mv2.png?originWidth=448&originHeight=384"
               alt="SEO Strategy Illustration"
               width={500}
               height={400}
@@ -185,10 +190,7 @@ export default function SEOLeadGenerationPage() {
                   <Clock className="w-4 h-4 inline mr-2" />
                   What's your timeline?
                 </label>
-                <Select value={selectedTimeline} onValueChange={(value) => {
-                  setSelectedTimeline(value);
-                  register('timeline').onChange({ target: { value } });
-                }}>
+                <Select onValueChange={(value) => setValue('timeline', value)}>
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select timeline" />
                   </SelectTrigger>
@@ -199,7 +201,7 @@ export default function SEOLeadGenerationPage() {
                     <SelectItem value="12-plus-months">12+ months</SelectItem>
                   </SelectContent>
                 </Select>
-                <input type="hidden" {...register('timeline', { required: true })} value={selectedTimeline} />
+                <input type="hidden" {...register('timeline', { required: 'Timeline is required' })} />
                 {errors.timeline && (
                   <p className="text-destructive text-sm mt-1 font-paragraph">{errors.timeline.message}</p>
                 )}
@@ -212,10 +214,7 @@ export default function SEOLeadGenerationPage() {
                 <label className="block text-sm font-heading font-semibold text-foreground mb-2">
                   Planned SEO Budget
                 </label>
-                <Select value={selectedBudget} onValueChange={(value) => {
-                  setSelectedBudget(value);
-                  register('budget').onChange({ target: { value } });
-                }}>
+                <Select onValueChange={(value) => setValue('budget', value)}>
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select budget range" />
                   </SelectTrigger>
@@ -226,7 +225,7 @@ export default function SEOLeadGenerationPage() {
                     <SelectItem value="10000-plus">$10,000+</SelectItem>
                   </SelectContent>
                 </Select>
-                <input type="hidden" {...register('budget', { required: true })} value={selectedBudget} />
+                <input type="hidden" {...register('budget', { required: 'Budget is required' })} />
                 {errors.budget && (
                   <p className="text-destructive text-sm mt-1 font-paragraph">{errors.budget.message}</p>
                 )}
@@ -257,10 +256,7 @@ export default function SEOLeadGenerationPage() {
                 <MessageSquare className="w-4 h-4 inline mr-2" />
                 Preferred Contact Time
               </label>
-              <Select value={selectedContactTime} onValueChange={(value) => {
-                setSelectedContactTime(value);
-                register('contactTime').onChange({ target: { value } });
-              }}>
+              <Select onValueChange={(value) => setValue('contactTime', value)}>
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select preferred time" />
                 </SelectTrigger>
@@ -271,7 +267,7 @@ export default function SEOLeadGenerationPage() {
                   <SelectItem value="flexible">Flexible</SelectItem>
                 </SelectContent>
               </Select>
-              <input type="hidden" {...register('contactTime', { required: true })} value={selectedContactTime} />
+              <input type="hidden" {...register('contactTime', { required: 'Contact time is required' })} />
               {errors.contactTime && (
                 <p className="text-destructive text-sm mt-1 font-paragraph">{errors.contactTime.message}</p>
               )}
