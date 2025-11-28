@@ -84,7 +84,7 @@ export default function RealEstateLeadGenerationPage() {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="w-full bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 py-20 px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-gradient-to-br from-blue-50 via-blue-100 to-blue-50 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -92,18 +92,18 @@ export default function RealEstateLeadGenerationPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-slate-900">
+            <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-foreground">
               Steady Buyer & Seller Leads,<br />
-              <span className="text-amber-600">Month After Month</span>
+              <span className="text-primary">Month After Month</span>
             </h1>
-            <p className="font-paragraph text-xl sm:text-2xl text-slate-700 mb-8 max-w-3xl mx-auto">
+            <p className="font-paragraph text-xl sm:text-2xl text-secondary mb-8 max-w-3xl mx-auto">
               15 years of proven expertise in generating high-quality real estate leads for agents, brokers, and builders. Transparent pricing. Real results. No surprises.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
                 onClick={scrollToConsultation}
-                className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-semibold"
+                className="bg-primary hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold"
               >
                 Get Your Free Consultation
               </Button>
@@ -111,7 +111,7 @@ export default function RealEstateLeadGenerationPage() {
                 size="lg"
                 variant="outline"
                 onClick={scrollToConsultation}
-                className="border-2 border-amber-600 text-amber-600 hover:bg-amber-50 px-8 py-3 rounded-lg font-semibold"
+                className="border-2 border-primary text-primary hover:bg-blue-50 px-8 py-3 rounded-lg font-semibold"
               >
                 See Our Results
               </Button>
@@ -123,42 +123,42 @@ export default function RealEstateLeadGenerationPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 pt-12 border-t border-amber-200"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 pt-12 border-t border-blue-200"
           >
             <div className="text-center">
-              <div className="text-4xl font-bold text-amber-600 mb-2">15+</div>
-              <p className="font-paragraph text-slate-700">Years of Experience</p>
+              <div className="text-4xl font-bold text-primary mb-2">15+</div>
+              <p className="font-paragraph text-secondary">Years of Experience</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-amber-600 mb-2">2,500+</div>
-              <p className="font-paragraph text-slate-700">Real Estate Professionals Served</p>
+              <div className="text-4xl font-bold text-primary mb-2">2,500+</div>
+              <p className="font-paragraph text-secondary">Real Estate Professionals Served</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-amber-600 mb-2">100K+</div>
-              <p className="font-paragraph text-slate-700">Quality Leads Monthly</p>
+              <div className="text-4xl font-bold text-primary mb-2">100K+</div>
+              <p className="font-paragraph text-secondary">Quality Leads Monthly</p>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Consultation Section */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white" id="consultation-section">
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-light-gray" id="consultation-section">
         <div className="max-w-2xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
               Get Your Free Lead Strategy Consultation
             </h2>
-            <p className="font-paragraph text-lg text-slate-600">
+            <p className="font-paragraph text-lg text-secondary">
               Tell us about your business and let's discuss how we can help you attract consistent, qualified buyer and seller leads.
             </p>
           </motion.div>
 
           <motion.div {...fadeInUp}>
-            <Card className="p-8 sm:p-12 border-0 shadow-lg">
+            <Card className="p-8 sm:p-12 border-0 shadow-lg bg-white">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name Field */}
                 <div>
-                  <label htmlFor="name" className="block font-heading text-sm font-semibold text-slate-900 mb-2">
+                  <label htmlFor="name" className="block font-heading text-sm font-semibold text-foreground mb-2">
                     Full Name *
                   </label>
                   <Input
@@ -169,13 +169,13 @@ export default function RealEstateLeadGenerationPage() {
                     onChange={handleInputChange}
                     placeholder="John Smith"
                     required
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
 
                 {/* Email Field */}
                 <div>
-                  <label htmlFor="email" className="block font-heading text-sm font-semibold text-slate-900 mb-2">
+                  <label htmlFor="email" className="block font-heading text-sm font-semibold text-foreground mb-2">
                     Email Address *
                   </label>
                   <Input
@@ -186,13 +186,13 @@ export default function RealEstateLeadGenerationPage() {
                     onChange={handleInputChange}
                     placeholder="john@realestate.com"
                     required
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
 
                 {/* Phone Field */}
                 <div>
-                  <label htmlFor="phone" className="block font-heading text-sm font-semibold text-slate-900 mb-2">
+                  <label htmlFor="phone" className="block font-heading text-sm font-semibold text-foreground mb-2">
                     Phone Number *
                   </label>
                   <Input
@@ -203,13 +203,13 @@ export default function RealEstateLeadGenerationPage() {
                     onChange={handleInputChange}
                     placeholder="(555) 123-4567"
                     required
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
 
                 {/* Business Name Field */}
                 <div>
-                  <label htmlFor="businessName" className="block font-heading text-sm font-semibold text-slate-900 mb-2">
+                  <label htmlFor="businessName" className="block font-heading text-sm font-semibold text-foreground mb-2">
                     Agency / Brokerage / Builder Name
                   </label>
                   <Input
@@ -219,13 +219,13 @@ export default function RealEstateLeadGenerationPage() {
                     value={formData.businessName}
                     onChange={handleInputChange}
                     placeholder="Your Business Name"
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
 
                 {/* Message Field */}
                 <div>
-                  <label htmlFor="message" className="block font-heading text-sm font-semibold text-slate-900 mb-2">
+                  <label htmlFor="message" className="block font-heading text-sm font-semibold text-foreground mb-2">
                     Tell Us About Your Business
                   </label>
                   <Textarea
@@ -235,7 +235,7 @@ export default function RealEstateLeadGenerationPage() {
                     onChange={handleInputChange}
                     placeholder="What's your focus? (residential, commercial, luxury, etc.) What are your lead generation challenges? Any other details we should know?"
                     rows={5}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                   />
                 </div>
 
@@ -271,7 +271,7 @@ export default function RealEstateLeadGenerationPage() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors"
+                  className="w-full bg-primary hover:bg-blue-700 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors"
                 >
                   {isSubmitting ? (
                     <>
@@ -286,7 +286,7 @@ export default function RealEstateLeadGenerationPage() {
                   )}
                 </Button>
 
-                <p className="font-paragraph text-xs text-slate-500 text-center">
+                <p className="font-paragraph text-xs text-secondary text-center">
                   We respect your privacy. Your information will only be used to contact you about your inquiry.
                 </p>
               </form>
@@ -296,13 +296,13 @@ export default function RealEstateLeadGenerationPage() {
       </section>
 
       {/* The Challenge Section */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-light-gray">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
               The Challenge Every Real Estate Professional Faces
             </h2>
-            <p className="font-paragraph text-lg text-slate-600 max-w-3xl mx-auto">
+            <p className="font-paragraph text-lg text-secondary max-w-3xl mx-auto">
               You're excellent at closing deals and building relationships. But finding consistent, qualified buyer and seller leads? That's a different skill entirely. Most agents and brokers struggle with unpredictable lead flow or waste thousands on ineffective marketing.
             </p>
           </motion.div>
@@ -326,12 +326,12 @@ export default function RealEstateLeadGenerationPage() {
               }
             ].map((item, idx) => (
               <motion.div key={idx} {...fadeInUp}>
-                <Card className="p-8 border-0 shadow-lg hover:shadow-xl transition-shadow">
-                  <item.icon className="w-12 h-12 text-amber-500 mb-4" />
-                  <h3 className="font-heading text-xl font-bold text-slate-900 mb-3">
+                <Card className="p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-white">
+                  <item.icon className="w-12 h-12 text-primary mb-4" />
+                  <h3 className="font-heading text-xl font-bold text-foreground mb-3">
                     {item.title}
                   </h3>
-                  <p className="font-paragraph text-slate-600">
+                  <p className="font-paragraph text-secondary">
                     {item.description}
                   </p>
                 </Card>
@@ -345,10 +345,10 @@ export default function RealEstateLeadGenerationPage() {
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
               Our Proven Real Estate Lead Generation System
             </h2>
-            <p className="font-paragraph text-lg text-slate-600 max-w-3xl mx-auto">
+            <p className="font-paragraph text-lg text-secondary max-w-3xl mx-auto">
               We've spent 15 years perfecting the art of connecting real estate professionals with qualified buyers and sellers. Here's how we do it.
             </p>
           </motion.div>
@@ -364,21 +364,21 @@ export default function RealEstateLeadGenerationPage() {
               />
             </motion.div>
             <motion.div {...fadeInUp}>
-              <h3 className="font-heading text-3xl font-bold text-slate-900 mb-6">
+              <h3 className="font-heading text-3xl font-bold text-foreground mb-6">
                 A Two-Channel Approach Built for Real Estate
               </h3>
               <div className="space-y-6">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-amber-600 text-white">
+                    <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-primary text-white">
                       <span className="font-bold text-lg">70%</span>
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-heading text-xl font-bold text-slate-900 mb-2">
+                    <h4 className="font-heading text-xl font-bold text-foreground mb-2">
                       Google Ads (Primary Channel)
                     </h4>
-                    <p className="font-paragraph text-slate-600">
+                    <p className="font-paragraph text-secondary">
                       Capture high-intent buyers and sellers actively searching for properties and real estate services. We optimize for your market, property types, and buyer profiles with precision targeting.
                     </p>
                   </div>
@@ -386,25 +386,25 @@ export default function RealEstateLeadGenerationPage() {
 
                 <div className="flex gap-4">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-amber-500 text-white">
+                    <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-500 text-white">
                       <span className="font-bold text-lg">30%</span>
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-heading text-xl font-bold text-slate-900 mb-2">
+                    <h4 className="font-heading text-xl font-bold text-foreground mb-2">
                       Facebook Ads (Awareness Channel)
                     </h4>
-                    <p className="font-paragraph text-slate-600">
+                    <p className="font-paragraph text-secondary">
                       Build awareness and reach potential buyers and sellers in their social feeds. Perfect for building trust, showcasing listings, and establishing your brand in your community.
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-8 p-6 bg-amber-50 rounded-lg border border-amber-200">
-                  <h4 className="font-heading text-lg font-bold text-slate-900 mb-2">
+                <div className="mt-8 p-6 bg-light-gray rounded-lg border border-blue-200">
+                  <h4 className="font-heading text-lg font-bold text-foreground mb-2">
                     Optional: Long-Term SEO Support
                   </h4>
-                  <p className="font-paragraph text-slate-600">
+                  <p className="font-paragraph text-secondary">
                     Build organic visibility for sustainable growth. We can layer in SEO to create a long-term asset for your business and dominate local search results.
                   </p>
                 </div>
@@ -415,13 +415,13 @@ export default function RealEstateLeadGenerationPage() {
       </section>
 
       {/* Transparent Billing Section */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-light-gray">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
               Transparent Billing. No Surprises.
             </h2>
-            <p className="font-paragraph text-lg text-slate-600 max-w-3xl mx-auto">
+            <p className="font-paragraph text-lg text-secondary max-w-3xl mx-auto">
               You know exactly what you're paying for and what results you're getting. Monthly reporting, clear metrics, and honest communication.
             </p>
           </motion.div>
@@ -450,12 +450,12 @@ export default function RealEstateLeadGenerationPage() {
               }
             ].map((item, idx) => (
               <motion.div key={idx} {...fadeInUp}>
-                <Card className="p-8 border-0 shadow-lg">
-                  <item.icon className="w-12 h-12 text-amber-600 mb-4" />
-                  <h3 className="font-heading text-xl font-bold text-slate-900 mb-3">
+                <Card className="p-8 border-0 shadow-lg bg-white">
+                  <item.icon className="w-12 h-12 text-primary mb-4" />
+                  <h3 className="font-heading text-xl font-bold text-foreground mb-3">
                     {item.title}
                   </h3>
-                  <p className="font-paragraph text-slate-600">
+                  <p className="font-paragraph text-secondary">
                     {item.description}
                   </p>
                 </Card>
@@ -469,10 +469,10 @@ export default function RealEstateLeadGenerationPage() {
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
               Real Results from Real Estate Professionals
             </h2>
-            <p className="font-paragraph text-lg text-slate-600 max-w-3xl mx-auto">
+            <p className="font-paragraph text-lg text-secondary max-w-3xl mx-auto">
               Whether you're a solo agent, managing a brokerage, or building a development company, our system works.
             </p>
           </motion.div>
@@ -480,7 +480,7 @@ export default function RealEstateLeadGenerationPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Broker Story */}
             <motion.div {...fadeInUp}>
-              <Card className="p-8 border-0 shadow-lg h-full">
+              <Card className="p-8 border-0 shadow-lg h-full bg-white">
                 <div className="flex items-center gap-4 mb-6">
                   <Image
                     src="https://static.wixstatic.com/media/12d367_71ebdd7141d041e4be3d91d80d4578dd~mv2.png?id=broker-profile"
@@ -490,33 +490,33 @@ export default function RealEstateLeadGenerationPage() {
                     className="rounded-full"
                   />
                   <div>
-                    <h3 className="font-heading text-lg font-bold text-slate-900">
+                    <h3 className="font-heading text-lg font-bold text-foreground">
                       Sarah Mitchell
                     </h3>
-                    <p className="font-paragraph text-slate-600">
+                    <p className="font-paragraph text-secondary">
                       Independent Real Estate Broker
                     </p>
                   </div>
                 </div>
-                <p className="font-paragraph text-slate-700 mb-6 italic">
+                <p className="font-paragraph text-foreground mb-6 italic">
                   "I was struggling to keep my pipeline full, especially in slower seasons. After 3 months with this system, I'm consistently getting 15-20 qualified buyer and seller inquiries per month. The leads are pre-qualified, the pricing is transparent, and I finally have predictable income. This has been a game-changer for my business."
                 </p>
                 <div className="space-y-3 border-t pt-6">
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-green-500" />
-                    <span className="font-paragraph text-slate-700">
+                    <CheckCircle2 className="w-5 h-5 text-primary" />
+                    <span className="font-paragraph text-foreground">
                       <strong>15-20 qualified inquiries/month</strong> (up from 3-5)
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-green-500" />
-                    <span className="font-paragraph text-slate-700">
+                    <CheckCircle2 className="w-5 h-5 text-primary" />
+                    <span className="font-paragraph text-foreground">
                       <strong>$2,000/month investment</strong> generating $40K+ in commissions
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-green-500" />
-                    <span className="font-paragraph text-slate-700">
+                    <CheckCircle2 className="w-5 h-5 text-primary" />
+                    <span className="font-paragraph text-foreground">
                       <strong>Peace of mind</strong> knowing leads are coming consistently
                     </span>
                   </div>
@@ -526,7 +526,7 @@ export default function RealEstateLeadGenerationPage() {
 
             {/* Builder Story */}
             <motion.div {...fadeInUp}>
-              <Card className="p-8 border-0 shadow-lg h-full">
+              <Card className="p-8 border-0 shadow-lg h-full bg-white">
                 <div className="flex items-center gap-4 mb-6">
                   <Image
                     src="https://static.wixstatic.com/media/12d367_71ebdd7141d041e4be3d91d80d4578dd~mv2.png?id=builder-profile"
@@ -536,33 +536,33 @@ export default function RealEstateLeadGenerationPage() {
                     className="rounded-full"
                   />
                   <div>
-                    <h3 className="font-heading text-lg font-bold text-slate-900">
+                    <h3 className="font-heading text-lg font-bold text-foreground">
                       Premier Homes Development
                     </h3>
-                    <p className="font-paragraph text-slate-600">
+                    <p className="font-paragraph text-secondary">
                       Residential Builder (50+ homes/year)
                     </p>
                   </div>
                 </div>
-                <p className="font-paragraph text-slate-700 mb-6 italic">
+                <p className="font-paragraph text-foreground mb-6 italic">
                   "We were spending $8K/month with a generic agency getting mediocre results. Switching to this system cut our cost per inquiry in half while improving quality. Our sales team is happier because they're getting more serious buyers. We've increased our sales velocity significantly."
                 </p>
                 <div className="space-y-3 border-t pt-6">
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-green-500" />
-                    <span className="font-paragraph text-slate-700">
+                    <CheckCircle2 className="w-5 h-5 text-primary" />
+                    <span className="font-paragraph text-foreground">
                       <strong>80+ qualified buyer inquiries/month</strong> across all projects
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-green-500" />
-                    <span className="font-paragraph text-slate-700">
+                    <CheckCircle2 className="w-5 h-5 text-primary" />
+                    <span className="font-paragraph text-foreground">
                       <strong>50% reduction in cost per inquiry</strong> within 2 months
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-green-500" />
-                    <span className="font-paragraph text-slate-700">
+                    <CheckCircle2 className="w-5 h-5 text-primary" />
+                    <span className="font-paragraph text-foreground">
                       <strong>Better buyer quality</strong> = higher conversion rates and faster sales
                     </span>
                   </div>
@@ -574,10 +574,10 @@ export default function RealEstateLeadGenerationPage() {
       </section>
 
       {/* How It Works Section */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-light-gray">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
               How We Get You Results
             </h2>
           </motion.div>
@@ -608,18 +608,18 @@ export default function RealEstateLeadGenerationPage() {
               <motion.div key={idx} {...fadeInUp}>
                 <div className="relative">
                   <div className="flex flex-col items-center text-center">
-                    <div className="w-16 h-16 rounded-full bg-amber-600 text-white flex items-center justify-center mb-4 font-heading text-2xl font-bold">
+                    <div className="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center mb-4 font-heading text-2xl font-bold">
                       {item.step}
                     </div>
-                    <h3 className="font-heading text-lg font-bold text-slate-900 mb-2">
+                    <h3 className="font-heading text-lg font-bold text-foreground mb-2">
                       {item.title}
                     </h3>
-                    <p className="font-paragraph text-slate-600 text-sm">
+                    <p className="font-paragraph text-secondary text-sm">
                       {item.description}
                     </p>
                   </div>
                   {idx < 3 && (
-                    <div className="hidden md:block absolute top-8 -right-3 w-6 h-1 bg-amber-300" />
+                    <div className="hidden md:block absolute top-8 -right-3 w-6 h-1 bg-blue-300" />
                   )}
                 </div>
               </motion.div>
@@ -632,7 +632,7 @@ export default function RealEstateLeadGenerationPage() {
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
               Why Real Estate Professionals Choose Us
             </h2>
           </motion.div>
@@ -649,8 +649,8 @@ export default function RealEstateLeadGenerationPage() {
               "Flexible packages that scale with your business growth"
             ].map((item, idx) => (
               <motion.div key={idx} {...fadeInUp} className="flex gap-4">
-                <CheckCircle2 className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
-                <p className="font-paragraph text-slate-700">{item}</p>
+                <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+                <p className="font-paragraph text-foreground">{item}</p>
               </motion.div>
             ))}
           </div>
@@ -658,20 +658,20 @@ export default function RealEstateLeadGenerationPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-amber-600 to-amber-700 text-white">
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary to-blue-700 text-white">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div {...fadeInUp}>
             <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-6">
               Ready to Fill Your Pipeline with Quality Buyer & Seller Leads?
             </h2>
-            <p className="font-paragraph text-xl text-amber-100 mb-8">
+            <p className="font-paragraph text-xl text-blue-100 mb-8">
               Let's talk about how our proven system can transform your lead generation. No pressure, no sales pitch—just a conversation about your business and your goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
                 onClick={scrollToConsultation}
-                className="bg-white text-amber-600 hover:bg-amber-50 px-8 py-3 rounded-lg font-semibold"
+                className="bg-white text-primary hover:bg-blue-50 px-8 py-3 rounded-lg font-semibold"
               >
                 Schedule Your Free Consultation
               </Button>
@@ -679,7 +679,7 @@ export default function RealEstateLeadGenerationPage() {
                 size="lg"
                 variant="outline"
                 onClick={scrollToConsultation}
-                className="border-2 border-white text-white hover:bg-white hover:text-amber-600 px-8 py-3 rounded-lg font-semibold"
+                className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-3 rounded-lg font-semibold"
               >
                 Contact us today
               </Button>
@@ -692,13 +692,13 @@ export default function RealEstateLeadGenerationPage() {
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div {...fadeInUp}>
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-slate-900 mb-6">
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-6">
               We're Here to Help Your Real Estate Business Thrive
             </h2>
-            <p className="font-paragraph text-lg text-slate-600 mb-8">
+            <p className="font-paragraph text-lg text-secondary mb-8">
               Building a successful real estate career takes more than just sales skills. It takes consistent, quality buyer and seller leads. We've spent 15 years perfecting the system to deliver exactly that. Let's talk about how we can help your business grow and thrive.
             </p>
-            <p className="font-paragraph text-slate-700 italic">
+            <p className="font-paragraph text-foreground italic">
               Your success is our mission. Your growth is our priority.
             </p>
           </motion.div>
