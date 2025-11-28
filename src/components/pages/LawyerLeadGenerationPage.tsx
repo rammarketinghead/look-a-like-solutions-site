@@ -662,6 +662,7 @@ export default function LawyerLeadGenerationPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
+                onClick={scrollToConsultation}
                 className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-semibold"
               >
                 Schedule Your Free Consultation
