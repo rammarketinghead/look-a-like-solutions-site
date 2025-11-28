@@ -2,17 +2,78 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { motion } from 'framer-motion';
-import { CheckCircle2, TrendingUp, Users, DollarSign, Target, Zap } from 'lucide-react';
+import { CheckCircle2, TrendingUp, Users, DollarSign, Target, Zap, Send } from 'lucide-react';
+import { BaseCrudService } from '@/integrations';
+import { FormSubmissions } from '@/entities';
 
 export default function LawyerLeadGenerationPage() {
   const [selectedPlan, setSelectedPlan] = useState<'solo' | 'firm' | null>(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    firmName: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
     transition: { duration: 0.6 },
     viewport: { once: true }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const submission: FormSubmissions = {
+        _id: crypto.randomUUID(),
+        formType: 'Lawyer Lead Generation',
+        submitterName: formData.name,
+        submitterEmail: formData.email,
+        submitterPhone: formData.phone,
+        companyName: formData.firmName,
+        message: formData.message,
+        submissionDate: new Date().toISOString(),
+        submissionPageUrl: window.location.href
+      };
+
+      await BaseCrudService.create('formsubmissions', submission);
+      
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        firmName: '',
+        message: ''
+      });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -460,6 +521,160 @@ export default function LawyerLeadGenerationPage() {
                 Call Us: (555) 123-4567
               </Button>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Lead Capture Form Section */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
+        <div className="max-w-2xl mx-auto">
+          <motion.div {...fadeInUp} className="text-center mb-12">
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+              Get Your Free Consultation Today
+            </h2>
+            <p className="font-paragraph text-lg text-slate-600">
+              Tell us about your practice and let's discuss how we can help you generate consistent, quality leads.
+            </p>
+          </motion.div>
+
+          <motion.div {...fadeInUp}>
+            <Card className="p-8 sm:p-12 border-0 shadow-lg">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name Field */}
+                <div>
+                  <label htmlFor="name" className="block font-heading text-sm font-semibold text-slate-900 mb-2">
+                    Full Name *
+                  </label>
+                  <Input
+                    id="name"
+                    name="name"
+                    type="text"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="John Smith"
+                    required
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                {/* Email Field */}
+                <div>
+                  <label htmlFor="email" className="block font-heading text-sm font-semibold text-slate-900 mb-2">
+                    Email Address *
+                  </label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="john@example.com"
+                    required
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                {/* Phone Field */}
+                <div>
+                  <label htmlFor="phone" className="block font-heading text-sm font-semibold text-slate-900 mb-2">
+                    Phone Number *
+                  </label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="(555) 123-4567"
+                    required
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                {/* Firm Name Field */}
+                <div>
+                  <label htmlFor="firmName" className="block font-heading text-sm font-semibold text-slate-900 mb-2">
+                    Law Firm / Practice Name
+                  </label>
+                  <Input
+                    id="firmName"
+                    name="firmName"
+                    type="text"
+                    value={formData.firmName}
+                    onChange={handleInputChange}
+                    placeholder="Your Law Firm Name"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+
+                {/* Message Field */}
+                <div>
+                  <label htmlFor="message" className="block font-heading text-sm font-semibold text-slate-900 mb-2">
+                    Tell Us About Your Practice
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="What practice areas do you focus on? What are your lead generation challenges? Any other details we should know?"
+                    rows={5}
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                  />
+                </div>
+
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-green-50 border border-green-200 rounded-lg"
+                  >
+                    <div className="flex items-center gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-600" />
+                      <p className="font-paragraph text-green-800">
+                        Thank you! We've received your inquiry. Our team will contact you within 24 hours.
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-red-50 border border-red-200 rounded-lg"
+                  >
+                    <p className="font-paragraph text-red-800">
+                      There was an error submitting your form. Please try again.
+                    </p>
+                  </motion.div>
+                )}
+
+                {/* Submit Button */}
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      Get Your Free Consultation
+                    </>
+                  )}
+                </Button>
+
+                <p className="font-paragraph text-xs text-slate-500 text-center">
+                  We respect your privacy. Your information will only be used to contact you about your inquiry.
+                </p>
+              </form>
+            </Card>
           </motion.div>
         </div>
       </section>
