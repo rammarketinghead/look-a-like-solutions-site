@@ -61,6 +61,7 @@ import GoogleAdsTrainingPage from '@/components/pages/GoogleAdsTrainingPage';
 import ThankYouPage from '@/components/pages/ThankYouPage';
 import SEOLeadGenerationPage from '@/components/pages/SEOLeadGenerationPage';
 import LawyerLeadGenerationPage from '@/components/pages/LawyerLeadGenerationPage';
+import DoctorLeadGenerationPage from '@/components/pages/DoctorLeadGenerationPage';
 
 // Layout wrapper that includes ScrollToTop
 function LayoutWithScrollToTop() {
@@ -309,6 +310,10 @@ const router = createBrowserRouter([
       {
         path: "lawyer-lead-generation",
         element: <LawyerLeadGenerationPage />,
+      },
+      {
+        path: "doctor-lead-generation",
+        element: <DoctorLeadGenerationPage />,
       },
       {
         path: "*",
