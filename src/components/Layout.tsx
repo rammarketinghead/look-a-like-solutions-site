@@ -79,6 +79,16 @@ export default function Layout() {
         { name: 'Speed Test', href: '/tools/website-speed-test', icon: '⚡' }
       ]
     },
+    { 
+      name: 'Industry Solutions', 
+      href: '/industry-solutions',
+      dropdown: [
+        { name: 'Lawyer Lead Generation', href: '/lawyer-lead-generation', icon: '⚖️' },
+        { name: 'Doctor Lead Generation', href: '/doctor-lead-generation', icon: '🏥' },
+        { name: 'Real Estate Lead Generation', href: '/real-estate-lead-generation', icon: '🏠' },
+        { name: 'Education Lead Generation', href: '/education-lead-generation', icon: '🎓' }
+      ]
+    },
     { name: 'Blog', href: '/blog' }
   ];
 
