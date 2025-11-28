@@ -46,7 +46,6 @@ export default function Layout() {
   const shouldShowExitIntent = !location.pathname.includes('/contact') && !location.pathname.includes('/thank-you');
 
   const navigation = [
-    { name: 'About', href: '/about' },
     { 
       name: 'Services', 
       href: '/services',
@@ -80,8 +79,7 @@ export default function Layout() {
         { name: 'Speed Test', href: '/tools/website-speed-test', icon: '⚡' }
       ]
     },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' }
+    { name: 'Blog', href: '/blog' }
   ];
 
   const isActive = (href: string) => {
@@ -107,8 +105,8 @@ export default function Layout() {
     try {
       await BaseCrudService.create('newslettersubscribers', {
         _id: crypto.randomUUID(),
-        email: newsletterEmail.trim(),
-        subscribedDate: new Date(),
+        emailAddress: newsletterEmail.trim(),
+        subscriptionDate: new Date(),
       });
       setShowSuccessMessage(true);
       setNewsletterEmail('');
@@ -477,6 +475,22 @@ export default function Layout() {
                 <h3 className="mobile-h4 text-white mb-6">Quick Links</h3>
                 <nav aria-label="Footer navigation">
                   <ul className="mobile-space-y-sm">
+                    <li>
+                      <Link 
+                        to="/about" 
+                        className="mobile-body text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
+                      >
+                        About
+                      </Link>
+                    </li>
+                    <li>
+                      <Link 
+                        to="/contact" 
+                        className="mobile-body text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
+                      >
+                        Contact
+                      </Link>
+                    </li>
                     {navigation.map((item) => (
                       <li key={item.name}>
                         <Link 
@@ -493,14 +507,6 @@ export default function Layout() {
                         className="mobile-body text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
                       >
                         Case Studies
-                      </Link>
-                    </li>
-                    <li>
-                      <Link 
-                        to="/blog" 
-                        className="mobile-body text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
-                      >
-                        Blog
                       </Link>
                     </li>
                   </ul>

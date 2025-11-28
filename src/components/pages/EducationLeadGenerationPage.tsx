@@ -356,7 +356,7 @@ export default function EducationLeadGenerationPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             <motion.div {...fadeInUp}>
               <Image
-                src="https://static.wixstatic.com/media/12d367_71ebdd7141d041e4be3d91d80d4578dd~mv2.png?id=education-strategy"
+                src="https://static.wixstatic.com/media/f650f9_a22b8792381043dd883f4c4205f4d853~mv2.png?originWidth=448&originHeight=384"
                 alt="Education lead generation strategy visualization"
                 width={500}
                 height={400}
@@ -483,7 +483,7 @@ export default function EducationLeadGenerationPage() {
               <Card className="p-8 border-0 shadow-lg h-full bg-white">
                 <div className="flex items-center gap-4 mb-6">
                   <Image
-                    src="https://static.wixstatic.com/media/12d367_71ebdd7141d041e4be3d91d80d4578dd~mv2.png?id=training-center-profile"
+                    src="https://static.wixstatic.com/media/f650f9_b603aecad7a2442fb12087f30b03095f~mv2.png?originWidth=128&originHeight=128"
                     alt="Training center director profile"
                     width={60}
                     height={60}
@@ -529,7 +529,7 @@ export default function EducationLeadGenerationPage() {
               <Card className="p-8 border-0 shadow-lg h-full bg-white">
                 <div className="flex items-center gap-4 mb-6">
                   <Image
-                    src="https://static.wixstatic.com/media/12d367_71ebdd7141d041e4be3d91d80d4578dd~mv2.png?id=college-profile"
+                    src="https://static.wixstatic.com/media/f650f9_97c5d65e3cfe4f9f8e483382a02adfb3~mv2.png?originWidth=128&originHeight=128"
                     alt="College principal profile"
                     width={60}
                     height={60}
