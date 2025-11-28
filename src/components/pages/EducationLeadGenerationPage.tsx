@@ -5,16 +5,16 @@ import { Image } from '@/components/ui/image';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { motion } from 'framer-motion';
-import { CheckCircle2, TrendingUp, Users, DollarSign, Home, Zap, Send, Building2 } from 'lucide-react';
+import { CheckCircle2, TrendingUp, Users, DollarSign, BookOpen, Zap, Send, GraduationCap } from 'lucide-react';
 import { BaseCrudService } from '@/integrations';
 import { FormSubmissions } from '@/entities';
 
-export default function RealEstateLeadGenerationPage() {
+export default function EducationLeadGenerationPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    businessName: '',
+    instituteName: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -50,11 +50,11 @@ export default function RealEstateLeadGenerationPage() {
     try {
       const submission: FormSubmissions = {
         _id: crypto.randomUUID(),
-        formType: 'Real Estate Lead Generation',
+        formType: 'Education Lead Generation',
         submitterName: formData.name,
         submitterEmail: formData.email,
         submitterPhone: formData.phone,
-        companyName: formData.businessName,
+        companyName: formData.instituteName,
         message: formData.message,
         submissionDate: new Date().toISOString(),
         submissionPageUrl: window.location.href
@@ -67,7 +67,7 @@ export default function RealEstateLeadGenerationPage() {
         name: '',
         email: '',
         phone: '',
-        businessName: '',
+        instituteName: '',
         message: ''
       });
 
@@ -93,11 +93,11 @@ export default function RealEstateLeadGenerationPage() {
             className="text-center mb-12"
           >
             <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-foreground">
-              Steady Buyer & Seller Leads,<br />
+              Steady Student Enquiries,<br />
               <span className="text-primary">Month After Month</span>
             </h1>
             <p className="font-paragraph text-xl sm:text-2xl text-secondary mb-8 max-w-3xl mx-auto">
-              15 years of proven expertise in generating high-quality real estate leads for agents, brokers, and builders. Transparent pricing. Real results. No surprises.
+              15 years of proven expertise in generating high-intent student enquiries for schools, colleges, training centers, and online courses. Transparent pricing. Real results. No surprises.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -130,12 +130,12 @@ export default function RealEstateLeadGenerationPage() {
               <p className="font-paragraph text-secondary">Years of Experience</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">2,500+</div>
-              <p className="font-paragraph text-secondary">Real Estate Professionals Served</p>
+              <div className="text-4xl font-bold text-primary mb-2">1,200+</div>
+              <p className="font-paragraph text-secondary">Educational Institutions Served</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">100K+</div>
-              <p className="font-paragraph text-secondary">Quality Leads Monthly</p>
+              <div className="text-4xl font-bold text-primary mb-2">500K+</div>
+              <p className="font-paragraph text-secondary">Quality Student Enquiries Monthly</p>
             </div>
           </motion.div>
         </div>
@@ -146,10 +146,10 @@ export default function RealEstateLeadGenerationPage() {
         <div className="max-w-2xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
             <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Get Your Free Lead Strategy Consultation
+              Get Your Free Student Enquiry Strategy Consultation
             </h2>
             <p className="font-paragraph text-lg text-secondary">
-              Tell us about your business and let's discuss how we can help you attract consistent, qualified buyer and seller leads.
+              Tell us about your institution and let's discuss how we can help you attract consistent, high-intent student enquiries.
             </p>
           </motion.div>
 
@@ -184,7 +184,7 @@ export default function RealEstateLeadGenerationPage() {
                     type="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    placeholder="john@realestate.com"
+                    placeholder="john@institute.com"
                     required
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   />
@@ -207,18 +207,18 @@ export default function RealEstateLeadGenerationPage() {
                   />
                 </div>
 
-                {/* Business Name Field */}
+                {/* Institute Name Field */}
                 <div>
-                  <label htmlFor="businessName" className="block font-heading text-sm font-semibold text-foreground mb-2">
-                    Agency / Brokerage / Builder Name
+                  <label htmlFor="instituteName" className="block font-heading text-sm font-semibold text-foreground mb-2">
+                    School / College / Training Center Name
                   </label>
                   <Input
-                    id="businessName"
-                    name="businessName"
+                    id="instituteName"
+                    name="instituteName"
                     type="text"
-                    value={formData.businessName}
+                    value={formData.instituteName}
                     onChange={handleInputChange}
-                    placeholder="Your Business Name"
+                    placeholder="Your Institution Name"
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
@@ -226,14 +226,14 @@ export default function RealEstateLeadGenerationPage() {
                 {/* Message Field */}
                 <div>
                   <label htmlFor="message" className="block font-heading text-sm font-semibold text-foreground mb-2">
-                    Tell Us About Your Business
+                    Tell Us About Your Institution
                   </label>
                   <Textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    placeholder="What's your focus? (residential, commercial, luxury, etc.) What are your lead generation challenges? Any other details we should know?"
+                    placeholder="What courses do you offer? What's your target student demographic? What are your enrollment challenges? Any other details we should know?"
                     rows={5}
                     className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                   />
@@ -300,29 +300,29 @@ export default function RealEstateLeadGenerationPage() {
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
             <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              The Challenge Every Real Estate Professional Faces
+              The Challenge Every Educational Institution Faces
             </h2>
             <p className="font-paragraph text-lg text-secondary max-w-3xl mx-auto">
-              You're excellent at closing deals and building relationships. But finding consistent, qualified buyer and seller leads? That's a different skill entirely. Most agents and brokers struggle with unpredictable lead flow or waste thousands on ineffective marketing.
+              You're excellent at teaching and developing students. But finding consistent, high-intent student enquiries? That's a different skill entirely. Most institutions struggle with unpredictable enrollment or waste thousands on ineffective marketing.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                icon: Home,
-                title: "Inconsistent Lead Flow",
-                description: "Feast or famine cycles make it hard to plan your pipeline and manage your business efficiently"
+                icon: GraduationCap,
+                title: "Inconsistent Enrollment",
+                description: "Feast or famine cycles make it hard to plan your academic year and manage your resources efficiently"
               },
               {
                 icon: DollarSign,
                 title: "Wasted Marketing Budget",
-                description: "Generic agencies don't understand real estate or your specific market and property types"
+                description: "Generic agencies don't understand education or your specific courses, student demographics, and admission requirements"
               },
               {
                 icon: Users,
-                title: "Wrong Buyer/Seller Inquiries",
-                description: "Low-quality leads waste your time and your team's resources on unqualified prospects"
+                title: "Wrong Student Inquiries",
+                description: "Low-quality leads waste your time and your team's resources on unqualified or uninterested prospects"
               }
             ].map((item, idx) => (
               <motion.div key={idx} {...fadeInUp}>
@@ -346,18 +346,18 @@ export default function RealEstateLeadGenerationPage() {
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
             <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Our Proven Real Estate Lead Generation System
+              Our Proven Student Enquiry Generation System
             </h2>
             <p className="font-paragraph text-lg text-secondary max-w-3xl mx-auto">
-              We've spent 15 years perfecting the art of connecting real estate professionals with qualified buyers and sellers. Here's how we do it.
+              We've spent 15 years perfecting the art of connecting educational institutions with qualified, high-intent students. Here's how we do it.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             <motion.div {...fadeInUp}>
               <Image
-                src="https://static.wixstatic.com/media/f650f9_fb5a11255aa74206b1958729afc1e081~mv2.png?originWidth=448&originHeight=384"
-                alt="Real estate lead generation strategy visualization"
+                src="https://static.wixstatic.com/media/12d367_71ebdd7141d041e4be3d91d80d4578dd~mv2.png?id=education-strategy"
+                alt="Education lead generation strategy visualization"
                 width={500}
                 height={400}
                 className="rounded-lg shadow-lg"
@@ -365,7 +365,7 @@ export default function RealEstateLeadGenerationPage() {
             </motion.div>
             <motion.div {...fadeInUp}>
               <h3 className="font-heading text-3xl font-bold text-foreground mb-6">
-                A Two-Channel Approach Built for Real Estate
+                A Two-Channel Approach Built for Education
               </h3>
               <div className="space-y-6">
                 <div className="flex gap-4">
@@ -379,7 +379,7 @@ export default function RealEstateLeadGenerationPage() {
                       Google Ads (Primary Channel)
                     </h4>
                     <p className="font-paragraph text-secondary">
-                      Capture high-intent buyers and sellers actively searching for properties and real estate services. We optimize for your market, property types, and buyer profiles with precision targeting.
+                      Capture high-intent students actively searching for courses, programs, and educational opportunities. We optimize for your specific courses, student demographics, and admission requirements with precision targeting.
                     </p>
                   </div>
                 </div>
@@ -395,7 +395,7 @@ export default function RealEstateLeadGenerationPage() {
                       Facebook Ads (Awareness Channel)
                     </h4>
                     <p className="font-paragraph text-secondary">
-                      Build awareness and reach potential buyers and sellers in their social feeds. Perfect for building trust, showcasing listings, and establishing your brand in your community.
+                      Build awareness and reach prospective students in their social feeds. Perfect for building trust, showcasing your campus, programs, and establishing your institution's reputation in your community.
                     </p>
                   </div>
                 </div>
@@ -405,7 +405,7 @@ export default function RealEstateLeadGenerationPage() {
                     Optional: Long-Term SEO Support
                   </h4>
                   <p className="font-paragraph text-secondary">
-                    Build organic visibility for sustainable growth. We can layer in SEO to create a long-term asset for your business and dominate local search results.
+                    Build organic visibility for sustainable growth. We can layer in SEO to create a long-term asset for your institution and dominate local search results for educational programs.
                   </p>
                 </div>
               </div>
@@ -436,17 +436,17 @@ export default function RealEstateLeadGenerationPage() {
               {
                 icon: TrendingUp,
                 title: "Performance Metrics",
-                description: "Monthly reports showing buyer/seller inquiries generated, cost per lead, conversion rates, and ROI. Complete transparency."
+                description: "Monthly reports showing student enquiries generated, cost per enquiry, conversion rates, and ROI. Complete transparency."
               },
               {
                 icon: CheckCircle2,
                 title: "Quality Guarantee",
-                description: "We focus on lead quality, not quantity. Every inquiry is vetted and relevant to your market and property types."
+                description: "We focus on enquiry quality, not quantity. Every lead is vetted and relevant to your courses and student demographics."
               },
               {
                 icon: Zap,
                 title: "Continuous Optimization",
-                description: "We constantly test and refine campaigns to improve results and lower your cost per lead over time."
+                description: "We constantly test and refine campaigns to improve results and lower your cost per enquiry over time."
               }
             ].map((item, idx) => (
               <motion.div key={idx} {...fadeInUp}>
@@ -470,100 +470,100 @@ export default function RealEstateLeadGenerationPage() {
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
             <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Real Results from Real Estate Professionals
+              Real Results from Educational Institutions
             </h2>
             <p className="font-paragraph text-lg text-secondary max-w-3xl mx-auto">
-              Whether you're a solo agent, managing a brokerage, or building a development company, our system works.
+              Whether you're a school, college, training center, or online course provider, our system works.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Broker Story */}
+            {/* Training Center Story */}
             <motion.div {...fadeInUp}>
               <Card className="p-8 border-0 shadow-lg h-full bg-white">
                 <div className="flex items-center gap-4 mb-6">
                   <Image
-                    src="https://static.wixstatic.com/media/f650f9_b4ab0364a0414783bb667ba8fc6748fe~mv2.png?originWidth=128&originHeight=128"
-                    alt="Broker profile"
+                    src="https://static.wixstatic.com/media/12d367_71ebdd7141d041e4be3d91d80d4578dd~mv2.png?id=training-center-profile"
+                    alt="Training center director profile"
                     width={60}
                     height={60}
                     className="rounded-full"
                   />
                   <div>
                     <h3 className="font-heading text-lg font-bold text-foreground">
-                      Sarah Mitchell
+                      Priya Sharma
                     </h3>
                     <p className="font-paragraph text-secondary">
-                      Independent Real Estate Broker
+                      Director, Professional Skills Training Center
                     </p>
                   </div>
                 </div>
                 <p className="font-paragraph text-foreground mb-6 italic">
-                  "I was struggling to keep my pipeline full, especially in slower seasons. After 3 months with this system, I'm consistently getting 15-20 qualified buyer and seller inquiries per month. The leads are pre-qualified, the pricing is transparent, and I finally have predictable income. This has been a game-changer for my business."
+                  "We were struggling to fill our professional development courses, especially during off-peak seasons. After 3 months with this system, we're consistently getting 25-30 qualified student enquiries per month. The leads are genuinely interested, the pricing is transparent, and we finally have predictable enrollment. This has been transformative for our business."
                 </p>
                 <div className="space-y-3 border-t pt-6">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-5 h-5 text-primary" />
                     <span className="font-paragraph text-foreground">
-                      <strong>15-20 qualified inquiries/month</strong> (up from 3-5)
+                      <strong>25-30 qualified enquiries/month</strong> (up from 5-8)
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-5 h-5 text-primary" />
                     <span className="font-paragraph text-foreground">
-                      <strong>$2,000/month investment</strong> generating $40K+ in commissions
+                      <strong>$1,500/month investment</strong> generating $35K+ in course enrollments
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-5 h-5 text-primary" />
                     <span className="font-paragraph text-foreground">
-                      <strong>Peace of mind</strong> knowing leads are coming consistently
+                      <strong>Peace of mind</strong> knowing student enquiries are coming consistently
                     </span>
                   </div>
                 </div>
               </Card>
             </motion.div>
 
-            {/* Builder Story */}
+            {/* College Story */}
             <motion.div {...fadeInUp}>
               <Card className="p-8 border-0 shadow-lg h-full bg-white">
                 <div className="flex items-center gap-4 mb-6">
                   <Image
-                    src="https://static.wixstatic.com/media/f650f9_c1734ed3abae497faecb812c91781d87~mv2.png?originWidth=128&originHeight=128"
-                    alt="Builder profile"
+                    src="https://static.wixstatic.com/media/12d367_71ebdd7141d041e4be3d91d80d4578dd~mv2.png?id=college-profile"
+                    alt="College principal profile"
                     width={60}
                     height={60}
                     className="rounded-full"
                   />
                   <div>
                     <h3 className="font-heading text-lg font-bold text-foreground">
-                      Premier Homes Development
+                      Apex Institute of Technology
                     </h3>
                     <p className="font-paragraph text-secondary">
-                      Residential Builder (50+ homes/year)
+                      Engineering & Management College (500+ students)
                     </p>
                   </div>
                 </div>
                 <p className="font-paragraph text-foreground mb-6 italic">
-                  "We were spending $8K/month with a generic agency getting mediocre results. Switching to this system cut our cost per inquiry in half while improving quality. Our sales team is happier because they're getting more serious buyers. We've increased our sales velocity significantly."
+                  "We were spending $6K/month with a generic agency getting mediocre results. Switching to this system cut our cost per enquiry in half while improving quality significantly. Our admissions team is happier because they're getting more serious, qualified applicants. We've increased our enrollment velocity and improved our student quality metrics."
                 </p>
                 <div className="space-y-3 border-t pt-6">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-5 h-5 text-primary" />
                     <span className="font-paragraph text-foreground">
-                      <strong>80+ qualified buyer inquiries/month</strong> across all projects
+                      <strong>150+ qualified enquiries/month</strong> across all programs
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-5 h-5 text-primary" />
                     <span className="font-paragraph text-foreground">
-                      <strong>50% reduction in cost per inquiry</strong> within 2 months
+                      <strong>50% reduction in cost per enquiry</strong> within 2 months
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-5 h-5 text-primary" />
                     <span className="font-paragraph text-foreground">
-                      <strong>Better buyer quality</strong> = higher conversion rates and faster sales
+                      <strong>Better student quality</strong> = higher enrollment rates and better academic outcomes
                     </span>
                   </div>
                 </div>
@@ -587,12 +587,12 @@ export default function RealEstateLeadGenerationPage() {
               {
                 step: "1",
                 title: "Discovery",
-                description: "We learn about your market, property types, and lead generation goals"
+                description: "We learn about your courses, student demographics, and enrollment goals"
               },
               {
                 step: "2",
                 title: "Strategy",
-                description: "We build a custom Google Ads and Facebook campaign for your market"
+                description: "We build a custom Google Ads and Facebook campaign for your institution"
               },
               {
                 step: "3",
@@ -602,7 +602,7 @@ export default function RealEstateLeadGenerationPage() {
               {
                 step: "4",
                 title: "Report & Scale",
-                description: "Monthly reports and optimization to improve ROI and lead quality"
+                description: "Monthly reports and optimization to improve ROI and enquiry quality"
               }
             ].map((item, idx) => (
               <motion.div key={idx} {...fadeInUp}>
@@ -633,20 +633,20 @@ export default function RealEstateLeadGenerationPage() {
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
             <h2 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Why Real Estate Professionals Choose Us
+              Why Educational Institutions Choose Us
             </h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              "15 years of real estate marketing expertise—we understand your market",
-              "Specialized in buyer and seller lead generation, not generic digital marketing",
+              "15 years of education marketing expertise—we understand your sector",
+              "Specialized in student enquiry generation, not generic digital marketing",
               "Transparent billing with no hidden fees or surprise charges",
-              "Focus on lead quality and buyer/seller fit, not vanity metrics",
+              "Focus on enquiry quality and student fit, not vanity metrics",
               "Dedicated account management and responsive support",
-              "Proven system that works for solo agents, brokers, and builders",
-              "Monthly reporting with clear ROI metrics and lead acquisition data",
-              "Flexible packages that scale with your business growth"
+              "Proven system that works for schools, colleges, training centers, and online courses",
+              "Monthly reporting with clear ROI metrics and enquiry acquisition data",
+              "Flexible packages that scale with your institution's growth"
             ].map((item, idx) => (
               <motion.div key={idx} {...fadeInUp} className="flex gap-4">
                 <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
@@ -662,10 +662,10 @@ export default function RealEstateLeadGenerationPage() {
         <div className="max-w-4xl mx-auto text-center">
           <motion.div {...fadeInUp}>
             <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-6">
-              Ready to Fill Your Pipeline with Quality Buyer & Seller Leads?
+              Ready to Fill Your Enrollment Pipeline with Quality Student Enquiries?
             </h2>
             <p className="font-paragraph text-xl text-blue-100 mb-8">
-              Let's talk about how our proven system can transform your lead generation. No pressure, no sales pitch—just a conversation about your business and your goals.
+              Let's talk about how our proven system can transform your student acquisition. No pressure, no sales pitch—just a conversation about your institution and your enrollment goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -693,13 +693,13 @@ export default function RealEstateLeadGenerationPage() {
         <div className="max-w-3xl mx-auto text-center">
           <motion.div {...fadeInUp}>
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              We're Here to Help Your Real Estate Business Thrive
+              We're Here to Help Your Institution Thrive
             </h2>
             <p className="font-paragraph text-lg text-secondary mb-8">
-              Building a successful real estate career takes more than just sales skills. It takes consistent, quality buyer and seller leads. We've spent 15 years perfecting the system to deliver exactly that. Let's talk about how we can help your business grow and thrive.
+              Building a successful educational institution takes more than just great teaching. It takes consistent, quality student enquiries. We've spent 15 years perfecting the system to deliver exactly that. Let's talk about how we can help your institution grow and thrive.
             </p>
             <p className="font-paragraph text-foreground italic">
-              Your success is our mission. Your growth is our priority.
+              Your institution's success is our mission. Your growth is our priority.
             </p>
           </motion.div>
         </div>
