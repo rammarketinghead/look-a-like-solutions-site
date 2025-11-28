@@ -670,9 +670,10 @@ export default function LawyerLeadGenerationPage() {
               <Button
                 size="lg"
                 variant="outline"
+                onClick={scrollToConsultation}
                 className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-semibold"
               >
-                Call Us: (555) 123-4567
+                Contact us today
               </Button>
             </div>
           </motion.div>
