@@ -133,7 +133,6 @@ export default function LawyerLeadGenerationPage() {
           </motion.div>
         </div>
       </section>
-
       {/* The Problem Section */}
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
@@ -179,7 +178,6 @@ export default function LawyerLeadGenerationPage() {
           </div>
         </div>
       </section>
-
       {/* Our Solution Section */}
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div className="max-w-6xl mx-auto">
@@ -252,280 +250,7 @@ export default function LawyerLeadGenerationPage() {
           </div>
         </div>
       </section>
-
       {/* Transparent Billing Section */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <motion.div {...fadeInUp} className="text-center mb-12">
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
-              Transparent Billing. No Surprises.
-            </h2>
-            <p className="font-paragraph text-lg text-slate-600 max-w-3xl mx-auto">
-              You know exactly what you're paying for and what results you're getting. Monthly reporting, clear metrics, and honest communication.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                icon: DollarSign,
-                title: "Fixed Monthly Fee",
-                description: "No hidden costs. You know your budget upfront. We manage all ad spend and optimization within your agreed budget."
-              },
-              {
-                icon: TrendingUp,
-                title: "Performance Metrics",
-                description: "Monthly reports showing leads generated, cost per lead, conversion rates, and ROI. Complete transparency."
-              },
-              {
-                icon: CheckCircle2,
-                title: "Quality Guarantee",
-                description: "We focus on lead quality, not quantity. Every lead is vetted and relevant to your practice areas."
-              },
-              {
-                icon: Zap,
-                title: "Continuous Optimization",
-                description: "We constantly test and refine campaigns to improve results and lower your cost per lead over time."
-              }
-            ].map((item, idx) => (
-              <motion.div key={idx} {...fadeInUp}>
-                <Card className="p-8 border-0 shadow-lg">
-                  <item.icon className="w-12 h-12 text-blue-500 mb-4" />
-                  <h3 className="font-heading text-xl font-bold text-slate-900 mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="font-paragraph text-slate-600">
-                    {item.description}
-                  </p>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Client Stories Section */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
-        <div className="max-w-6xl mx-auto">
-          <motion.div {...fadeInUp} className="text-center mb-12">
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
-              Real Results from Real Lawyers
-            </h2>
-            <p className="font-paragraph text-lg text-slate-600 max-w-3xl mx-auto">
-              Whether you're a solo practitioner or managing a mid-sized firm, our system works.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Solo Advocate Story */}
-            <motion.div {...fadeInUp}>
-              <Card className="p-8 border-0 shadow-lg h-full">
-                <div className="flex items-center gap-4 mb-6">
-                  <Image
-                    src="https://static.wixstatic.com/media/f650f9_008c093a01d04acca5b45dfa0c14edc6~mv2.png?originWidth=128&originHeight=128"
-                    alt="Solo advocate profile"
-                    width={60}
-                    height={60}
-                    className="rounded-full"
-                  />
-                  <div>
-                    <h3 className="font-heading text-lg font-bold text-slate-900">
-                      Sarah Mitchell
-                    </h3>
-                    <p className="font-paragraph text-slate-600">
-                      Solo Family Law Practitioner
-                    </p>
-                  </div>
-                </div>
-                <p className="font-paragraph text-slate-700 mb-6 italic">
-                  "I was struggling to keep my practice full. After 6 months with this system, I'm turning away clients and have a waiting list. The leads are qualified, the billing is transparent, and I finally have predictable income."
-                </p>
-                <div className="space-y-3 border-t pt-6">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-green-500" />
-                    <span className="font-paragraph text-slate-700">
-                      <strong>25 qualified leads/month</strong> (up from 3-4)
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-green-500" />
-                    <span className="font-paragraph text-slate-700">
-                      <strong>$1,200/month investment</strong> generating $15K+ in revenue
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-green-500" />
-                    <span className="font-paragraph text-slate-700">
-                      <strong>Peace of mind</strong> knowing leads are coming consistently
-                    </span>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-
-            {/* Mid-Sized Firm Story */}
-            <motion.div {...fadeInUp}>
-              <Card className="p-8 border-0 shadow-lg h-full">
-                <div className="flex items-center gap-4 mb-6">
-                  <Image
-                    src="https://static.wixstatic.com/media/f650f9_920e902b43b247d886f4d598df7b164a~mv2.png?originWidth=128&originHeight=128"
-                    alt="Law firm partner profile"
-                    width={60}
-                    height={60}
-                    className="rounded-full"
-                  />
-                  <div>
-                    <h3 className="font-heading text-lg font-bold text-slate-900">
-                      James & Associates
-                    </h3>
-                    <p className="font-paragraph text-slate-600">
-                      12-Attorney Personal Injury Firm
-                    </p>
-                  </div>
-                </div>
-                <p className="font-paragraph text-slate-700 mb-6 italic">
-                  "We were spending $8K/month with a generic agency getting mediocre results. Switching to this system cut our cost per lead in half while improving quality. Our attorneys are happier because they're getting better cases."
-                </p>
-                <div className="space-y-3 border-t pt-6">
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-green-500" />
-                    <span className="font-paragraph text-slate-700">
-                      <strong>120+ qualified leads/month</strong> across practice areas
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-green-500" />
-                    <span className="font-paragraph text-slate-700">
-                      <strong>50% reduction in cost per lead</strong> within 3 months
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-green-500" />
-                    <span className="font-paragraph text-slate-700">
-                      <strong>Better case quality</strong> = higher settlement values
-                    </span>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <motion.div {...fadeInUp} className="text-center mb-12">
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
-              How We Get You Results
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {[
-              {
-                step: "1",
-                title: "Discovery",
-                description: "We learn about your practice, target clients, and goals"
-              },
-              {
-                step: "2",
-                title: "Strategy",
-                description: "We build a custom Google Ads and Facebook campaign"
-              },
-              {
-                step: "3",
-                title: "Launch & Optimize",
-                description: "Campaigns go live and we continuously refine for results"
-              },
-              {
-                step: "4",
-                title: "Report & Scale",
-                description: "Monthly reports and optimization to improve ROI"
-              }
-            ].map((item, idx) => (
-              <motion.div key={idx} {...fadeInUp}>
-                <div className="relative">
-                  <div className="flex flex-col items-center text-center">
-                    <div className="w-16 h-16 rounded-full bg-blue-500 text-white flex items-center justify-center mb-4 font-heading text-2xl font-bold">
-                      {item.step}
-                    </div>
-                    <h3 className="font-heading text-lg font-bold text-slate-900 mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="font-paragraph text-slate-600 text-sm">
-                      {item.description}
-                    </p>
-                  </div>
-                  {idx < 3 && (
-                    <div className="hidden md:block absolute top-8 -right-3 w-6 h-1 bg-blue-300" />
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
-        <div className="max-w-6xl mx-auto">
-          <motion.div {...fadeInUp} className="text-center mb-12">
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
-              Why Law Firms Choose Us
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              "15 years of legal industry expertise—we understand your market",
-              "Specialized in lead generation, not generic digital marketing",
-              "Transparent billing with no hidden fees or surprise charges",
-              "Focus on quality leads, not vanity metrics",
-              "Dedicated account management and responsive support",
-              "Proven system that works for solo practitioners and large firms",
-              "Monthly reporting with clear ROI metrics",
-              "Flexible packages that scale with your growth"
-            ].map((item, idx) => (
-              <motion.div key={idx} {...fadeInUp} className="flex gap-4">
-                <CheckCircle2 className="w-6 h-6 text-blue-500 flex-shrink-0 mt-1" />
-                <p className="font-paragraph text-slate-700">{item}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div {...fadeInUp}>
-            <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-6">
-              Ready to Fill Your Practice with Quality Leads?
-            </h2>
-            <p className="font-paragraph text-xl text-blue-100 mb-8">
-              Let's talk about how our proven system can transform your lead generation. No pressure, no sales pitch—just a conversation about your practice and your goals.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-semibold"
-              >
-                Schedule Your Free Consultation
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-semibold"
-              >
-                Call Us: (555) 123-4567
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Lead Capture Form Section */}
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div className="max-w-2xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
@@ -678,7 +403,273 @@ export default function LawyerLeadGenerationPage() {
           </motion.div>
         </div>
       </section>
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <motion.div {...fadeInUp} className="text-center mb-12">
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+              Transparent Billing. No Surprises.
+            </h2>
+            <p className="font-paragraph text-lg text-slate-600 max-w-3xl mx-auto">
+              You know exactly what you're paying for and what results you're getting. Monthly reporting, clear metrics, and honest communication.
+            </p>
+          </motion.div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                icon: DollarSign,
+                title: "Fixed Monthly Fee",
+                description: "No hidden costs. You know your budget upfront. We manage all ad spend and optimization within your agreed budget."
+              },
+              {
+                icon: TrendingUp,
+                title: "Performance Metrics",
+                description: "Monthly reports showing leads generated, cost per lead, conversion rates, and ROI. Complete transparency."
+              },
+              {
+                icon: CheckCircle2,
+                title: "Quality Guarantee",
+                description: "We focus on lead quality, not quantity. Every lead is vetted and relevant to your practice areas."
+              },
+              {
+                icon: Zap,
+                title: "Continuous Optimization",
+                description: "We constantly test and refine campaigns to improve results and lower your cost per lead over time."
+              }
+            ].map((item, idx) => (
+              <motion.div key={idx} {...fadeInUp}>
+                <Card className="p-8 border-0 shadow-lg">
+                  <item.icon className="w-12 h-12 text-blue-500 mb-4" />
+                  <h3 className="font-heading text-xl font-bold text-slate-900 mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="font-paragraph text-slate-600">
+                    {item.description}
+                  </p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Client Stories Section */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
+        <div className="max-w-6xl mx-auto">
+          <motion.div {...fadeInUp} className="text-center mb-12">
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+              Real Results from Real Lawyers
+            </h2>
+            <p className="font-paragraph text-lg text-slate-600 max-w-3xl mx-auto">
+              Whether you're a solo practitioner or managing a mid-sized firm, our system works.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Solo Advocate Story */}
+            <motion.div {...fadeInUp}>
+              <Card className="p-8 border-0 shadow-lg h-full">
+                <div className="flex items-center gap-4 mb-6">
+                  <Image
+                    src="https://static.wixstatic.com/media/f650f9_008c093a01d04acca5b45dfa0c14edc6~mv2.png?originWidth=128&originHeight=128"
+                    alt="Solo advocate profile"
+                    width={60}
+                    height={60}
+                    className="rounded-full"
+                  />
+                  <div>
+                    <h3 className="font-heading text-lg font-bold text-slate-900">
+                      Sarah Mitchell
+                    </h3>
+                    <p className="font-paragraph text-slate-600">
+                      Solo Family Law Practitioner
+                    </p>
+                  </div>
+                </div>
+                <p className="font-paragraph text-slate-700 mb-6 italic">
+                  "I was struggling to keep my practice full. After 6 months with this system, I'm turning away clients and have a waiting list. The leads are qualified, the billing is transparent, and I finally have predictable income."
+                </p>
+                <div className="space-y-3 border-t pt-6">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-500" />
+                    <span className="font-paragraph text-slate-700">
+                      <strong>25 qualified leads/month</strong> (up from 3-4)
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-500" />
+                    <span className="font-paragraph text-slate-700">
+                      <strong>$1,200/month investment</strong> generating $15K+ in revenue
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-500" />
+                    <span className="font-paragraph text-slate-700">
+                      <strong>Peace of mind</strong> knowing leads are coming consistently
+                    </span>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+
+            {/* Mid-Sized Firm Story */}
+            <motion.div {...fadeInUp}>
+              <Card className="p-8 border-0 shadow-lg h-full">
+                <div className="flex items-center gap-4 mb-6">
+                  <Image
+                    src="https://static.wixstatic.com/media/f650f9_920e902b43b247d886f4d598df7b164a~mv2.png?originWidth=128&originHeight=128"
+                    alt="Law firm partner profile"
+                    width={60}
+                    height={60}
+                    className="rounded-full"
+                  />
+                  <div>
+                    <h3 className="font-heading text-lg font-bold text-slate-900">
+                      James & Associates
+                    </h3>
+                    <p className="font-paragraph text-slate-600">
+                      12-Attorney Personal Injury Firm
+                    </p>
+                  </div>
+                </div>
+                <p className="font-paragraph text-slate-700 mb-6 italic">
+                  "We were spending $8K/month with a generic agency getting mediocre results. Switching to this system cut our cost per lead in half while improving quality. Our attorneys are happier because they're getting better cases."
+                </p>
+                <div className="space-y-3 border-t pt-6">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-500" />
+                    <span className="font-paragraph text-slate-700">
+                      <strong>120+ qualified leads/month</strong> across practice areas
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-500" />
+                    <span className="font-paragraph text-slate-700">
+                      <strong>50% reduction in cost per lead</strong> within 3 months
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-500" />
+                    <span className="font-paragraph text-slate-700">
+                      <strong>Better case quality</strong> = higher settlement values
+                    </span>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+      {/* How It Works Section */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <motion.div {...fadeInUp} className="text-center mb-12">
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+              How We Get You Results
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {[
+              {
+                step: "1",
+                title: "Discovery",
+                description: "We learn about your practice, target clients, and goals"
+              },
+              {
+                step: "2",
+                title: "Strategy",
+                description: "We build a custom Google Ads and Facebook campaign"
+              },
+              {
+                step: "3",
+                title: "Launch & Optimize",
+                description: "Campaigns go live and we continuously refine for results"
+              },
+              {
+                step: "4",
+                title: "Report & Scale",
+                description: "Monthly reports and optimization to improve ROI"
+              }
+            ].map((item, idx) => (
+              <motion.div key={idx} {...fadeInUp}>
+                <div className="relative">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-16 h-16 rounded-full bg-blue-500 text-white flex items-center justify-center mb-4 font-heading text-2xl font-bold">
+                      {item.step}
+                    </div>
+                    <h3 className="font-heading text-lg font-bold text-slate-900 mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="font-paragraph text-slate-600 text-sm">
+                      {item.description}
+                    </p>
+                  </div>
+                  {idx < 3 && (
+                    <div className="hidden md:block absolute top-8 -right-3 w-6 h-1 bg-blue-300" />
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* Why Choose Us Section */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
+        <div className="max-w-6xl mx-auto">
+          <motion.div {...fadeInUp} className="text-center mb-12">
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+              Why Law Firms Choose Us
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              "15 years of legal industry expertise—we understand your market",
+              "Specialized in lead generation, not generic digital marketing",
+              "Transparent billing with no hidden fees or surprise charges",
+              "Focus on quality leads, not vanity metrics",
+              "Dedicated account management and responsive support",
+              "Proven system that works for solo practitioners and large firms",
+              "Monthly reporting with clear ROI metrics",
+              "Flexible packages that scale with your growth"
+            ].map((item, idx) => (
+              <motion.div key={idx} {...fadeInUp} className="flex gap-4">
+                <CheckCircle2 className="w-6 h-6 text-blue-500 flex-shrink-0 mt-1" />
+                <p className="font-paragraph text-slate-700">{item}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* CTA Section */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div {...fadeInUp}>
+            <h2 className="font-heading text-4xl sm:text-5xl font-bold mb-6">
+              Ready to Fill Your Practice with Quality Leads?
+            </h2>
+            <p className="font-paragraph text-xl text-blue-100 mb-8">
+              Let's talk about how our proven system can transform your lead generation. No pressure, no sales pitch—just a conversation about your practice and your goals.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-lg font-semibold"
+              >
+                Schedule Your Free Consultation
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-lg font-semibold"
+              >
+                Call Us: (555) 123-4567
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+      {/* Lead Capture Form Section */}
       {/* Closing Section */}
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto text-center">
