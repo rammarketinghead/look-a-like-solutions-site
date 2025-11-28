@@ -21,6 +21,13 @@ export default function LawyerLeadGenerationPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
+  const scrollToConsultation = () => {
+    const element = document.getElementById('consultation-section');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
@@ -97,6 +104,7 @@ export default function LawyerLeadGenerationPage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
+                onClick={scrollToConsultation}
                 className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold"
               >
                 Start Your Free Consultation
@@ -133,7 +141,7 @@ export default function LawyerLeadGenerationPage() {
           </motion.div>
         </div>
       </section>
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-slate-50" id="consultation-section">
         <div className="max-w-2xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
             <h2 className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
