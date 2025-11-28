@@ -79,6 +79,60 @@ export default function LawyerLeadGenerationPage() {
   return (
     <div className="w-full">
       {/* Hero Section */}
+      <section className="w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              Quality Legal Leads,<br />
+              <span className="text-blue-400">Delivered Consistently</span>
+            </h1>
+            <p className="font-paragraph text-xl sm:text-2xl text-slate-200 mb-8 max-w-3xl mx-auto">
+              15 years of proven expertise in generating high-quality leads for solo practitioners and law firms. Transparent billing. Real results.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold"
+              >
+                Start Your Free Consultation
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-3 rounded-lg font-semibold"
+              >
+                See Our Results
+              </Button>
+            </div>
+          </motion.div>
+
+          {/* Trust Indicators */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 pt-12 border-t border-slate-700"
+          >
+            <div className="text-center">
+              <div className="text-4xl font-bold text-blue-400 mb-2">15+</div>
+              <p className="font-paragraph text-slate-300">Years of Experience</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-blue-400 mb-2">500+</div>
+              <p className="font-paragraph text-slate-300">Law Firms Served</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-blue-400 mb-2">10K+</div>
+              <p className="font-paragraph text-slate-300">Quality Leads Monthly</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div className="max-w-2xl mx-auto">
           <motion.div {...fadeInUp} className="text-center mb-12">
@@ -228,60 +282,6 @@ export default function LawyerLeadGenerationPage() {
                 </p>
               </form>
             </Card>
-          </motion.div>
-        </div>
-      </section>
-      <section className="w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              Quality Legal Leads,<br />
-              <span className="text-blue-400">Delivered Consistently</span>
-            </h1>
-            <p className="font-paragraph text-xl sm:text-2xl text-slate-200 mb-8 max-w-3xl mx-auto">
-              15 years of proven expertise in generating high-quality leads for solo practitioners and law firms. Transparent billing. Real results.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold"
-              >
-                Start Your Free Consultation
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-3 rounded-lg font-semibold"
-              >
-                See Our Results
-              </Button>
-            </div>
-          </motion.div>
-
-          {/* Trust Indicators */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 pt-12 border-t border-slate-700"
-          >
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-400 mb-2">15+</div>
-              <p className="font-paragraph text-slate-300">Years of Experience</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-400 mb-2">500+</div>
-              <p className="font-paragraph text-slate-300">Law Firms Served</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-400 mb-2">10K+</div>
-              <p className="font-paragraph text-slate-300">Quality Leads Monthly</p>
-            </div>
           </motion.div>
         </div>
       </section>
