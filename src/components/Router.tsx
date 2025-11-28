@@ -64,6 +64,7 @@ import LawyerLeadGenerationPage from '@/components/pages/LawyerLeadGenerationPag
 import DoctorLeadGenerationPage from '@/components/pages/DoctorLeadGenerationPage';
 import RealEstateLeadGenerationPage from '@/components/pages/RealEstateLeadGenerationPage';
 import EducationLeadGenerationPage from '@/components/pages/EducationLeadGenerationPage';
+import RestaurantHotelLeadGenerationPage from '@/components/pages/RestaurantHotelLeadGenerationPage';
 
 // Layout wrapper that includes ScrollToTop
 function LayoutWithScrollToTop() {
@@ -324,6 +325,10 @@ const router = createBrowserRouter([
       {
         path: "education-lead-generation",
         element: <EducationLeadGenerationPage />,
+      },
+      {
+        path: "restaurant-hotel-lead-generation",
+        element: <RestaurantHotelLeadGenerationPage />,
       },
       {
         path: "*",

@@ -86,6 +86,7 @@ export default function Layout() {
         { name: 'Lawyer Lead Generation', href: '/lawyer-lead-generation', icon: '⚖️' },
         { name: 'Doctor Lead Generation', href: '/doctor-lead-generation', icon: '🏥' },
         { name: 'Real Estate Lead Generation', href: '/real-estate-lead-generation', icon: '🏠' },
+        { name: 'Restaurant & Hotel Lead Generation', href: '/restaurant-hotel-lead-generation', icon: '🍽️' },
         { name: 'Education Lead Generation', href: '/education-lead-generation', icon: '🎓' }
       ]
     },
