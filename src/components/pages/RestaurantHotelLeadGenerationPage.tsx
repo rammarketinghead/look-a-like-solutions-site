@@ -73,9 +73,9 @@ export default function RestaurantHotelLeadGenerationPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="w-full bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 py-20 px-4">
+      <section className="w-full bg-gradient-to-br from-blue-50 via-blue-100 to-blue-50 py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -83,22 +83,22 @@ export default function RestaurantHotelLeadGenerationPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h1 className="font-heading text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="font-heading text-5xl md:text-6xl font-bold text-foreground mb-6">
               Fill Your Tables & Rooms with Quality Guests
             </h1>
-            <p className="font-paragraph text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+            <p className="font-paragraph text-xl text-secondary max-w-3xl mx-auto mb-8">
               A proven lead generation system designed specifically for restaurants and hotels. Get consistent, qualified bookings without the guesswork.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 onClick={() => document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-6 text-lg rounded-lg"
+                className="bg-primary hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-lg"
               >
                 Get Started Today
               </Button>
               <Button
                 variant="outline"
-                className="border-orange-600 text-orange-600 hover:bg-orange-50 px-8 py-6 text-lg rounded-lg"
+                className="border-primary text-primary hover:bg-blue-50 px-8 py-6 text-lg rounded-lg"
               >
                 Schedule a Call
               </Button>
@@ -110,45 +110,45 @@ export default function RestaurantHotelLeadGenerationPage() {
             {...fadeInUp}
             className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16"
           >
-            <Card className="bg-white p-6 text-center border-0 shadow-lg">
-              <TrendingUp className="w-12 h-12 text-orange-600 mx-auto mb-4" />
-              <h3 className="font-heading text-2xl font-bold text-gray-900 mb-2">3-5x ROI</h3>
-              <p className="font-paragraph text-gray-600">Average return on ad spend within 90 days</p>
+            <Card className="bg-background p-6 text-center border-0 shadow-lg">
+              <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h3 className="font-heading text-2xl font-bold text-foreground mb-2">3-5x ROI</h3>
+              <p className="font-paragraph text-secondary">Average return on ad spend within 90 days</p>
             </Card>
-            <Card className="bg-white p-6 text-center border-0 shadow-lg">
-              <Users className="w-12 h-12 text-orange-600 mx-auto mb-4" />
-              <h3 className="font-heading text-2xl font-bold text-gray-900 mb-2">Qualified Leads</h3>
-              <p className="font-paragraph text-gray-600">Only people actively looking to book</p>
+            <Card className="bg-background p-6 text-center border-0 shadow-lg">
+              <Users className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h3 className="font-heading text-2xl font-bold text-foreground mb-2">Qualified Leads</h3>
+              <p className="font-paragraph text-secondary">Only people actively looking to book</p>
             </Card>
-            <Card className="bg-white p-6 text-center border-0 shadow-lg">
-              <Zap className="w-12 h-12 text-orange-600 mx-auto mb-4" />
-              <h3 className="font-heading text-2xl font-bold text-gray-900 mb-2">30-Day Setup</h3>
-              <p className="font-paragraph text-gray-600">Campaigns live and generating leads</p>
+            <Card className="bg-background p-6 text-center border-0 shadow-lg">
+              <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
+              <h3 className="font-heading text-2xl font-bold text-foreground mb-2">30-Day Setup</h3>
+              <p className="font-paragraph text-secondary">Campaigns live and generating leads</p>
             </Card>
           </motion.div>
         </div>
       </section>
 
       {/* The Problem Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-background">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="mb-16">
-            <h2 className="font-heading text-4xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="font-heading text-4xl font-bold text-foreground mb-8 text-center">
               The Challenge You're Facing
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-red-50 p-8 rounded-lg border-l-4 border-red-500">
-                <h3 className="font-heading text-xl font-bold text-gray-900 mb-4">For Restaurants</h3>
-                <ul className="space-y-3 font-paragraph text-gray-700">
+              <div className="bg-light-gray p-8 rounded-lg border-l-4 border-primary">
+                <h3 className="font-heading text-xl font-bold text-foreground mb-4">For Restaurants</h3>
+                <ul className="space-y-3 font-paragraph text-secondary">
                   <li>• Empty tables during peak hours</li>
                   <li>• Inconsistent foot traffic</li>
                   <li>• Wasting money on ads that don't convert</li>
                   <li>• No clear way to track which marketing works</li>
                 </ul>
               </div>
-              <div className="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-500">
-                <h3 className="font-heading text-xl font-bold text-gray-900 mb-4">For Hotels</h3>
-                <ul className="space-y-3 font-paragraph text-gray-700">
+              <div className="bg-light-gray p-8 rounded-lg border-l-4 border-primary">
+                <h3 className="font-heading text-xl font-bold text-foreground mb-4">For Hotels</h3>
+                <ul className="space-y-3 font-paragraph text-secondary">
                   <li>• Low occupancy rates</li>
                   <li>• Competing with OTAs on price</li>
                   <li>• Difficulty reaching direct bookers</li>
@@ -161,51 +161,51 @@ export default function RestaurantHotelLeadGenerationPage() {
       </section>
 
       {/* Real Example Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-orange-50 to-amber-50">
+      <section className="py-20 px-4 bg-light-gray">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="mb-16">
-            <h2 className="font-heading text-4xl font-bold text-gray-900 mb-12 text-center">
+            <h2 className="font-heading text-4xl font-bold text-foreground mb-12 text-center">
               Real Results: Marco's Italian Kitchen
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="bg-white p-8 rounded-lg shadow-lg">
-                  <p className="font-paragraph text-gray-700 mb-6 leading-relaxed">
+                <div className="bg-background p-8 rounded-lg shadow-lg">
+                  <p className="font-paragraph text-secondary mb-6 leading-relaxed">
                     "We were struggling with inconsistent reservations. Some nights we'd have empty tables, other nights we'd be overbooked. We tried Facebook ads ourselves but couldn't figure out what was working."
                   </p>
-                  <p className="font-paragraph text-gray-700 mb-6 leading-relaxed">
+                  <p className="font-paragraph text-secondary mb-6 leading-relaxed">
                     "Within 30 days of working with the lead generation system, we went from averaging 45 covers a night to 70+. The leads are qualified—people who actually show up and spend money."
                   </p>
-                  <p className="font-paragraph font-bold text-orange-600 text-lg">
+                  <p className="font-paragraph font-bold text-primary text-lg">
                     Marco Rossi, Owner - Marco's Italian Kitchen
                   </p>
                 </div>
               </div>
               <div className="space-y-6">
-                <Card className="bg-white p-6 border-0 shadow-lg">
+                <Card className="bg-background p-6 border-0 shadow-lg">
                   <div className="flex items-start gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+                    <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-heading font-bold text-gray-900 mb-2">Before</h4>
-                      <p className="font-paragraph text-gray-600">45 average covers per night, unpredictable bookings</p>
+                      <h4 className="font-heading font-bold text-foreground mb-2">Before</h4>
+                      <p className="font-paragraph text-secondary">45 average covers per night, unpredictable bookings</p>
                     </div>
                   </div>
                 </Card>
-                <Card className="bg-white p-6 border-0 shadow-lg">
+                <Card className="bg-background p-6 border-0 shadow-lg">
                   <div className="flex items-start gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+                    <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-heading font-bold text-gray-900 mb-2">After (30 Days)</h4>
-                      <p className="font-paragraph text-gray-600">70+ covers per night, consistent bookings</p>
+                      <h4 className="font-heading font-bold text-foreground mb-2">After (30 Days)</h4>
+                      <p className="font-paragraph text-secondary">70+ covers per night, consistent bookings</p>
                     </div>
                   </div>
                 </Card>
-                <Card className="bg-white p-6 border-0 shadow-lg">
+                <Card className="bg-background p-6 border-0 shadow-lg">
                   <div className="flex items-start gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+                    <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-heading font-bold text-gray-900 mb-2">ROI</h4>
-                      <p className="font-paragraph text-gray-600">4.2x return on ad spend in first 90 days</p>
+                      <h4 className="font-heading font-bold text-foreground mb-2">ROI</h4>
+                      <p className="font-paragraph text-secondary">4.2x return on ad spend in first 90 days</p>
                     </div>
                   </div>
                 </Card>
@@ -216,63 +216,63 @@ export default function RestaurantHotelLeadGenerationPage() {
       </section>
 
       {/* Our System Section */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-background">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="mb-16">
-            <h2 className="font-heading text-4xl font-bold text-gray-900 mb-12 text-center">
+            <h2 className="font-heading text-4xl font-bold text-foreground mb-12 text-center">
               Our Proven Lead Generation System
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <Card className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 border-0 shadow-lg">
+              <Card className="bg-light-gray p-8 border-0 shadow-lg">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
                     <span className="text-white font-bold text-xl">1</span>
                   </div>
                   <div>
-                    <h3 className="font-heading text-xl font-bold text-gray-900 mb-2">Google Ads Campaigns</h3>
-                    <p className="font-paragraph text-gray-700">
+                    <h3 className="font-heading text-xl font-bold text-foreground mb-2">Google Ads Campaigns</h3>
+                    <p className="font-paragraph text-secondary">
                       Capture high-intent searches. People actively looking for restaurants or hotels in your area.
                     </p>
                   </div>
                 </div>
               </Card>
 
-              <Card className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 border-0 shadow-lg">
+              <Card className="bg-light-gray p-8 border-0 shadow-lg">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
                     <span className="text-white font-bold text-xl">2</span>
                   </div>
                   <div>
-                    <h3 className="font-heading text-xl font-bold text-gray-900 mb-2">Facebook & Instagram Ads</h3>
-                    <p className="font-paragraph text-gray-700">
+                    <h3 className="font-heading text-xl font-bold text-foreground mb-2">Facebook & Instagram Ads</h3>
+                    <p className="font-paragraph text-secondary">
                       Build awareness and reach people in your target demographic with compelling visuals.
                     </p>
                   </div>
                 </div>
               </Card>
 
-              <Card className="bg-gradient-to-br from-green-50 to-green-100 p-8 border-0 shadow-lg">
+              <Card className="bg-light-gray p-8 border-0 shadow-lg">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
                     <span className="text-white font-bold text-xl">3</span>
                   </div>
                   <div>
-                    <h3 className="font-heading text-xl font-bold text-gray-900 mb-2">SEO (Optional)</h3>
-                    <p className="font-paragraph text-gray-700">
+                    <h3 className="font-heading text-xl font-bold text-foreground mb-2">SEO (Optional)</h3>
+                    <p className="font-paragraph text-secondary">
                       Long-term organic visibility. Show up when people search for dining or lodging options.
                     </p>
                   </div>
                 </div>
               </Card>
 
-              <Card className="bg-gradient-to-br from-orange-50 to-orange-100 p-8 border-0 shadow-lg">
+              <Card className="bg-light-gray p-8 border-0 shadow-lg">
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
                     <span className="text-white font-bold text-xl">4</span>
                   </div>
                   <div>
-                    <h3 className="font-heading text-xl font-bold text-gray-900 mb-2">Transparent Reporting</h3>
-                    <p className="font-paragraph text-gray-700">
+                    <h3 className="font-heading text-xl font-bold text-foreground mb-2">Transparent Reporting</h3>
+                    <p className="font-paragraph text-secondary">
                       See exactly where each lead comes from and what it costs. No hidden fees or surprises.
                     </p>
                   </div>
@@ -284,10 +284,10 @@ export default function RestaurantHotelLeadGenerationPage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-20 px-4 bg-light-gray">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeInUp} className="mb-16">
-            <h2 className="font-heading text-4xl font-bold text-gray-900 mb-12 text-center">
+            <h2 className="font-heading text-4xl font-bold text-foreground mb-12 text-center">
               Why Restaurants & Hotels Choose Us
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -322,10 +322,10 @@ export default function RestaurantHotelLeadGenerationPage() {
                   {...fadeInUp}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card className="bg-white p-6 border-0 shadow-lg h-full">
-                    <CheckCircle2 className="w-8 h-8 text-orange-600 mb-4" />
-                    <h3 className="font-heading text-lg font-bold text-gray-900 mb-3">{item.title}</h3>
-                    <p className="font-paragraph text-gray-600">{item.description}</p>
+                  <Card className="bg-background p-6 border-0 shadow-lg h-full">
+                    <CheckCircle2 className="w-8 h-8 text-primary mb-4" />
+                    <h3 className="font-heading text-lg font-bold text-foreground mb-3">{item.title}</h3>
+                    <p className="font-paragraph text-secondary">{item.description}</p>
                   </Card>
                 </motion.div>
               ))}
@@ -335,27 +335,27 @@ export default function RestaurantHotelLeadGenerationPage() {
       </section>
 
       {/* Lead Form Section */}
-      <section id="lead-form" className="py-20 px-4 bg-white">
+      <section id="lead-form" className="py-20 px-4 bg-background">
         <div className="max-w-2xl mx-auto">
           <motion.div {...fadeInUp} className="mb-12">
-            <h2 className="font-heading text-4xl font-bold text-gray-900 mb-4 text-center">
+            <h2 className="font-heading text-4xl font-bold text-foreground mb-4 text-center">
               Ready to Fill Your Tables & Rooms?
             </h2>
-            <p className="font-paragraph text-lg text-gray-600 text-center">
+            <p className="font-paragraph text-lg text-secondary text-center">
               Tell us about your business. We'll review your situation and show you exactly how we can help.
             </p>
           </motion.div>
 
-          <Card className="bg-gradient-to-br from-orange-50 to-amber-50 p-8 border-0 shadow-xl">
+          <Card className="bg-light-gray p-8 border-0 shadow-xl">
             {submitSuccess ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="text-center py-12"
               >
-                <CheckCircle2 className="w-16 h-16 text-green-600 mx-auto mb-4" />
-                <h3 className="font-heading text-2xl font-bold text-gray-900 mb-2">Thank You!</h3>
-                <p className="font-paragraph text-gray-600 mb-4">
+                <CheckCircle2 className="w-16 h-16 text-primary mx-auto mb-4" />
+                <h3 className="font-heading text-2xl font-bold text-foreground mb-2">Thank You!</h3>
+                <p className="font-paragraph text-secondary mb-4">
                   We've received your information. Our team will reach out within 24 hours.
                 </p>
               </motion.div>
@@ -363,7 +363,7 @@ export default function RestaurantHotelLeadGenerationPage() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="font-paragraph font-semibold text-gray-900 block mb-2">
+                    <label className="font-paragraph font-semibold text-foreground block mb-2">
                       Business Name *
                     </label>
                     <Input
@@ -373,11 +373,11 @@ export default function RestaurantHotelLeadGenerationPage() {
                       onChange={handleInputChange}
                       placeholder="Your restaurant or hotel name"
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                     />
                   </div>
                   <div>
-                    <label className="font-paragraph font-semibold text-gray-900 block mb-2">
+                    <label className="font-paragraph font-semibold text-foreground block mb-2">
                       Business Type *
                     </label>
                     <select
@@ -385,7 +385,7 @@ export default function RestaurantHotelLeadGenerationPage() {
                       value={formData.businessType}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent font-paragraph"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent font-paragraph"
                     >
                       <option value="">Select type</option>
                       <option value="Restaurant">Restaurant</option>
@@ -397,7 +397,7 @@ export default function RestaurantHotelLeadGenerationPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="font-paragraph font-semibold text-gray-900 block mb-2">
+                    <label className="font-paragraph font-semibold text-foreground block mb-2">
                       Your Name *
                     </label>
                     <Input
@@ -407,11 +407,11 @@ export default function RestaurantHotelLeadGenerationPage() {
                       onChange={handleInputChange}
                       placeholder="Full name"
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                     />
                   </div>
                   <div>
-                    <label className="font-paragraph font-semibold text-gray-900 block mb-2">
+                    <label className="font-paragraph font-semibold text-foreground block mb-2">
                       Email *
                     </label>
                     <Input
@@ -421,13 +421,13 @@ export default function RestaurantHotelLeadGenerationPage() {
                       onChange={handleInputChange}
                       placeholder="your@email.com"
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="font-paragraph font-semibold text-gray-900 block mb-2">
+                  <label className="font-paragraph font-semibold text-foreground block mb-2">
                     Phone Number *
                   </label>
                   <Input
@@ -437,12 +437,12 @@ export default function RestaurantHotelLeadGenerationPage() {
                     onChange={handleInputChange}
                     placeholder="(555) 123-4567"
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
                   />
                 </div>
 
                 <div>
-                  <label className="font-paragraph font-semibold text-gray-900 block mb-2">
+                  <label className="font-paragraph font-semibold text-foreground block mb-2">
                     What's Your Biggest Challenge Right Now?
                   </label>
                   <Textarea
@@ -450,7 +450,7 @@ export default function RestaurantHotelLeadGenerationPage() {
                     value={formData.currentChallenges}
                     onChange={handleInputChange}
                     placeholder="Tell us about your current booking situation..."
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent font-paragraph"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent font-paragraph"
                     rows={4}
                   />
                 </div>
@@ -458,12 +458,12 @@ export default function RestaurantHotelLeadGenerationPage() {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-4 rounded-lg text-lg transition-colors"
+                  className="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-4 rounded-lg text-lg transition-colors"
                 >
                   {isSubmitting ? 'Submitting...' : 'Get Your Free Consultation'}
                 </Button>
 
-                <p className="font-paragraph text-sm text-gray-600 text-center">
+                <p className="font-paragraph text-sm text-secondary text-center">
                   We respect your privacy. No spam, just helpful insights about growing your business.
                 </p>
               </form>
@@ -473,18 +473,18 @@ export default function RestaurantHotelLeadGenerationPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-orange-600 to-red-600">
+      <section className="py-20 px-4 bg-primary">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div {...fadeInUp}>
             <h2 className="font-heading text-4xl font-bold text-white mb-6">
               Don't Leave Money on the Table
             </h2>
-            <p className="font-paragraph text-xl text-orange-50 mb-8">
+            <p className="font-paragraph text-xl text-white/90 mb-8">
               Every day without a lead generation system is a day you're losing potential customers to competitors.
             </p>
             <Button
               onClick={() => document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-white text-orange-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-lg"
+              className="bg-white text-primary hover:bg-light-gray px-8 py-4 text-lg font-semibold rounded-lg"
             >
               Start Your Free Consultation
             </Button>
@@ -493,28 +493,28 @@ export default function RestaurantHotelLeadGenerationPage() {
       </section>
 
       {/* Contact Info Footer */}
-      <section className="py-16 px-4 bg-gray-900 text-white">
+      <section className="py-16 px-4 bg-dark-gray text-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex items-start gap-4">
-              <Phone className="w-6 h-6 text-orange-500 flex-shrink-0 mt-1" />
+              <Phone className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-heading font-bold mb-2">Call Us</h3>
-                <p className="font-paragraph text-gray-300">(555) 123-4567</p>
+                <p className="font-paragraph text-secondary">(555) 123-4567</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <Mail className="w-6 h-6 text-orange-500 flex-shrink-0 mt-1" />
+              <Mail className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-heading font-bold mb-2">Email</h3>
-                <p className="font-paragraph text-gray-300">hello@leadgen.com</p>
+                <p className="font-paragraph text-secondary">hello@leadgen.com</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <MapPin className="w-6 h-6 text-orange-500 flex-shrink-0 mt-1" />
+              <MapPin className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
               <div>
                 <h3 className="font-heading font-bold mb-2">Available</h3>
-                <p className="font-paragraph text-gray-300">Monday - Friday, 9am - 6pm</p>
+                <p className="font-paragraph text-secondary">Monday - Friday, 9am - 6pm</p>
               </div>
             </div>
           </div>
