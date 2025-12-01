@@ -143,26 +143,7 @@ Submission Date: ${new Date().toLocaleString()}
         keywords="contact digital marketing agency, free consultation, digital marketing quote, SEO consultation, social media marketing consultation, Bengaluru digital marketing contact"
         type="website"
       />
-      
       {/* Hero Section */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-light-gray">
-        <div className="max-w-[100rem] mx-auto">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeInVariants}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading text-dark-gray mb-6 sm:mb-8">
-              Get In Touch
-            </h1>
-            <p className="text-lg sm:text-xl font-paragraph text-secondary max-w-4xl mx-auto">
-              Ready to transform your digital presence? Let's discuss your project and create a strategy that drives real results for your business.
-            </p>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Contact Form & Info */}
       <section className="py-16 sm:py-24 lg:py-32 bg-background">
@@ -412,7 +393,6 @@ Submission Date: ${new Date().toLocaleString()}
           </div>
         </div>
       </section>
-
       {/* Why Choose Us */}
       <section className="py-32 bg-light-gray">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -459,7 +439,6 @@ Submission Date: ${new Date().toLocaleString()}
           </div>
         </div>
       </section>
-
       {/* FAQ Section */}
       <section className="py-32 bg-background">
         <div className="max-w-[100rem] mx-auto px-8">
