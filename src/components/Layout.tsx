@@ -133,7 +133,6 @@ export default function Layout() {
     <div className="min-h-screen bg-background">
       {/* Default SEO for pages that don't have specific SEO */}
       <SEOHead />
-      
       {/* Top Contact Bar - Hidden on mobile for cleaner look */}
       <div className="hidden sm:block bg-dark-gray text-background py-2">
         <div className="mobile-container">
@@ -166,7 +165,6 @@ export default function Layout() {
           </div>
         </div>
       </div>
-
       {/* Mobile-First Header */}
       <header className={`mobile-sticky-header transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
         <div className="mobile-container">
@@ -382,61 +380,16 @@ export default function Layout() {
         </div>
         </div>
       </header>
-
       {/* Breadcrumb */}
       <Breadcrumb />
-
       {/* Main Content */}
       <main>
         <Outlet />
       </main>
-
       {/* Mobile-First Footer */}
       <footer className="bg-gradient-to-br from-dark-gray to-foreground text-white" role="contentinfo" aria-label="Site footer">
         <div className="mobile-container">
           {/* Newsletter Section */}
-          <div className="border-t border-white/10 py-8 sm:py-12">
-            <div className="text-center relative">
-              <h3 className="mobile-h3 text-white mb-4">Stay Updated</h3>
-              <p className="mobile-body text-gray-300 mb-6 max-w-md mx-auto">
-                Get the latest digital marketing insights and tips delivered to your inbox.
-              </p>
-              <form onSubmit={handleNewsletterSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={newsletterEmail}
-                  onChange={(e) => setNewsletterEmail(e.target.value)}
-                  className="flex-1 mobile-input bg-white/10 border-white/20 text-white placeholder-gray-400 focus:ring-primary focus:border-primary"
-                  aria-label="Email address for newsletter"
-                  disabled={isSubscribing}
-                />
-                <button 
-                  type="submit"
-                  disabled={isSubscribing}
-                  className="mobile-btn-primary bg-primary hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-                >
-                  {isSubscribing ? 'Subscribing...' : 'Subscribe'}
-                </button>
-              </form>
-
-              {/* Success Message */}
-              <AnimatePresence>
-                {showSuccessMessage && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute top-0 left-1/2 transform -translate-x-1/2 mt-2 bg-green-500 text-white px-6 py-3 rounded-lg flex items-center gap-2 whitespace-nowrap shadow-lg"
-                  >
-                    <Check className="h-5 w-5" />
-                    <span className="mobile-body font-medium">Thank you for subscribing with us.</span>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </div>
 
           {/* Main Footer Content */}
           <div className="mobile-section-compact">
@@ -596,7 +549,6 @@ export default function Layout() {
               </div>
             </div>
           </div>
-
           {/* Bottom Footer */}
           <div className="border-t border-white/10 py-6">
             <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
@@ -632,16 +584,13 @@ export default function Layout() {
           </div>
         </div>
       </footer>
-
       {/* Chat Widget */}
       <ChatWidget />
-      
       {/* WhatsApp Floating Button */}
       <WhatsAppButton 
         phoneNumber="+919845214099"
         message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
       />
-      
       {/* Exit Intent Popup */}
       {shouldShowExitIntent && <ExitIntentPopup />}
     </div>
