@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -14,6 +15,7 @@ interface ServiceContactFormProps {
 }
 
 export function ServiceContactForm({ serviceName, serviceDescription }: ServiceContactFormProps) {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -101,6 +103,11 @@ Submission Date: ${new Date().toLocaleString()}
       });
 
       setSubmitStatus('success');
+      
+      // Redirect to thank you page after 1 second
+      setTimeout(() => {
+        navigate('/thank-you');
+      }, 1000);
     } catch (error) {
       console.error('Error saving form submission:', error);
       setSubmitStatus('error');

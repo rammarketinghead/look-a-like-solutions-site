@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
@@ -10,6 +11,7 @@ import { BaseCrudService } from '@/integrations';
 import { FormSubmissions } from '@/entities';
 
 export default function DoctorLeadGenerationPage() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -71,7 +73,10 @@ export default function DoctorLeadGenerationPage() {
         message: ''
       });
 
-      setTimeout(() => setSubmitStatus('idle'), 5000);
+      // Redirect to thank you page after 1 second
+      setTimeout(() => {
+        navigate('/thank-you');
+      }, 1000);
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');

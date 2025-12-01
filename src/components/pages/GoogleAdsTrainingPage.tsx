@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -39,6 +40,7 @@ const staggerContainer = {
 };
 
 export default function GoogleAdsTrainingPage() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -85,6 +87,11 @@ export default function GoogleAdsTrainingPage() {
       experience: '',
       message: ''
     });
+    
+    // Redirect to thank you page after 1 second
+    setTimeout(() => {
+      navigate('/thank-you');
+    }, 1000);
     setIsSubmitting(false);
   };
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -19,6 +20,7 @@ const fadeInVariants = {
 
 export default function ContactPage() {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -122,6 +124,11 @@ Submission Date: ${new Date().toLocaleString()}
       });
 
       setSubmitStatus('success');
+      
+      // Redirect to thank you page after 1 second
+      setTimeout(() => {
+        navigate('/thank-you');
+      }, 1000);
     } catch (error) {
       console.error('Error saving contact form submission:', error);
       setSubmitStatus('error');
