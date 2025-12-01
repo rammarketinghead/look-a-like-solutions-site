@@ -144,14 +144,13 @@ Submission Date: ${new Date().toLocaleString()}
         type="website"
       />
       {/* Hero Section */}
-
       {/* Contact Form & Info */}
       <section className="py-16 sm:py-24 lg:py-32 bg-background">
         <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
             {/* Contact Information */}
             <div className="lg:col-span-1">
-              <h2 className="text-2xl sm:text-3xl font-heading text-dark-gray mb-6 sm:mb-8">
+              <h2 className="text-2xl font-heading text-dark-gray mb-6 sm:mb-8 sm:text-xl">
                 Let's Start a Conversation
               </h2>
               <p className="font-paragraph text-secondary mb-8 sm:mb-12 text-sm sm:text-base">
