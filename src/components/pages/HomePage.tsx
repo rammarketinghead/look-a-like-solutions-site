@@ -445,8 +445,8 @@ export default function HomePage() {
             <Card className="mobile-card border-2 border-primary/20 overflow-hidden">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 {/* Image Side */}
-                <div className="relative h-64 lg:h-auto bg-gradient-to-br from-primary/10 to-primary/5">
-                  <div className="absolute inset-0 flex items-center justify-center p-8">
+                <div className="relative h-64 lg:h-auto bg-gradient-to-br from-primary/10 to-primary/5 bg-cover bg-center" style={{backgroundImage: 'url(https://static.wixstatic.com/media/f650f9_831f2455fb774fbe9d2aa062cd7ddc74~mv2.png?id=homepage-growth-bg)'}}>
+                  <div className="absolute inset-0 flex items-center justify-center p-8 bg-black/20">
                     <div className="text-center">
                       <div className="inline-flex items-center justify-center w-24 h-24 bg-primary rounded-full mb-6">
                         <TrendingUp className="h-12 w-12 text-primary-foreground" />
