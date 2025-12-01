@@ -184,8 +184,8 @@ Submission Date: ${new Date().toLocaleString()}
                   </div>
                   <div>
                     <h3 className="font-heading text-dark-gray mb-1 sm:mb-2 text-sm sm:text-base">Phone</h3>
-                    <a href="tel:+919731588244" className="font-paragraph text-secondary hover:text-primary transition-colors text-sm sm:text-base">
-                      +91-9731588244
+                    <a href="tel:+919845214099" className="font-paragraph text-secondary hover:text-primary transition-colors text-sm sm:text-base">
+                      +91-9845214099
                     </a>
                     <p className="font-paragraph text-secondary text-xs sm:text-sm">Mon-Fri 9AM-6PM IST</p>
                   </div>

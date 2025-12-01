@@ -638,7 +638,7 @@ export default function Layout() {
       
       {/* WhatsApp Floating Button */}
       <WhatsAppButton 
-        phoneNumber="+919731588244"
+        phoneNumber="+919845214099"
         message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
       />
       
