@@ -146,7 +146,7 @@ Submission Date: ${new Date().toLocaleString()}
       
       {/* Hero Section */}
       <section className="py-16 sm:py-24 lg:py-32 bg-light-gray">
-        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[100rem] mx-auto">
           <motion.div
             initial="hidden"
             animate="visible"
