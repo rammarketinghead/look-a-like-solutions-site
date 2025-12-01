@@ -6,27 +6,19 @@ import { SearchAnalytics } from '@/entities';
  * Hook for recording search queries and managing search analytics
  */
 export const useSearchAnalytics = () => {
-  const [isRecording, setIsRecording] = useState(false);
-
   /**
    * Record a search query
    */
   const recordSearch = async (queryString: string, hasResults: boolean = false) => {
-    if (isRecording) return; // Prevent duplicate recordings
-    
-    setIsRecording(true);
     try {
       await SearchAnalyticsService.recordSearch(queryString, hasResults);
     } catch (error) {
       console.error('Failed to record search:', error);
-    } finally {
-      setIsRecording(false);
     }
   };
 
   return {
-    recordSearch,
-    isRecording
+    recordSearch
   };
 };
 

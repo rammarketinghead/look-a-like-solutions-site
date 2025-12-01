@@ -56,6 +56,7 @@ import BlogAnalysisPage from '@/components/pages/BlogAnalysisPage';
 import SitemapAdminPage from '@/components/pages/SitemapAdminPage';
 import SitemapHtmlPage from '@/components/pages/SitemapHtmlPage';
 import SearchAnalyticsPage from '@/components/pages/SearchAnalyticsPage';
+import SearchAnalyticsDiagnosticsPage from '@/components/pages/SearchAnalyticsDiagnosticsPage';
 import SearchResultsPage from '@/components/pages/SearchResultsPage';
 import GoogleAdsTrainingPage from '@/components/pages/GoogleAdsTrainingPage';
 import ThankYouPage from '@/components/pages/ThankYouPage';
@@ -297,6 +298,10 @@ const router = createBrowserRouter([
       {
         path: "admin/search-analytics",
         element: <SearchAnalyticsPage />,
+      },
+      {
+        path: "admin/search-analytics-diagnostics",
+        element: <SearchAnalyticsDiagnosticsPage />,
       },
       {
         path: "google-ads-training",

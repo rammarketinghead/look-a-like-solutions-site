@@ -28,6 +28,7 @@ export class SearchAnalyticsService {
           hasResults: hasResults,
           lastSearchUserAgent: userAgent
         });
+        console.log(`[SearchAnalytics] Updated search query: "${trimmedQuery}" (count: ${(existingQuery.searchCount || 0) + 1})`);
       } else {
         // Create new query record
         await BaseCrudService.create('searchanalytics', {
@@ -39,9 +40,20 @@ export class SearchAnalyticsService {
           hasResults: hasResults,
           lastSearchUserAgent: userAgent
         });
+        console.log(`[SearchAnalytics] Recorded new search query: "${trimmedQuery}"`);
       }
     } catch (error) {
-      console.error('Failed to record search query:', error);
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error('[SearchAnalytics] Failed to record search query:', {
+        query: queryString,
+        error: errorMessage,
+        timestamp: new Date().toISOString()
+      });
+      // Check for permission errors
+      if (errorMessage.includes('permission') || errorMessage.includes('Permission')) {
+        console.error('[SearchAnalytics] ⚠️ PERMISSION ERROR: Check CMS collection permissions for "searchanalytics"');
+        console.error('[SearchAnalytics] Required permissions: Read=ANYONE, Update=ANYONE, Insert=ANYONE');
+      }
       // Don't throw error to avoid breaking search functionality
     }
   }
