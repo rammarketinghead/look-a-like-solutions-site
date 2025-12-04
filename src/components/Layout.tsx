@@ -140,8 +140,8 @@ export default function Layout() {
             <div className="flex items-center space-x-6">
               <div className="flex items-center">
                 <Phone className="h-4 w-4 mr-2" />
-                <a href="tel:+919731588244" className="hover:text-primary transition-colors">
-                  +91-9731588244
+                <a href="tel:+919845214099" className="hover:text-primary transition-colors">
+                  +91-9845214099
                 </a>
               </div>
               <div className="flex items-center">
@@ -347,9 +347,9 @@ export default function Layout() {
                     
                     {/* Mobile Contact Info */}
                     <div className="mt-4 space-y-2">
-                      <a href="tel:+919731588244" className="flex items-center mobile-body-sm text-secondary">
+                      <a href="tel:+919845214099" className="flex items-center mobile-body-sm text-secondary">
                         <Phone className="h-4 w-4 mr-2" />
-                        +91-9731588244
+                        +91-9845214099
                       </a>
                       <a href="mailto:info@lookalikesolutions.com" className="flex items-center mobile-body-sm text-secondary">
                         <Mail className="h-4 w-4 mr-2" />
@@ -516,11 +516,11 @@ export default function Layout() {
                       <Phone className="h-5 w-5 text-primary" />
                     </div>
                     <a 
-                      href="tel:+919731588244" 
+                      href="tel:+919845214099" 
                       className="mobile-body text-gray-300 hover:text-white transition-colors focus:outline-none focus:text-white"
-                      aria-label="Call us at +91-9731588244"
+                      aria-label="Call us at +91-9845214099"
                     >
-                      +91-9731588244
+                      +91-9845214099
                     </a>
                   </div>
                   
@@ -540,7 +540,7 @@ export default function Layout() {
                   <div className="mt-6 pt-4 border-t border-white/10">
                     <WhatsAppButton 
                       variant="inline" 
-                      phoneNumber="+919731588244"
+                      phoneNumber="+919845214099"
                       message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
                       className="w-full bg-green-600 hover:bg-green-700 text-white border-0 rounded-lg py-3 px-4 font-medium transition-colors duration-200"
                     />
