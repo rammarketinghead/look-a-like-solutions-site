@@ -43,7 +43,7 @@ function BlogSection() {
     const fetchBlogPosts = async () => {
       try {
         setError(null);
-        const result = await BaseCrudService.getAll<BlogPosts>('blogposts');
+        const result = await BaseCrudService.getAll<BlogPosts>('blogposts', ['multireference']);
         
         if (!result || !result.items) {
           setLoading(false);
