@@ -6,7 +6,7 @@ import { Image } from '@/components/ui/image';
 import { SEOHead } from '@/components/ui/seo-head';
 import { TrustedBusinessesCarousel } from '@/components/ui/trusted-businesses-carousel';
 import { NewsletterSection } from '@/components/ui/newsletter-section';
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { BaseCrudService } from '@/integrations';
 import { BlogPosts } from '@/entities';
 
@@ -74,19 +74,19 @@ function BlogSection() {
     fetchBlogPosts();
   }, []);
 
-  const formatDate = useCallback((date: Date | string | undefined) => {
+  const formatDate = (date: Date | string | undefined) => {
     if (!date) return 'Recently';
     const d = new Date(date);
     return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-  }, []);
+  };
 
-  const calculateReadTime = useCallback((content: string | undefined) => {
+  const calculateReadTime = (content: string | undefined) => {
     if (!content) return '5 min read';
     const wordsPerMinute = 200;
     const wordCount = content.split(/\s+/).length;
     const minutes = Math.ceil(wordCount / wordsPerMinute);
     return `${minutes} min read`;
-  }, []);
+  };
 
   if (loading || blogPosts.length === 0) {
     return null;

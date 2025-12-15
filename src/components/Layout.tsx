@@ -10,7 +10,7 @@ import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
 import { SEOHead } from '@/components/ui/seo-head';
 import { useSitemapUpdater } from '@/hooks/useSitemapUpdater';
 import { Menu, Phone, Mail, MapPin, ChevronDown, ChevronRight, Facebook, Instagram, Youtube, Linkedin, Heart, ArrowRight, Check } from 'lucide-react';
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BaseCrudService } from '@/integrations';
 
@@ -27,19 +27,12 @@ export default function Layout() {
   // Initialize sitemap auto-updater
   useSitemapUpdater();
 
-  // Optimized scroll handler with throttling
+  // Handle scroll effect for header
   useEffect(() => {
-    let ticking = false;
     const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 10);
-          ticking = false;
-        });
-        ticking = true;
-      }
+      setIsScrolled(window.scrollY > 10);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -50,12 +43,9 @@ export default function Layout() {
   }, [location.pathname]);
 
   // Determine if we should show the exit intent popup
-  const shouldShowExitIntent = useMemo(
-    () => !location.pathname.includes('/contact') && !location.pathname.includes('/thank-you'),
-    [location.pathname]
-  );
+  const shouldShowExitIntent = !location.pathname.includes('/contact') && !location.pathname.includes('/thank-you');
 
-  const navigation = useMemo(() => [
+  const navigation = [
     { 
       name: 'Services', 
       href: '/services',
@@ -101,22 +91,22 @@ export default function Layout() {
       ]
     },
     { name: 'Blog', href: '/blog' }
-  ], []);
+  ];
 
-  const isActive = useCallback((href: string) => {
+  const isActive = (href: string) => {
     if (href === '/') {
       return location.pathname === '/';
     }
     return location.pathname.startsWith(href);
-  }, [location.pathname]);
+  };
 
-  const handleSearchNavigation = useCallback((query: string) => {
+  const handleSearchNavigation = (query: string) => {
     navigate(`/search?q=${encodeURIComponent(query)}`);
-  }, [navigate]);
+  };
 
-  const toggleMobileSubmenu = useCallback((itemName: string) => {
+  const toggleMobileSubmenu = (itemName: string) => {
     setExpandedMobileMenu(expandedMobileMenu === itemName ? null : itemName);
-  }, [expandedMobileMenu]);
+  };
 
   const handleNewsletterSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();

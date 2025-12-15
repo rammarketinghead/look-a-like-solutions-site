@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -239,7 +239,7 @@ export function SearchBar({
   }, []);
 
   // Calculate relevance score based on query match
-  const calculateRelevanceScore = useCallback((item: any, searchTerm: string, type: string): number => {
+  const calculateRelevanceScore = (item: any, searchTerm: string, type: string): number => {
     let score = 0;
     const term = searchTerm.toLowerCase();
     
@@ -281,7 +281,7 @@ export function SearchBar({
     if (title === term) score += 200;
     
     return score;
-  }, []);
+  };
 
   // Enhanced search function with better relevance and performance
   const performSearch = useCallback(async (searchQuery: string) => {
@@ -411,7 +411,7 @@ export function SearchBar({
   }, []);
 
   // Debounced search
-  const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setQuery(value);
     
@@ -429,35 +429,35 @@ export function SearchBar({
         setShowDropdown(false);
       }
     }, 250); // Reduced debounce time for faster response
-  }, [performSearch]);
+  };
 
-  const handleSubmit = useCallback((e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (query.trim()) {
       performSearch(query);
     }
-  }, [query, performSearch]);
+  };
 
-  const clearSearch = useCallback(() => {
+  const clearSearch = () => {
     setQuery('');
     setResults([]);
     setShowDropdown(false);
     inputRef.current?.focus();
-  }, []);
+  };
 
-  const handleResultClick = useCallback(() => {
+  const handleResultClick = () => {
     setShowDropdown(false);
     if (variant !== 'full') {
       setQuery('');
     }
-  }, [variant]);
+  };
 
-  const handleRecentSearchClick = useCallback((searchTerm: string) => {
+  const handleRecentSearchClick = (searchTerm: string) => {
     setQuery(searchTerm);
     performSearch(searchTerm);
-  }, [performSearch]);
+  };
 
-  const getTypeColor = useMemo(() => (type: string) => {
+  const getTypeColor = (type: string) => {
     switch (type) {
       case 'blog':
         return 'bg-blue-100 text-blue-800 border-blue-200';
@@ -472,19 +472,19 @@ export function SearchBar({
       default:
         return 'bg-gray-100 text-gray-800 border-gray-200';
     }
-  }, []);
+  };
 
-  const getTypeLabel = useMemo(() => (type: string) => {
+  const getTypeLabel = (type: string) => {
     switch (type) {
       case 'case-study':
         return 'Case Study';
       default:
         return type.charAt(0).toUpperCase() + type.slice(1);
     }
-  }, []);
+  };
 
   // Determine input size based on variant
-  const getInputClasses = useMemo(() => () => {
+  const getInputClasses = () => {
     const base = "pl-10 pr-10 transition-all duration-200";
     switch (variant) {
       case 'compact':
@@ -494,7 +494,7 @@ export function SearchBar({
       default:
         return `${base} h-10`;
     }
-  }, [variant]);
+  };
 
   return (
     <div ref={searchRef} className={`relative ${className}`}>

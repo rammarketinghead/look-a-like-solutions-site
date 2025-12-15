@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import { BaseCrudService } from '@/integrations';
 import { TrustedBusinesses } from '@/entities';
 import { Image } from '@/components/ui/image';
@@ -78,7 +78,7 @@ export function TrustedBusinessesCarousel({
   }
 
   // Triple the array for truly seamless infinite scroll
-  const tripleBusinesses = useMemo(() => [...businesses, ...businesses, ...businesses], [businesses]);
+  const tripleBusinesses = [...businesses, ...businesses, ...businesses];
 
   return (
     <div className={`py-12 overflow-hidden ${className}`}>
