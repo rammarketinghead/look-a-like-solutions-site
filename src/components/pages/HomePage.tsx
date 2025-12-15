@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
+import { FAQSection } from '@/components/ui/faq-section';
 import { SEOHead } from '@/components/ui/seo-head';
 import { TrustedBusinessesCarousel } from '@/components/ui/trusted-businesses-carousel';
 import { NewsletterSection } from '@/components/ui/newsletter-section';
@@ -43,7 +44,7 @@ function BlogSection() {
     const fetchBlogPosts = async () => {
       try {
         setError(null);
-        const result = await BaseCrudService.getAll<BlogPosts>('blogposts', ['multireference']);
+        const result = await BaseCrudService.getAll<BlogPosts>('blogposts');
         
         if (!result || !result.items) {
           setLoading(false);
@@ -175,6 +176,32 @@ function BlogSection() {
 }
 
 export default function HomePage() {
+  const homeFAQs = [
+    {
+      question: "What digital marketing services do you offer?",
+      answer: "We offer comprehensive digital marketing services including SEO optimization, social media marketing, paid advertising (Google Ads, Facebook Ads), web development, content marketing, influencer marketing, data analytics, and conversion optimization. Our goal is to provide end-to-end solutions for your digital presence."
+    },
+    {
+      question: "How long does it take to see results from digital marketing?",
+      answer: "Results vary depending on the service and your current digital presence. SEO typically shows results in 3-6 months, while paid advertising can generate immediate traffic. Social media growth usually takes 2-4 months to build momentum. We provide regular reports to track progress and adjust strategies as needed."
+    },
+    {
+      question: "Do you work with businesses outside Bengaluru?",
+      answer: "Yes, while we're based in Bengaluru, we work with clients across India and internationally. Our digital marketing strategies are designed to work for businesses regardless of location, and we conduct most of our client interactions remotely for convenience."
+    },
+    {
+      question: "What makes Look A Like Solutions different from other agencies?",
+      answer: "We focus on data-driven strategies, transparent reporting, and measurable results. Our team combines creativity with analytical thinking to deliver campaigns that not only look great but also drive real business growth. We also provide dedicated account management and regular strategy consultations."
+    },
+    {
+      question: "How do you measure the success of digital marketing campaigns?",
+      answer: "We track key performance indicators (KPIs) relevant to your business goals, including website traffic, conversion rates, lead generation, return on ad spend (ROAS), search rankings, social media engagement, and ultimately, revenue growth. We provide detailed monthly reports with actionable insights."
+    },
+    {
+      question: "What is your pricing structure?",
+      answer: "Our pricing varies based on the services you need and the scope of your project. We offer both project-based pricing and monthly retainer options. We provide transparent quotes with no hidden fees and can customize packages to fit your budget and goals. Contact us for a free consultation and quote."
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -855,3 +882,5 @@ export default function HomePage() {
     </div>
   );
 }
+
+// ... keep existing code (BlogSection component) ...

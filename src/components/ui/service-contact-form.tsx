@@ -55,6 +55,41 @@ export function ServiceContactForm({ serviceName, serviceDescription }: ServiceC
       };
 
       await BaseCrudService.create('formsubmissions', submissionData);
+      
+      // Create email content
+      const emailSubject = `New ${serviceName} Inquiry from ${formData.name}`;
+      const emailBody = `
+New ${serviceName} service inquiry:
+
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || 'Not provided'}
+Company: ${formData.company || 'Not provided'}
+Budget: ${formData.budget || 'Not specified'}
+
+Project Details:
+${formData.message}
+
+---
+This inquiry was submitted through the ${serviceName} service page.
+Page URL: ${window.location.href}
+Submission ID: ${submissionData._id}
+Submission Date: ${new Date().toLocaleString()}
+      `;
+
+      // Create mailto links for both email addresses
+      const email1 = 'ram.dmm@lookalikesolutions.com';
+      const email2 = 'rammarketinghead@gmail.com';
+      
+      // Send to first email
+      const mailtoLink1 = `mailto:${email1}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      window.open(mailtoLink1, '_blank');
+      
+      // Send to second email after a short delay
+      setTimeout(() => {
+        const mailtoLink2 = `mailto:${email2}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+        window.open(mailtoLink2, '_blank');
+      }, 1000);
 
       // Reset form
       setFormData({
