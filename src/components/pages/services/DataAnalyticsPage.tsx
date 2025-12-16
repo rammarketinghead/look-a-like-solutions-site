@@ -122,7 +122,7 @@ export default function DataAnalyticsPage() {
               <p className="text-lg font-paragraph text-secondary mb-8">
                 Our data analytics experts help you collect, analyze, and interpret data to make informed business decisions. We provide comprehensive reporting and insights that drive growth and optimize performance across all your marketing channels.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-4 mb-8">
                 {[
                   'Advanced analytics setup and configuration',
                   'Custom dashboard creation and visualization',
@@ -136,6 +136,13 @@ export default function DataAnalyticsPage() {
                   </div>
                 ))}
               </div>
+              <Button 
+                onClick={scrollToContact}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base"
+              >
+                Get Your Analytics Strategy
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
             <div className="relative">
               <Image
@@ -202,6 +209,16 @@ export default function DataAnalyticsPage() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <Button 
+              onClick={scrollToContact}
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3"
+            >
+              Explore All Analytics Services
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
         </div>
       </section>

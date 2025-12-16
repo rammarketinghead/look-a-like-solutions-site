@@ -122,7 +122,7 @@ export default function ConversionOptimizationPage() {
               <p className="text-lg font-paragraph text-secondary mb-8">
                 Our conversion optimization experts use data-driven methodologies to identify and eliminate barriers to conversion. We conduct systematic testing to improve every element of your user experience and maximize revenue from existing traffic.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-4 mb-8">
                 {[
                   'Comprehensive conversion audit and analysis',
                   'A/B and multivariate testing implementation',
@@ -136,6 +136,13 @@ export default function ConversionOptimizationPage() {
                   </div>
                 ))}
               </div>
+              <Button 
+                onClick={scrollToContact}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base"
+              >
+                Start Your CRO Journey
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
             <div className="relative">
               <Image
@@ -202,6 +209,16 @@ export default function ConversionOptimizationPage() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <Button 
+              onClick={scrollToContact}
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3"
+            >
+              Explore All CRO Services
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
         </div>
       </section>
