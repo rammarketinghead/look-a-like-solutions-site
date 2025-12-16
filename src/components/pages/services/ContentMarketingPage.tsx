@@ -148,7 +148,7 @@ export default function ContentMarketingPage() {
               <p className="text-lg font-paragraph text-secondary mb-8">
                 Our content marketing experts create valuable, relevant content that attracts and engages your target audience. We develop comprehensive content strategies that build brand authority, drive organic traffic, and generate qualified leads.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-4 mb-8">
                 {[
                   'Comprehensive content strategy development',
                   'SEO-optimized blog posts and articles',
@@ -162,6 +162,13 @@ export default function ContentMarketingPage() {
                   </div>
                 ))}
               </div>
+              <Button 
+                onClick={scrollToContact}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base"
+              >
+                Develop Your Content Strategy
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
             <div className="relative">
               <Image

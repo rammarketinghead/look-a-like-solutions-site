@@ -145,7 +145,7 @@ export default function SEOPage() {
               <p className="text-lg font-paragraph text-secondary mb-8">
                 Our SEO experts use proven strategies to improve your website's visibility, drive qualified traffic, and increase conversions. We focus on sustainable, white-hat techniques that deliver long-term results.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-4 mb-8">
                 {[
                   'Comprehensive keyword research and strategy',
                   'On-page and technical SEO optimization',
@@ -159,6 +159,13 @@ export default function SEOPage() {
                   </div>
                 ))}
               </div>
+              <Button 
+                onClick={scrollToContact}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base"
+              >
+                Learn More About Our Approach
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
             <div className="relative">
               <Image
@@ -181,7 +188,7 @@ export default function SEOPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {[
               {
                 icon: Search,
@@ -225,6 +232,16 @@ export default function SEOPage() {
               </Card>
             ))}
           </div>
+          <div className="text-center">
+            <Button 
+              onClick={scrollToContact}
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3"
+            >
+              Explore All SEO Services
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
         </div>
       </section>
       {/* Our Process Section */}
@@ -237,7 +254,7 @@ export default function SEOPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {[
               {
                 step: '01',
@@ -278,6 +295,15 @@ export default function SEOPage() {
                 <p className="font-paragraph text-secondary">{item.description}</p>
               </div>
             ))}
+          </div>
+          <div className="text-center">
+            <Button 
+              onClick={scrollToContact}
+              className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base"
+            >
+              Start Your SEO Journey
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
         </div>
       </section>
@@ -404,7 +430,7 @@ export default function SEOPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {[
               {
                 category: 'SEO Analysis',
@@ -437,6 +463,19 @@ export default function SEOPage() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="text-center">
+            <p className="font-paragraph text-secondary mb-6">
+              We use industry-leading tools to ensure your SEO success and deliver measurable results.
+            </p>
+            <Button 
+              onClick={scrollToContact}
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3"
+            >
+              See How We Work
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
         </div>
       </section>
@@ -507,7 +546,7 @@ export default function SEOPage() {
                 ))}
               </div>
 
-              <div className="bg-background rounded-lg p-8 shadow-sm">
+              <div className="bg-background rounded-lg p-8 shadow-sm mb-8">
                 <div className="flex items-start mb-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
                     <span className="text-primary font-heading text-lg">R</span>
@@ -521,6 +560,14 @@ export default function SEOPage() {
                   "Look A Like Solutions transformed our online presence completely. We went from page 3 to ranking #1 for our main keywords. Our organic sales increased by 280% in just 8 months. Their team's expertise and dedication are unmatched."
                 </p>
               </div>
+
+              <Button 
+                onClick={scrollToContact}
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3"
+              >
+                Get Similar Results for Your Business
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
           </div>
         </div>
@@ -555,7 +602,7 @@ export default function SEOPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
             {[
               { number: '300%', label: 'Average Traffic Increase' },
               { number: '85%', label: 'First Page Rankings' },
@@ -567,6 +614,15 @@ export default function SEOPage() {
                 <div className="font-paragraph text-secondary">{stat.label}</div>
               </div>
             ))}
+          </div>
+          <div className="text-center">
+            <Button 
+              onClick={scrollToContact}
+              className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base"
+            >
+              Achieve These Results for Your Business
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
         </div>
       </section>

@@ -149,7 +149,7 @@ export default function WebDevelopmentPage() {
               <p className="text-lg font-paragraph text-secondary mb-8">
                 Our development team creates custom websites and mobile applications tailored to your business needs. We focus on performance, security, and user experience to ensure your digital presence drives real business results.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-4 mb-8">
                 {[
                   'Responsive web design and development',
                   'E-commerce and online store solutions',
@@ -163,6 +163,13 @@ export default function WebDevelopmentPage() {
                   </div>
                 ))}
               </div>
+              <Button 
+                onClick={scrollToContact}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base"
+              >
+                Discuss Your Project
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
             <div className="relative">
               <Image
@@ -229,6 +236,16 @@ export default function WebDevelopmentPage() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <Button 
+              onClick={scrollToContact}
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3"
+            >
+              Explore All Services
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
         </div>
       </section>

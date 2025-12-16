@@ -122,7 +122,7 @@ export default function PaidAdsPage() {
               <p className="text-lg font-paragraph text-secondary mb-8">
                 Our PPC experts create and manage high-performing advertising campaigns that deliver immediate results. We optimize every aspect of your campaigns to ensure maximum return on investment and sustainable growth.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-4 mb-8">
                 {[
                   'Strategic keyword research and targeting',
                   'Compelling ad copy and creative development',
@@ -136,6 +136,13 @@ export default function PaidAdsPage() {
                   </div>
                 ))}
               </div>
+              <Button 
+                onClick={scrollToContact}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base"
+              >
+                Discover Our PPC Strategy
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
             <div className="relative">
               <Image
@@ -202,6 +209,16 @@ export default function PaidAdsPage() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <Button 
+              onClick={scrollToContact}
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3"
+            >
+              Explore All PPC Services
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
         </div>
       </section>

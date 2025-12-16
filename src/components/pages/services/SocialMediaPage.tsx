@@ -146,7 +146,7 @@ export default function SocialMediaPage() {
               <p className="text-lg font-paragraph text-secondary mb-8">
                 Our social media experts create engaging content, build communities, and drive meaningful interactions that convert followers into customers. We manage your entire social media presence across all major platforms.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-4 mb-8">
                 {[
                   'Strategic content planning and creation',
                   'Community management and engagement',
@@ -160,6 +160,13 @@ export default function SocialMediaPage() {
                   </div>
                 ))}
               </div>
+              <Button 
+                onClick={scrollToContact}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base"
+              >
+                Discover Our Social Strategy
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
             <div className="relative">
               <Image
@@ -226,6 +233,16 @@ export default function SocialMediaPage() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          <div className="text-center mt-12">
+            <Button 
+              onClick={scrollToContact}
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3"
+            >
+              Explore All Services
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
         </div>
       </section>

@@ -122,7 +122,7 @@ export default function InfluencerMarketingPage() {
               <p className="text-lg font-paragraph text-secondary mb-8">
                 Our influencer marketing experts connect your brand with the right creators to build authentic relationships with your target audience. We manage everything from influencer discovery to campaign execution and performance tracking.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-4 mb-8">
                 {[
                   'Strategic influencer identification and vetting',
                   'Campaign planning and creative development',
@@ -136,6 +136,13 @@ export default function InfluencerMarketingPage() {
                   </div>
                 ))}
               </div>
+              <Button 
+                onClick={scrollToContact}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base"
+              >
+                Build Your Influencer Strategy
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </div>
             <div className="relative">
               <Image
