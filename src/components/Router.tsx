@@ -23,6 +23,7 @@ import EmailMarketingPage from '@/components/pages/services/EmailMarketingPage';
 import YouTubeGrowthPage from '@/components/pages/services/YouTubeGrowthPage';
 import DigitalAuditPage from '@/components/pages/services/DigitalAuditPage';
 import DigitalTrainingPage from '@/components/pages/services/DigitalTrainingPage';
+import LookALikeSolutionsPage from '@/components/pages/services/LookALikeSolutionsPage';
 import SEOKeywordResearchPage from '@/components/pages/tools/SEOKeywordResearchPage';
 import EmailSubjectTesterPage from '@/components/pages/tools/EmailSubjectTesterPage';
 import PPCAdGeneratorPage from '@/components/pages/tools/PPCAdGeneratorPage';
@@ -230,6 +231,10 @@ const router = createBrowserRouter([
       {
         path: "services/digital-training",
         element: <DigitalTrainingPage />,
+      },
+      {
+        path: "services/look-a-like-solutions",
+        element: <LookALikeSolutionsPage />,
       },
       {
         path: "case-studies",
