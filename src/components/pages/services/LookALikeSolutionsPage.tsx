@@ -54,6 +54,13 @@ export default function LookALikeSolutionsPage() {
     fetchTrustedBusinesses();
   }, []);
 
+  const scrollToContactForm = () => {
+    const contactSection = document.getElementById('contact-form-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     try {
@@ -109,6 +116,7 @@ export default function LookALikeSolutionsPage() {
                   onHoverEnd={() => setIsCtaHovered(false)}
                 >
                   <Button
+                    onClick={scrollToContactForm}
                     size="lg"
                     className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-lg font-heading"
                   >
@@ -117,6 +125,7 @@ export default function LookALikeSolutionsPage() {
                   </Button>
                 </motion.div>
                 <Button
+                  onClick={scrollToContactForm}
                   variant="outline"
                   size="lg"
                   className="border-white text-white hover:bg-white hover:text-slate-900 px-8 py-6 text-lg rounded-lg font-heading"
@@ -193,6 +202,17 @@ export default function LookALikeSolutionsPage() {
               <span className="font-bold">Here's the thing:</span> This isn't about working harder. It's about working smarter. It's about being strategic with your visibility, your ads, and your lead generation. And that's exactly what we do.
             </p>
           </motion.div>
+
+          <motion.div {...fadeInUp} className="mt-12 text-center">
+            <Button
+              onClick={scrollToContactForm}
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-lg font-heading"
+            >
+              Let's Fix Your Visibility
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </motion.div>
         </div>
       </section>
 
@@ -253,6 +273,17 @@ export default function LookALikeSolutionsPage() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div {...fadeInUp} className="mt-12 text-center">
+            <Button
+              onClick={scrollToContactForm}
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-lg font-heading"
+            >
+              Get Your Custom Strategy
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </motion.div>
         </div>
       </section>
 
@@ -320,6 +351,17 @@ export default function LookALikeSolutionsPage() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div {...fadeInUp} className="mt-12 text-center">
+            <Button
+              onClick={scrollToContactForm}
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-lg font-heading"
+            >
+              Start Your Success Story
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </motion.div>
         </div>
       </section>
 
@@ -366,10 +408,21 @@ export default function LookALikeSolutionsPage() {
             ))}
           </div>
 
-          <motion.div {...fadeInUp} className="bg-gradient-to-r from-blue-600 to-blue-700 p-8 rounded-xl">
+          <motion.div {...fadeInUp} className="bg-gradient-to-r from-blue-600 to-blue-700 p-8 rounded-xl mb-12">
             <p className="font-paragraph text-lg text-white">
               <span className="font-bold">Bottom line:</span> We're not here to be your agency. We're here to be your growth partner. We succeed when you succeed.
             </p>
+          </motion.div>
+
+          <motion.div {...fadeInUp} className="text-center">
+            <Button
+              onClick={scrollToContactForm}
+              size="lg"
+              className="bg-white text-slate-900 hover:bg-slate-100 px-8 py-6 text-lg rounded-lg font-heading"
+            >
+              Let's Become Growth Partners
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -386,12 +439,14 @@ export default function LookALikeSolutionsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
+                onClick={scrollToContactForm}
                 size="lg"
                 className="bg-white text-blue-600 hover:bg-slate-100 px-8 py-6 text-lg rounded-lg font-heading"
               >
                 Book Your Free Strategy Call
               </Button>
               <Button
+                onClick={scrollToContactForm}
                 variant="outline"
                 size="lg"
                 className="border-white text-white hover:bg-blue-700 px-8 py-6 text-lg rounded-lg font-heading"
@@ -559,7 +614,10 @@ export default function LookALikeSolutionsPage() {
                   We can combine these services to create a tailored strategy for your specific business goals.
                 </p>
               </div>
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-heading whitespace-nowrap">
+              <Button
+                onClick={scrollToContactForm}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-heading whitespace-nowrap"
+              >
                 Get Custom Strategy
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -631,6 +689,17 @@ export default function LookALikeSolutionsPage() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div {...fadeInUp} className="mt-12 text-center">
+            <Button
+              onClick={scrollToContactForm}
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-lg font-heading"
+            >
+              Start Your Discovery Call
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </motion.div>
         </div>
       </section>
 
@@ -687,11 +756,22 @@ export default function LookALikeSolutionsPage() {
               </motion.div>
             ))}
           </div>
+
+          <motion.div {...fadeInUp} className="mt-12 text-center">
+            <Button
+              onClick={scrollToContactForm}
+              size="lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-lg font-heading"
+            >
+              Have More Questions? Let's Talk
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </motion.div>
         </div>
       </section>
 
       {/* Contact Form Section */}
-      <section className="w-full py-20 md:py-28 bg-white">
+      <section id="contact-form-section" className="w-full py-20 md:py-28 bg-white">
         <div className="max-w-[100rem] mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <motion.div {...fadeInUp}>
@@ -699,10 +779,10 @@ export default function LookALikeSolutionsPage() {
                 Ready to Get Started?
               </h2>
               <p className="font-paragraph text-lg text-slate-600 mb-8 leading-relaxed">
-                Fill out the form and we'll reach out within 24 hours to schedule your free strategy call. No commitment, no pressure—just a real conversation about your business.
+                Fill out the form and we'll reach out within 24 hours to schedule your free strategy call. No commitment, no pressure—just a real conversation about your business and how we can help you get more calls and grow your revenue.
               </p>
 
-              <div className="space-y-6">
+              <div className="space-y-6 mb-8">
                 {[
                   {
                     icon: <Clock className="w-6 h-6 text-blue-600" />,
@@ -733,6 +813,12 @@ export default function LookALikeSolutionsPage() {
                     </div>
                   </motion.div>
                 ))}
+              </div>
+
+              <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
+                <p className="font-paragraph text-slate-800">
+                  <span className="font-bold">Why fill out this form?</span> This helps us understand your specific situation so we can provide personalized recommendations during your strategy call. We'll know exactly what challenges you're facing and can come prepared with solutions.
+                </p>
               </div>
             </motion.div>
 
