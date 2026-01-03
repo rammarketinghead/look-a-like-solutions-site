@@ -153,7 +153,6 @@ export default function LookALikeSolutionsPage() {
           </div>
         </div>
       </section>
-
       {/* The Problem Section */}
       <section className="w-full py-20 md:py-28 bg-white">
         <div className="max-w-[100rem] mx-auto px-4 md:px-8">
@@ -215,16 +214,10 @@ export default function LookALikeSolutionsPage() {
           </motion.div>
 
           <motion.div {...fadeInUp} className="mt-16">
-            <Image
-              src="https://static.wixstatic.com/media/f650f9_f381671008ea40db8c89d8299b4b6abe~mv2.png"
-              alt="Business owner on phone call in professional office setting"
-              width={800}
-              className="rounded-xl w-full h-auto shadow-lg"
-            />
+
           </motion.div>
         </div>
       </section>
-
       {/* What We Do Section */}
       <section className="w-full py-20 md:py-28 bg-slate-50">
         <div className="max-w-[100rem] mx-auto px-4 md:px-8">
@@ -284,12 +277,7 @@ export default function LookALikeSolutionsPage() {
                       </div>
                     ))}
                   </div>
-                  <Image
-                    src={step.image}
-                    alt={step.imageAlt}
-                    width={500}
-                    className="rounded-lg w-full h-auto"
-                  />
+
                 </div>
               </motion.div>
             ))}
@@ -307,7 +295,6 @@ export default function LookALikeSolutionsPage() {
           </motion.div>
         </div>
       </section>
-
       {/* Success Stories Section */}
       <section className="w-full py-20 md:py-28 bg-white">
         <div className="max-w-[100rem] mx-auto px-4 md:px-8">
@@ -385,7 +372,6 @@ export default function LookALikeSolutionsPage() {
           </motion.div>
         </div>
       </section>
-
       {/* Why Look A Like Solutions Section */}
       <section className="w-full py-20 md:py-28 bg-slate-900 text-white">
         <div className="max-w-[100rem] mx-auto px-4 md:px-8">
@@ -436,12 +422,7 @@ export default function LookALikeSolutionsPage() {
           </motion.div>
 
           <motion.div {...fadeInUp} className="mb-12">
-            <Image
-              src="https://static.wixstatic.com/media/f650f9_54f34e049e2843188422cbbb8a130bd2~mv2.png"
-              alt="Team collaboration meeting with diverse professionals discussing strategy"
-              width={800}
-              className="rounded-xl w-full h-auto"
-            />
+
           </motion.div>
 
           <motion.div {...fadeInUp} className="text-center">
@@ -456,7 +437,6 @@ export default function LookALikeSolutionsPage() {
           </motion.div>
         </div>
       </section>
-
       {/* Final CTA Section */}
       <section className="w-full py-20 md:py-28 bg-gradient-to-br from-blue-600 to-blue-700 text-white">
         <div className="max-w-[100rem] mx-auto px-4 md:px-8 text-center">
@@ -490,7 +470,6 @@ export default function LookALikeSolutionsPage() {
           </motion.div>
         </div>
       </section>
-
       {/* Trust Indicators */}
       <section className="w-full py-12 bg-slate-50 border-t border-slate-200">
         <div className="max-w-[100rem] mx-auto px-4 md:px-8">
@@ -513,7 +492,6 @@ export default function LookALikeSolutionsPage() {
           </div>
         </div>
       </section>
-
       {/* Trusted Brands Section */}
       {!loadingLogos && trustedBusinesses.length > 0 && (
         <section className="w-full py-16 md:py-20 bg-white border-b border-slate-200">
@@ -559,7 +537,6 @@ export default function LookALikeSolutionsPage() {
           </div>
         </section>
       )}
-
       {/* Digital Marketing Services Section */}
       <section className="w-full py-20 md:py-28 bg-slate-50">
         <div className="max-w-[100rem] mx-auto px-4 md:px-8">
@@ -655,7 +632,6 @@ export default function LookALikeSolutionsPage() {
           </motion.div>
         </div>
       </section>
-
       {/* How It Works Section */}
       <section className="w-full py-20 md:py-28 bg-white">
         <div className="max-w-[100rem] mx-auto px-4 md:px-8">
@@ -732,7 +708,6 @@ export default function LookALikeSolutionsPage() {
           </motion.div>
         </div>
       </section>
-
       {/* FAQ Section */}
       <section className="w-full py-20 md:py-28 bg-slate-50">
         <div className="max-w-[100rem] mx-auto px-4 md:px-8">
@@ -799,7 +774,6 @@ export default function LookALikeSolutionsPage() {
           </motion.div>
         </div>
       </section>
-
       {/* Contact Form Section */}
       <section id="contact-form-section" className="w-full py-20 md:py-28 bg-white">
         <div className="max-w-[100rem] mx-auto px-4 md:px-8">
