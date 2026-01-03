@@ -1,13 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
-import { Phone, TrendingUp, Users, Target, CheckCircle2, ArrowRight, Mail, MessageSquare, Clock } from 'lucide-react';
+import { Phone, TrendingUp, Users, Target, CheckCircle2, ArrowRight, Mail, MessageSquare, Clock, Search, Zap, BarChart3, Share2, FileText, Smartphone } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { BaseCrudService } from '@/integrations';
+import { TrustedBusinesses } from '@/entities';
 
 interface ContactFormData {
   fullName: string;
@@ -22,6 +23,9 @@ export default function LookALikeSolutionsPage() {
   const [isCtaHovered, setIsCtaHovered] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [trustedBusinesses, setTrustedBusinesses] = useState<TrustedBusinesses[]>([]);
+  const [loadingLogos, setLoadingLogos] = useState(true);
+  
   const { register, handleSubmit, reset, formState: { errors }, watch } = useForm<ContactFormData>({
     defaultValues: {
       fullName: '',
@@ -32,6 +36,23 @@ export default function LookALikeSolutionsPage() {
       message: ''
     }
   });
+
+  useEffect(() => {
+    const fetchTrustedBusinesses = async () => {
+      try {
+        const result = await BaseCrudService.getAll<TrustedBusinesses>('trustedbusinesses');
+        if (result && result.items) {
+          setTrustedBusinesses(result.items);
+        }
+      } catch (error) {
+        console.error('Error fetching trusted businesses:', error);
+      } finally {
+        setLoadingLogos(false);
+      }
+    };
+
+    fetchTrustedBusinesses();
+  }, []);
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
@@ -405,6 +426,145 @@ export default function LookALikeSolutionsPage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Trusted Brands Section */}
+      {!loadingLogos && trustedBusinesses.length > 0 && (
+        <section className="w-full py-16 md:py-20 bg-white border-b border-slate-200">
+          <div className="max-w-[100rem] mx-auto px-4 md:px-8">
+            <motion.div {...fadeInUp} className="text-center mb-12">
+              <h2 className="font-heading text-3xl md:text-4xl mb-4 text-slate-900">
+                Trusted by Leading Brands
+              </h2>
+              <p className="font-paragraph text-lg text-slate-600 max-w-2xl mx-auto">
+                We've helped these businesses get more visibility, leads, and revenue
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-center"
+            >
+              {trustedBusinesses.slice(0, 10).map((business, index) => (
+                <motion.div
+                  key={business._id}
+                  {...fadeInUp}
+                  transition={{ ...fadeInUp.transition, delay: (index % 5) * 0.1 }}
+                  className="flex items-center justify-center h-24 bg-slate-50 rounded-lg border border-slate-200 hover:border-blue-400 hover:bg-blue-50 transition-all duration-300 p-4"
+                >
+                  {business.brandLogo ? (
+                    <Image
+                      src={business.brandLogo}
+                      alt={business.brandName || 'Brand logo'}
+                      width={120}
+                      className="max-h-16 w-auto object-contain"
+                    />
+                  ) : (
+                    <span className="font-heading text-sm text-slate-600 text-center">
+                      {business.brandName}
+                    </span>
+                  )}
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+      )}
+
+      {/* Digital Marketing Services Section */}
+      <section className="w-full py-20 md:py-28 bg-slate-50">
+        <div className="max-w-[100rem] mx-auto px-4 md:px-8">
+          <motion.div {...fadeInUp} className="mb-16">
+            <h2 className="font-heading text-4xl md:text-5xl mb-6 text-slate-900">
+              Our Digital Marketing Services
+            </h2>
+            <p className="font-paragraph text-lg text-slate-600 max-w-3xl">
+              We offer a complete suite of digital marketing services designed to help you achieve your business goals. From visibility to conversions, we've got you covered.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <Search className="w-10 h-10 text-blue-600" />,
+                title: "SEO Optimization",
+                description: "Rank higher on Google and get found by customers searching for your services. We optimize your website for maximum visibility.",
+                benefits: ["Higher search rankings", "Organic traffic growth", "Long-term results"]
+              },
+              {
+                icon: <Zap className="w-10 h-10 text-blue-600" />,
+                title: "Paid Advertising",
+                description: "Get instant visibility with Google Ads and Facebook Ads. We manage campaigns to maximize ROI and minimize wasted spend.",
+                benefits: ["Immediate traffic", "Targeted audience", "Measurable results"]
+              },
+              {
+                icon: <Share2 className="w-10 h-10 text-blue-600" />,
+                title: "Social Media Marketing",
+                description: "Build your brand presence and engage with customers on social platforms. We create content that converts followers into customers.",
+                benefits: ["Brand awareness", "Customer engagement", "Community building"]
+              },
+              {
+                icon: <BarChart3 className="w-10 h-10 text-blue-600" />,
+                title: "Data Analytics",
+                description: "Know exactly what's working and where to invest your budget. We provide detailed insights and actionable recommendations.",
+                benefits: ["Performance tracking", "Data-driven decisions", "ROI optimization"]
+              },
+              {
+                icon: <FileText className="w-10 h-10 text-blue-600" />,
+                title: "Content Marketing",
+                description: "Attract and convert customers with valuable, SEO-optimized content. We create content that ranks and converts.",
+                benefits: ["Thought leadership", "Lead generation", "Customer education"]
+              },
+              {
+                icon: <Smartphone className="w-10 h-10 text-blue-600" />,
+                title: "Conversion Optimization",
+                description: "Double your sales without spending more on ads. We optimize your website and funnels to increase conversions.",
+                benefits: ["Higher conversion rates", "Better user experience", "Increased revenue"]
+              }
+            ].map((service, index) => (
+              <motion.div
+                key={index}
+                {...fadeInUp}
+                transition={{ ...fadeInUp.transition, delay: (index % 3) * 0.1 }}
+                className="bg-white p-8 rounded-xl border border-slate-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="mb-4 p-3 bg-blue-50 rounded-lg w-fit">
+                  {service.icon}
+                </div>
+                <h3 className="font-heading text-xl mb-3 text-slate-900">{service.title}</h3>
+                <p className="font-paragraph text-slate-600 mb-6 leading-relaxed">{service.description}</p>
+                <div className="space-y-2">
+                  {service.benefits.map((benefit, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-green-600 mt-1 flex-shrink-0" />
+                      <span className="font-paragraph text-sm text-slate-600">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div {...fadeInUp} className="mt-12 bg-gradient-to-r from-blue-50 to-slate-50 p-8 rounded-xl border border-blue-200">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div>
+                <h3 className="font-heading text-2xl text-slate-900 mb-2">
+                  Need a Custom Solution?
+                </h3>
+                <p className="font-paragraph text-slate-600">
+                  We can combine these services to create a tailored strategy for your specific business goals.
+                </p>
+              </div>
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-heading whitespace-nowrap">
+                Get Custom Strategy
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
 
