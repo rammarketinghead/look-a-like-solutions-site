@@ -142,12 +142,12 @@ export default function LookALikeSolutionsPage() {
               className="hidden lg:block"
             >
               <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-1">
-                <div className="bg-slate-800 rounded-xl p-8 h-96 flex items-center justify-center">
-                  <div className="text-center">
-                    <TrendingUp className="w-24 h-24 mx-auto text-blue-400 mb-4" />
-                    <p className="text-slate-300 font-paragraph">Real Results for Real Businesses</p>
-                  </div>
-                </div>
+                <Image
+                  src="https://static.wixstatic.com/media/f650f9_bbf122e14f2747e481da047242f83d57~mv2.png"
+                  alt="Digital marketing dashboard with analytics and growth metrics"
+                  width={600}
+                  className="rounded-xl w-full h-auto"
+                />
               </div>
             </motion.div>
           </div>
@@ -213,6 +213,15 @@ export default function LookALikeSolutionsPage() {
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </motion.div>
+
+          <motion.div {...fadeInUp} className="mt-16">
+            <Image
+              src="https://static.wixstatic.com/media/f650f9_f381671008ea40db8c89d8299b4b6abe~mv2.png"
+              alt="Business owner on phone call in professional office setting"
+              width={800}
+              className="rounded-xl w-full h-auto shadow-lg"
+            />
+          </motion.div>
         </div>
       </section>
 
@@ -234,19 +243,25 @@ export default function LookALikeSolutionsPage() {
                 number: "01",
                 title: "Strategic Visibility",
                 description: "We make sure you show up where your customers are looking. Through smart SEO, targeted search ads, and strategic positioning, we get you in front of the right people at the right time. No more hiding in the shadows.",
-                benefits: ["Higher search rankings", "Targeted ad placement", "Right audience, right time"]
+                benefits: ["Higher search rankings", "Targeted ad placement", "Right audience, right time"],
+                image: "https://static.wixstatic.com/media/f650f9_d81afce18e134223a6774b87aa0005b7~mv2.png",
+                imageAlt: "SEO optimization concept with search results and ranking improvements"
               },
               {
                 number: "02",
                 title: "Lead Generation That Works",
                 description: "Visibility is only half the battle. We turn that visibility into actual leads. Through optimized landing pages, strategic campaigns, and smart targeting, we bring qualified prospects to your door—people who are actually interested in what you offer.",
-                benefits: ["Qualified leads only", "Higher conversion rates", "Lower cost per lead"]
+                benefits: ["Qualified leads only", "Higher conversion rates", "Lower cost per lead"],
+                image: "https://static.wixstatic.com/media/f650f9_04674e2fa77a4949a9b24a7579327862~mv2.png",
+                imageAlt: "Lead generation funnel visualization with conversion metrics"
               },
               {
                 number: "03",
                 title: "Calls and Conversions",
                 description: "At the end of the day, you need calls. We structure everything—from ad copy to landing pages to follow-up—to get the phone ringing with serious prospects ready to do business. We measure success by your results, not just clicks.",
-                benefits: ["More phone calls", "Better-qualified prospects", "Higher close rates"]
+                benefits: ["More phone calls", "Better-qualified prospects", "Higher close rates"],
+                image: "https://static.wixstatic.com/media/f650f9_fa5d8866300347c89f792235a718f326~mv2.png",
+                imageAlt: "Success metrics dashboard showing increased calls and revenue growth"
               }
             ].map((step, index) => (
               <motion.div
@@ -261,7 +276,7 @@ export default function LookALikeSolutionsPage() {
                 </div>
                 <div className="lg:col-span-2">
                   <p className="font-paragraph text-lg text-slate-700 mb-6 leading-relaxed">{step.description}</p>
-                  <div className="space-y-3">
+                  <div className="space-y-3 mb-8">
                     {step.benefits.map((benefit, i) => (
                       <div key={i} className="flex items-start gap-3">
                         <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
@@ -269,6 +284,12 @@ export default function LookALikeSolutionsPage() {
                       </div>
                     ))}
                   </div>
+                  <Image
+                    src={step.image}
+                    alt={step.imageAlt}
+                    width={500}
+                    className="rounded-lg w-full h-auto"
+                  />
                 </div>
               </motion.div>
             ))}
@@ -412,6 +433,15 @@ export default function LookALikeSolutionsPage() {
             <p className="font-paragraph text-lg text-white">
               <span className="font-bold">Bottom line:</span> We're not here to be your agency. We're here to be your growth partner. We succeed when you succeed.
             </p>
+          </motion.div>
+
+          <motion.div {...fadeInUp} className="mb-12">
+            <Image
+              src="https://static.wixstatic.com/media/f650f9_54f34e049e2843188422cbbb8a130bd2~mv2.png"
+              alt="Team collaboration meeting with diverse professionals discussing strategy"
+              width={800}
+              className="rounded-xl w-full h-auto"
+            />
           </motion.div>
 
           <motion.div {...fadeInUp} className="text-center">
