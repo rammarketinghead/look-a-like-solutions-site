@@ -1,11 +1,62 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
-import { Phone, TrendingUp, Users, Target, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Phone, TrendingUp, Users, Target, CheckCircle2, ArrowRight, Mail, MessageSquare, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useForm } from 'react-hook-form';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { BaseCrudService } from '@/integrations';
+
+interface ContactFormData {
+  fullName: string;
+  email: string;
+  phone: string;
+  companyName: string;
+  businessType: string;
+  message: string;
+}
 
 export default function LookALikeSolutionsPage() {
   const [isCtaHovered, setIsCtaHovered] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const { register, handleSubmit, reset, formState: { errors }, watch } = useForm<ContactFormData>({
+    defaultValues: {
+      fullName: '',
+      email: '',
+      phone: '',
+      companyName: '',
+      businessType: '',
+      message: ''
+    }
+  });
+
+  const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true);
+    try {
+      await BaseCrudService.create('formsubmissions', {
+        _id: crypto.randomUUID(),
+        formType: 'Look A Like Solutions Inquiry',
+        submitterName: data.fullName,
+        submitterEmail: data.email,
+        submitterPhone: data.phone,
+        companyName: data.companyName,
+        interestedService: data.businessType,
+        message: data.message,
+        submissionDate: new Date().toISOString(),
+        submissionPageUrl: window.location.href,
+      });
+      setSubmitSuccess(true);
+      reset();
+      setTimeout(() => setSubmitSuccess(false), 5000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
@@ -353,6 +404,312 @@ export default function LookALikeSolutionsPage() {
                 <p className="font-paragraph text-slate-600">{stat.label}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="w-full py-20 md:py-28 bg-white">
+        <div className="max-w-[100rem] mx-auto px-4 md:px-8">
+          <motion.div {...fadeInUp} className="mb-16">
+            <h2 className="font-heading text-4xl md:text-5xl mb-6 text-slate-900">
+              Our Process
+            </h2>
+            <p className="font-paragraph text-lg text-slate-600 max-w-3xl">
+              We follow a proven methodology to ensure your success. Here's exactly how we work with you.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {[
+              {
+                step: "1",
+                title: "Discovery Call",
+                description: "We learn about your business, goals, and challenges. No pressure, just a real conversation.",
+                icon: <Phone className="w-8 h-8 text-blue-600" />
+              },
+              {
+                step: "2",
+                title: "Strategy Development",
+                description: "We analyze your market, competitors, and opportunities. Then we build a custom strategy.",
+                icon: <TrendingUp className="w-8 h-8 text-blue-600" />
+              },
+              {
+                step: "3",
+                title: "Implementation",
+                description: "We execute the strategy across visibility, ads, and lead generation channels.",
+                icon: <Target className="w-8 h-8 text-blue-600" />
+              },
+              {
+                step: "4",
+                title: "Optimization & Growth",
+                description: "We monitor, measure, and continuously optimize to maximize your results.",
+                icon: <CheckCircle2 className="w-8 h-8 text-blue-600" />
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                {...fadeInUp}
+                transition={{ ...fadeInUp.transition, delay: index * 0.1 }}
+                className="relative"
+              >
+                <div className="bg-slate-50 p-8 rounded-xl border border-slate-200 h-full">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                      {item.icon}
+                    </div>
+                    <span className="text-3xl font-heading text-slate-300">{item.step}</span>
+                  </div>
+                  <h3 className="font-heading text-lg mb-3 text-slate-900">{item.title}</h3>
+                  <p className="font-paragraph text-slate-600 text-sm leading-relaxed">{item.description}</p>
+                </div>
+                {index < 3 && (
+                  <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2">
+                    <ArrowRight className="w-6 h-6 text-slate-300" />
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="w-full py-20 md:py-28 bg-slate-50">
+        <div className="max-w-[100rem] mx-auto px-4 md:px-8">
+          <motion.div {...fadeInUp} className="mb-16">
+            <h2 className="font-heading text-4xl md:text-5xl mb-6 text-slate-900">
+              Frequently Asked Questions
+            </h2>
+            <p className="font-paragraph text-lg text-slate-600 max-w-3xl">
+              Got questions? We've got answers. Here are the most common questions we hear.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {[
+              {
+                question: "How long does it take to see results?",
+                answer: "Most clients start seeing meaningful results within 4-8 weeks. Some see improvements in 2-3 weeks. It depends on your industry, competition, and starting point. We'll give you realistic timelines during your strategy call."
+              },
+              {
+                question: "What if I'm already working with another agency?",
+                answer: "No problem. We can work alongside your current team or take over completely. We're flexible and focused on what works best for your business. Let's discuss your situation."
+              },
+              {
+                question: "How much does this cost?",
+                answer: "Our pricing varies based on your goals, industry, and the scope of work. We offer flexible packages starting at different price points. We'll discuss investment during your free strategy call."
+              },
+              {
+                question: "Do you guarantee results?",
+                answer: "We guarantee effort and expertise. We can't guarantee specific results (no honest agency can), but we do guarantee we'll work hard and measure everything. If it's not working, we'll pivot."
+              },
+              {
+                question: "What industries do you work with?",
+                answer: "We work with service-based businesses, contractors, consultants, agencies, and more. If you're a B2B or B2C business that needs leads, we can likely help."
+              },
+              {
+                question: "Can you help if I have a small budget?",
+                answer: "Yes. We work with businesses of all sizes. We'll be honest about what's possible with your budget and help you get the best ROI possible."
+              }
+            ].map((faq, index) => (
+              <motion.div
+                key={index}
+                {...fadeInUp}
+                transition={{ ...fadeInUp.transition, delay: (index % 2) * 0.1 }}
+                className="bg-white p-8 rounded-xl border border-slate-200"
+              >
+                <h3 className="font-heading text-lg mb-4 text-slate-900 flex items-start gap-3">
+                  <MessageSquare className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
+                  {faq.question}
+                </h3>
+                <p className="font-paragraph text-slate-600 leading-relaxed">{faq.answer}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="w-full py-20 md:py-28 bg-white">
+        <div className="max-w-[100rem] mx-auto px-4 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <motion.div {...fadeInUp}>
+              <h2 className="font-heading text-4xl md:text-5xl mb-6 text-slate-900">
+                Ready to Get Started?
+              </h2>
+              <p className="font-paragraph text-lg text-slate-600 mb-8 leading-relaxed">
+                Fill out the form and we'll reach out within 24 hours to schedule your free strategy call. No commitment, no pressure—just a real conversation about your business.
+              </p>
+
+              <div className="space-y-6">
+                {[
+                  {
+                    icon: <Clock className="w-6 h-6 text-blue-600" />,
+                    title: "Quick Response",
+                    description: "We respond within 24 hours"
+                  },
+                  {
+                    icon: <Mail className="w-6 h-6 text-blue-600" />,
+                    title: "No Spam",
+                    description: "We respect your inbox"
+                  },
+                  {
+                    icon: <Users className="w-6 h-6 text-blue-600" />,
+                    title: "Real People",
+                    description: "You'll talk to actual humans"
+                  }
+                ].map((benefit, index) => (
+                  <motion.div
+                    key={index}
+                    {...fadeInUp}
+                    transition={{ ...fadeInUp.transition, delay: index * 0.1 }}
+                    className="flex gap-4"
+                  >
+                    <div className="flex-shrink-0">{benefit.icon}</div>
+                    <div>
+                      <h4 className="font-heading text-slate-900 mb-1">{benefit.title}</h4>
+                      <p className="font-paragraph text-slate-600 text-sm">{benefit.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-slate-50 p-8 rounded-xl border border-slate-200"
+            >
+              {submitSuccess && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg"
+                >
+                  <p className="font-paragraph text-green-800">
+                    ✓ Thank you! We'll be in touch within 24 hours.
+                  </p>
+                </motion.div>
+              )}
+
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                <div>
+                  <label className="font-heading text-sm text-slate-900 block mb-2">
+                    Full Name *
+                  </label>
+                  <Input
+                    {...register('fullName', { required: 'Name is required' })}
+                    placeholder="John Doe"
+                    className="w-full"
+                  />
+                  {errors.fullName && (
+                    <p className="text-red-600 text-sm mt-1">{errors.fullName.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="font-heading text-sm text-slate-900 block mb-2">
+                    Email *
+                  </label>
+                  <Input
+                    {...register('email', {
+                      required: 'Email is required',
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: 'Invalid email address'
+                      }
+                    })}
+                    type="email"
+                    placeholder="john@example.com"
+                    className="w-full"
+                  />
+                  {errors.email && (
+                    <p className="text-red-600 text-sm mt-1">{errors.email.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="font-heading text-sm text-slate-900 block mb-2">
+                    Phone Number *
+                  </label>
+                  <Input
+                    {...register('phone', { required: 'Phone is required' })}
+                    placeholder="(555) 123-4567"
+                    className="w-full"
+                  />
+                  {errors.phone && (
+                    <p className="text-red-600 text-sm mt-1">{errors.phone.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="font-heading text-sm text-slate-900 block mb-2">
+                    Company Name *
+                  </label>
+                  <Input
+                    {...register('companyName', { required: 'Company name is required' })}
+                    placeholder="Your Company"
+                    className="w-full"
+                  />
+                  {errors.companyName && (
+                    <p className="text-red-600 text-sm mt-1">{errors.companyName.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label className="font-heading text-sm text-slate-900 block mb-2">
+                    Business Type *
+                  </label>
+                  <Select defaultValue="">
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select your business type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="hvac">HVAC/Home Services</SelectItem>
+                      <SelectItem value="plumbing">Plumbing</SelectItem>
+                      <SelectItem value="electrical">Electrical</SelectItem>
+                      <SelectItem value="roofing">Roofing</SelectItem>
+                      <SelectItem value="construction">Construction</SelectItem>
+                      <SelectItem value="consulting">Consulting</SelectItem>
+                      <SelectItem value="agency">Agency</SelectItem>
+                      <SelectItem value="legal">Legal Services</SelectItem>
+                      <SelectItem value="medical">Medical/Dental</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <input
+                    type="hidden"
+                    {...register('businessType', { required: 'Business type is required' })}
+                  />
+                </div>
+
+                <div>
+                  <label className="font-heading text-sm text-slate-900 block mb-2">
+                    Tell us about your goals
+                  </label>
+                  <Textarea
+                    {...register('message')}
+                    placeholder="What are you hoping to achieve? What's your biggest challenge right now?"
+                    className="w-full min-h-[120px]"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-heading text-base"
+                >
+                  {isSubmitting ? 'Submitting...' : 'Get Your Free Strategy Call'}
+                </Button>
+
+                <p className="font-paragraph text-xs text-slate-500 text-center">
+                  We respect your privacy. No spam, ever.
+                </p>
+              </form>
+            </motion.div>
           </div>
         </div>
       </section>
