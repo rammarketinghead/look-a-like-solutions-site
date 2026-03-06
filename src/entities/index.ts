@@ -19,7 +19,7 @@ export interface NewsletterSubscribers {
   isActive?: boolean;
   /** @wixFieldType url */
   sourceUrl?: string;
-  /** @wixFieldType image */
+  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
   profilePicture?: string;
 }
 
@@ -42,7 +42,7 @@ export interface BlogPosts {
   author?: string;
   /** @wixFieldType datetime */
   publishedDate?: Date | string;
-  /** @wixFieldType image */
+  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
   featuredImage?: string;
   /** @wixFieldType text */
   excerpt?: string;
@@ -75,7 +75,7 @@ export interface CaseStudies {
   solution?: string;
   /** @wixFieldType text */
   outcome?: string;
-  /** @wixFieldType image */
+  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
   projectImage?: string;
   /** @wixFieldType url */
   projectUrl?: string;
@@ -202,7 +202,7 @@ export interface Services {
   tagline?: string;
   /** @wixFieldType text */
   description?: string;
-  /** @wixFieldType image */
+  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
   serviceImage?: string;
   /** @wixFieldType text */
   keyBenefits?: string;
@@ -225,7 +225,7 @@ export interface TeamMembers {
   fullName?: string;
   /** @wixFieldType text */
   role?: string;
-  /** @wixFieldType image */
+  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
   profilePicture?: string;
   /** @wixFieldType text */
   bio?: string;
@@ -246,7 +246,7 @@ export interface TrustedBusinesses {
   _updatedDate?: Date;
   /** @wixFieldType text */
   brandName?: string;
-  /** @wixFieldType image */
+  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
   brandLogo?: string;
   /** @wixFieldType url */
   websiteUrl?: string;

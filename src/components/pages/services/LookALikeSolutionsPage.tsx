@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
 import { Phone, TrendingUp, Users, Target, CheckCircle2, ArrowRight, Mail, MessageSquare, Clock, Search, Zap, BarChart3, Share2, FileText, Smartphone } from 'lucide-react';
@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { BaseCrudService } from '@/integrations';
 import { TrustedBusinesses } from '@/entities';
+import Head from '@/components/Head';
 
 interface ContactFormData {
   fullName: string;
@@ -37,12 +38,20 @@ export default function LookALikeSolutionsPage() {
     }
   });
 
+  // Memoize fade-in animation to prevent recreation
+  const fadeInUp = useMemo(() => ({
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 },
+    viewport: { once: true },
+  }), []);
+
   useEffect(() => {
     const fetchTrustedBusinesses = async () => {
       try {
-        const result = await BaseCrudService.getAll<TrustedBusinesses>('trustedbusinesses');
+        const result = await BaseCrudService.getAll<TrustedBusinesses>('trustedbusinesses', [], { limit: 10 });
         if (result && result.items) {
-          setTrustedBusinesses(result.items);
+          setTrustedBusinesses(result.items.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0)));
         }
       } catch (error) {
         console.error('Error fetching trusted businesses:', error);
@@ -84,13 +93,6 @@ export default function LookALikeSolutionsPage() {
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 },
-    viewport: { once: true },
   };
 
   return (
