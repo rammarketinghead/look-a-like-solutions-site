@@ -1,5 +1,6 @@
+import React from 'react';
 import { MemberProvider } from '@/integrations';
-import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import { ScrollToTop } from '@/lib/scroll-to-top';
 import ErrorPage from '@/integrations/errorHandlers/ErrorPage';
 import Layout from '@/components/Layout';
@@ -77,6 +78,12 @@ function LayoutWithScrollToTop() {
     </>
   );
 }
+
+// Lazy load pages to reduce bundle size and fix dynamic import errors
+const lazyLoad = (importFunc: () => Promise<{ default: React.ComponentType<any> }>) => {
+  const Component = React.lazy(importFunc);
+  return <Component />;
+};
 
 const router = createBrowserRouter([
   {
