@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -182,6 +183,13 @@ export default function WebsiteSpeedTestPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Speed Test A Site Fast & Improve Website Performance</title>
+        <meta name="description" content="Speed Test A Site To Analyze Load Time, Fix Issues, And Boost SEO Rankings. Get Accurate Insights, Improve Core Web Vitals, And Deliver Faster User Experience Today." />
+        <meta property="og:title" content="Speed Test A Site Fast & Improve Website Performance" />
+        <meta property="og:description" content="Speed Test A Site To Analyze Load Time, Fix Issues, And Boost SEO Rankings. Get Accurate Insights, Improve Core Web Vitals, And Deliver Faster User Experience Today." />
+      </Helmet>
+
       {/* Header */}
       <section className="py-16 bg-gradient-to-r from-yellow-50 to-yellow-100">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -202,7 +210,7 @@ export default function WebsiteSpeedTestPage() {
               </div>
               <div>
                 <h1 className="text-4xl font-heading text-dark-gray mb-2">
-                  Website Speed Test (Basic)
+                  Speed Test A Site To Improve Performance, SEO, And User Experience.
                 </h1>
                 <p className="text-lg font-paragraph text-secondary">
                   Test your website's loading speed and get optimization recommendations
@@ -214,7 +222,7 @@ export default function WebsiteSpeedTestPage() {
       </section>
 
       {/* Input Section */}
-      <section className="py-12 bg-background">
+      <section className="py-12 bg-light-gray">
         <div className="max-w-[100rem] mx-auto px-8">
           <Card className="max-w-2xl mx-auto">
             <CardHeader>
@@ -423,6 +431,43 @@ export default function WebsiteSpeedTestPage() {
               </div>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      {/* Educational Content */}
+      <section className="py-16 bg-background">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="max-w-4xl mx-auto space-y-6">
+            <div className="prose prose-lg max-w-none">
+              <p className="font-paragraph text-dark-gray text-base leading-relaxed">
+                When You Speed Test A Site, You're Not Just Checking Load Time. You're Understanding How Your Website Feels To Real Users. A Slow Site Doesn't Just Frustrate Visitors, It Quietly Pushes Them Away.
+              </p>
+              <p className="font-paragraph text-dark-gray text-base leading-relaxed">
+                Search Engines Like Google Consider Page Speed As A Ranking Factor. If Your Website Is Slow, It Can Struggle To Rank Even With Good Content. Speed Plays A Bigger Role Than Most People Realize.
+              </p>
+              <p className="font-paragraph text-dark-gray text-base leading-relaxed">
+                Running A Speed Test Helps You See What's Really Happening Behind The Scenes. Tools Like Google PageSpeed Insights And GTmetrix Show Metrics Like Load Time, Interactivity, And Performance Scores.
+              </p>
+              <p className="font-paragraph text-dark-gray text-base leading-relaxed">
+                Most Websites Slow Down Due To Common Issues. Heavy Images, Too Many Scripts, Weak Hosting, And Missing Caching All Add Up. Individually They Seem Small, But Together They Create A Poor Experience.
+              </p>
+              <p className="font-paragraph text-dark-gray text-base leading-relaxed">
+                Improving Speed Doesn't Always Mean Big Changes. Compressing Images, Reducing Code Size, And Using A CDN Can Make A Noticeable Difference. Even Small Fixes Can Improve Performance Quickly.
+              </p>
+              <p className="font-paragraph text-dark-gray text-base leading-relaxed">
+                With Updates Like Core Web Vitals, Speed Directly Impacts SEO. Faster Websites Get Better Visibility, Lower Bounce Rates, And Higher Engagement.
+              </p>
+              <p className="font-paragraph text-dark-gray text-base leading-relaxed">
+                There's Also A Business Impact. Faster Websites Keep Users Longer And Increase Conversions. People Trust And Interact More With Sites That Feel Instant.
+              </p>
+              <p className="font-paragraph text-dark-gray text-base leading-relaxed">
+                Make It A Habit To Speed Test A Site Regularly. Websites Evolve, And So Do Performance Issues. Staying Consistent Helps You Stay Ahead.
+              </p>
+              <p className="font-paragraph text-dark-gray text-base leading-relaxed">
+                In The End, Speed Is Not Just A Metric. It's The Experience Your Visitors Remember.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

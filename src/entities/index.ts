@@ -4,27 +4,6 @@
  */
 
 /**
- * Collection ID: NewsletterSubscribers
- * Interface for NewsletterSubscribers
- */
-export interface NewsletterSubscribers {
-  _id: string;
-  _createdDate?: Date;
-  _updatedDate?: Date;
-  /** @wixFieldType text */
-  emailAddress?: string;
-  /** @wixFieldType date */
-  subscriptionDate?: Date | string;
-  /** @wixFieldType boolean */
-  isActive?: boolean;
-  /** @wixFieldType url */
-  sourceUrl?: string;
-  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
-  profilePicture?: string;
-}
-
-
-/**
  * Collection ID: blogposts
  * Interface for BlogPosts
  */
@@ -139,6 +118,27 @@ export interface JobOpenings {
   datePosted?: Date | string;
   /** @wixFieldType url */
   applicationLink?: string;
+}
+
+
+/**
+ * Collection ID: NewsletterSubscribers
+ * Interface for NewsletterSubscribers
+ */
+export interface NewsletterSubscribers {
+  _id: string;
+  _createdDate?: Date;
+  _updatedDate?: Date;
+  /** @wixFieldType text */
+  emailAddress?: string;
+  /** @wixFieldType date */
+  subscriptionDate?: Date | string;
+  /** @wixFieldType boolean */
+  isActive?: boolean;
+  /** @wixFieldType url */
+  sourceUrl?: string;
+  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
+  profilePicture?: string;
 }
 
 
