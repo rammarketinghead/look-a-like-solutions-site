@@ -1,73 +1,85 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { MemberProvider } from '@/integrations';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import { ScrollToTop } from '@/lib/scroll-to-top';
 import ErrorPage from '@/integrations/errorHandlers/ErrorPage';
 import Layout from '@/components/Layout';
-import HomePage from '@/components/pages/HomePage';
-import AboutPage from '@/components/pages/AboutPage';
-import ServicesPage from '@/components/pages/ServicesPage';
-import CaseStudiesPage from '@/components/pages/CaseStudiesPage';
-import BlogPage from '@/components/pages/BlogPage';
-import BlogPostPage from '@/components/pages/BlogPostPage';
-import ContactPage from '@/components/pages/ContactPage';
-import ToolsPage from '@/components/pages/ToolsPage';
-import SEOPage from '@/components/pages/services/SEOPage';
-import SocialMediaPage from '@/components/pages/services/SocialMediaPage';
-import PaidAdsPage from '@/components/pages/services/PaidAdsPage';
-import WebDevelopmentPage from '@/components/pages/services/WebDevelopmentPage';
-import InfluencerMarketingPage from '@/components/pages/services/InfluencerMarketingPage';
-import ContentMarketingPage from '@/components/pages/services/ContentMarketingPage';
-import DataAnalyticsPage from '@/components/pages/services/DataAnalyticsPage';
-import ConversionOptimizationPage from '@/components/pages/services/ConversionOptimizationPage';
-import EmailMarketingPage from '@/components/pages/services/EmailMarketingPage';
-import YouTubeGrowthPage from '@/components/pages/services/YouTubeGrowthPage';
-import DigitalAuditPage from '@/components/pages/services/DigitalAuditPage';
-import DigitalTrainingPage from '@/components/pages/services/DigitalTrainingPage';
-import LookALikeSolutionsPage from '@/components/pages/services/LookALikeSolutionsPage';
-import SEOKeywordResearchPage from '@/components/pages/tools/SEOKeywordResearchPage';
-import EmailSubjectTesterPage from '@/components/pages/tools/EmailSubjectTesterPage';
-import PPCAdGeneratorPage from '@/components/pages/tools/PPCAdGeneratorPage';
-import KeywordGroupingPage from '@/components/pages/tools/KeywordGroupingPage';
-import KeywordMatchTypesPage from '@/components/pages/tools/KeywordMatchTypesPage';
-import MetaTitleDescriptionGeneratorPage from '@/components/pages/tools/MetaTitleDescriptionGeneratorPage';
-import SERPSnippetPreviewPage from '@/components/pages/tools/SERPSnippetPreviewPage';
-import BacklinkCheckerPage from '@/components/pages/tools/BacklinkCheckerPage';
-import UTMLinkBuilderPage from '@/components/pages/tools/UTMLinkBuilderPage';
-import WebsiteSpeedTestPage from '@/components/pages/tools/WebsiteSpeedTestPage';
-import SocialMediaPostGeneratorPage from '@/components/pages/tools/SocialMediaPostGeneratorPage';
-import AIHumanizerPage from '@/components/pages/tools/AIHumanizerPage';
-import OpenGraphTagGeneratorPage from '@/components/pages/tools/OpenGraphTagGeneratorPage';
-import FaviconGeneratorPage from '@/components/pages/tools/FaviconGeneratorPage';
-import XMLSitemapGeneratorPage from '@/components/pages/tools/XMLSitemapGeneratorPage';
-import RobotsTxtGeneratorPage from '@/components/pages/tools/RobotsTxtGeneratorPage';
-import HashtagGeneratorPage from '@/components/pages/tools/HashtagGeneratorPage';
-import ContentReadabilityCheckerPage from '@/components/pages/tools/ContentReadabilityCheckerPage';
-import GoogleAdsHeadlineGeneratorPage from '@/components/pages/tools/GoogleAdsHeadlineGeneratorPage';
-import BlogTopicGeneratorPage from '@/components/pages/tools/BlogTopicGeneratorPage';
-import ImageAltTextGeneratorPage from '@/components/pages/tools/ImageAltTextGeneratorPage';
-import SitemapPage from '@/components/pages/SitemapPage';
-import PrivacyPolicyPage from '@/components/pages/PrivacyPolicyPage';
-import TermsOfServicePage from '@/components/pages/TermsOfServicePage';
-import CaseStudyDetailPage from '@/components/pages/CaseStudyDetailPage';
-import BlogSlugFixPage from '@/components/pages/BlogSlugFixPage';
-import BlogDataProtectionPage from '@/components/pages/BlogDataProtectionPage';
-import BlogDataRecoveryPage from '@/components/pages/BlogDataRecoveryPage';
-import SpecificBlogRecoveryPage from '@/components/pages/SpecificBlogRecoveryPage';
-import BlogAnalysisPage from '@/components/pages/BlogAnalysisPage';
-import SitemapAdminPage from '@/components/pages/SitemapAdminPage';
-import SitemapHtmlPage from '@/components/pages/SitemapHtmlPage';
-import SearchAnalyticsPage from '@/components/pages/SearchAnalyticsPage';
-import SearchAnalyticsDiagnosticsPage from '@/components/pages/SearchAnalyticsDiagnosticsPage';
-import SearchResultsPage from '@/components/pages/SearchResultsPage';
-import GoogleAdsTrainingPage from '@/components/pages/GoogleAdsTrainingPage';
-import ThankYouPage from '@/components/pages/ThankYouPage';
-import SEOLeadGenerationPage from '@/components/pages/SEOLeadGenerationPage';
-import LawyerLeadGenerationPage from '@/components/pages/LawyerLeadGenerationPage';
-import DoctorLeadGenerationPage from '@/components/pages/DoctorLeadGenerationPage';
-import RealEstateLeadGenerationPage from '@/components/pages/RealEstateLeadGenerationPage';
-import EducationLeadGenerationPage from '@/components/pages/EducationLeadGenerationPage';
-import RestaurantHotelLeadGenerationPage from '@/components/pages/RestaurantHotelLeadGenerationPage';
+import { LoadingSpinner } from '@/components/ui/loading-spinner';
+
+// Lazy load all pages
+const HomePage = React.lazy(() => import('@/components/pages/HomePage'));
+const AboutPage = React.lazy(() => import('@/components/pages/AboutPage'));
+const ServicesPage = React.lazy(() => import('@/components/pages/ServicesPage'));
+const CaseStudiesPage = React.lazy(() => import('@/components/pages/CaseStudiesPage'));
+const BlogPage = React.lazy(() => import('@/components/pages/BlogPage'));
+const BlogPostPage = React.lazy(() => import('@/components/pages/BlogPostPage'));
+const ContactPage = React.lazy(() => import('@/components/pages/ContactPage'));
+const ToolsPage = React.lazy(() => import('@/components/pages/ToolsPage'));
+const SEOPage = React.lazy(() => import('@/components/pages/services/SEOPage'));
+const SocialMediaPage = React.lazy(() => import('@/components/pages/services/SocialMediaPage'));
+const PaidAdsPage = React.lazy(() => import('@/components/pages/services/PaidAdsPage'));
+const WebDevelopmentPage = React.lazy(() => import('@/components/pages/services/WebDevelopmentPage'));
+const InfluencerMarketingPage = React.lazy(() => import('@/components/pages/services/InfluencerMarketingPage'));
+const ContentMarketingPage = React.lazy(() => import('@/components/pages/services/ContentMarketingPage'));
+const DataAnalyticsPage = React.lazy(() => import('@/components/pages/services/DataAnalyticsPage'));
+const ConversionOptimizationPage = React.lazy(() => import('@/components/pages/services/ConversionOptimizationPage'));
+const EmailMarketingPage = React.lazy(() => import('@/components/pages/services/EmailMarketingPage'));
+const YouTubeGrowthPage = React.lazy(() => import('@/components/pages/services/YouTubeGrowthPage'));
+const DigitalAuditPage = React.lazy(() => import('@/components/pages/services/DigitalAuditPage'));
+const DigitalTrainingPage = React.lazy(() => import('@/components/pages/services/DigitalTrainingPage'));
+const LookALikeSolutionsPage = React.lazy(() => import('@/components/pages/services/LookALikeSolutionsPage'));
+const SEOKeywordResearchPage = React.lazy(() => import('@/components/pages/tools/SEOKeywordResearchPage'));
+const EmailSubjectTesterPage = React.lazy(() => import('@/components/pages/tools/EmailSubjectTesterPage'));
+const PPCAdGeneratorPage = React.lazy(() => import('@/components/pages/tools/PPCAdGeneratorPage'));
+const KeywordGroupingPage = React.lazy(() => import('@/components/pages/tools/KeywordGroupingPage'));
+const KeywordMatchTypesPage = React.lazy(() => import('@/components/pages/tools/KeywordMatchTypesPage'));
+const MetaTitleDescriptionGeneratorPage = React.lazy(() => import('@/components/pages/tools/MetaTitleDescriptionGeneratorPage'));
+const SERPSnippetPreviewPage = React.lazy(() => import('@/components/pages/tools/SERPSnippetPreviewPage'));
+const BacklinkCheckerPage = React.lazy(() => import('@/components/pages/tools/BacklinkCheckerPage'));
+const UTMLinkBuilderPage = React.lazy(() => import('@/components/pages/tools/UTMLinkBuilderPage'));
+const WebsiteSpeedTestPage = React.lazy(() => import('@/components/pages/tools/WebsiteSpeedTestPage'));
+const SocialMediaPostGeneratorPage = React.lazy(() => import('@/components/pages/tools/SocialMediaPostGeneratorPage'));
+const AIHumanizerPage = React.lazy(() => import('@/components/pages/tools/AIHumanizerPage'));
+const OpenGraphTagGeneratorPage = React.lazy(() => import('@/components/pages/tools/OpenGraphTagGeneratorPage'));
+const FaviconGeneratorPage = React.lazy(() => import('@/components/pages/tools/FaviconGeneratorPage'));
+const XMLSitemapGeneratorPage = React.lazy(() => import('@/components/pages/tools/XMLSitemapGeneratorPage'));
+const RobotsTxtGeneratorPage = React.lazy(() => import('@/components/pages/tools/RobotsTxtGeneratorPage'));
+const HashtagGeneratorPage = React.lazy(() => import('@/components/pages/tools/HashtagGeneratorPage'));
+const ContentReadabilityCheckerPage = React.lazy(() => import('@/components/pages/tools/ContentReadabilityCheckerPage'));
+const GoogleAdsHeadlineGeneratorPage = React.lazy(() => import('@/components/pages/tools/GoogleAdsHeadlineGeneratorPage'));
+const BlogTopicGeneratorPage = React.lazy(() => import('@/components/pages/tools/BlogTopicGeneratorPage'));
+const ImageAltTextGeneratorPage = React.lazy(() => import('@/components/pages/tools/ImageAltTextGeneratorPage'));
+const SitemapPage = React.lazy(() => import('@/components/pages/SitemapPage'));
+const PrivacyPolicyPage = React.lazy(() => import('@/components/pages/PrivacyPolicyPage'));
+const TermsOfServicePage = React.lazy(() => import('@/components/pages/TermsOfServicePage'));
+const CaseStudyDetailPage = React.lazy(() => import('@/components/pages/CaseStudyDetailPage'));
+const BlogSlugFixPage = React.lazy(() => import('@/components/pages/BlogSlugFixPage'));
+const BlogDataProtectionPage = React.lazy(() => import('@/components/pages/BlogDataProtectionPage'));
+const BlogDataRecoveryPage = React.lazy(() => import('@/components/pages/BlogDataRecoveryPage'));
+const SpecificBlogRecoveryPage = React.lazy(() => import('@/components/pages/SpecificBlogRecoveryPage'));
+const BlogAnalysisPage = React.lazy(() => import('@/components/pages/BlogAnalysisPage'));
+const SitemapAdminPage = React.lazy(() => import('@/components/pages/SitemapAdminPage'));
+const SitemapHtmlPage = React.lazy(() => import('@/components/pages/SitemapHtmlPage'));
+const SearchAnalyticsPage = React.lazy(() => import('@/components/pages/SearchAnalyticsPage'));
+const SearchAnalyticsDiagnosticsPage = React.lazy(() => import('@/components/pages/SearchAnalyticsDiagnosticsPage'));
+const SearchResultsPage = React.lazy(() => import('@/components/pages/SearchResultsPage'));
+const GoogleAdsTrainingPage = React.lazy(() => import('@/components/pages/GoogleAdsTrainingPage'));
+const ThankYouPage = React.lazy(() => import('@/components/pages/ThankYouPage'));
+const SEOLeadGenerationPage = React.lazy(() => import('@/components/pages/SEOLeadGenerationPage'));
+const LawyerLeadGenerationPage = React.lazy(() => import('@/components/pages/LawyerLeadGenerationPage'));
+const DoctorLeadGenerationPage = React.lazy(() => import('@/components/pages/DoctorLeadGenerationPage'));
+const RealEstateLeadGenerationPage = React.lazy(() => import('@/components/pages/RealEstateLeadGenerationPage'));
+const EducationLeadGenerationPage = React.lazy(() => import('@/components/pages/EducationLeadGenerationPage'));
+const RestaurantHotelLeadGenerationPage = React.lazy(() => import('@/components/pages/RestaurantHotelLeadGenerationPage'));
+
+// Loading fallback component
+function PageLoader() {
+  return (
+    <div className="flex items-center justify-center min-h-screen">
+      <LoadingSpinner />
+    </div>
+  );
+}
 
 // Layout wrapper that includes ScrollToTop
 function LayoutWithScrollToTop() {
@@ -79,12 +91,6 @@ function LayoutWithScrollToTop() {
   );
 }
 
-// Lazy load pages to reduce bundle size and fix dynamic import errors
-const lazyLoad = (importFunc: () => Promise<{ default: React.ComponentType<any> }>) => {
-  const Component = React.lazy(importFunc);
-  return <Component />;
-};
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -93,259 +99,259 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HomePage />,
+        element: <Suspense fallback={<PageLoader />}><HomePage /></Suspense>,
       },
       {
         path: "about",
-        element: <AboutPage />,
+        element: <Suspense fallback={<PageLoader />}><AboutPage /></Suspense>,
       },
       {
         path: "services",
-        element: <ServicesPage />,
+        element: <Suspense fallback={<PageLoader />}><ServicesPage /></Suspense>,
       },
       {
         path: "tools",
-        element: <ToolsPage />,
+        element: <Suspense fallback={<PageLoader />}><ToolsPage /></Suspense>,
       },
       {
         path: "tools/seo-keyword-research",
-        element: <SEOKeywordResearchPage />,
+        element: <Suspense fallback={<PageLoader />}><SEOKeywordResearchPage /></Suspense>,
       },
       {
         path: "tools/email-subject-tester",
-        element: <EmailSubjectTesterPage />,
+        element: <Suspense fallback={<PageLoader />}><EmailSubjectTesterPage /></Suspense>,
       },
       {
         path: "tools/ppc-ad-generator",
-        element: <PPCAdGeneratorPage />,
+        element: <Suspense fallback={<PageLoader />}><PPCAdGeneratorPage /></Suspense>,
       },
       {
         path: "tools/keyword-grouping",
-        element: <KeywordGroupingPage />,
+        element: <Suspense fallback={<PageLoader />}><KeywordGroupingPage /></Suspense>,
       },
       {
         path: "tools/keyword-match-types",
-        element: <KeywordMatchTypesPage />,
+        element: <Suspense fallback={<PageLoader />}><KeywordMatchTypesPage /></Suspense>,
       },
       {
         path: "tools/meta-title-description-generator",
-        element: <MetaTitleDescriptionGeneratorPage />,
+        element: <Suspense fallback={<PageLoader />}><MetaTitleDescriptionGeneratorPage /></Suspense>,
       },
       {
         path: "tools/serp-snippet-preview",
-        element: <SERPSnippetPreviewPage />,
+        element: <Suspense fallback={<PageLoader />}><SERPSnippetPreviewPage /></Suspense>,
       },
       {
         path: "tools/backlink-checker",
-        element: <BacklinkCheckerPage />,
+        element: <Suspense fallback={<PageLoader />}><BacklinkCheckerPage /></Suspense>,
       },
       {
         path: "tools/utm-link-builder",
-        element: <UTMLinkBuilderPage />,
+        element: <Suspense fallback={<PageLoader />}><UTMLinkBuilderPage /></Suspense>,
       },
       {
         path: "tools/website-speed-test",
-        element: <WebsiteSpeedTestPage />,
+        element: <Suspense fallback={<PageLoader />}><WebsiteSpeedTestPage /></Suspense>,
       },
       {
         path: "tools/social-media-post-generator",
-        element: <SocialMediaPostGeneratorPage />,
+        element: <Suspense fallback={<PageLoader />}><SocialMediaPostGeneratorPage /></Suspense>,
       },
       {
         path: "tools/ai-humanizer",
-        element: <AIHumanizerPage />,
+        element: <Suspense fallback={<PageLoader />}><AIHumanizerPage /></Suspense>,
       },
       {
         path: "tools/open-graph-tag-generator",
-        element: <OpenGraphTagGeneratorPage />,
+        element: <Suspense fallback={<PageLoader />}><OpenGraphTagGeneratorPage /></Suspense>,
       },
       {
         path: "tools/favicon-generator",
-        element: <FaviconGeneratorPage />,
+        element: <Suspense fallback={<PageLoader />}><FaviconGeneratorPage /></Suspense>,
       },
       {
         path: "tools/xml-sitemap-generator",
-        element: <XMLSitemapGeneratorPage />,
+        element: <Suspense fallback={<PageLoader />}><XMLSitemapGeneratorPage /></Suspense>,
       },
       {
         path: "tools/robots-txt-generator",
-        element: <RobotsTxtGeneratorPage />,
+        element: <Suspense fallback={<PageLoader />}><RobotsTxtGeneratorPage /></Suspense>,
       },
       {
         path: "tools/hashtag-generator",
-        element: <HashtagGeneratorPage />,
+        element: <Suspense fallback={<PageLoader />}><HashtagGeneratorPage /></Suspense>,
       },
       {
         path: "tools/content-readability-checker",
-        element: <ContentReadabilityCheckerPage />,
+        element: <Suspense fallback={<PageLoader />}><ContentReadabilityCheckerPage /></Suspense>,
       },
       {
         path: "tools/google-ads-headline-generator",
-        element: <GoogleAdsHeadlineGeneratorPage />,
+        element: <Suspense fallback={<PageLoader />}><GoogleAdsHeadlineGeneratorPage /></Suspense>,
       },
       {
         path: "tools/blog-topic-generator",
-        element: <BlogTopicGeneratorPage />,
+        element: <Suspense fallback={<PageLoader />}><BlogTopicGeneratorPage /></Suspense>,
       },
       {
         path: "tools/image-alt-text-generator",
-        element: <ImageAltTextGeneratorPage />,
+        element: <Suspense fallback={<PageLoader />}><ImageAltTextGeneratorPage /></Suspense>,
       },
       {
         path: "services/seo",
-        element: <SEOPage />,
+        element: <Suspense fallback={<PageLoader />}><SEOPage /></Suspense>,
       },
       {
         path: "services/social-media",
-        element: <SocialMediaPage />,
+        element: <Suspense fallback={<PageLoader />}><SocialMediaPage /></Suspense>,
       },
       {
         path: "services/paid-ads",
-        element: <PaidAdsPage />,
+        element: <Suspense fallback={<PageLoader />}><PaidAdsPage /></Suspense>,
       },
       {
         path: "services/web-development",
-        element: <WebDevelopmentPage />,
+        element: <Suspense fallback={<PageLoader />}><WebDevelopmentPage /></Suspense>,
       },
       {
         path: "services/influencer-marketing",
-        element: <InfluencerMarketingPage />,
+        element: <Suspense fallback={<PageLoader />}><InfluencerMarketingPage /></Suspense>,
       },
       {
         path: "services/content-marketing",
-        element: <ContentMarketingPage />,
+        element: <Suspense fallback={<PageLoader />}><ContentMarketingPage /></Suspense>,
       },
       {
         path: "services/data-analytics",
-        element: <DataAnalyticsPage />,
+        element: <Suspense fallback={<PageLoader />}><DataAnalyticsPage /></Suspense>,
       },
       {
         path: "services/conversion-optimization",
-        element: <ConversionOptimizationPage />,
+        element: <Suspense fallback={<PageLoader />}><ConversionOptimizationPage /></Suspense>,
       },
       {
         path: "services/email-marketing",
-        element: <EmailMarketingPage />,
+        element: <Suspense fallback={<PageLoader />}><EmailMarketingPage /></Suspense>,
       },
       {
         path: "services/youtube-growth",
-        element: <YouTubeGrowthPage />,
+        element: <Suspense fallback={<PageLoader />}><YouTubeGrowthPage /></Suspense>,
       },
       {
         path: "services/digital-audit",
-        element: <DigitalAuditPage />,
+        element: <Suspense fallback={<PageLoader />}><DigitalAuditPage /></Suspense>,
       },
       {
         path: "services/digital-training",
-        element: <DigitalTrainingPage />,
+        element: <Suspense fallback={<PageLoader />}><DigitalTrainingPage /></Suspense>,
       },
       {
         path: "services/look-a-like-solutions",
-        element: <LookALikeSolutionsPage />,
+        element: <Suspense fallback={<PageLoader />}><LookALikeSolutionsPage /></Suspense>,
       },
       {
         path: "case-studies",
-        element: <CaseStudiesPage />,
+        element: <Suspense fallback={<PageLoader />}><CaseStudiesPage /></Suspense>,
       },
       {
         path: "case-studies/:id",
-        element: <CaseStudyDetailPage />,
+        element: <Suspense fallback={<PageLoader />}><CaseStudyDetailPage /></Suspense>,
       },
       {
         path: "blog",
-        element: <BlogPage />,
+        element: <Suspense fallback={<PageLoader />}><BlogPage /></Suspense>,
       },
       {
         path: "blog/:slug",
-        element: <BlogPostPage />,
+        element: <Suspense fallback={<PageLoader />}><BlogPostPage /></Suspense>,
       },
       {
         path: "contact",
-        element: <ContactPage />,
+        element: <Suspense fallback={<PageLoader />}><ContactPage /></Suspense>,
       },
       {
         path: "search",
-        element: <SearchResultsPage />,
+        element: <Suspense fallback={<PageLoader />}><SearchResultsPage /></Suspense>,
       },
       {
         path: "privacy",
-        element: <PrivacyPolicyPage />,
+        element: <Suspense fallback={<PageLoader />}><PrivacyPolicyPage /></Suspense>,
       },
       {
         path: "terms",
-        element: <TermsOfServicePage />,
+        element: <Suspense fallback={<PageLoader />}><TermsOfServicePage /></Suspense>,
       },
       {
         path: "sitemap.xml",
-        element: <SitemapPage />,
+        element: <Suspense fallback={<PageLoader />}><SitemapPage /></Suspense>,
       },
       {
         path: "sitemap",
-        element: <SitemapHtmlPage />,
+        element: <Suspense fallback={<PageLoader />}><SitemapHtmlPage /></Suspense>,
       },
       {
         path: "admin/blog-slug-fix",
-        element: <BlogSlugFixPage />,
+        element: <Suspense fallback={<PageLoader />}><BlogSlugFixPage /></Suspense>,
       },
       {
         path: "admin/blog-data-protection",
-        element: <BlogDataProtectionPage />,
+        element: <Suspense fallback={<PageLoader />}><BlogDataProtectionPage /></Suspense>,
       },
       {
         path: "admin/blog-data-recovery",
-        element: <BlogDataRecoveryPage />,
+        element: <Suspense fallback={<PageLoader />}><BlogDataRecoveryPage /></Suspense>,
       },
       {
         path: "admin/specific-blog-recovery",
-        element: <SpecificBlogRecoveryPage />,
+        element: <Suspense fallback={<PageLoader />}><SpecificBlogRecoveryPage /></Suspense>,
       },
       {
         path: "admin/blog-analysis",
-        element: <BlogAnalysisPage />,
+        element: <Suspense fallback={<PageLoader />}><BlogAnalysisPage /></Suspense>,
       },
       {
         path: "admin/sitemap",
-        element: <SitemapAdminPage />,
+        element: <Suspense fallback={<PageLoader />}><SitemapAdminPage /></Suspense>,
       },
       {
         path: "admin/search-analytics",
-        element: <SearchAnalyticsPage />,
+        element: <Suspense fallback={<PageLoader />}><SearchAnalyticsPage /></Suspense>,
       },
       {
         path: "admin/search-analytics-diagnostics",
-        element: <SearchAnalyticsDiagnosticsPage />,
+        element: <Suspense fallback={<PageLoader />}><SearchAnalyticsDiagnosticsPage /></Suspense>,
       },
       {
         path: "google-ads-training",
-        element: <GoogleAdsTrainingPage />,
+        element: <Suspense fallback={<PageLoader />}><GoogleAdsTrainingPage /></Suspense>,
       },
       {
         path: "thank-you",
-        element: <ThankYouPage />,
+        element: <Suspense fallback={<PageLoader />}><ThankYouPage /></Suspense>,
       },
       {
         path: "seo-lead-generation",
-        element: <SEOLeadGenerationPage />,
+        element: <Suspense fallback={<PageLoader />}><SEOLeadGenerationPage /></Suspense>,
       },
       {
         path: "lawyer-lead-generation",
-        element: <LawyerLeadGenerationPage />,
+        element: <Suspense fallback={<PageLoader />}><LawyerLeadGenerationPage /></Suspense>,
       },
       {
         path: "doctor-lead-generation",
-        element: <DoctorLeadGenerationPage />,
+        element: <Suspense fallback={<PageLoader />}><DoctorLeadGenerationPage /></Suspense>,
       },
       {
         path: "real-estate-lead-generation",
-        element: <RealEstateLeadGenerationPage />,
+        element: <Suspense fallback={<PageLoader />}><RealEstateLeadGenerationPage /></Suspense>,
       },
       {
         path: "education-lead-generation",
-        element: <EducationLeadGenerationPage />,
+        element: <Suspense fallback={<PageLoader />}><EducationLeadGenerationPage /></Suspense>,
       },
       {
         path: "restaurant-hotel-lead-generation",
-        element: <RestaurantHotelLeadGenerationPage />,
+        element: <Suspense fallback={<PageLoader />}><RestaurantHotelLeadGenerationPage /></Suspense>,
       },
       {
         path: "*",
