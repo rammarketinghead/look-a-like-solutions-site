@@ -540,7 +540,7 @@ export default function Layout() {
                   <div className="mt-6 pt-4 border-t border-white/10">
                     <WhatsAppButton 
                       variant="inline" 
-                      phoneNumber="+919845214099"
+                      phoneNumber="+919731588244"
                       message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
                       className="w-full bg-green-600 hover:bg-green-700 text-white border-0 rounded-lg py-3 px-4 font-medium transition-colors duration-200"
                     />
@@ -588,7 +588,7 @@ export default function Layout() {
       <ChatWidget />
       {/* WhatsApp Floating Button */}
       <WhatsAppButton 
-        phoneNumber="+919845214099"
+        phoneNumber="+919731588244"
         message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
       />
       {/* Exit Intent Popup */}
