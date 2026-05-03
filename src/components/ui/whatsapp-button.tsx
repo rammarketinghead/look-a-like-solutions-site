@@ -24,7 +24,7 @@ const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
 
   if (variant === 'floating') {
     return (
-      <div className={`fixed bottom-4 left-4 z-50 ${className}`}>
+      <div className={`fixed bottom-4 right-4 z-50 ${className}`}>
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
