@@ -234,8 +234,8 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <p className="mobile-body text-secondary">
                   <strong>Phone:</strong>{' '}
-                  <a href="tel:+919845214099" className="text-primary hover:underline">
-                    +91-9845214099
+                  <a href="tel:+919731588244" className="text-primary hover:underline">
+                    +91-9731588244
                   </a>
                 </p>
                 <p className="mobile-body text-secondary">

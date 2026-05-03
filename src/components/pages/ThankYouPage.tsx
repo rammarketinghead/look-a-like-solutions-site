@@ -545,10 +545,10 @@ export default function ThankYouPage() {
             </a>
             <div className="hidden sm:block w-1 h-6 bg-light-gray" />
             <a
-              href="tel:+91-9845214099"
+              href="tel:+91-9731588244"
               className="flex items-center gap-2 text-primary hover:text-blue-700 font-heading font-semibold transition-colors"
             >
-              <span>+91-9845214099</span>
+              <span>+91-9731588244</span>
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
