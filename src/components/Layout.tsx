@@ -4,7 +4,6 @@ import { SearchBar } from '@/components/ui/search-bar';
 import { Image } from '@/components/ui/image';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Breadcrumb } from '@/components/ui/breadcrumb';
-import ChatWidget from '@/components/ui/chat-widget';
 import WhatsAppButton from '@/components/ui/whatsapp-button';
 import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
 import { SEOHead } from '@/components/ui/seo-head';
@@ -584,8 +583,6 @@ export default function Layout() {
           </div>
         </div>
       </footer>
-      {/* Chat Widget */}
-      <ChatWidget />
       {/* WhatsApp Floating Button */}
       <WhatsAppButton 
         phoneNumber="+919731588244"
