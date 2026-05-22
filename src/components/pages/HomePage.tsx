@@ -262,7 +262,6 @@ export default function HomePage() {
           }
         ]}
       />
-      
       {/* Mobile-First Hero Section */}
       <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Elements */}
@@ -272,11 +271,13 @@ export default function HomePage() {
         {/* Hero Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://static.wixstatic.com/media/f650f9_a19761649238486fa7792dc7db8ba1c4~mv2.png?originWidth=1600&originHeight=384"
-            alt="Digital marketing excellence"
+            src="https://static.wixstatic.com/media/f650f9_fc70e561b6ca4bf0bb01ec5de399345b~mv2.png"
             width={1600}
-            className="w-full h-full object-cover opacity-20"
-          />
+            className="w-full h-full object-cover opacity-[0.95]"
+            originWidth={1717}
+            originHeight={916}
+            focalPointX={75.90273733255678}
+            focalPointY={45.06004366812227} />
         </div>
 
         {/* Hero Content */}
@@ -294,33 +295,13 @@ export default function HomePage() {
                 #1 Digital Marketing Agency in Bengaluru
               </div>
             </motion.div>
-
             {/* Main Heading - Benefit-Driven */}
             <motion.h1 variants={fadeInVariants} className="mobile-h1 text-dark-gray mb-6">
               Get More Customers. Grow Your Revenue.
               <span className="text-primary block mt-2">See Results in 90 Days.</span>
             </motion.h1>
-
             {/* Subheading - Clear Value */}
-            <motion.p variants={fadeInVariants} className="mobile-body-lg text-secondary mb-8 max-w-2xl mx-auto">
-              We turn your website into a customer-generating machine with proven digital marketing strategies. No jargon. Just growth.
-            </motion.p>
-
             {/* CTA Buttons */}
-            <motion.div variants={fadeInVariants} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Link to="/contact">
-                <Button className="mobile-btn-primary shadow-lg hover:shadow-xl w-full sm:w-auto">
-                  Get Free Strategy Session
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link to="/case-studies">
-                <Button className="mobile-btn-secondary w-full sm:w-auto">
-                  <Play className="mr-2 h-5 w-5" />
-                  View Success Stories
-                </Button>
-              </Link>
-            </motion.div>
 
             {/* Trust Indicators */}
             <motion.div variants={fadeInVariants} className="flex flex-wrap justify-center items-center gap-6 text-secondary mobile-body-sm">
@@ -340,7 +321,6 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
-
       {/* Services Overview */}
       <section className="mobile-section bg-background">
         <div className="mobile-container">
@@ -414,7 +394,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Real Client Success Story - Featured Case Study */}
       <section className="mobile-section bg-background">
         <div className="mobile-container">
@@ -559,7 +538,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Process Section */}
       <section className="mobile-section bg-light-gray">
         <div className="mobile-container">
@@ -643,7 +621,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Trusted By Section */}
       <section className="bg-background">
         <TrustedBusinessesCarousel 
@@ -653,7 +630,6 @@ export default function HomePage() {
           speed={25}
         />
       </section>
-
       {/* Results Section */}
       <section className="mobile-section bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
@@ -708,7 +684,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Testimonials Section */}
       <section className="mobile-section bg-light-gray">
         <div className="mobile-container">
@@ -793,7 +768,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Why Choose Us */}
       <section className="mobile-section bg-background">
         <div className="mobile-container">
@@ -848,13 +822,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Blog Section */}
       <BlogSection />
-
       {/* Newsletter Subscription Section */}
       <NewsletterSection />
-
       {/* CTA Section */}
       <section className="mobile-section bg-dark-gray">
         <div className="mobile-container text-center">
