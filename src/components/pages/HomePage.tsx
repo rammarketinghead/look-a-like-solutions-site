@@ -267,7 +267,6 @@ export default function HomePage() {
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-light-gray"></div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23007BFF%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
-        
         {/* Hero Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -279,47 +278,8 @@ export default function HomePage() {
             focalPointX={75.90273733255678}
             focalPointY={45.06004366812227} />
         </div>
-
         {/* Hero Content */}
-        <div className="relative z-10 mobile-container text-center">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-            className="max-w-4xl mx-auto"
-          >
-            {/* Badge */}
-            <motion.div variants={fadeInVariants} className="mb-6">
-              <div className="inline-flex items-center bg-primary/10 backdrop-blur-sm text-primary px-4 py-2 rounded-full mobile-body-sm font-medium">
-                <Target className="h-4 w-4 mr-2" />
-                #1 Digital Marketing Agency in Bengaluru
-              </div>
-            </motion.div>
-            {/* Main Heading - Benefit-Driven */}
-            <motion.h1 variants={fadeInVariants} className="mobile-h1 text-dark-gray mb-6">
-              Get More Customers. Grow Your Revenue.
-              <span className="text-primary block mt-2">See Results in 90 Days.</span>
-            </motion.h1>
-            {/* Subheading - Clear Value */}
-            {/* CTA Buttons */}
 
-            {/* Trust Indicators */}
-            <motion.div variants={fadeInVariants} className="flex flex-wrap justify-center items-center gap-6 text-secondary mobile-body-sm">
-              <div className="flex items-center">
-                <Star className="h-4 w-4 text-yellow-500 mr-1" />
-                <span>500+ Happy Clients</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircle className="h-4 w-4 text-green-500 mr-1" />
-                <span>98% Success Rate</span>
-              </div>
-              <div className="flex items-center">
-                <Target className="h-4 w-4 text-primary mr-1" />
-                <span>150% Avg Growth</span>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
       </section>
       {/* Services Overview */}
       <section className="mobile-section bg-background">
