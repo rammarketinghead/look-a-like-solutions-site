@@ -88,8 +88,7 @@ export default function Layout() {
         { name: 'Restaurant & Hotel Lead Generation', href: '/restaurant-hotel-lead-generation', icon: '🍽️' },
         { name: 'Education Lead Generation', href: '/education-lead-generation', icon: '🎓' }
       ]
-    },
-    { name: 'Blog', href: '/blog' }
+    }
   ];
 
   const isActive = (href: string) => {
@@ -464,6 +463,14 @@ export default function Layout() {
                         </Link>
                       </li>
                     ))}
+                    <li>
+                      <Link 
+                        to="/blog" 
+                        className="mobile-body text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
+                      >
+                        Blog
+                      </Link>
+                    </li>
                     <li>
                       <Link 
                         to="/case-studies" 
