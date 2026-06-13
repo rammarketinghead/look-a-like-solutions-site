@@ -6,8 +6,6 @@ import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell } from 'recharts';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 
 // Types
 interface CPCData {
@@ -657,7 +655,6 @@ export default function MarketingFunnelROICalculatorPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
       <HeroSection onScroll={handleScroll} />
       <CSVImportSection onCPCUpdate={handleCPCUpdate} />
       <FormSection inputs={formInputs} setInputs={setFormInputs} formRef={formRef} />
@@ -665,7 +662,6 @@ export default function MarketingFunnelROICalculatorPage() {
       <ImpactSimulatorSection formInputs={formInputs} setFormInputs={setFormInputs} metrics={metrics} />
       <ProfitabilityAnalysisSection metrics={metrics} />
       <VisualAnalyticsSection metrics={metrics} />
-      <Footer />
     </div>
   );
 }
