@@ -236,6 +236,16 @@ export default function ToolsPage() {
       features: ['Remove Robotic Tone', 'Natural Flow', 'Multiple Tones', 'Preserve Meaning'],
       color: 'from-purple-500 to-purple-600',
       category: 'Content Marketing'
+    },
+    {
+      id: 'marketing-funnel-roi-calculator',
+      title: 'Marketing Funnel ROI Calculator',
+      description: 'Calculate and optimize your marketing funnel ROI. Track conversion rates, costs, and revenue at each stage.',
+      icon: TrendingUp,
+      href: '/tools/marketing-funnel-roi-calculator',
+      features: ['Multi-Stage Tracking', 'ROI Calculation', 'Conversion Analysis', 'Revenue Projection'],
+      color: 'from-green-500 to-green-600',
+      category: 'Analytics'
     }
   ];
 
