@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { MemberProvider } from '@/integrations';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import { ScrollToTop } from '@/lib/scroll-to-top';
-import ErrorPage from '@/integrations/errorHandlers/ErrorPage';
+import ErrorPage from '@/components/pages/ErrorPage';
 import Layout from '@/components/Layout';
 import { LoadingSpinner } from '@/components/ui/loading-spinner';
 
