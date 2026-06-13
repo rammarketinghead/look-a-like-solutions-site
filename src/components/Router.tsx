@@ -49,6 +49,7 @@ const ContentReadabilityCheckerPage = React.lazy(() => import('@/components/page
 const GoogleAdsHeadlineGeneratorPage = React.lazy(() => import('@/components/pages/tools/GoogleAdsHeadlineGeneratorPage'));
 const BlogTopicGeneratorPage = React.lazy(() => import('@/components/pages/tools/BlogTopicGeneratorPage'));
 const ImageAltTextGeneratorPage = React.lazy(() => import('@/components/pages/tools/ImageAltTextGeneratorPage'));
+const MarketingFunnelROICalculatorPage = React.lazy(() => import('@/components/pages/tools/MarketingFunnelROICalculatorPage'));
 const SitemapPage = React.lazy(() => import('@/components/pages/SitemapPage'));
 const PrivacyPolicyPage = React.lazy(() => import('@/components/pages/PrivacyPolicyPage'));
 const TermsOfServicePage = React.lazy(() => import('@/components/pages/TermsOfServicePage'));
@@ -196,6 +197,10 @@ const router = createBrowserRouter([
       {
         path: "tools/image-alt-text-generator",
         element: <Suspense fallback={<PageLoader />}><ImageAltTextGeneratorPage /></Suspense>,
+      },
+      {
+        path: "tools/marketing-funnel-roi-calculator",
+        element: <Suspense fallback={<PageLoader />}><MarketingFunnelROICalculatorPage /></Suspense>,
       },
       {
         path: "services/seo",
