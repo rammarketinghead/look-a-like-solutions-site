@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import { SEOHead } from '@/components/ui/seo-head';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -183,12 +183,12 @@ export default function WebsiteSpeedTestPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Speed Test A Site Fast & Improve Website Performance</title>
-        <meta name="description" content="Speed Test A Site To Analyze Load Time, Fix Issues, And Boost SEO Rankings. Get Accurate Insights, Improve Core Web Vitals, And Deliver Faster User Experience Today." />
-        <meta property="og:title" content="Speed Test A Site Fast & Improve Website Performance" />
-        <meta property="og:description" content="Speed Test A Site To Analyze Load Time, Fix Issues, And Boost SEO Rankings. Get Accurate Insights, Improve Core Web Vitals, And Deliver Faster User Experience Today." />
-      </Helmet>
+      <SEOHead 
+        title="Speed Test A Site Fast & Improve Website Performance"
+        description="Speed Test A Site To Analyze Load Time, Fix Issues, And Boost SEO Rankings. Get Accurate Insights, Improve Core Web Vitals, And Deliver Faster User Experience Today."
+        ogTitle="Speed Test A Site Fast & Improve Website Performance"
+        ogDescription="Speed Test A Site To Analyze Load Time, Fix Issues, And Boost SEO Rankings. Get Accurate Insights, Improve Core Web Vitals, And Deliver Faster User Experience Today."
+      />
 
       {/* Header */}
       <section className="py-16 bg-gradient-to-r from-yellow-50 to-yellow-100">
