@@ -153,13 +153,13 @@ export default function Layout() {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <a href="https://facebook.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              <a href="https://www.facebook.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                 <Facebook className="h-4 w-4" />
               </a>
-              <a href="https://instagram.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              <a href="https://www.instagram.com/lookalikesolutions/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                 <Instagram className="h-4 w-4" />
               </a>
-              <a href="https://youtube.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              <a href="https://www.youtube.com/@thelookalikesolutions" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                 <Youtube className="h-4 w-4" />
               </a>
             </div>
@@ -361,16 +361,16 @@ export default function Layout() {
 
                     {/* Mobile Social Links */}
                     <div className="flex items-center space-x-4 mt-4">
-                      <a href="https://facebook.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors">
+                      <a href="https://www.facebook.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors">
                         <Facebook className="h-5 w-5" />
                       </a>
-                      <a href="https://instagram.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors">
+                      <a href="https://www.instagram.com/lookalikesolutions/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors">
                         <Instagram className="h-5 w-5" />
                       </a>
-                      <a href="https://youtube.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors">
+                      <a href="https://www.youtube.com/@thelookalikesolutions" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors">
                         <Youtube className="h-5 w-5" />
                       </a>
-                      <a href="https://linkedin.com/company/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors">
+                      <a href="https://www.linkedin.com/company/lookalikesolutions/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors">
                         <Linkedin className="h-5 w-5" />
                       </a>
                     </div>
@@ -417,10 +417,10 @@ export default function Layout() {
                   <h3 className="mobile-body-sm font-heading text-white mb-3 uppercase tracking-wide">Follow Us</h3>
                   <div className="flex space-x-3">
                     {[
-                      { icon: Facebook, href: "https://facebook.com/lookalikesolutions", label: "Facebook" },
-                      { icon: Instagram, href: "https://instagram.com/lookalikesolutions", label: "Instagram" },
-                      { icon: Youtube, href: "https://youtube.com/lookalikesolutions", label: "YouTube" },
-                      { icon: Linkedin, href: "https://linkedin.com/company/lookalikesolutions", label: "LinkedIn" }
+                      { icon: Facebook, href: "https://www.facebook.com/lookalikesolutions", label: "Facebook" },
+                      { icon: Instagram, href: "https://www.instagram.com/lookalikesolutions/", label: "Instagram" },
+                      { icon: Youtube, href: "https://www.youtube.com/@thelookalikesolutions", label: "YouTube" },
+                      { icon: Linkedin, href: "https://www.linkedin.com/company/lookalikesolutions/", label: "LinkedIn" }
                     ].map((social) => (
                       <a 
                         key={social.label}
