@@ -293,6 +293,33 @@ export default function HomePage() {
             focalPointY={45.06004366812227} />
         </div>
         {/* Hero Content */}
+        <div className="relative z-10 mobile-container text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="mobile-h1 text-dark-gray mb-6 font-bold">
+              Grow Your Business with Data-Driven Digital Marketing
+            </h1>
+            <p className="mobile-body-lg text-secondary max-w-2xl mx-auto mb-8">
+              Get more customers, increase revenue, and dominate your market with proven digital marketing strategies. Free strategy session available.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/contact">
+                <Button className="mobile-btn-primary shadow-lg hover:shadow-xl">
+                  Get Free Consultation
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link to="/services">
+                <Button className="mobile-btn-secondary shadow-lg hover:shadow-xl">
+                  Explore Services
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
 
       </section>
       {/* Services Overview */}

@@ -117,6 +117,7 @@ export default function ContactPage() {
       {/* Contact Form & Info */}
       <section className="py-16 sm:py-24 lg:py-32 bg-background">
         <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="sr-only">Contact Us</h1>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
             {/* Contact Information */}
             <div className="lg:col-span-1">
