@@ -159,9 +159,9 @@ export default function AboutPage() {
               
               <div className="grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-gray-200">
                 {[
-                  { number: '500+', label: 'Projects Delivered' },
+                  { number: '150+', label: 'Projects Completed' },
                   { number: '98%', label: 'Client Satisfaction' },
-                  { number: '50+', label: 'Team Members' }
+                  { number: '5+', label: 'Team Members' }
                 ].map((stat, index) => (
                   <div key={index} className="text-center">
                     <div className="mobile-h3 text-primary font-bold mb-1">{stat.number}</div>
