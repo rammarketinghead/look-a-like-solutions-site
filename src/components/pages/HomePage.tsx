@@ -644,7 +644,7 @@ export default function HomePage() {
             className="mobile-grid-2 lg:grid-cols-4"
           >
             {[
-              { number: '500+', label: 'Businesses Helped', icon: '😊' },
+              { number: '150+', label: 'Projects Completed', icon: '😊' },
               { number: '285%', label: 'Average Revenue Growth', icon: '📈' },
               { number: '4.8x', label: 'Average ROI', icon: '🎯' },
               { number: '98%', label: 'Client Retention Rate', icon: '🤝' }
