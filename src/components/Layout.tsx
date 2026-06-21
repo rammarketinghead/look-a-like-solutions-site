@@ -5,7 +5,7 @@ import { Image } from '@/components/ui/image';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Breadcrumb } from '@/components/ui/breadcrumb';
 import WhatsAppButton from '@/components/ui/whatsapp-button';
-import { ExitIntentPopup } from '@/components/ui/exit-intent-popup';
+
 import { SEOHead } from '@/components/ui/seo-head';
 import { useSitemapUpdater } from '@/hooks/useSitemapUpdater';
 import { Menu, Phone, Mail, MapPin, ChevronDown, ChevronRight, Facebook, Instagram, Youtube, Linkedin, Heart, ArrowRight, Check } from 'lucide-react';
@@ -41,8 +41,7 @@ export default function Layout() {
     setExpandedMobileMenu(null);
   }, [location.pathname]);
 
-  // Determine if we should show the exit intent popup
-  const shouldShowExitIntent = !location.pathname.includes('/contact') && !location.pathname.includes('/thank-you');
+
 
   const navigation = [
     { 
@@ -595,8 +594,7 @@ export default function Layout() {
         phoneNumber="+919731588244"
         message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
       />
-      {/* Exit Intent Popup */}
-      {shouldShowExitIntent && <ExitIntentPopup />}
+
     </div>
   );
 }
