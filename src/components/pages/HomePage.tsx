@@ -44,9 +44,12 @@ function BlogSection() {
     const fetchBlogPosts = async () => {
       try {
         setError(null);
+        setLoading(true);
+        
         const result = await BaseCrudService.getAll<BlogPosts>('blogposts');
         
-        if (!result || !result.items) {
+        if (!result || !result.items || result.items.length === 0) {
+          setBlogPosts([]);
           setLoading(false);
           return;
         }
@@ -55,7 +58,7 @@ function BlogSection() {
         
         // Filter and sort posts
         const validPosts = items
-          .filter(post => post.title && post.content && post.slug)
+          .filter(post => post && post.title && post.content && post.slug)
           .sort((a, b) => {
             const dateA = a.publishedDate ? new Date(a.publishedDate).getTime() : 0;
             const dateB = b.publishedDate ? new Date(b.publishedDate).getTime() : 0;
@@ -66,6 +69,7 @@ function BlogSection() {
         setBlogPosts(validPosts);
       } catch (err) {
         console.error('Error fetching blog posts:', err);
+        setBlogPosts([]);
         setError(null); // Don't show error to user, just hide the section
       } finally {
         setLoading(false);
@@ -89,7 +93,12 @@ function BlogSection() {
     return `${minutes} min read`;
   };
 
-  if (loading || blogPosts.length === 0) {
+  // Don't render if still loading or no posts - return null silently
+  if (loading) {
+    return null;
+  }
+  
+  if (blogPosts.length === 0) {
     return null;
   }
 
@@ -120,46 +129,51 @@ function BlogSection() {
           variants={containerVariants}
           className="mobile-grid-1 lg:grid-cols-3"
         >
-          {blogPosts.map((post, index) => (
-            <motion.div key={post._id} variants={scaleInVariants}>
-              <Link to={`/blog/${post.slug}`} className="block h-full">
-                <Card className="mobile-card group hover:shadow-xl transition-all duration-300 h-full overflow-hidden">
-                  {post.featuredImage && (
-                    <div className="relative h-48 overflow-hidden">
-                      <Image
-                        src={post.featuredImage}
-                        alt={post.title || 'Blog post'}
-                        width={400}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  )}
-                  <CardContent className="mobile-card-padding">
-                    <div className="flex items-center gap-4 mb-3 mobile-body-sm text-secondary">
-                      <div className="flex items-center">
-                        <Calendar className="h-4 w-4 mr-1" />
-                        {formatDate(post.publishedDate)}
+          {blogPosts.map((post) => {
+            // Safety check for required fields
+            if (!post._id || !post.slug || !post.title) return null;
+            
+            return (
+              <motion.div key={post._id} variants={scaleInVariants}>
+                <Link to={`/blog/${post.slug}`} className="block h-full">
+                  <Card className="mobile-card group hover:shadow-xl transition-all duration-300 h-full overflow-hidden">
+                    {post.featuredImage && (
+                      <div className="relative h-48 overflow-hidden">
+                        <Image
+                          src={post.featuredImage}
+                          alt={post.title || 'Blog post'}
+                          width={400}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
                       </div>
-                      <div className="flex items-center">
-                        <Clock className="h-4 w-4 mr-1" />
-                        {calculateReadTime(post.content)}
+                    )}
+                    <CardContent className="mobile-card-padding">
+                      <div className="flex items-center gap-4 mb-3 mobile-body-sm text-secondary">
+                        <div className="flex items-center">
+                          <Calendar className="h-4 w-4 mr-1" />
+                          {formatDate(post.publishedDate)}
+                        </div>
+                        <div className="flex items-center">
+                          <Clock className="h-4 w-4 mr-1" />
+                          {calculateReadTime(post.content)}
+                        </div>
                       </div>
-                    </div>
-                    <h3 className="mobile-h4 text-dark-gray mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                      {post.title}
-                    </h3>
-                    <p className="mobile-body text-secondary line-clamp-3 mb-4">
-                      {post.excerpt || post.content?.substring(0, 150) + '...'}
-                    </p>
-                    <div className="flex items-center text-primary mobile-body-sm font-medium group-hover:gap-2 transition-all">
-                      Read More
-                      <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            </motion.div>
-          ))}
+                      <h3 className="mobile-h4 text-dark-gray mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                        {post.title}
+                      </h3>
+                      <p className="mobile-body text-secondary line-clamp-3 mb-4">
+                        {post.excerpt || post.content?.substring(0, 150) + '...'}
+                      </p>
+                      <div className="flex items-center text-primary mobile-body-sm font-medium group-hover:gap-2 transition-all">
+                        Read More
+                        <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         <div className="text-center mt-12">
