@@ -565,7 +565,7 @@ export default function Layout() {
             <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
               <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6">
                 <p className="mobile-body-sm text-gray-400 text-center sm:text-left">
-                  © 2024 Look A Like Solutions. All rights reserved.
+                  © {new Date().getFullYear()} Look A Like Solutions. All rights reserved.
                 </p>
                 <div className="flex items-center space-x-2 text-gray-400 mobile-body-sm">
                   <span>Made with</span>
