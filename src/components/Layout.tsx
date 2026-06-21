@@ -167,6 +167,7 @@ export default function Layout() {
         </div>
       </div>
       {/* Mobile-First Header */}
+      {!isSitemapPage && (
       <header className={`mobile-sticky-header transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
         <div className="mobile-container">
           {/* Main Header Row */}
@@ -381,6 +382,7 @@ export default function Layout() {
         </div>
         </div>
       </header>
+      )}
       {/* Breadcrumb */}
       <Breadcrumb />
       {/* Main Content */}
