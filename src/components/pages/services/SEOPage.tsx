@@ -26,8 +26,8 @@ export default function SEOPage() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead 
-        title="SEO Services in Bengaluru - Rank #1 on Google & Get More Customers"
-        description="Professional SEO services in Bengaluru. Increase organic traffic by 300%+, rank #1 on Google, and get more customers. Proven SEO strategies with guaranteed results. Free SEO audit available."
+        title="SEO Services in Bengaluru - Rank #1 on Google"
+        description="Professional SEO services in Bengaluru. Increase organic traffic 300%+, rank #1 on Google. Proven strategies, free audit. Get more customers today."
         keywords="SEO services Bengaluru, SEO company Bengaluru, search engine optimization, Google ranking, organic traffic, local SEO, SEO expert Bengaluru, SEO agency India"
         type="service"
         schemaType="Service"
@@ -39,6 +39,34 @@ export default function SEOPage() {
             priceRange: "$"
           }
         ]}
+        faqs={[
+          {
+            question: "How long does it take to see SEO results in Bengaluru?",
+            answer: "Most businesses see initial results within 3-6 months. Significant improvements typically occur within 6-12 months depending on competition and current website state. We provide monthly reporting to track progress."
+          },
+          {
+            question: "What is included in your SEO services?",
+            answer: "Our SEO services include keyword research, on-page optimization, technical SEO, content strategy, link building, local SEO optimization, and monthly performance reporting."
+          },
+          {
+            question: "Do you guarantee first page rankings?",
+            answer: "We don't guarantee specific rankings as no one can. However, our proven strategies have achieved first-page rankings for 85% of our clients within 6-12 months."
+          },
+          {
+            question: "How much does SEO cost in Bengaluru?",
+            answer: "Our SEO packages start at ₹25,000/month for startups and go up to ₹1,00,000+/month for enterprise solutions. We offer custom packages based on your specific needs."
+          }
+        ]}
+        localBusiness={{
+          name: "Look A Like Solutions",
+          telephone: "+91-XXXXXXXXXX",
+          streetAddress: "Your Street Address",
+          addressLocality: "Bengaluru",
+          addressRegion: "Karnataka",
+          postalCode: "560001",
+          latitude: 12.9716,
+          longitude: 77.5946
+        }}
         reviews={[
           {
             author: "Rajesh Kumar",
@@ -64,8 +92,8 @@ export default function SEOPage() {
                 SEO Optimization Service
               </div>
               <h1 className="font-heading text-dark-gray mb-8 text-6xl">
-                Dominate Search Results with 
-                <span className="text-primary block">Expert SEO</span>
+                SEO Services in Bengaluru - 
+                <span className="text-primary block">Rank #1 on Google</span>
               </h1>
               <p className="text-xl font-paragraph text-secondary mb-12 leading-relaxed">
                 Boost your organic visibility, drive qualified traffic, and increase conversions with our data-driven SEO strategies. Get found by customers actively searching for your services.

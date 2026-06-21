@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
+import { SEOHead } from '@/components/ui/seo-head';
 import { NewsletterSection } from '@/components/ui/newsletter-section';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { ROICalculator } from '@/components/ui/roi-calculator';
@@ -50,6 +51,40 @@ export default function ContentMarketingPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Content Marketing Services Bengaluru - Drive Engagement"
+        description="Expert content marketing in Bengaluru. Blog posts, videos, social content, SEO-optimized. Build authority, drive traffic. Free content strategy consultation."
+        keywords="content marketing Bengaluru, content creation, blog writing, video marketing, content strategy, copywriting, content marketing agency, digital content"
+        type="service"
+        schemaType="Service"
+        services={[
+          {
+            name: "Content Marketing Services",
+            description: "Strategic content creation and marketing including blog posts, videos, infographics, social media content, and more. We create engaging, SEO-optimized content that drives traffic and conversions.",
+            areaServed: "Bengaluru, Karnataka, India",
+            priceRange: "$"
+          }
+        ]}
+        faqs={contentFAQs}
+        localBusiness={{
+          name: "Look A Like Solutions",
+          telephone: "+91-XXXXXXXXXX",
+          streetAddress: "Your Street Address",
+          addressLocality: "Bengaluru",
+          addressRegion: "Karnataka",
+          postalCode: "560001",
+          latitude: 12.9716,
+          longitude: 77.5946
+        }}
+        reviews={[
+          {
+            author: "Arjun Reddy",
+            rating: 5,
+            reviewBody: "Their content marketing strategy transformed our brand visibility. Our blog now gets 10,000+ monthly visitors, and we've generated 200+ qualified leads from content alone.",
+            datePublished: "2024-08-25"
+          }
+        ]}
+      />
       {/* Hero Section */}
       <section className="py-32 bg-gradient-to-br from-primary/5 via-background to-light-gray relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23007BFF%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
@@ -66,8 +101,8 @@ export default function ContentMarketingPage() {
                 Content Marketing Service
               </div>
               <h1 className="text-6xl font-heading text-dark-gray mb-8 leading-tight">
-                Engage Audiences with 
-                <span className="text-primary block">Compelling Content</span>
+                Content Marketing in Bengaluru - 
+                <span className="text-primary block">Build Your Authority</span>
               </h1>
               <p className="text-xl font-paragraph text-secondary mb-12 leading-relaxed">
                 Build trust, establish authority, and drive conversions with strategic content marketing. From blog posts to videos, we create content that educates, entertains, and converts your audience into loyal customers.

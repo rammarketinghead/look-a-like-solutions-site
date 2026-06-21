@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
-
+import { SEOHead } from '@/components/ui/seo-head';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { ROICalculator } from '@/components/ui/roi-calculator';
 import { Link } from 'react-router-dom';
@@ -24,6 +24,57 @@ export default function EmailMarketingPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="Email Marketing Services Bengaluru - Drive Sales"
+        description="Expert email marketing in Bengaluru. Personalized campaigns, automation, high ROI. Build customer relationships. Free strategy consultation available."
+        keywords="email marketing Bengaluru, email campaigns, email automation, newsletter marketing, email marketing agency, email marketing services, marketing automation"
+        type="service"
+        schemaType="Service"
+        services={[
+          {
+            name: "Email Marketing Services",
+            description: "Strategic email marketing campaigns including list building, automation, personalization, and analytics. We create targeted campaigns that nurture leads and drive conversions.",
+            areaServed: "Bengaluru, Karnataka, India",
+            priceRange: "$"
+          }
+        ]}
+        faqs={[
+          {
+            question: "What is a good email open rate and click-through rate?",
+            answer: "Average open rates range from 15-25%, while click-through rates are typically 2-5%. Our campaigns consistently achieve 30-40% open rates and 5-8% CTR through strategic segmentation and personalization."
+          },
+          {
+            question: "How often should I send marketing emails?",
+            answer: "Frequency depends on your audience and content. We recommend 1-4 emails per week for most businesses. We test and optimize frequency based on engagement metrics to maximize results."
+          },
+          {
+            question: "Can you help build our email list?",
+            answer: "Yes! We implement lead magnets, opt-in forms, landing pages, and growth strategies to build your email list organically. A quality list is essential for successful email marketing."
+          },
+          {
+            question: "What email marketing platforms do you use?",
+            answer: "We work with industry-leading platforms including Mailchimp, ConvertKit, ActiveCampaign, and HubSpot. We choose the best platform based on your needs, budget, and growth plans."
+          }
+        ]}
+        localBusiness={{
+          name: "Look A Like Solutions",
+          telephone: "+91-XXXXXXXXXX",
+          streetAddress: "Your Street Address",
+          addressLocality: "Bengaluru",
+          addressRegion: "Karnataka",
+          postalCode: "560001",
+          latitude: 12.9716,
+          longitude: 77.5946
+        }}
+        reviews={[
+          {
+            author: "Neha Gupta",
+            rating: 5,
+            reviewBody: "Their email marketing campaigns increased our customer retention by 45% and generated ₹50L in additional revenue. The personalization and automation strategies are excellent.",
+            datePublished: "2024-09-10"
+          }
+        ]}
+      />
       {/* Hero Section */}
       <section className="py-32 bg-gradient-to-br from-primary/5 via-background to-light-gray relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23007BFF%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
@@ -40,8 +91,8 @@ export default function EmailMarketingPage() {
                 Email Marketing Service
               </div>
               <h1 className="text-6xl font-heading text-dark-gray mb-8 leading-tight">
-                Build Relationships with 
-                <span className="text-primary block">Strategic Email Marketing</span>
+                Email Marketing in Bengaluru - 
+                <span className="text-primary block">Drive Sales & Retention</span>
               </h1>
               <p className="text-xl font-paragraph text-secondary mb-12 leading-relaxed">
                 Nurture leads, retain customers, and drive sales with personalized email campaigns. Our email marketing strategies deliver exceptional ROI through targeted messaging and automated sequences.

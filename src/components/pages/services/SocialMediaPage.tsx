@@ -26,8 +26,8 @@ export default function SocialMediaPage() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead 
-        title="Social Media Marketing Services Bengaluru - Grow Your Following & Sales"
-        description="Expert social media marketing in Bengaluru. Grow your Instagram, Facebook, LinkedIn & Twitter following. Increase engagement, build brand awareness, and drive sales. Free social media audit."
+        title="Social Media Marketing Services Bengaluru"
+        description="Expert social media marketing in Bengaluru. Grow followers, increase engagement, build brand awareness. Instagram, Facebook, LinkedIn strategies. Free audit."
         keywords="social media marketing Bengaluru, Instagram marketing, Facebook marketing, LinkedIn marketing, social media management, content creation, influencer marketing, social media agency Bengaluru"
         type="service"
         schemaType="Service"
@@ -39,6 +39,34 @@ export default function SocialMediaPage() {
             priceRange: "$"
           }
         ]}
+        faqs={[
+          {
+            question: "How can social media marketing help my Bengaluru business?",
+            answer: "Social media marketing helps you reach your target audience, build brand awareness, increase engagement, drive website traffic, and generate leads. We create strategies tailored to your business goals."
+          },
+          {
+            question: "Which social media platforms should I focus on?",
+            answer: "It depends on your audience. Instagram and Facebook are great for B2C businesses, LinkedIn for B2B, and TikTok for younger audiences. We recommend a multi-platform approach for maximum reach."
+          },
+          {
+            question: "How often should we post on social media?",
+            answer: "Posting frequency varies by platform. We recommend 3-5 posts per week on Instagram, 1-2 daily on Facebook, and 2-3 times daily on Twitter. Consistency is more important than frequency."
+          },
+          {
+            question: "What results can I expect from social media marketing?",
+            answer: "Results vary, but typically you can expect 20-50% follower growth monthly, 2-5x engagement increase, and 10-30% website traffic boost within 3-6 months."
+          }
+        ]}
+        localBusiness={{
+          name: "Look A Like Solutions",
+          telephone: "+91-XXXXXXXXXX",
+          streetAddress: "Your Street Address",
+          addressLocality: "Bengaluru",
+          addressRegion: "Karnataka",
+          postalCode: "560001",
+          latitude: 12.9716,
+          longitude: 77.5946
+        }}
         reviews={[
           {
             author: "Priya Sharma",
@@ -64,8 +92,8 @@ export default function SocialMediaPage() {
                 Social Media Marketing Service
               </div>
               <h1 className="text-6xl font-heading text-dark-gray mb-8 leading-tight">
-                Build Your Brand with 
-                <span className="text-primary block">Social Media Excellence</span>
+                Social Media Marketing in Bengaluru - 
+                <span className="text-primary block">Grow Your Brand</span>
               </h1>
               <p className="text-xl font-paragraph text-secondary mb-12 leading-relaxed">
                 Engage your audience, build brand loyalty, and drive conversions with our strategic social media marketing. From content creation to community management, we help you dominate social platforms.

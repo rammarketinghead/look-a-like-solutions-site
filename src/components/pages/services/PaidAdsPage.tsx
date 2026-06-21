@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
+import { SEOHead } from '@/components/ui/seo-head';
 import { NewsletterSection } from '@/components/ui/newsletter-section';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { ROICalculator } from '@/components/ui/roi-calculator';
@@ -24,6 +25,57 @@ export default function PaidAdsPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead 
+        title="PPC & Google Ads Services Bengaluru - Instant ROI"
+        description="Expert PPC and Google Ads management in Bengaluru. 5.2X average ROAS, instant results. Facebook, Instagram, LinkedIn ads. Free audit available."
+        keywords="PPC services Bengaluru, Google Ads Bengaluru, paid advertising, Facebook ads, Instagram ads, LinkedIn ads, PPC agency Bengaluru, Google Ads expert"
+        type="service"
+        schemaType="Service"
+        services={[
+          {
+            name: "PPC & Paid Advertising Services",
+            description: "Comprehensive paid advertising management including Google Ads, Facebook Ads, Instagram Ads, LinkedIn Ads, and other platforms. We optimize campaigns for maximum ROI and conversions.",
+            areaServed: "Bengaluru, Karnataka, India",
+            priceRange: "$"
+          }
+        ]}
+        faqs={[
+          {
+            question: "How quickly will I see results from PPC ads in Bengaluru?",
+            answer: "PPC campaigns can generate results within 24-48 hours. However, optimization typically takes 2-4 weeks to achieve peak performance. We provide daily monitoring and adjustments."
+          },
+          {
+            question: "What is a good ROAS (Return on Ad Spend) for PPC campaigns?",
+            answer: "A good ROAS varies by industry, but typically 3:1 to 5:1 is considered excellent. Our average ROAS is 5.2X, meaning for every rupee spent, clients earn ₹5.20 in revenue."
+          },
+          {
+            question: "Which PPC platforms should I use for my business?",
+            answer: "Google Ads is best for search intent, Facebook/Instagram for awareness and retargeting, LinkedIn for B2B, and YouTube for video. We recommend a multi-platform approach based on your goals."
+          },
+          {
+            question: "How much should I budget for PPC advertising?",
+            answer: "PPC budgets vary widely. We recommend starting with ₹10,000-50,000/month and scaling based on performance. We optimize every rupee to maximize your ROI."
+          }
+        ]}
+        localBusiness={{
+          name: "Look A Like Solutions",
+          telephone: "+91-XXXXXXXXXX",
+          streetAddress: "Your Street Address",
+          addressLocality: "Bengaluru",
+          addressRegion: "Karnataka",
+          postalCode: "560001",
+          latitude: 12.9716,
+          longitude: 77.5946
+        }}
+        reviews={[
+          {
+            author: "Amit Patel",
+            rating: 5,
+            reviewBody: "Their PPC campaigns generated 300+ qualified leads in the first month. The ROI was incredible, and their team was very responsive to our needs.",
+            datePublished: "2024-10-01"
+          }
+        ]}
+      />
       {/* Hero Section */}
       <section className="py-32 bg-gradient-to-br from-primary/5 via-background to-light-gray relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23007BFF%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
@@ -40,8 +92,8 @@ export default function PaidAdsPage() {
                 Paid Advertising (PPC) Service
               </div>
               <h1 className="text-6xl font-heading text-dark-gray mb-8 leading-tight">
-                Drive Instant Results with 
-                <span className="text-primary block">Strategic PPC Campaigns</span>
+                PPC & Google Ads in Bengaluru - 
+                <span className="text-primary block">Instant Results</span>
               </h1>
               <p className="text-xl font-paragraph text-secondary mb-12 leading-relaxed">
                 Maximize your ROI with data-driven paid advertising campaigns. From Google Ads to social media advertising, we help you reach the right audience at the right time with compelling ads that convert.

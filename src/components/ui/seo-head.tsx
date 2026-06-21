@@ -16,6 +16,22 @@ interface Service {
   priceRange?: string;
 }
 
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface LocalBusinessData {
+  name?: string;
+  telephone?: string;
+  streetAddress?: string;
+  addressLocality?: string;
+  addressRegion?: string;
+  postalCode?: string;
+  latitude?: number;
+  longitude?: number;
+}
+
 interface SEOHeadProps {
   title?: string;
   description?: string;
@@ -33,6 +49,8 @@ interface SEOHeadProps {
   schemaType?: 'Organization' | 'LocalBusiness' | 'Service' | 'Article' | 'Product';
   reviews?: Review[];
   services?: Service[];
+  faqs?: FAQ[];
+  localBusiness?: LocalBusinessData;
   aggregateRating?: {
     ratingValue: number;
     reviewCount: number;
@@ -55,6 +73,8 @@ export function SEOHead({
   schemaType,
   reviews,
   services,
+  faqs,
+  localBusiness,
   aggregateRating
 }: SEOHeadProps) {
   const location = useLocation();
@@ -260,26 +280,26 @@ export function SEOHead({
     }
     
     // LocalBusiness schema for location-based pages
-    if (schemaType === 'LocalBusiness') {
+    if (schemaType === 'LocalBusiness' || localBusiness) {
       schemas.push({
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": siteName,
+        "name": localBusiness?.name || siteName,
         "image": defaultImage,
         "url": baseUrl,
-        "telephone": "+91-XXXXXXXXXX",
+        "telephone": localBusiness?.telephone || "+91-XXXXXXXXXX",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Your Street Address",
-          "addressLocality": "Bengaluru",
-          "addressRegion": "Karnataka",
-          "postalCode": "560001",
+          "streetAddress": localBusiness?.streetAddress || "Your Street Address",
+          "addressLocality": localBusiness?.addressLocality || "Bengaluru",
+          "addressRegion": localBusiness?.addressRegion || "Karnataka",
+          "postalCode": localBusiness?.postalCode || "560001",
           "addressCountry": "IN"
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": 12.9716,
-          "longitude": 77.5946
+          "latitude": localBusiness?.latitude || 12.9716,
+          "longitude": localBusiness?.longitude || 77.5946
         },
         "openingHoursSpecification": {
           "@type": "OpeningHoursSpecification",
@@ -291,6 +311,22 @@ export function SEOHead({
       });
     }
     
+    // FAQ schema
+    if (faqs && faqs.length > 0) {
+      schemas.push({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      });
+    }
+    
     // Insert all schemas
     schemas.forEach(schema => {
       const script = document.createElement('script');
@@ -299,7 +335,7 @@ export function SEOHead({
       document.head.appendChild(script);
     });
     
-  }, [finalTitle, finalDescription, finalImage, finalUrl, type, author, publishedTime, modifiedTime, keywords, siteName, twitterCard, noIndex, schemaType, reviews, services, aggregateRating]);
+  }, [finalTitle, finalDescription, finalImage, finalUrl, type, author, publishedTime, modifiedTime, keywords, siteName, twitterCard, noIndex, schemaType, reviews, services, faqs, localBusiness, aggregateRating]);
   
   return null; // This component doesn't render anything
 }
