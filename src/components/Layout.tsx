@@ -41,6 +41,9 @@ export default function Layout() {
     setExpandedMobileMenu(null);
   }, [location.pathname]);
 
+  // Check if we're on the sitemap.xml page
+  const isSitemapPage = location.pathname === '/sitemap.xml';
+
 
 
   const navigation = [
@@ -131,6 +134,7 @@ export default function Layout() {
       {/* Default SEO for pages that don't have specific SEO */}
       <SEOHead />
       {/* Top Contact Bar - Hidden on mobile for cleaner look */}
+      {!isSitemapPage && (
       <div className="hidden sm:block bg-dark-gray text-background py-2">
         <div className="mobile-container">
           <div className="flex justify-between items-center mobile-caption">
