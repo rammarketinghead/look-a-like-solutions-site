@@ -282,6 +282,14 @@ export default function HomePage() {
 
       </section>
       {/* Services Overview */}
+      <section className="bg-background">
+        <TrustedBusinessesCarousel 
+          className="max-w-[120rem] mx-auto px-6"
+          showTitle={true}
+          title="Trusted by Businesses in Bengaluru"
+          speed={25}
+        />
+      </section>
       <section className="mobile-section bg-background">
         <div className="mobile-container">
           <div className="text-center mb-12">
@@ -566,14 +574,6 @@ export default function HomePage() {
         </div>
       </section>
       {/* Trusted By Section */}
-      <section className="bg-background">
-        <TrustedBusinessesCarousel 
-          className="max-w-[120rem] mx-auto px-6"
-          showTitle={true}
-          title="Trusted by Businesses in Bengaluru"
-          speed={25}
-        />
-      </section>
       {/* Results Section */}
       <section className="mobile-section bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23FFFFFF%22%20fill-opacity%3D%220.05%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
