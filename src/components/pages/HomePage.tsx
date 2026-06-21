@@ -385,23 +385,7 @@ export default function HomePage() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 {/* Image Side */}
                 <div className="relative h-64 lg:h-auto bg-gradient-to-br from-primary/10 to-primary/5 bg-cover bg-center" style={{backgroundImage: 'url(https://static.wixstatic.com/media/f650f9_831f2455fb774fbe9d2aa062cd7ddc74~mv2.png?id=homepage-growth-bg)'}}>
-                  <div className="absolute inset-0 flex items-center justify-center p-8 bg-black/20">
-                    <div className="text-center">
-                      <div className="inline-flex items-center justify-center w-24 h-24 bg-primary rounded-full mb-6">
-                        <TrendingUp className="h-12 w-12 text-primary-foreground" />
-                      </div>
-                      <div className="space-y-4">
-                        <div className="bg-background/90 backdrop-blur-sm rounded-lg p-4 shadow-lg">
-                          <div className="text-4xl font-heading text-primary mb-1">+285%</div>
-                          <div className="mobile-body-sm text-secondary">Revenue Growth</div>
-                        </div>
-                        <div className="bg-background/90 backdrop-blur-sm rounded-lg p-4 shadow-lg">
-                          <div className="text-4xl font-heading text-primary mb-1">+420%</div>
-                          <div className="mobile-body-sm text-secondary">Website Traffic</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center p-8 bg-black/20"><div className="relative w-full max-w-md mx-auto p-6 bg-background/90 backdrop-blur-md rounded-3xl shadow-2xl border border-primary/20"><div className="absolute -top-8 left-1/2 -translate-x-1/2 w-20 h-20 bg-primary rounded-full flex items-center justify-center shadow-lg"><TrendingUp className="h-10 w-10 text-primary-foreground" /></div><div className="text-center pt-10"><h3 className="text-2xl font-heading text-dark-gray mb-6">Key Performance Indicators</h3><div className="grid grid-cols-2 gap-4"><div className="bg-light-gray/70 rounded-xl p-4 shadow-inner"><div className="text-4xl font-heading text-primary mb-1">+285%</div><div className="mobile-body-sm text-secondary">Revenue Growth</div></div><div className="bg-light-gray/70 rounded-xl p-4 shadow-inner"><div className="text-4xl font-heading text-primary mb-1">+420%</div><div className="mobile-body-sm text-secondary">Website Traffic</div></div></div></div></div></div>
                 </div>
 
                 {/* Content Side */}
