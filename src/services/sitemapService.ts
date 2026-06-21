@@ -62,6 +62,33 @@ export class SitemapService {
       { url: '/tools/utm-link-builder', priority: '0.7', changefreq: 'monthly' },
       { url: '/tools/website-speed-test', priority: '0.7', changefreq: 'monthly' },
       { url: '/tools/social-media-post-generator', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/ai-humanizer', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/open-graph-tag-generator', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/favicon-generator', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/xml-sitemap-generator', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/robots-txt-generator', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/hashtag-generator', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/content-readability-checker', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/google-ads-headline-generator', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/blog-topic-generator', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/image-alt-text-generator', priority: '0.7', changefreq: 'monthly' },
+      { url: '/tools/marketing-funnel-roi-calculator', priority: '0.7', changefreq: 'monthly' },
+    ];
+
+    // Industry Solutions pages
+    const industrySolutionPages: SitemapPage[] = [
+      { url: '/seo-lead-generation', priority: '0.8', changefreq: 'weekly' },
+      { url: '/lawyer-lead-generation', priority: '0.8', changefreq: 'weekly' },
+      { url: '/doctor-lead-generation', priority: '0.8', changefreq: 'weekly' },
+      { url: '/real-estate-lead-generation', priority: '0.8', changefreq: 'weekly' },
+      { url: '/education-lead-generation', priority: '0.8', changefreq: 'weekly' },
+      { url: '/restaurant-hotel-lead-generation', priority: '0.8', changefreq: 'weekly' },
+    ];
+
+    // Additional pages
+    const additionalPages: SitemapPage[] = [
+      { url: '/google-ads-training', priority: '0.7', changefreq: 'monthly' },
+      { url: '/thank-you', priority: '0.5', changefreq: 'yearly' },
     ];
 
     try {
@@ -92,6 +119,8 @@ export class SitemapService {
         ...staticPages,
         ...servicePages,
         ...toolPages,
+        ...industrySolutionPages,
+        ...additionalPages,
         ...blogPostPages,
         ...caseStudyPages
       ];
@@ -115,7 +144,7 @@ export class SitemapService {
     } catch (error) {
       console.error('Error generating sitemap:', error);
       // Generate sitemap with static pages only if CMS fetch fails
-      const staticOnlyPages = [...staticPages, ...servicePages, ...toolPages];
+      const staticOnlyPages = [...staticPages, ...servicePages, ...toolPages, ...industrySolutionPages, ...additionalPages];
       
       let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
       xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';

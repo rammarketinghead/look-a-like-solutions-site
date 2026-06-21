@@ -39,6 +39,26 @@ export default function SitemapPage() {
     }
   }, [sitemapXml, isLoading]);
 
+  // Hide header and footer for sitemap.xml page
+  useEffect(() => {
+    const header = document.querySelector('header');
+    const footer = document.querySelector('footer');
+    const breadcrumb = document.querySelector('[role="navigation"]');
+    const topBar = document.querySelector('.bg-dark-gray');
+    
+    if (header) header.style.display = 'none';
+    if (footer) footer.style.display = 'none';
+    if (breadcrumb) breadcrumb.style.display = 'none';
+    if (topBar) topBar.style.display = 'none';
+
+    return () => {
+      if (header) header.style.display = '';
+      if (footer) footer.style.display = '';
+      if (breadcrumb) breadcrumb.style.display = '';
+      if (topBar) topBar.style.display = '';
+    };
+  }, []);
+
   // Return the XML content as plain text with proper formatting
   return (
     <pre style={{ 
