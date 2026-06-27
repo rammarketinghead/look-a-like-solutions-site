@@ -1,4 +1,4 @@
-export const prerender = true;
+export const prerender = false;
 
 export async function GET() {
   const content = `# Look A Like Solutions
