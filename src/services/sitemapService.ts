@@ -3,7 +3,7 @@ import { BlogPosts, CaseStudies } from '@/entities';
 import { fixSlug } from '@/utils/slugUtils';
 
 export class SitemapService {
-  private static baseUrl = 'https://lookalikesolutions.com';
+  private static baseUrl = 'https://www.lookalikesolutions.com';
   
   /**
    * Generate complete sitemap XML content
