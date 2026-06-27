@@ -125,11 +125,16 @@ export class SitemapService {
         ...caseStudyPages
       ];
 
+      // Remove duplicates by URL (keep first occurrence)
+      const uniquePages = Array.from(
+        new Map(allPages.map(page => [page.url, page])).values()
+      );
+
       // Generate XML
       let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
       xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
-      allPages.forEach(page => {
+      uniquePages.forEach(page => {
         xml += '  <url>\n';
         xml += `    <loc>${this.baseUrl}${page.url}</loc>\n`;
         xml += `    <lastmod>${page.lastmod || currentDate}</lastmod>\n`;
@@ -146,10 +151,15 @@ export class SitemapService {
       // Generate sitemap with static pages only if CMS fetch fails
       const staticOnlyPages = [...staticPages, ...servicePages, ...toolPages, ...industrySolutionPages, ...additionalPages];
       
+      // Remove duplicates
+      const uniquePages = Array.from(
+        new Map(staticOnlyPages.map(page => [page.url, page])).values()
+      );
+
       let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
       xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
-      staticOnlyPages.forEach(page => {
+      uniquePages.forEach(page => {
         xml += '  <url>\n';
         xml += `    <loc>${this.baseUrl}${page.url}</loc>\n`;
         xml += `    <lastmod>${currentDate}</lastmod>\n`;

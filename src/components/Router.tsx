@@ -479,14 +479,6 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "sitemap.xml",
-        element: (
-          <Suspense fallback={<PageFallback />}>
-            <SitemapPage />
-          </Suspense>
-        ),
-      },
-      {
         path: "sitemap",
         element: (
           <Suspense fallback={<PageFallback />}>
