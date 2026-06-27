@@ -12,7 +12,7 @@ import { BaseCrudService } from '@/integrations';
 import { ArrowRight, ChevronDown, ChevronRight, Facebook, Heart, Instagram, Linkedin, Mail, MapPin, Menu, Phone, Youtube } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
-export default function Layout() {
+function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null);
@@ -604,3 +604,5 @@ export default function Layout() {
     </div>
   );
 }
+
+export default Layout;
