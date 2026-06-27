@@ -3,10 +3,10 @@ import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import { lazy, Suspense } from 'react';
 import { ScrollToTop } from '@/lib/scroll-to-top';
 import { LoadingSpinner } from '@/components/ui/loading-spinner';
+import Layout from '@/components/Layout';
 
 // Lazy load all page components
 const ErrorPage = lazy(() => import('@/components/pages/ErrorPage'));
-const Layout = lazy(() => import('@/components/Layout'));
 const HomePage = lazy(() => import('@/components/pages/HomePage'));
 const AboutPage = lazy(() => import('@/components/pages/AboutPage'));
 const ServicesPage = lazy(() => import('@/components/pages/ServicesPage'));
@@ -85,10 +85,10 @@ function PageFallback() {
 // Layout wrapper that includes ScrollToTop
 function LayoutWithScrollToTop() {
   return (
-    <Suspense fallback={<PageFallback />}>
+    <>
       <ScrollToTop />
       <Layout />
-    </Suspense>
+    </>
   );
 }
 
