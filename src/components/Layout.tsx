@@ -1,17 +1,16 @@
-import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { SearchBar } from '@/components/ui/search-bar';
-import { Image } from '@/components/ui/image';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Breadcrumb } from '@/components/ui/breadcrumb';
+import { Button } from '@/components/ui/button';
+import { Image } from '@/components/ui/image';
+import { SearchBar } from '@/components/ui/search-bar';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import WhatsAppButton from '@/components/ui/whatsapp-button';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import { SEOHead } from '@/components/ui/seo-head';
 import { useSitemapUpdater } from '@/hooks/useSitemapUpdater';
-import { Menu, Phone, Mail, MapPin, ChevronDown, ChevronRight, Facebook, Instagram, Youtube, Linkedin, Heart, ArrowRight, Check } from 'lucide-react';
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { BaseCrudService } from '@/integrations';
+import { ArrowRight, ChevronDown, ChevronRight, Facebook, Heart, Instagram, Linkedin, Mail, MapPin, Menu, Phone, Youtube } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 export default function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,8 +46,8 @@ export default function Layout() {
 
 
   const navigation = [
-    { 
-      name: 'Services', 
+    {
+      name: 'Services',
       href: '/services',
       dropdown: [
         { name: 'SEO Optimization', href: '/services/seo', icon: '🔍' },
@@ -65,8 +64,8 @@ export default function Layout() {
         { name: 'Digital Training', href: '/services/digital-training', icon: '🎓' }
       ]
     },
-    { 
-      name: 'Tools', 
+    {
+      name: 'Tools',
       href: '/tools',
       dropdown: [
         { name: 'SEO Keyword Research', href: '/tools/seo-keyword-research', icon: '🔍' },
@@ -80,8 +79,8 @@ export default function Layout() {
         { name: 'Speed Test', href: '/tools/website-speed-test', icon: '⚡' }
       ]
     },
-    { 
-      name: 'Industry Solutions', 
+    {
+      name: 'Industry Solutions',
       href: '/industry-solutions',
       dropdown: [
         { name: 'Lawyer Lead Generation', href: '/lawyer-lead-generation', icon: '⚖️' },
@@ -166,6 +165,7 @@ export default function Layout() {
           </div>
         </div>
       </div>
+      )}
       {/* Mobile-First Header */}
       {!isSitemapPage && (
       <header className={`mobile-sticky-header transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
@@ -174,7 +174,7 @@ export default function Layout() {
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2 z-50">
-              <Image 
+              <Image
                 src="https://static.wixstatic.com/media/f650f9_8f4cac9948dd449e824fcf229233b85e~mv2.png"
                 alt="Look A Like Solutions Logo"
                 width={32}
@@ -235,8 +235,8 @@ export default function Layout() {
 
             {/* Desktop Search & CTA */}
             <div className="hidden lg:flex items-center space-x-4">
-              <SearchBar 
-                placeholder="Search..." 
+              <SearchBar
+                placeholder="Search..."
                 variant="compact"
                 className="w-64"
                 onSearch={handleSearchNavigation}
@@ -252,13 +252,13 @@ export default function Layout() {
             <div className="flex items-center gap-2 lg:hidden">
               {/* Mobile Search - Always Visible */}
               <div className="w-48 sm:w-64">
-                <SearchBar 
-                  placeholder="Search..." 
+                <SearchBar
+                  placeholder="Search..."
                   variant="compact"
                   onSearch={handleSearchNavigation}
                 />
               </div>
-              
+
               <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="icon" className="flex-shrink-0">
@@ -270,7 +270,7 @@ export default function Layout() {
                   {/* Mobile Header */}
                   <div className="flex items-center justify-between p-4 border-b border-gray-200">
                     <div className="flex items-center space-x-2">
-                      <Image 
+                      <Image
                         src="https://static.wixstatic.com/media/f650f9_8f4cac9948dd449e824fcf229233b85e~mv2.png"
                         alt="Look A Like Solutions Logo"
                         width={24}
@@ -346,7 +346,7 @@ export default function Layout() {
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>
-                    
+
                     {/* Mobile Contact Info */}
                     <div className="mt-4 space-y-2">
                       <a href="tel:+919731588244" className="flex items-center mobile-body-sm text-secondary">
@@ -400,7 +400,7 @@ export default function Layout() {
               {/* Company Info */}
               <div className="lg:col-span-4">
                 <div className="flex items-center mb-6">
-                  <Image 
+                  <Image
                     src="https://static.wixstatic.com/media/f650f9_8f4cac9948dd449e824fcf229233b85e~mv2.png"
                     alt="Look A Like Solutions Logo"
                     width={40}
@@ -411,7 +411,7 @@ export default function Layout() {
                 <p className="mobile-body text-gray-300 mb-6 leading-relaxed">
                   Your trusted digital marketing partner in Bengaluru. We help businesses grow their online presence with data-driven strategies and innovative solutions.
                 </p>
-                
+
                 {/* Social Media Links */}
                 <div className="mb-6">
                   <h3 className="mobile-body-sm font-heading text-white mb-3 uppercase tracking-wide">Follow Us</h3>
@@ -422,10 +422,10 @@ export default function Layout() {
                       { icon: Youtube, href: "https://www.youtube.com/@thelookalikesolutions", label: "YouTube" },
                       { icon: Linkedin, href: "https://www.linkedin.com/company/lookalikesolutions/", label: "LinkedIn" }
                     ].map((social) => (
-                      <a 
+                      <a
                         key={social.label}
                         href={social.href}
-                        target="_blank" 
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-primary hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark-gray"
                         aria-label={`Follow us on ${social.label}`}
@@ -443,16 +443,16 @@ export default function Layout() {
                 <nav aria-label="Footer navigation">
                   <ul className="mobile-space-y-sm">
                     <li>
-                      <Link 
-                        to="/about" 
+                      <Link
+                        to="/about"
                         className="mobile-body text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
                       >
                         About
                       </Link>
                     </li>
                     <li>
-                      <Link 
-                        to="/contact" 
+                      <Link
+                        to="/contact"
                         className="mobile-body text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
                       >
                         Contact
@@ -460,8 +460,8 @@ export default function Layout() {
                     </li>
                     {navigation.map((item) => (
                       <li key={item.name}>
-                        <Link 
-                          to={item.href} 
+                        <Link
+                          to={item.href}
                           className="mobile-body text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
                         >
                           {item.name}
@@ -469,16 +469,16 @@ export default function Layout() {
                       </li>
                     ))}
                     <li>
-                      <Link 
-                        to="/blog" 
+                      <Link
+                        to="/blog"
                         className="mobile-body text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
                       >
                         Blog
                       </Link>
                     </li>
                     <li>
-                      <Link 
-                        to="/case-studies" 
+                      <Link
+                        to="/case-studies"
                         className="mobile-body text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
                       >
                         Case Studies
@@ -495,8 +495,8 @@ export default function Layout() {
                   <ul className="mobile-space-y-sm">
                     {navigation.find(item => item.dropdown)?.dropdown?.slice(0, 6).map((service) => (
                       <li key={service.name}>
-                        <Link 
-                          to={service.href} 
+                        <Link
+                          to={service.href}
                           className="mobile-body text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block"
                         >
                           {service.name}
@@ -521,36 +521,36 @@ export default function Layout() {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center group">
                     <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-primary/30 transition-colors">
                       <Phone className="h-5 w-5 text-primary" />
                     </div>
-                    <a 
-                      href="tel:+919731588244" 
+                    <a
+                      href="tel:+919731588244"
                       className="mobile-body text-gray-300 hover:text-white transition-colors focus:outline-none focus:text-white"
                       aria-label="Call us at +91-9731588244"
                     >
                       +91-9731588244
                     </a>
                   </div>
-                  
+
                   <div className="flex items-center group">
                     <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-primary/30 transition-colors">
                       <Mail className="h-5 w-5 text-primary" />
                     </div>
-                    <a 
-                      href="mailto:info@lookalikesolutions.com" 
+                    <a
+                      href="mailto:info@lookalikesolutions.com"
                       className="mobile-body text-gray-300 hover:text-white transition-colors break-all focus:outline-none focus:text-white"
                       aria-label="Email us at info@lookalikesolutions.com"
                     >
                       info@lookalikesolutions.com
                     </a>
                   </div>
-                  
+
                   <div className="mt-6 pt-4 border-t border-white/10">
-                    <WhatsAppButton 
-                      variant="inline" 
+                    <WhatsAppButton
+                      variant="inline"
                       phoneNumber="+919731588244"
                       message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
                       className="w-full bg-green-600 hover:bg-green-700 text-white border-0 rounded-lg py-3 px-4 font-medium transition-colors duration-200"
@@ -573,7 +573,7 @@ export default function Layout() {
                   <span>in Bengaluru</span>
                 </div>
               </div>
-              
+
               <nav aria-label="Legal links">
                 <div className="flex flex-wrap justify-center lg:justify-end space-x-6">
                   {[
@@ -581,9 +581,9 @@ export default function Layout() {
                     { name: 'Terms of Service', href: '/terms' },
                     { name: 'Sitemap', href: '/sitemap.xml' }
                   ].map((link) => (
-                    <Link 
+                    <Link
                       key={link.name}
-                      to={link.href} 
+                      to={link.href}
                       className="mobile-body-sm text-gray-400 hover:text-white transition-colors focus:outline-none focus:text-white"
                     >
                       {link.name}
@@ -596,7 +596,7 @@ export default function Layout() {
         </div>
       </footer>
       {/* WhatsApp Floating Button */}
-      <WhatsAppButton 
+      <WhatsAppButton
         phoneNumber="+919731588244"
         message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
       />
