@@ -183,7 +183,7 @@ export function SEOHead({
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+91-XXXXXXXXXX",
+        "telephone": "+91-9731588244",
         "contactType": "Customer Service",
         "areaServed": "IN",
         "availableLanguage": ["English", "Hindi"]
@@ -287,7 +287,7 @@ export function SEOHead({
         "name": localBusiness?.name || siteName,
         "image": defaultImage,
         "url": baseUrl,
-        "telephone": localBusiness?.telephone || "+91-XXXXXXXXXX",
+        "telephone": localBusiness?.telephone || "+91-9731588244",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": localBusiness?.streetAddress || "Your Street Address",

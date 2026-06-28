@@ -1,13 +1,13 @@
-import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
-import { SEOHead } from '@/components/ui/seo-head';
 import { NewsletterSection } from '@/components/ui/newsletter-section';
-import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { ROICalculator } from '@/components/ui/roi-calculator';
+import { SEOHead } from '@/components/ui/seo-head';
+import { ServiceContactForm } from '@/components/ui/service-contact-form';
+import { motion } from 'framer-motion';
+import { ArrowRight, BarChart3, CheckCircle, MousePointer, Target, TrendingUp, Users, Wallet, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Target, TrendingUp, DollarSign, CheckCircle, BarChart3, Clock, Users, Award, Zap, Settings, MousePointer, Wallet } from 'lucide-react';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -25,7 +25,7 @@ export default function PaidAdsPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead 
+      <SEOHead
         title="PPC & Google Ads Services Bengaluru - Instant ROI"
         description="Expert PPC and Google Ads management in Bengaluru. 5.2X average ROAS, instant results. Facebook, Instagram, LinkedIn ads. Free audit available."
         keywords="PPC services Bengaluru, Google Ads Bengaluru, paid advertising, Facebook ads, Instagram ads, LinkedIn ads, PPC agency Bengaluru, Google Ads expert"
@@ -59,7 +59,7 @@ export default function PaidAdsPage() {
         ]}
         localBusiness={{
           name: "Look A Like Solutions",
-          telephone: "+91-XXXXXXXXXX",
+          telephone: "+91-9731588244",
           streetAddress: "Your Street Address",
           addressLocality: "Bengaluru",
           addressRegion: "Karnataka",
@@ -92,29 +92,29 @@ export default function PaidAdsPage() {
                 Paid Advertising (PPC) Service
               </div>
               <h1 className="text-6xl font-heading text-dark-gray mb-8 leading-tight">
-                PPC & Google Ads in Bengaluru - 
+                PPC & Google Ads in Bengaluru -
                 <span className="text-primary block">Instant Results</span>
               </h1>
               <p className="text-xl font-paragraph text-secondary mb-12 leading-relaxed">
                 Maximize your ROI with data-driven paid advertising campaigns. From Google Ads to social media advertising, we help you reach the right audience at the right time with compelling ads that convert.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <Button 
+                <Button
                   onClick={scrollToContact}
                   className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   Get Free Ad Account Audit
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg transition-all duration-300"
                   onClick={scrollToContact}
                 >
                   View Campaign Results
                 </Button>
               </div>
-              
+
               {/* Trust Indicators */}
               <div className="mt-12 grid grid-cols-3 gap-8">
                 {[
@@ -188,7 +188,7 @@ export default function PaidAdsPage() {
                   </div>
                 ))}
               </div>
-              <Button 
+              <Button
                 onClick={scrollToContact}
                 className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base"
               >
@@ -263,7 +263,7 @@ export default function PaidAdsPage() {
             ))}
           </div>
           <div className="text-center mt-12">
-            <Button 
+            <Button
               onClick={scrollToContact}
               variant="outline"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3"
@@ -364,7 +364,7 @@ export default function PaidAdsPage() {
                       </li>
                     ))}
                   </ul>
-                  <Button 
+                  <Button
                     onClick={scrollToContact}
                     className={`w-full ${plan.popular ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-background text-primary border border-primary hover:bg-primary hover:text-primary-foreground'}`}
                   >
@@ -379,9 +379,9 @@ export default function PaidAdsPage() {
             <p className="font-paragraph text-secondary mb-4">
               Management fees are separate from your advertising budget. Minimum ad spend recommendations apply.
             </p>
-            <Button 
+            <Button
               onClick={scrollToContact}
-              variant="outline" 
+              variant="outline"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
             >
               Request Custom Quote
@@ -407,7 +407,7 @@ export default function PaidAdsPage() {
 
       {/* Contact Form Section */}
       <div id="contact-form">
-        <ServiceContactForm 
+        <ServiceContactForm
           serviceName="Paid Advertising (PPC)"
           serviceDescription="Let's discuss how our PPC expertise can help your business drive immediate results and maximize your advertising return on investment."
         />
@@ -423,7 +423,7 @@ export default function PaidAdsPage() {
             Get a free PPC audit and discover how we can help your business drive immediate results with strategic paid advertising.
           </p>
           <div className="flex gap-6 justify-center">
-            <Button 
+            <Button
               onClick={scrollToContact}
               className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg"
             >

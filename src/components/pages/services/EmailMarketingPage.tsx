@@ -1,12 +1,12 @@
-import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
+import { ROICalculator } from '@/components/ui/roi-calculator';
 import { SEOHead } from '@/components/ui/seo-head';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
-import { ROICalculator } from '@/components/ui/roi-calculator';
+import { motion } from 'framer-motion';
+import { ArrowRight, BarChart3, CheckCircle, Heart, Mail, Plus, Send, Target, TrendingUp, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Mail, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Zap, Settings, Send, Heart, Plus } from 'lucide-react';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -24,7 +24,7 @@ export default function EmailMarketingPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead 
+      <SEOHead
         title="Email Marketing Services Bengaluru - Drive Sales"
         description="Expert email marketing in Bengaluru. Personalized campaigns, automation, high ROI. Build customer relationships. Free strategy consultation available."
         keywords="email marketing Bengaluru, email campaigns, email automation, newsletter marketing, email marketing agency, email marketing services, marketing automation"
@@ -58,7 +58,7 @@ export default function EmailMarketingPage() {
         ]}
         localBusiness={{
           name: "Look A Like Solutions",
-          telephone: "+91-XXXXXXXXXX",
+          telephone: "+91-9731588244",
           streetAddress: "Your Street Address",
           addressLocality: "Bengaluru",
           addressRegion: "Karnataka",
@@ -91,29 +91,29 @@ export default function EmailMarketingPage() {
                 Email Marketing Service
               </div>
               <h1 className="text-6xl font-heading text-dark-gray mb-8 leading-tight">
-                Email Marketing in Bengaluru - 
+                Email Marketing in Bengaluru -
                 <span className="text-primary block">Drive Sales & Retention</span>
               </h1>
               <p className="text-xl font-paragraph text-secondary mb-12 leading-relaxed">
                 Nurture leads, retain customers, and drive sales with personalized email campaigns. Our email marketing strategies deliver exceptional ROI through targeted messaging and automated sequences.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <Button 
+                <Button
                   onClick={scrollToContact}
                   className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   Get Email Strategy
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg transition-all duration-300"
                   onClick={scrollToContact}
                 >
                   View Campaign Examples
                 </Button>
               </div>
-              
+
               {/* Trust Indicators */}
               <div className="mt-12 grid grid-cols-3 gap-8">
                 {[
@@ -345,7 +345,7 @@ export default function EmailMarketingPage() {
                       </li>
                     ))}
                   </ul>
-                  <Button 
+                  <Button
                     onClick={scrollToContact}
                     className={`w-full ${plan.popular ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-background text-primary border border-primary hover:bg-primary hover:text-primary-foreground'}`}
                   >
@@ -360,9 +360,9 @@ export default function EmailMarketingPage() {
             <p className="font-paragraph text-secondary mb-4">
               Need custom email marketing solutions? We create tailored packages for unique business requirements.
             </p>
-            <Button 
+            <Button
               onClick={scrollToContact}
-              variant="outline" 
+              variant="outline"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
             >
               Request Custom Quote
@@ -388,7 +388,7 @@ export default function EmailMarketingPage() {
 
       {/* Contact Form Section */}
       <div id="contact-form">
-        <ServiceContactForm 
+        <ServiceContactForm
           serviceName="Email Marketing"
           serviceDescription="Let's discuss how our email marketing expertise can help your business build relationships and drive consistent revenue through strategic campaigns."
         />
@@ -404,7 +404,7 @@ export default function EmailMarketingPage() {
             Get a free email marketing strategy session and discover how we can help your business nurture leads and drive sales through email.
           </p>
           <div className="flex gap-6 justify-center">
-            <Button 
+            <Button
               onClick={scrollToContact}
               className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg"
             >

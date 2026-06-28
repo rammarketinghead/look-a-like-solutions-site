@@ -1,13 +1,13 @@
-import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
-import { SEOHead } from '@/components/ui/seo-head';
 import { NewsletterSection } from '@/components/ui/newsletter-section';
-import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { ROICalculator } from '@/components/ui/roi-calculator';
+import { SEOHead } from '@/components/ui/seo-head';
+import { ServiceContactForm } from '@/components/ui/service-contact-form';
+import { motion } from 'framer-motion';
+import { ArrowRight, BarChart3, CheckCircle, FileText, Headphones, PenTool, Target, TrendingUp, Video, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, PenTool, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Zap, Settings, FileText, Video, Headphones } from 'lucide-react';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -51,7 +51,7 @@ export default function ContentMarketingPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead 
+      <SEOHead
         title="Content Marketing Services Bengaluru - Drive Engagement"
         description="Expert content marketing in Bengaluru. Blog posts, videos, social content, SEO-optimized. Build authority, drive traffic. Free content strategy consultation."
         keywords="content marketing Bengaluru, content creation, blog writing, video marketing, content strategy, copywriting, content marketing agency, digital content"
@@ -68,7 +68,7 @@ export default function ContentMarketingPage() {
         faqs={contentFAQs}
         localBusiness={{
           name: "Look A Like Solutions",
-          telephone: "+91-XXXXXXXXXX",
+          telephone: "+91-9731588244",
           streetAddress: "Your Street Address",
           addressLocality: "Bengaluru",
           addressRegion: "Karnataka",
@@ -101,29 +101,29 @@ export default function ContentMarketingPage() {
                 Content Marketing Service
               </div>
               <h1 className="text-6xl font-heading text-dark-gray mb-8 leading-tight">
-                Content Marketing in Bengaluru - 
+                Content Marketing in Bengaluru -
                 <span className="text-primary block">Build Your Authority</span>
               </h1>
               <p className="text-xl font-paragraph text-secondary mb-12 leading-relaxed">
                 Build trust, establish authority, and drive conversions with strategic content marketing. From blog posts to videos, we create content that educates, entertains, and converts your audience into loyal customers.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <Button 
+                <Button
                   onClick={scrollToContact}
                   className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   Get Content Strategy
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg transition-all duration-300"
                   onClick={scrollToContact}
                 >
                   View Content Samples
                 </Button>
               </div>
-              
+
               {/* Trust Indicators */}
               <div className="mt-12 grid grid-cols-3 gap-8">
                 {[
@@ -197,7 +197,7 @@ export default function ContentMarketingPage() {
                   </div>
                 ))}
               </div>
-              <Button 
+              <Button
                 onClick={scrollToContact}
                 className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base"
               >
@@ -362,7 +362,7 @@ export default function ContentMarketingPage() {
                       </li>
                     ))}
                   </ul>
-                  <Button 
+                  <Button
                     onClick={scrollToContact}
                     className={`w-full ${plan.popular ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-background text-primary border border-primary hover:bg-primary hover:text-primary-foreground'}`}
                   >
@@ -377,9 +377,9 @@ export default function ContentMarketingPage() {
             <p className="font-paragraph text-secondary mb-4">
               Need custom content solutions? We create tailored packages for unique business requirements.
             </p>
-            <Button 
+            <Button
               onClick={scrollToContact}
-              variant="outline" 
+              variant="outline"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
             >
               Request Custom Quote
@@ -405,7 +405,7 @@ export default function ContentMarketingPage() {
 
       {/* Contact Form Section */}
       <div id="contact-form">
-        <ServiceContactForm 
+        <ServiceContactForm
           serviceName="Content Marketing"
           serviceDescription="Let's discuss how our content marketing expertise can help your business build authority, engage audiences, and drive meaningful results."
         />
@@ -421,7 +421,7 @@ export default function ContentMarketingPage() {
             Get a free content strategy consultation and discover how we can help your business engage audiences and drive growth through compelling content.
           </p>
           <div className="flex gap-6 justify-center">
-            <Button 
+            <Button
               onClick={scrollToContact}
               className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg"
             >

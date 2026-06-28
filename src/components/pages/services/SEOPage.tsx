@@ -1,13 +1,12 @@
-import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
+import { ROICalculator } from '@/components/ui/roi-calculator';
 import { SEOHead } from '@/components/ui/seo-head';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
-import { ROICalculator } from '@/components/ui/roi-calculator';
-import { NewsletterSection } from '@/components/ui/newsletter-section';
+import { motion } from 'framer-motion';
+import { ArrowRight, BarChart3, CheckCircle, Clock, Search, Settings, Target, TrendingUp, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Search, TrendingUp, Target, CheckCircle, BarChart3, Clock, DollarSign, Users, Award, Zap, Settings } from 'lucide-react';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -25,7 +24,7 @@ export default function SEOPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEOHead 
+      <SEOHead
         title="SEO Services in Bengaluru - Rank #1 on Google"
         description="Professional SEO services in Bengaluru. Increase organic traffic 300%+, rank #1 on Google. Proven strategies, free audit. Get more customers today."
         keywords="SEO services Bengaluru, SEO company Bengaluru, search engine optimization, Google ranking, organic traffic, local SEO, SEO expert Bengaluru, SEO agency India"
@@ -59,7 +58,7 @@ export default function SEOPage() {
         ]}
         localBusiness={{
           name: "Look A Like Solutions",
-          telephone: "+91-XXXXXXXXXX",
+          telephone: "+91-9731588244",
           streetAddress: "Your Street Address",
           addressLocality: "Bengaluru",
           addressRegion: "Karnataka",
@@ -92,29 +91,29 @@ export default function SEOPage() {
                 SEO Optimization Service
               </div>
               <h1 className="font-heading text-dark-gray mb-8 text-6xl">
-                SEO Services in Bengaluru - 
+                SEO Services in Bengaluru -
                 <span className="text-primary block">Rank #1 on Google</span>
               </h1>
               <p className="text-xl font-paragraph text-secondary mb-12 leading-relaxed">
                 Boost your organic visibility, drive qualified traffic, and increase conversions with our data-driven SEO strategies. Get found by customers actively searching for your services.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <Button 
+                <Button
                   onClick={scrollToContact}
                   className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   Get Free SEO Audit
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg transition-all duration-300"
                   onClick={scrollToContact}
                 >
                   View Pricing Plans
                 </Button>
               </div>
-              
+
               {/* Trust Indicators */}
               <div className="mt-12 grid grid-cols-3 gap-8">
                 {[
@@ -187,7 +186,7 @@ export default function SEOPage() {
                   </div>
                 ))}
               </div>
-              <Button 
+              <Button
                 onClick={scrollToContact}
                 className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base"
               >
@@ -261,7 +260,7 @@ export default function SEOPage() {
             ))}
           </div>
           <div className="text-center">
-            <Button 
+            <Button
               onClick={scrollToContact}
               variant="outline"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3"
@@ -325,7 +324,7 @@ export default function SEOPage() {
             ))}
           </div>
           <div className="text-center">
-            <Button 
+            <Button
               onClick={scrollToContact}
               className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base"
             >
@@ -423,7 +422,7 @@ export default function SEOPage() {
                       </li>
                     ))}
                   </ul>
-                  <Button 
+                  <Button
                     onClick={scrollToContact}
                     className={`w-full ${plan.popular ? 'bg-primary text-primary-foreground hover:bg-primary/90' : 'bg-background text-primary border border-primary hover:bg-primary hover:text-primary-foreground'}`}
                   >
@@ -438,9 +437,9 @@ export default function SEOPage() {
             <p className="font-paragraph text-secondary mb-4">
               Need a custom solution? We offer tailored SEO packages for unique business requirements.
             </p>
-            <Button 
+            <Button
               onClick={scrollToContact}
-              variant="outline" 
+              variant="outline"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
             >
               Request Custom Quote
@@ -496,7 +495,7 @@ export default function SEOPage() {
             <p className="font-paragraph text-secondary mb-6">
               We use industry-leading tools to ensure your SEO success and deliver measurable results.
             </p>
-            <Button 
+            <Button
               onClick={scrollToContact}
               variant="outline"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3"
@@ -589,7 +588,7 @@ export default function SEOPage() {
                 </p>
               </div>
 
-              <Button 
+              <Button
                 onClick={scrollToContact}
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3"
               >
@@ -615,7 +614,7 @@ export default function SEOPage() {
 
       {/* Contact Form Section */}
       <div id="contact-form">
-        <ServiceContactForm 
+        <ServiceContactForm
           serviceName="SEO Optimization"
           serviceDescription="Let's discuss how our SEO expertise can help your business rank higher in search results and drive more organic traffic."
         />
@@ -644,7 +643,7 @@ export default function SEOPage() {
             ))}
           </div>
           <div className="text-center">
-            <Button 
+            <Button
               onClick={scrollToContact}
               className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base"
             >
@@ -664,7 +663,7 @@ export default function SEOPage() {
             Get a free SEO audit and discover how we can help your business rank higher in search results.
           </p>
           <div className="flex gap-6 justify-center">
-            <Button 
+            <Button
               onClick={scrollToContact}
               className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg"
             >
