@@ -287,15 +287,16 @@ export default function HomePage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col items-center"
           >
-            <h1 className="mobile-h1 text-dark-gray mb-6 font-bold">
+            <h1 className="mobile-h1 text-dark-gray mb-6 font-bold leading-tight">
               Grow Your Business with Data-Driven Digital Marketing
             </h1>
             <p className="mobile-body-lg text-secondary max-w-2xl mx-auto mb-8">
               Get more customers, increase revenue, and dominate your market with proven digital marketing strategies. Free strategy session available.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center w-full">
               <Link to="/contact">
                 <Button className="mobile-btn-primary shadow-lg hover:shadow-xl">
                   Get Free Consultation
