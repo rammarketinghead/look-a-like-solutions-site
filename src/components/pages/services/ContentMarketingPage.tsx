@@ -69,7 +69,7 @@ export default function ContentMarketingPage() {
         localBusiness={{
           name: "Look A Like Solutions",
           telephone: "+91-9731588244",
-          streetAddress: "Your Street Address",
+          streetAddress: "Bengaluru",
           addressLocality: "Bengaluru",
           addressRegion: "Karnataka",
           postalCode: "560001",

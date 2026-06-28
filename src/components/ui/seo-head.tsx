@@ -290,7 +290,7 @@ export function SEOHead({
         "telephone": localBusiness?.telephone || "+91-9731588244",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": localBusiness?.streetAddress || "Your Street Address",
+          "streetAddress": localBusiness?.streetAddress || "Bengaluru",
           "addressLocality": localBusiness?.addressLocality || "Bengaluru",
           "addressRegion": localBusiness?.addressRegion || "Karnataka",
           "postalCode": localBusiness?.postalCode || "560001",
