@@ -4,6 +4,7 @@ import { Image } from '@/components/ui/image';
 import { SearchBar } from '@/components/ui/search-bar';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import WhatsAppButton from '@/components/ui/whatsapp-button';
+import CookieConsentBanner from '@/components/ui/CookieConsentBanner';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import { SEOHead } from '@/components/ui/seo-head';
@@ -601,6 +602,8 @@ function Layout() {
         message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
       />
 
+      {/* Cookie Consent Banner */}
+      <CookieConsentBanner />
     </div>
   );
 }
