@@ -78,28 +78,28 @@ export function SEOHead({
   aggregateRating
 }: SEOHeadProps) {
   const location = useLocation();
-  
+
   // Default values
   const defaultTitle = 'Look A Like Solutions - Digital Marketing Agency in Bengaluru';
   const defaultDescription = 'Leading digital marketing agency in Bengaluru offering SEO, social media marketing, paid ads, web development, and more. Grow your business with data-driven strategies.';
   const defaultImage = 'https://static.wixstatic.com/media/f650f9_8f4cac9948dd449e824fcf229233b85e~mv2.png';
-  const baseUrl = 'https://lookalikesolutions.com';
-  
+  const baseUrl = 'https://www.lookalikesolutions.com';
+
   // Construct final values
   const finalTitle = title ? `${title} | ${siteName}` : defaultTitle;
   const finalDescription = description || defaultDescription;
   const finalImage = image || defaultImage;
   const finalUrl = url || `${baseUrl}${location.pathname}`;
-  
+
   useEffect(() => {
     // Update document title
     document.title = finalTitle;
-    
+
     // Function to update or create meta tag
     const updateMetaTag = (property: string, content: string, isProperty = false) => {
       const selector = isProperty ? `meta[property="${property}"]` : `meta[name="${property}"]`;
       let meta = document.querySelector(selector) as HTMLMetaElement;
-      
+
       if (!meta) {
         meta = document.createElement('meta');
         if (isProperty) {
@@ -109,10 +109,10 @@ export function SEOHead({
         }
         document.head.appendChild(meta);
       }
-      
+
       meta.setAttribute('content', content);
     };
-    
+
     // Basic meta tags
     updateMetaTag('description', finalDescription);
     if (keywords) {
@@ -121,7 +121,7 @@ export function SEOHead({
     if (author) {
       updateMetaTag('author', author);
     }
-    
+
     // Open Graph tags
     updateMetaTag('og:title', finalTitle, true);
     updateMetaTag('og:description', finalDescription, true);
@@ -129,7 +129,7 @@ export function SEOHead({
     updateMetaTag('og:url', finalUrl, true);
     updateMetaTag('og:type', type, true);
     updateMetaTag('og:site_name', siteName, true);
-    
+
     if (publishedTime) {
       updateMetaTag('article:published_time', publishedTime, true);
     }
@@ -139,18 +139,18 @@ export function SEOHead({
     if (author) {
       updateMetaTag('article:author', author, true);
     }
-    
+
     // Twitter Card tags
     updateMetaTag('twitter:card', twitterCard);
     updateMetaTag('twitter:title', finalTitle);
     updateMetaTag('twitter:description', finalDescription);
     updateMetaTag('twitter:image', finalImage);
     updateMetaTag('twitter:url', finalUrl);
-    
+
     // Additional SEO tags
     updateMetaTag('robots', noIndex ? 'noindex, nofollow' : 'index, follow');
     updateMetaTag('viewport', 'width=device-width, initial-scale=1.0');
-    
+
     // Canonical URL
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
     if (!canonical) {
@@ -159,14 +159,14 @@ export function SEOHead({
       document.head.appendChild(canonical);
     }
     canonical.setAttribute('href', finalUrl);
-    
+
     // Remove existing JSON-LD scripts
     const existingScripts = document.querySelectorAll('script[type="application/ld+json"]');
     existingScripts.forEach(script => script.remove());
-    
+
     // Create schema markup based on type
     const schemas: any[] = [];
-    
+
     // Organization schema (always include)
     const organizationSchema = {
       "@context": "https://schema.org",
@@ -194,7 +194,7 @@ export function SEOHead({
         "https://twitter.com/lookalikesol"
       ]
     };
-    
+
     if (aggregateRating) {
       organizationSchema["aggregateRating"] = {
         "@type": "AggregateRating",
@@ -202,9 +202,9 @@ export function SEOHead({
         "reviewCount": aggregateRating.reviewCount
       };
     }
-    
+
     schemas.push(organizationSchema);
-    
+
     // Article schema
     if (type === 'article') {
       schemas.push({
@@ -230,7 +230,7 @@ export function SEOHead({
         }
       });
     }
-    
+
     // Service schema
     if (schemaType === 'Service' && services && services.length > 0) {
       services.forEach(service => {
@@ -253,7 +253,7 @@ export function SEOHead({
         });
       });
     }
-    
+
     // Review schema
     if (reviews && reviews.length > 0) {
       reviews.forEach(review => {
@@ -278,7 +278,7 @@ export function SEOHead({
         });
       });
     }
-    
+
     // LocalBusiness schema for location-based pages
     if (schemaType === 'LocalBusiness' || localBusiness) {
       schemas.push({
@@ -310,7 +310,7 @@ export function SEOHead({
         "priceRange": "$"
       });
     }
-    
+
     // FAQ schema
     if (faqs && faqs.length > 0) {
       schemas.push({
@@ -326,7 +326,7 @@ export function SEOHead({
         }))
       });
     }
-    
+
     // Insert all schemas
     schemas.forEach(schema => {
       const script = document.createElement('script');
@@ -334,9 +334,9 @@ export function SEOHead({
       script.textContent = JSON.stringify(schema);
       document.head.appendChild(script);
     });
-    
+
   }, [finalTitle, finalDescription, finalImage, finalUrl, type, author, publishedTime, modifiedTime, keywords, siteName, twitterCard, noIndex, schemaType, reviews, services, faqs, localBusiness, aggregateRating]);
-  
+
   return null; // This component doesn't render anything
 }
 
