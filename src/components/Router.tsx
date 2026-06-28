@@ -9,6 +9,7 @@ import Layout from '@/components/Layout';
 const ErrorPage = lazy(() => import('@/components/pages/ErrorPage'));
 const HomePage = lazy(() => import('@/components/pages/HomePage'));
 const AboutPage = lazy(() => import('@/components/pages/AboutPage'));
+const IndustrySolutionsPage = lazy(() => import('@/components/pages/IndustrySolutionsPage'));
 const ServicesPage = lazy(() => import('@/components/pages/ServicesPage'));
 const CaseStudiesPage = lazy(() => import('@/components/pages/CaseStudiesPage'));
 const BlogPage = lazy(() => import('@/components/pages/BlogPage'));
