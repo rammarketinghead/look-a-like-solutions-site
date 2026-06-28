@@ -614,6 +614,15 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
+              {
+                          path: "industry-solutions",
+                                    element: (
+                                                <Suspense fallback={<PageFallback />}>
+                                                              <IndustrySolutionsPage />
+                                                                          </Suspense>
+                                                                                    ),
+                                                                                            },
+              }
       {
         path: "*",
         element: <Navigate to="/" replace />,
