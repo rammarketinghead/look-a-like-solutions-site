@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Briefcase, Stethoscope, Home, BookOpen, UtensilsCrossed, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Head from '@/components/Head';
+import { Head } from '@/components/Head';
 
 interface IndustryCard {
   id: string;
