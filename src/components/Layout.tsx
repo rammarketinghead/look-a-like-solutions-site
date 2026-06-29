@@ -27,18 +27,23 @@ function Layout() {
   // Initialize sitemap auto-updater
   useSitemapUpdater();
 
-  // Handle scroll effect for header with throttling
+  // Handle scroll effect for header with throttling and debouncing
   useEffect(() => {
     let ticking = false;
+    let lastScrollY = 0;
+    
     const handleScroll = () => {
+      lastScrollY = window.scrollY;
+      
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 10);
+          setIsScrolled(lastScrollY > 10);
           ticking = false;
         });
         ticking = true;
       }
     };
+    
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);

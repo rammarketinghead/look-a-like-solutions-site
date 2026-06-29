@@ -18,7 +18,7 @@ import { ArrowRight, Target, TrendingUp, Users, Award, Play, Star, CheckCircle, 
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0 }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
 };
 
 const containerVariants = {
@@ -26,15 +26,15 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.6,
-      staggerChildren: 0.1
+      duration: 0.4,
+      staggerChildren: 0.08
     }
   }
 };
 
 const scaleInVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { opacity: 1, scale: 1 }
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } }
 };
 
 // Blog Section Component

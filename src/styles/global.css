@@ -18,11 +18,22 @@
     text-rendering: optimizeSpeed;
     font-feature-settings: 'kern' 1;
     overscroll-behavior: none;
+    /* Reduce repaints and reflows */
+    contain: layout style paint;
   }
 
   /* Mobile-first focus styles */
   *:focus-visible {
     @apply outline-2 outline-offset-2 outline-primary;
+  }
+
+  /* Reduce motion for better performance */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -30,23 +41,28 @@
   /* Mobile-First Container System */
   .mobile-container {
     @apply w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8;
+    contain: layout style;
   }
   
   .mobile-container-tight {
     @apply w-full max-w-4xl mx-auto px-4 sm:px-6;
+    contain: layout style;
   }
   
   /* Mobile-First Section Spacing */
   .mobile-section {
     @apply py-12 sm:py-16 lg:py-20;
+    contain: layout style paint;
   }
   
   .mobile-section-compact {
     @apply py-8 sm:py-12 lg:py-16;
+    contain: layout style paint;
   }
   
   .mobile-section-large {
     @apply py-16 sm:py-20 lg:py-24 xl:py-28;
+    contain: layout style paint;
   }
 
   /* Mobile-First Typography Scale */
@@ -85,19 +101,23 @@
   /* Mobile-First Button System */
   .mobile-btn-primary {
     @apply inline-flex items-center justify-center px-4 py-3 sm:px-6 sm:py-3.5 text-sm sm:text-base font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-200 min-h-[44px] touch-manipulation;
+    will-change: auto;
   }
   
   .mobile-btn-secondary {
     @apply inline-flex items-center justify-center px-4 py-3 sm:px-6 sm:py-3.5 text-sm sm:text-base font-medium rounded-lg border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-200 min-h-[44px] touch-manipulation;
+    will-change: auto;
   }
   
   .mobile-btn-ghost {
     @apply inline-flex items-center justify-center px-3 py-2 sm:px-4 sm:py-2.5 text-sm sm:text-base font-medium rounded-lg text-secondary hover:text-dark-gray hover:bg-light-gray focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-200 min-h-[40px] touch-manipulation;
+    will-change: auto;
   }
 
   /* Mobile-First Card System */
   .mobile-card {
     @apply bg-background rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200 overflow-hidden;
+    contain: layout style paint;
   }
   
   .mobile-card-padding {
@@ -111,22 +131,27 @@
   /* Mobile-First Grid System */
   .mobile-grid-1 {
     @apply grid grid-cols-1 gap-4 sm:gap-6 lg:gap-8;
+    contain: layout style;
   }
   
   .mobile-grid-2 {
     @apply grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8;
+    contain: layout style;
   }
   
   .mobile-grid-3 {
     @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8;
+    contain: layout style;
   }
   
   .mobile-grid-4 {
     @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8;
+    contain: layout style;
   }
   
   .mobile-grid-auto {
     @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8;
+    contain: layout style;
   }
 
   /* Mobile-First Spacing System */
@@ -195,6 +220,7 @@
   
   .mobile-sticky-header {
     @apply sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-gray-200;
+    contain: layout style paint;
   }
   
   .mobile-overlay {
@@ -205,11 +231,23 @@
   .gpu-accelerated {
     transform: translateZ(0);
     will-change: transform;
+    backface-visibility: hidden;
   }
   
   .smooth-scroll {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+  }
+
+  /* Image optimization utilities */
+  .image-lazy {
+    content-visibility: auto;
+  }
+
+  /* Reduce layout shift */
+  .aspect-video-safe {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
   }
 }
 
@@ -279,5 +317,22 @@
   /* Optimize transitions */
   * {
     transition-duration: 0.15s !important;
+  }
+
+  /* Reduce blur effects on mobile */
+  .backdrop-blur-md {
+    backdrop-filter: blur(4px) !important;
+  }
+
+  /* Optimize images for mobile */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Prevent layout shift from scrollbar */
+  html {
+    overflow-y: scroll;
   }
 }

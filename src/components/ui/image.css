@@ -13,3 +13,24 @@ img[src*='12d367_71ebdd7141d041e4be3d91d80d4578dd'] {
   mask-repeat: no-repeat;
   animation: scanMask 2s linear infinite;
 }
+
+/* Image optimization for mobile */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  contain: layout style paint;
+}
+
+/* Prevent layout shift for images */
+img[loading="lazy"] {
+  background-color: #f0f0f0;
+}
+
+/* Optimize image rendering */
+@media (max-width: 640px) {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
