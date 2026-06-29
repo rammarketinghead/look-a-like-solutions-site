@@ -8,8 +8,10 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { SEOHead } from '@/components/ui/seo-head';
 import { NewsletterSection } from '@/components/ui/newsletter-section';
+import { MultiStepLeadForm } from '@/components/ui/multi-step-lead-form';
+import { CalendlyBooking } from '@/components/ui/calendly-booking';
 import { useToast } from '@/hooks/use-toast';
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Loader2, AlertCircle, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Loader2, AlertCircle, MessageCircle, Calendar } from 'lucide-react';
 import { BaseCrudService } from '@/integrations';
 import { FormSubmissions } from '@/entities';
 
@@ -131,18 +133,59 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* Multi-Step Lead Form Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-light-gray" id="contact-form">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-heading text-dark-gray mb-4">
+              Get Your Free Strategy Session
+            </h2>
+            <p className="text-lg font-paragraph text-secondary max-w-2xl mx-auto">
+              Tell us about your project and we'll create a personalized digital marketing strategy for you.
+            </p>
+          </motion.div>
+          
+          <div className="max-w-2xl mx-auto mb-16">
+            <MultiStepLeadForm 
+              onSuccess={() => {
+                setTimeout(() => {
+                  window.location.href = '/thank-you';
+                }, 2000);
+              }}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Calendly Booking Section */}
+      <section className="py-16 sm:py-24 lg:py-32 bg-background">
+        <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <CalendlyBooking 
+              title="Schedule Your Strategy Session"
+              subtitle="Book a free 30-minute consultation with our team"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Contact Form & Info */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-background" id="contact-form">
+      <section className="py-16 sm:py-24 lg:py-32 bg-light-gray">
         <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="sr-only">Contact Us</h1>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
             {/* Contact Information */}
             <div className="lg:col-span-1">
               <h2 className="text-2xl font-heading text-dark-gray mb-6 sm:mb-8 sm:text-xl">
-                Get In Touch
+                Other Ways to Reach Us
               </h2>
               <p className="font-paragraph text-secondary mb-8 sm:mb-12 text-sm sm:text-base">
-                Reach out through any channel. We respond within 2 hours.
+                Prefer to connect directly? Use any of these channels. We respond within 2 hours.
               </p>
 
               <div className="space-y-6 sm:space-y-8 mb-8">
@@ -387,6 +430,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
       {/* Why Choose Us */}
       <section className="py-32 bg-light-gray">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -433,6 +477,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
       {/* FAQ Section */}
       <section className="py-32 bg-background">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -474,6 +519,9 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* Newsletter Section */}
+      <NewsletterSection />
     </div>
   );
 }
