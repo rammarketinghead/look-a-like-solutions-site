@@ -269,14 +269,6 @@ export default function BlogPostPage() {
           modifiedTime={post?._updatedDate ? new Date(post._updatedDate).toISOString() : undefined}
         />
       )}
-          keywords={`${post.title}, digital marketing, SEO, social media marketing, content marketing, online marketing`}
-          image={post.featuredImage}
-          type="article"
-          author={post.author}
-          publishedTime={post.publishedDate ? new Date(post.publishedDate).toISOString() : undefined}
-          modifiedTime={post._updatedDate ? new Date(post._updatedDate).toISOString() : undefined}
-        />
-      )}
       
       {/* Modern Hero Section */}
       <section className="relative min-h-[70vh] sm:min-h-[80vh] flex items-center justify-center overflow-hidden">
