@@ -1,6 +1,7 @@
 /**
  * Schema Markup Helpers for Enhanced SEO
  * Provides reusable schema markup generators for different page types
+ * Phase 7: AI Search Optimization - Comprehensive Schema Implementation
  */
 
 export interface BreadcrumbItem {
@@ -13,8 +14,25 @@ export interface FAQItem {
   answer: string;
 }
 
+export interface PersonSchema {
+  name: string;
+  jobTitle?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  sameAs?: string[];
+}
+
+export interface ReviewItem {
+  reviewRating: number;
+  reviewBody: string;
+  author: string;
+  datePublished?: string;
+}
+
 /**
  * Generate BreadcrumbList schema markup
+ * Used on all route pages for navigation context
  */
 export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
   return {
@@ -31,8 +49,11 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
 
 /**
  * Generate FAQPage schema markup
+ * Reusable for homepage, service pages, blog posts, contact page
  */
 export function generateFAQSchema(faqs: FAQItem[]) {
+  if (!faqs || faqs.length === 0) return null;
+  
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -48,7 +69,48 @@ export function generateFAQSchema(faqs: FAQItem[]) {
 }
 
 /**
+ * Generate Person schema markup for authors and team members
+ * Only for verified, visible team members - no fake credentials
+ */
+export function generatePersonSchema(person: PersonSchema) {
+  const schema: any = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": person.name
+  };
+
+  if (person.jobTitle) schema.jobTitle = person.jobTitle;
+  if (person.description) schema.description = person.description;
+  if (person.image) schema.image = person.image;
+  if (person.url) schema.url = person.url;
+  if (person.sameAs && person.sameAs.length > 0) schema.sameAs = person.sameAs;
+
+  return schema;
+}
+
+/**
+ * Generate generic editorial author framework
+ * Used when specific author is not verified
+ */
+export function generateEditorialAuthorSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Look A Like Solutions Editorial Team",
+    "jobTitle": "Digital Marketing Specialists",
+    "description": "The editorial team at Look A Like Solutions creates data-driven content on digital marketing, SEO, paid advertising, and web development.",
+    "url": "https://www.lookalikesolutions.com",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Look A Like Solutions",
+      "url": "https://www.lookalikesolutions.com"
+    }
+  };
+}
+
+/**
  * Generate Service schema markup
+ * Used for individual service pages (SEO, Social Media, Paid Ads, etc.)
  */
 export function generateServiceSchema(
   serviceName: string,
@@ -58,25 +120,29 @@ export function generateServiceSchema(
 ) {
   return {
     "@context": "https://schema.org",
-    "@type": "Service",
+    "@type": "ProfessionalService",
     "name": serviceName,
     "description": description,
     "provider": {
       "@type": "Organization",
       "name": "Look A Like Solutions",
-      "url": "https://www.lookalikesolutions.com"
+      "url": "https://www.lookalikesolutions.com",
+      "logo": "https://static.wixstatic.com/media/f650f9_8f4cac9948dd449e824fcf229233b85e~mv2.png"
     },
     "areaServed": {
       "@type": "Place",
       "name": areaServed
     },
     "serviceType": serviceName,
-    "priceRange": priceRange
+    "priceRange": priceRange,
+    "telephone": "+91-9731588244",
+    "email": "info@lookalikesolutions.com"
   };
 }
 
 /**
  * Generate LocalBusiness schema markup
+ * Used on contact page and location-specific pages
  */
 export function generateLocalBusinessSchema() {
   return {
@@ -86,11 +152,11 @@ export function generateLocalBusinessSchema() {
     "image": "https://static.wixstatic.com/media/f650f9_8f4cac9948dd449e824fcf229233b85e~mv2.png",
     "url": "https://www.lookalikesolutions.com",
     "telephone": "+91-9731588244",
+    "email": "info@lookalikesolutions.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Bengaluru",
       "addressRegion": "Karnataka",
-      "postalCode": "560001",
       "addressCountry": "IN"
     },
     "geo": {
@@ -104,12 +170,19 @@ export function generateLocalBusinessSchema() {
       "opens": "09:00",
       "closes": "18:00"
     },
-    "priceRange": "$"
+    "priceRange": "$",
+    "sameAs": [
+      "https://www.facebook.com/lookalikesolutions",
+      "https://www.instagram.com/lookalikesolutions/",
+      "https://www.linkedin.com/company/lookalikesolutions/",
+      "https://www.youtube.com/@thelookalikesolutions"
+    ]
   };
 }
 
 /**
  * Generate WebApplication schema markup for tools
+ * Used on tool pages (keyword research, SERP preview, etc.)
  */
 export function generateWebApplicationSchema(
   name: string,
@@ -131,13 +204,15 @@ export function generateWebApplicationSchema(
     "creator": {
       "@type": "Organization",
       "name": "Look A Like Solutions",
-      "url": "https://www.lookalikesolutions.com"
+      "url": "https://www.lookalikesolutions.com",
+      "logo": "https://static.wixstatic.com/media/f650f9_8f4cac9948dd449e824fcf229233b85e~mv2.png"
     }
   };
 }
 
 /**
  * Generate BlogPosting schema markup
+ * Used on blog post pages with Article/BlogPosting type
  */
 export function generateBlogPostingSchema(
   title: string,
@@ -168,12 +243,55 @@ export function generateBlogPostingSchema(
         "url": "https://static.wixstatic.com/media/f650f9_8f4cac9948dd449e824fcf229233b85e~mv2.png"
       }
     },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://www.lookalikesolutions.com${url}`
+    },
+    "url": `https://www.lookalikesolutions.com${url}`
+  };
+}
+
+/**
+ * Generate Article schema markup
+ * Used for general article/content pages
+ */
+export function generateArticleSchema(
+  title: string,
+  description: string,
+  imageUrl: string,
+  datePublished: string,
+  dateModified: string,
+  url: string = ""
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description,
+    "image": imageUrl,
+    "datePublished": datePublished,
+    "dateModified": dateModified,
+    "author": generateEditorialAuthorSchema(),
+    "publisher": {
+      "@type": "Organization",
+      "name": "Look A Like Solutions",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://static.wixstatic.com/media/f650f9_8f4cac9948dd449e824fcf229233b85e~mv2.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://www.lookalikesolutions.com${url}`
+    },
     "url": `https://www.lookalikesolutions.com${url}`
   };
 }
 
 /**
  * Generate Organization schema markup
+ * Comprehensive schema with all verified facts
+ * Used on homepage and throughout site
  */
 export function generateOrganizationSchema() {
   return {
@@ -193,6 +311,7 @@ export function generateOrganizationSchema() {
       "@type": "ContactPoint",
       "telephone": "+91-9731588244",
       "contactType": "Customer Service",
+      "email": "info@lookalikesolutions.com",
       "areaServed": "IN",
       "availableLanguage": ["English", "Hindi"]
     },
@@ -201,6 +320,30 @@ export function generateOrganizationSchema() {
       "https://www.instagram.com/lookalikesolutions/",
       "https://www.linkedin.com/company/lookalikesolutions/",
       "https://www.youtube.com/@thelookalikesolutions"
+    ],
+    "knowsAbout": [
+      "Digital Marketing",
+      "Search Engine Optimization",
+      "Social Media Marketing",
+      "Paid Advertising",
+      "Web Development",
+      "Content Marketing",
+      "Data Analytics",
+      "Conversion Rate Optimization",
+      "Email Marketing",
+      "YouTube Marketing",
+      "Local SEO",
+      "Performance Marketing"
+    ],
+    "areaServed": [
+      {
+        "@type": "Place",
+        "name": "Bengaluru, Karnataka, India"
+      },
+      {
+        "@type": "Place",
+        "name": "India"
+      }
     ]
   };
 }
@@ -227,6 +370,7 @@ export function generateWebSiteSchema() {
 
 /**
  * Generate ContactPage schema markup
+ * Used on contact page
  */
 export function generateContactPageSchema() {
   return {
@@ -241,5 +385,47 @@ export function generateContactPageSchema() {
       "email": "info@lookalikesolutions.com",
       "areaServed": "IN"
     }
+  };
+}
+
+/**
+ * Generate safe testimonial/review framework
+ * IMPORTANT: Only emits schema if real verified reviews exist in CMS
+ * Does NOT emit fake ratings or reviews
+ */
+export function generateReviewSchema(reviews: ReviewItem[]) {
+  if (!reviews || reviews.length === 0) {
+    return null; // Do not emit fake review schema
+  }
+
+  const aggregateRating = {
+    "@type": "AggregateRating",
+    "ratingValue": (reviews.reduce((sum, r) => sum + r.reviewRating, 0) / reviews.length).toFixed(1),
+    "ratingCount": reviews.length,
+    "bestRating": "5",
+    "worstRating": "1"
+  };
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Look A Like Solutions",
+    "url": "https://www.lookalikesolutions.com",
+    "aggregateRating": aggregateRating,
+    "review": reviews.map(review => ({
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": review.reviewRating,
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "reviewBody": review.reviewBody,
+      "author": {
+        "@type": "Person",
+        "name": review.author
+      },
+      "datePublished": review.datePublished
+    }))
   };
 }
