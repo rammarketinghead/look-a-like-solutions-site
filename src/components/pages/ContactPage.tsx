@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { SEOHead } from '@/components/ui/seo-head';
 import { NewsletterSection } from '@/components/ui/newsletter-section';
 import { useToast } from '@/hooks/use-toast';
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Loader2, AlertCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Loader2, AlertCircle, MessageCircle } from 'lucide-react';
 import { BaseCrudService } from '@/integrations';
 import { FormSubmissions } from '@/entities';
 
@@ -114,31 +114,61 @@ export default function ContactPage() {
         type="website"
       />
       {/* Hero Section */}
+      <section className="py-12 sm:py-16 bg-gradient-to-br from-primary/5 via-background to-light-gray">
+        <div className="mobile-container text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="mobile-h1 text-dark-gray mb-4">
+              Let's Talk About Your Digital Growth
+            </h1>
+            <p className="mobile-body-lg text-secondary max-w-2xl mx-auto">
+              Get a personalized strategy from our experts. No credit card required.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Contact Form & Info */}
-      <section className="py-16 sm:py-24 lg:py-32 bg-background">
+      <section className="py-16 sm:py-24 lg:py-32 bg-background" id="contact-form">
         <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="sr-only">Contact Us</h1>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16">
             {/* Contact Information */}
             <div className="lg:col-span-1">
               <h2 className="text-2xl font-heading text-dark-gray mb-6 sm:mb-8 sm:text-xl">
-                Let's Start a Conversation
+                Get In Touch
               </h2>
               <p className="font-paragraph text-secondary mb-8 sm:mb-12 text-sm sm:text-base">
-                We're here to help you achieve your digital marketing goals. Reach out to us through any of the channels below, and we'll get back to you promptly.
+                Reach out through any channel. We respond within 2 hours.
               </p>
 
-              <div className="space-y-6 sm:space-y-8">
+              <div className="space-y-6 sm:space-y-8 mb-8">
                 <div className="flex items-start">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
                     <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-heading text-dark-gray mb-1 sm:mb-2 text-sm sm:text-base">Phone</h3>
-                    <a href="tel:+919731588244" className="font-paragraph text-secondary hover:text-primary transition-colors text-sm sm:text-base">
+                    <a href="tel:+919731588244" className="font-paragraph text-secondary hover:text-primary transition-colors text-sm sm:text-base font-semibold">
                       +91-9731588244
                     </a>
                     <p className="font-paragraph text-secondary text-xs sm:text-sm">Mon-Fri 9AM-6PM IST</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
+                    <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading text-dark-gray mb-1 sm:mb-2 text-sm sm:text-base">WhatsApp</h3>
+                    <a href="https://wa.me/919731588244" target="_blank" rel="noopener noreferrer" className="font-paragraph text-secondary hover:text-primary transition-colors text-sm sm:text-base font-semibold">
+                      Chat with us
+                    </a>
+                    <p className="font-paragraph text-secondary text-xs sm:text-sm">Instant response</p>
                   </div>
                 </div>
 
@@ -148,21 +178,10 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-heading text-dark-gray mb-1 sm:mb-2 text-sm sm:text-base">Email</h3>
-                    <a href="mailto:info@lookalikesolutions.com" className="font-paragraph text-secondary hover:text-primary transition-colors text-sm sm:text-base break-all">
+                    <a href="mailto:info@lookalikesolutions.com" className="font-paragraph text-secondary hover:text-primary transition-colors text-sm sm:text-base break-all font-semibold">
                       info@lookalikesolutions.com
                     </a>
-                    <p className="font-paragraph text-secondary text-xs sm:text-sm">We'll respond within 24 hours</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-full flex items-center justify-center mr-3 sm:mr-4 flex-shrink-0">
-                    <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-heading text-dark-gray mb-1 sm:mb-2 text-sm sm:text-base">Office</h3>
-                    <p className="font-paragraph text-secondary text-sm sm:text-base">Bengaluru, Karnataka</p>
-                    <p className="font-paragraph text-secondary text-sm sm:text-base">India</p>
+                    <p className="font-paragraph text-secondary text-xs sm:text-sm">Within 2 hours</p>
                   </div>
                 </div>
 
@@ -171,12 +190,17 @@ export default function ContactPage() {
                     <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-heading text-dark-gray mb-1 sm:mb-2 text-sm sm:text-base">Business Hours</h3>
-                    <p className="font-paragraph text-secondary text-xs sm:text-sm">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                    <p className="font-paragraph text-secondary text-xs sm:text-sm">Saturday: 10:00 AM - 2:00 PM</p>
-                    <p className="font-paragraph text-secondary text-xs sm:text-sm">Sunday: Closed</p>
+                    <h3 className="font-heading text-dark-gray mb-1 sm:mb-2 text-sm sm:text-base">Response Time</h3>
+                    <p className="font-paragraph text-secondary text-xs sm:text-sm font-semibold">Average: 2 hours</p>
+                    <p className="font-paragraph text-secondary text-xs sm:text-sm">Mon-Fri 9AM-6PM IST</p>
                   </div>
                 </div>
+              </div>
+
+              {/* Trust Signals */}
+              <div className="bg-primary/5 rounded-lg p-4 border border-primary/10">
+                <p className="mobile-body-sm text-dark-gray mb-3 font-semibold">✓ Privacy Protected</p>
+                <p className="mobile-body-sm text-secondary">Your information is secure and will never be shared.</p>
               </div>
             </div>
 

@@ -7,11 +7,13 @@ import { FAQSection } from '@/components/ui/faq-section';
 import { SEOHead } from '@/components/ui/seo-head';
 import { TrustedBusinessesCarousel } from '@/components/ui/trusted-businesses-carousel';
 import { NewsletterSection } from '@/components/ui/newsletter-section';
+import { ProofChips } from '@/components/ui/proof-chips';
+import { CTASection } from '@/components/ui/cta-section';
 import { useState, useEffect } from 'react';
 import { BaseCrudService } from '@/integrations';
 import { BlogPosts } from '@/entities';
 
-import { ArrowRight, Target, TrendingUp, Users, Award, Play, Star, CheckCircle, Calendar, Clock } from 'lucide-react';
+import { ArrowRight, Target, TrendingUp, Users, Award, Play, Star, CheckCircle, Calendar, Clock, Zap } from 'lucide-react';
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -276,8 +278,8 @@ export default function HomePage() {
           }
         ]}
       />
-      {/* Mobile-First Hero Section */}
-      <section className="relative min-h-[90vh] sm:min-h-screen flex items-center justify-center overflow-hidden">
+      {/* CRO-Optimized Hero Section */}
+      <section className="relative min-h-[95vh] sm:min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-0">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-light-gray"></div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23007BFF%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50 bg-background"></div>
@@ -290,30 +292,63 @@ export default function HomePage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex flex-col items-center"
           >
+            {/* Trust Badge */}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="mb-6"
+            >
+              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full mobile-body-sm font-medium">
+                ✓ Trusted by 500+ Businesses
+              </span>
+            </motion.div>
+
+            {/* Sharp Headline */}
             <h1 className="mobile-h1 text-dark-gray mb-6 font-bold leading-tight">
-              Grow Your Business with Data-Driven Digital Marketing
+              Get More Customers & Grow Revenue
             </h1>
+
+            {/* Benefit-Driven Subheading */}
             <p className="mobile-body-lg text-secondary max-w-2xl mx-auto mb-8">
-              Get more customers, increase revenue, and dominate your market with proven digital marketing strategies. Free strategy session available.
+              Proven digital marketing strategies that deliver measurable results in 90 days. Increase traffic 300%, get 50+ qualified leads monthly.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center w-full">
+
+            {/* Proof Chips */}
+            <ProofChips
+              chips={[
+                { icon: 'trending', value: '300%', label: 'Avg Growth' },
+                { icon: 'users', value: '50+', label: 'Leads/Month' },
+                { icon: 'star', value: '4.9★', label: 'Rating' }
+              ]}
+              className="mb-10"
+            />
+
+            {/* Primary CTA - High Contrast */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center w-full mb-8">
               <Link to="/contact">
-                <Button className="mobile-btn-primary shadow-lg hover:shadow-xl">
-                  Get Free Consultation
+                <Button className="mobile-btn-primary shadow-lg hover:shadow-xl h-12 px-8 text-base">
+                  Get Free Strategy Session
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <Link to="/services">
-                <Button className="mobile-btn-secondary shadow-lg hover:shadow-xl">
-                  Explore Services
+                <Button className="mobile-btn-secondary shadow-lg hover:shadow-xl h-12 px-8 text-base">
+                  View Case Studies
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
+
+            {/* Trust Copy */}
+            <p className="mobile-body-sm text-secondary">
+              No credit card required • 30-min consultation • Personalized roadmap
+            </p>
           </motion.div>
         </div>
 
       </section>
-      {/* Services Overview */}
+      {/* Trust Proof Section */}
       <section className="bg-background">
         <TrustedBusinessesCarousel 
           className="max-w-[120rem] mx-auto px-6"
@@ -322,6 +357,8 @@ export default function HomePage() {
           speed={25}
         />
       </section>
+
+      {/* Services Section - Scannable Cards */}
       <section className="mobile-section bg-background">
         <div className="mobile-container">
           <div className="text-center mb-12">
@@ -332,11 +369,14 @@ export default function HomePage() {
               variants={fadeInVariants}
               transition={{ duration: 0.6 }}
             >
+              <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full mobile-body-sm font-medium mb-4">
+                Our Services
+              </span>
               <h2 className="mobile-h2 text-dark-gray mb-6">
-                Services That Drive Real Business Growth
+                Proven Results Across All Services
               </h2>
               <p className="mobile-body-lg text-secondary max-w-3xl mx-auto">
-                Every service is designed to bring you more customers, increase sales, and maximize your ROI.
+                Each service is designed to deliver measurable outcomes and drive real business growth.
               </p>
             </motion.div>
           </div>
@@ -346,34 +386,30 @@ export default function HomePage() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={containerVariants}
-            className="mobile-grid-3 xl:grid-cols-4"
+            className="mobile-grid-2 lg:grid-cols-3"
           >
             {[
-              { title: 'SEO Optimization', description: 'Rank #1 on Google and get found by customers searching for you', icon: '🔍', color: 'bg-blue-50 text-blue-600', link: '/services/seo' },
-              { title: 'Social Media Marketing', description: 'Turn followers into paying customers with engaging content', icon: '📱', color: 'bg-purple-50 text-purple-600', link: '/services/social-media' },
-              { title: 'Paid Advertising', description: 'Get instant traffic and qualified leads with Google & Facebook Ads', icon: '🎯', color: 'bg-green-50 text-green-600', link: '/services/paid-ads' },
-              { title: 'Web Development', description: 'Fast, mobile-friendly websites that convert visitors into customers', icon: '💻', color: 'bg-orange-50 text-orange-600', link: '/services/web-development' },
-              { title: 'Content Marketing', description: 'Attract and convert customers with valuable, SEO-optimized content', icon: '✍️', color: 'bg-pink-50 text-pink-600', link: '/services/content-marketing' },
-              { title: 'Data Analytics', description: 'Know exactly what\'s working and where to invest your marketing budget', icon: '📊', color: 'bg-indigo-50 text-indigo-600', link: '/services/data-analytics' },
-              { title: 'Email Marketing', description: 'Nurture leads and drive repeat sales with automated email campaigns', icon: '📧', color: 'bg-red-50 text-red-600', link: '/services/email-marketing' },
-              { title: 'Conversion Optimization', description: 'Double your sales without spending more on advertising', icon: '⚡', color: 'bg-yellow-50 text-yellow-600', link: '/services/conversion-optimization' },
-              { title: 'Influencer Marketing', description: 'Reach thousands of potential customers through trusted influencers', icon: '👥', color: 'bg-teal-50 text-teal-600', link: '/services/influencer-marketing' },
-              { title: 'YouTube Growth', description: 'Build a profitable YouTube channel with more views and subscribers', icon: '📹', color: 'bg-rose-50 text-rose-600', link: '/services/youtube-growth' },
-              { title: 'Digital Audit', description: 'Discover hidden opportunities to improve your digital performance', icon: '🔎', color: 'bg-cyan-50 text-cyan-600', link: '/services/digital-audit' },
-              { title: 'Digital Training', description: 'Master digital marketing skills to grow your business yourself', icon: '🎓', color: 'bg-amber-50 text-amber-600', link: '/services/digital-training' }
+              { title: 'SEO Optimization', outcome: '300% traffic growth', icon: '🔍', color: 'bg-blue-50 text-blue-600', link: '/services/seo' },
+              { title: 'Social Media Marketing', outcome: '15K followers in 4 months', icon: '📱', color: 'bg-purple-50 text-purple-600', link: '/services/social-media' },
+              { title: 'Paid Advertising', outcome: '5x return on ad spend', icon: '🎯', color: 'bg-green-50 text-green-600', link: '/services/paid-ads' },
+              { title: 'Web Development', outcome: 'High-converting websites', icon: '💻', color: 'bg-orange-50 text-orange-600', link: '/services/web-development' },
+              { title: 'Content Marketing', outcome: 'Attract qualified leads', icon: '✍️', color: 'bg-pink-50 text-pink-600', link: '/services/content-marketing' },
+              { title: 'Data Analytics', outcome: 'Data-driven decisions', icon: '📊', color: 'bg-indigo-50 text-indigo-600', link: '/services/data-analytics' }
             ].map((service, index) => (
               <motion.div key={index} variants={scaleInVariants}>
                 <Link to={service.link} className="block h-full">
                   <Card className="mobile-card group hover:shadow-xl transition-all duration-300 h-full border-0 cursor-pointer">
-                    <CardContent className="mobile-card-padding text-center h-full flex flex-col">
-                      <div className={`w-16 h-16 ${service.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <CardContent className="mobile-card-padding h-full flex flex-col">
+                      <div className={`w-14 h-14 ${service.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                         <span className="text-2xl">{service.icon}</span>
                       </div>
-                      <h3 className="mobile-h4 text-dark-gray mb-3 group-hover:text-primary transition-colors">
+                      <h3 className="mobile-h4 text-dark-gray mb-2 group-hover:text-primary transition-colors">
                         {service.title}
                       </h3>
-                      <p className="mobile-body text-secondary flex-grow">{service.description}</p>
-                      <div className="mt-4 flex items-center justify-center text-primary mobile-body-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                      <p className="mobile-body-sm text-primary font-semibold mb-3">
+                        ✓ {service.outcome}
+                      </p>
+                      <div className="mt-auto flex items-center text-primary mobile-body-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                         Learn More
                         <ArrowRight className="ml-1 h-4 w-4" />
                       </div>
@@ -605,6 +641,22 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* CTA Section - Conversion Focused */}
+      <CTASection
+        title="Ready to Transform Your Digital Presence?"
+        subtitle="Limited Spots Available"
+        description="Get a personalized strategy from our experts. No credit card required."
+        primaryCTA={{
+          label: "Get Free Strategy Session",
+          href: "/contact"
+        }}
+        secondaryCTA={{
+          label: "View Case Studies",
+          href: "/case-studies"
+        }}
+        variant="light"
+      />
       {/* Trusted By Section */}
       {/* Results Section */}
       <section className="mobile-section bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground relative overflow-hidden">

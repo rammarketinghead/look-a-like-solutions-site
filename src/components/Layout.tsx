@@ -5,6 +5,7 @@ import { SearchBar } from '@/components/ui/search-bar';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import WhatsAppButton from '@/components/ui/whatsapp-button';
 import CookieConsentBanner from '@/components/ui/CookieConsentBanner';
+import { StickyCTABar } from '@/components/ui/sticky-cta-bar';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import { SEOHead } from '@/components/ui/seo-head';
@@ -596,6 +597,14 @@ function Layout() {
           </div>
         </div>
       </footer>
+      {/* Sticky Mobile CTA Bar */}
+      <StickyCTABar
+        onCall={() => window.location.href = 'tel:+919731588244'}
+        onWhatsApp={() => window.open('https://wa.me/919731588244?text=Hi%20I%20am%20interested%20in%20your%20services', '_blank')}
+        onAction={() => navigate('/contact')}
+        actionLabel="Get Session"
+      />
+
       {/* WhatsApp Floating Button */}
       <WhatsAppButton
         phoneNumber="+919731588244"
