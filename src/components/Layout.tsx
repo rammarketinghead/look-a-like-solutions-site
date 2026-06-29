@@ -115,7 +115,7 @@ function Layout() {
 
     setIsSubscribing(true);
     try {
-      await BaseCrudService.create('newslettersubscribers', {
+      await BaseCrudService.create('NewsletterSubscribers', {
         _id: crypto.randomUUID(),
         emailAddress: newsletterEmail.trim(),
         subscriptionDate: new Date(),
