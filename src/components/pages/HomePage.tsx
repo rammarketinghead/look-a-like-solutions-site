@@ -222,9 +222,9 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead 
-        title="Digital Marketing Agency in Bengaluru - Get More Customers & Grow Revenue"
-        description="Get more customers and grow your revenue with proven digital marketing strategies. We deliver measurable results in 90 days. SEO, Paid Ads, Social Media & more. Free strategy session available."
-        keywords="digital marketing agency Bengaluru, SEO services Bengaluru, social media marketing, paid advertising, web development, content marketing, digital marketing company India, Google Ads, Facebook Ads, Instagram marketing"
+        title="Digital Marketing for Bengaluru Businesses - Get Found, Trusted & Chosen"
+        description="Marketing that helps Bengaluru businesses get found, trusted, and chosen. Proven digital strategies for local growth. SEO, Paid Ads, Social Media & more. Free strategy session available."
+        keywords="digital marketing agency Bengaluru, SEO services Bengaluru, local marketing Bengaluru, social media marketing, paid advertising, web development, content marketing, digital marketing company India, Google Ads, Facebook Ads, Instagram marketing, Bengaluru businesses"
         type="website"
         schemaType="LocalBusiness"
         aggregateRating={{
@@ -234,25 +234,25 @@ export default function HomePage() {
         services={[
           {
             name: "SEO Optimization",
-            description: "Rank #1 on Google and get found by customers searching for you. Comprehensive SEO services including keyword research, on-page optimization, and link building.",
+            description: "Get found by Bengaluru customers searching for your services. Rank #1 on Google with comprehensive SEO including keyword research, on-page optimization, and local link building.",
             areaServed: "Bengaluru, India",
             priceRange: "$"
           },
           {
             name: "Social Media Marketing",
-            description: "Turn followers into paying customers with engaging content and targeted social media campaigns across all platforms.",
+            description: "Build trust and community with Bengaluru audiences. Turn followers into paying customers with engaging content and targeted social media campaigns.",
             areaServed: "Bengaluru, India",
             priceRange: "$"
           },
           {
             name: "Paid Advertising (Google & Facebook Ads)",
-            description: "Get instant traffic and qualified leads with expertly managed Google Ads and Facebook Ads campaigns.",
+            description: "Get chosen by high-intent customers. Expertly managed Google Ads and Facebook Ads campaigns that drive qualified leads and sales.",
             areaServed: "Bengaluru, India",
             priceRange: "$"
           },
           {
             name: "Web Development",
-            description: "Fast, mobile-friendly websites that convert visitors into customers. Custom web design and development services.",
+            description: "Fast, mobile-friendly websites that convert Bengaluru visitors into customers. Custom web design and development services.",
             areaServed: "Bengaluru, India",
             priceRange: "$"
           }
@@ -305,11 +305,11 @@ export default function HomePage() {
             </motion.div>
 
             {/* Sharp Headline */}
-            <h1 className="mobile-h1 text-dark-gray mb-6 font-bold leading-tight">Get More Customers and Grow Revenue</h1>
+            <h1 className="mobile-h1 text-dark-gray mb-6 font-bold leading-tight">Marketing That Helps Bengaluru Businesses Get Found, Trusted, and Chosen</h1>
 
             {/* Benefit-Driven Subheading */}
             <p className="mobile-body-lg text-secondary max-w-2xl mx-auto mb-8">
-              Proven digital marketing strategies that deliver measurable results in 90 days. Increase traffic 300%, get 50+ qualified leads monthly.
+              Proven digital marketing strategies designed for Bengaluru businesses. Get discovered by your ideal customers, build trust through authentic engagement, and become their first choice. See measurable results in 90 days.
             </p>
 
             {/* Proof Chips */}
