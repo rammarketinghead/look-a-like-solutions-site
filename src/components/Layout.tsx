@@ -12,7 +12,7 @@ import { SEOHead } from '@/components/ui/seo-head';
 import { useSitemapUpdater } from '@/hooks/useSitemapUpdater';
 import { BaseCrudService } from '@/integrations';
 import { ArrowRight, ChevronDown, ChevronRight, Facebook, Heart, Instagram, Linkedin, Mail, MapPin, Menu, Phone, Youtube } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 
 function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,12 +27,19 @@ function Layout() {
   // Initialize sitemap auto-updater
   useSitemapUpdater();
 
-  // Handle scroll effect for header
+  // Handle scroll effect for header with throttling
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 10);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -47,7 +54,7 @@ function Layout() {
 
 
 
-  const navigation = [
+  const navigation = useMemo(() => [
     {
       name: 'Services',
       href: '/services',
@@ -92,7 +99,7 @@ function Layout() {
         { name: 'Education Lead Generation', href: '/education-lead-generation', icon: '🎓' }
       ]
     }
-  ];
+  ], []);
 
   const isActive = (href: string) => {
     if (href === '/') {

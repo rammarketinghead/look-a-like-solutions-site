@@ -83,7 +83,11 @@ export const Image = forwardRef<HTMLImageElement, ImageProps>(({ src, loading = 
     ...props, 
     loading, 
     decoding,
-    onError: () => setImgSrc(FALLBACK_IMAGE_URL)
+    onError: () => setImgSrc(FALLBACK_IMAGE_URL),
+    style: {
+      ...(props.style || {}),
+      contentVisibility: 'auto' as const
+    }
   }
   const imageData = getImageData(imgSrc)
 
