@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { AIImageSlot } from '@/components/ui/ai-image-slot';
 
 interface ServiceHeroProps {
   title: string;
@@ -18,6 +19,8 @@ interface ServiceHeroProps {
     onClick?: () => void;
   };
   icon?: string;
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
 export function ServiceHero({
@@ -26,7 +29,9 @@ export function ServiceHero({
   description,
   primaryCTA,
   secondaryCTA,
-  icon
+  icon,
+  imageSrc,
+  imageAlt
 }: ServiceHeroProps) {
   const fadeInVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -71,7 +76,7 @@ export function ServiceHero({
           animate="visible"
           variants={fadeInVariants}
           transition={{ duration: 0.8 }}
-          className="text-center max-w-3xl mx-auto"
+          className="text-center max-w-3xl mx-auto relative z-10"
         >
           {icon && (
             <motion.div
@@ -101,6 +106,19 @@ export function ServiceHero({
             {secondaryCTA && renderButton(secondaryCTA, false)}
           </div>
         </motion.div>
+
+        {/* Background Image */}
+        {imageSrc && (
+          <div className="absolute inset-0 z-0 opacity-0 sm:opacity-20">
+            <AIImageSlot
+              src={imageSrc}
+              alt={imageAlt || 'Service hero background'}
+              aspectRatio="16:9"
+              loading="eager"
+              className="opacity-40"
+            />
+          </div>
+        )}
       </div>
     </section>
   );

@@ -44,13 +44,14 @@ export const aiImagePlacements: AIImagePlacement[] = [
     aspectRatio: '16:9',
     width: 1600,
     height: 900,
-    alt: 'Digital marketing analytics dashboard showing key performance metrics and data visualization',
+    alt: 'Digital marketing analytics dashboard showing SEO, ads, and conversion growth planning',
     title: 'Analytics Dashboard',
     prompt: 'Modern digital marketing analytics dashboard with colorful charts, metrics, and KPI widgets. Clean interface with blue and white color scheme. Professional workspace aesthetic. No people.',
     loading: 'eager',
     priority: 'high',
-    status: 'ready',
-    notes: 'Above fold - critical for homepage impact'
+    status: 'generated',
+    imagePath: 'https://static.wixstatic.com/media/f650f9_a153d83e6b714abd85209431c3edd563~mv2.png',
+    notes: 'Above fold - critical for homepage impact - PLACED'
   },
   {
     id: 'homepage-proof-funnel',
@@ -65,8 +66,9 @@ export const aiImagePlacements: AIImagePlacement[] = [
     prompt: 'Digital marketing funnel visualization showing stages: awareness, consideration, conversion. Clean infographic style with arrows and icons. Blue, white, and accent colors. Minimal, professional.',
     loading: 'lazy',
     priority: 'medium',
-    status: 'ready',
-    notes: 'Below fold - supports proof section'
+    status: 'generated',
+    imagePath: 'https://static.wixstatic.com/media/f650f9_3811beb59b5e48d780914628f06871a7~mv2.png',
+    notes: 'Below fold - supports proof section - PLACED'
   },
   {
     id: 'homepage-blog-hero',
@@ -96,13 +98,14 @@ export const aiImagePlacements: AIImagePlacement[] = [
     aspectRatio: '16:9',
     width: 1600,
     height: 900,
-    alt: 'SEO optimization process workflow showing keyword research, on-page optimization, and ranking improvement stages',
+    alt: 'SEO and paid advertising strategy dashboard with search, keyword, and conversion visuals',
     title: 'SEO Optimization Process',
     prompt: 'SEO optimization workflow visualization. Shows keyword research, on-page optimization, link building, and ranking improvement. Clean infographic with icons and arrows. Blue and white theme. Professional, no people.',
     loading: 'eager',
     priority: 'high',
-    status: 'ready',
-    notes: 'Service page hero - above fold'
+    status: 'generated',
+    imagePath: 'https://static.wixstatic.com/media/f650f9_3811beb59b5e48d780914628f06871a7~mv2.png',
+    notes: 'Service page hero - above fold - PLACED'
   },
   {
     id: 'google-ads-service-hero',
@@ -112,13 +115,14 @@ export const aiImagePlacements: AIImagePlacement[] = [
     aspectRatio: '16:9',
     width: 1600,
     height: 900,
-    alt: 'Google Ads campaign management interface showing keyword bidding and performance metrics',
+    alt: 'SEO and paid advertising strategy dashboard with search, keyword, and conversion visuals',
     title: 'Google Ads Campaign Setup',
     prompt: 'Google Ads campaign setup interface mockup. Shows keyword bidding, ad copy, landing page, and performance metrics. Clean dashboard style. Blue and white. Professional, no people.',
     loading: 'eager',
     priority: 'high',
-    status: 'ready',
-    notes: 'Google Ads service hero'
+    status: 'generated',
+    imagePath: 'https://static.wixstatic.com/media/f650f9_3811beb59b5e48d780914628f06871a7~mv2.png',
+    notes: 'Google Ads service hero - PLACED'
   },
   {
     id: 'meta-ads-service-hero',
@@ -128,13 +132,14 @@ export const aiImagePlacements: AIImagePlacement[] = [
     aspectRatio: '16:9',
     width: 1600,
     height: 900,
-    alt: 'Meta Ads campaign builder showing audience targeting and creative options',
+    alt: 'SEO and paid advertising strategy dashboard with search, keyword, and conversion visuals',
     title: 'Meta Ads Campaign Builder',
     prompt: 'Meta Ads (Facebook/Instagram) audience targeting and campaign builder interface. Shows audience segmentation, creative options, and performance analytics. Clean dashboard style. Blue and white theme. No people.',
     loading: 'eager',
     priority: 'high',
-    status: 'ready',
-    notes: 'Meta Ads service hero'
+    status: 'generated',
+    imagePath: 'https://static.wixstatic.com/media/f650f9_3811beb59b5e48d780914628f06871a7~mv2.png',
+    notes: 'Meta Ads service hero - PLACED'
   },
   {
     id: 'paid-ads-service-hero',
@@ -144,13 +149,14 @@ export const aiImagePlacements: AIImagePlacement[] = [
     aspectRatio: '16:9',
     width: 1600,
     height: 900,
-    alt: 'Multi-channel paid advertising dashboard showing performance across Google Ads and Meta Ads',
+    alt: 'SEO and paid advertising strategy dashboard with search, keyword, and conversion visuals',
     title: 'Multi-Channel Advertising',
     prompt: 'Multi-channel paid advertising dashboard showing Google Ads, Meta Ads, and other platforms. Unified performance metrics and ROI tracking. Clean interface. Blue and white. Professional.',
     loading: 'eager',
     priority: 'high',
-    status: 'ready',
-    notes: 'Paid Ads overview hero'
+    status: 'generated',
+    imagePath: 'https://static.wixstatic.com/media/f650f9_3811beb59b5e48d780914628f06871a7~mv2.png',
+    notes: 'Paid Ads overview hero - PLACED'
   },
   {
     id: 'social-media-service-hero',
@@ -192,13 +198,14 @@ export const aiImagePlacements: AIImagePlacement[] = [
     aspectRatio: '16:9',
     width: 1600,
     height: 900,
-    alt: 'Local SEO dashboard showing Google My Business optimization and local search rankings',
+    alt: 'Local SEO visibility map with location pins, business listings, and mobile search cards',
     title: 'Local SEO Optimization',
     prompt: 'Local SEO dashboard showing Google My Business optimization, local citations, map rankings, and review management. Clean interface with map visualization. Blue and white. Professional.',
     loading: 'eager',
     priority: 'high',
-    status: 'ready',
-    notes: 'Local SEO service hero'
+    status: 'generated',
+    imagePath: 'https://static.wixstatic.com/media/f650f9_b5826ab6f7364e14bce90b574c3069cf~mv2.png',
+    notes: 'Local SEO service hero - PLACED'
   },
   {
     id: 'performance-marketing-service-hero',
@@ -208,13 +215,14 @@ export const aiImagePlacements: AIImagePlacement[] = [
     aspectRatio: '16:9',
     width: 1600,
     height: 900,
-    alt: 'Performance marketing ROI dashboard showing conversion tracking and revenue attribution',
+    alt: 'SEO and paid advertising strategy dashboard with search, keyword, and conversion visuals',
     title: 'Performance Marketing ROI',
     prompt: 'Performance marketing ROI dashboard showing conversion tracking, cost per acquisition, revenue attribution, and campaign performance metrics. Clean analytics interface. Blue and white.',
     loading: 'eager',
     priority: 'high',
-    status: 'ready',
-    notes: 'Performance Marketing service hero'
+    status: 'generated',
+    imagePath: 'https://static.wixstatic.com/media/f650f9_3811beb59b5e48d780914628f06871a7~mv2.png',
+    notes: 'Performance Marketing service hero - PLACED'
   },
 
   // ============================================
@@ -542,13 +550,14 @@ export const aiImagePlacements: AIImagePlacement[] = [
     aspectRatio: '16:9',
     width: 1600,
     height: 900,
-    alt: 'Professional strategy consultation session with digital marketing planning',
+    alt: 'Digital marketing consultation table with campaign roadmap and booking workflow',
     title: 'Strategy Consultation',
     prompt: 'Professional strategy consultation scene. Generic figures (silhouettes or back-view) discussing digital marketing strategy with laptops, whiteboards with strategy notes, and analytics displays. Clean, collaborative workspace. Blue and white. No specific faces.',
     loading: 'eager',
     priority: 'high',
-    status: 'ready',
-    notes: 'IMPORTANT: Use silhouettes or back-view figures only - NO specific faces'
+    status: 'generated',
+    imagePath: 'https://static.wixstatic.com/media/f650f9_0e1f842be3844785aa9d1881fd0cba8b~mv2.png',
+    notes: 'IMPORTANT: Use silhouettes or back-view figures only - NO specific faces - PLACED'
   },
   {
     id: 'contact-form-success',
@@ -678,13 +687,14 @@ export const aiImagePlacements: AIImagePlacement[] = [
     aspectRatio: '1:1',
     width: 600,
     height: 600,
-    alt: 'SEO checklist lead magnet cover',
+    alt: 'Digital marketing checklist and audit scorecard cover for SEO and conversion optimization',
     title: 'SEO Checklist',
     prompt: 'SEO checklist cover design. Shows checkmarks, SEO-related icons (magnifying glass, trending graph, keywords), and professional layout. Blue and white color scheme. Clean, modern design. No people.',
     loading: 'lazy',
     priority: 'medium',
-    status: 'ready',
-    notes: 'Lead magnet - SEO focused'
+    status: 'generated',
+    imagePath: 'https://static.wixstatic.com/media/f650f9_775e3f312b68490691365a6bc6f97bb4~mv2.png',
+    notes: 'Lead magnet - SEO focused - PLACED'
   },
   {
     id: 'lead-magnet-ad-audit',

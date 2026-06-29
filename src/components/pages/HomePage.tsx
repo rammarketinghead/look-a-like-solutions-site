@@ -9,6 +9,7 @@ import { TrustedBusinessesCarousel } from '@/components/ui/trusted-businesses-ca
 import { NewsletterSection } from '@/components/ui/newsletter-section';
 import { ProofChips } from '@/components/ui/proof-chips';
 import { CTASection } from '@/components/ui/cta-section';
+import { AIImageSlot } from '@/components/ui/ai-image-slot';
 import { useState, useEffect } from 'react';
 import { BaseCrudService } from '@/integrations';
 import { BlogPosts } from '@/entities';
@@ -343,6 +344,17 @@ export default function HomePage() {
               No credit card required • 30-min consultation • Personalized roadmap
             </p>
           </motion.div>
+        </div>
+
+        {/* Hero Dashboard Image */}
+        <div className="absolute inset-0 z-0 opacity-0 sm:opacity-100">
+          <AIImageSlot
+            src="https://static.wixstatic.com/media/f650f9_a153d83e6b714abd85209431c3edd563~mv2.png"
+            alt="Digital marketing analytics dashboard showing SEO, ads, and conversion growth planning"
+            aspectRatio="16:9"
+            loading="eager"
+            className="opacity-30"
+          />
         </div>
 
       </section>
