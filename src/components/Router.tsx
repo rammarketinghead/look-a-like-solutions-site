@@ -7,6 +7,7 @@ import Layout from '@/components/Layout';
 
 // Lazy load all page components
 const ErrorPage = lazy(() => import('@/components/pages/ErrorPage'));
+const NotFoundPage = lazy(() => import('@/components/pages/NotFoundPage'));
 const HomePage = lazy(() => import('@/components/pages/HomePage'));
 const AboutPage = lazy(() => import('@/components/pages/AboutPage'));
 const IndustrySolutionsPage = lazy(() => import('@/components/pages/IndustrySolutionsPage'));
@@ -625,7 +626,11 @@ const router = createBrowserRouter([
       },
       {
         path: "*",
-        element: <Navigate to="/" replace />,
+        element: (
+          <Suspense fallback={<PageFallback />}>
+            <NotFoundPage />
+          </Suspense>
+        ),
       },
     ],
   },

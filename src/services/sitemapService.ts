@@ -77,6 +77,7 @@ export class SitemapService {
 
     // Industry Solutions pages
     const industrySolutionPages: SitemapPage[] = [
+      { url: '/industry-solutions', priority: '0.8', changefreq: 'weekly' },
       { url: '/seo-lead-generation', priority: '0.8', changefreq: 'weekly' },
       { url: '/lawyer-lead-generation', priority: '0.8', changefreq: 'weekly' },
       { url: '/doctor-lead-generation', priority: '0.8', changefreq: 'weekly' },

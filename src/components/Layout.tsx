@@ -262,7 +262,7 @@ function Layout() {
 
               <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
                 <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" className="flex-shrink-0">
+                  <Button variant="ghost" size="icon" className="flex-shrink-0" aria-label="Open navigation menu">
                     <Menu className="h-6 w-6" />
                   </Button>
                 </SheetTrigger>
@@ -362,16 +362,16 @@ function Layout() {
 
                     {/* Mobile Social Links */}
                     <div className="flex items-center space-x-4 mt-4">
-                      <a href="https://www.facebook.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors">
+                      <a href="https://www.facebook.com/lookalikesolutions" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors" aria-label="Follow us on Facebook">
                         <Facebook className="h-5 w-5" />
                       </a>
-                      <a href="https://www.instagram.com/lookalikesolutions/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors">
+                      <a href="https://www.instagram.com/lookalikesolutions/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors" aria-label="Follow us on Instagram">
                         <Instagram className="h-5 w-5" />
                       </a>
-                      <a href="https://www.youtube.com/@thelookalikesolutions" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors">
+                      <a href="https://www.youtube.com/@thelookalikesolutions" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors" aria-label="Follow us on YouTube">
                         <Youtube className="h-5 w-5" />
                       </a>
-                      <a href="https://www.linkedin.com/company/lookalikesolutions/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors">
+                      <a href="https://www.linkedin.com/company/lookalikesolutions/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors" aria-label="Follow us on LinkedIn">
                         <Linkedin className="h-5 w-5" />
                       </a>
                     </div>

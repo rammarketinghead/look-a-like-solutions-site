@@ -125,36 +125,34 @@ export default function CookieConsentBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-2xl"
+          className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-2xl max-h-[30vh] overflow-y-auto"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-4">
             {!showDetails ? (
-              // Main Banner
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div className="flex items-start gap-3 flex-1">
-                  <Cookie className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <div className="flex-1">
-                    <h3 className="font-heading text-sm font-semibold text-foreground mb-1">
+              // Main Banner - Compact Mobile Version
+              <div className="flex flex-col gap-3">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <Cookie className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0 mt-0.5" />
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-heading text-xs sm:text-sm font-semibold text-foreground mb-1">
                       Cookie Consent
                     </h3>
-                    <p className="font-paragraph text-xs sm:text-sm text-secondary leading-relaxed">
-                      We use cookies to enhance your experience, analyze site traffic, and serve personalized content. 
-                      By clicking "Accept All", you consent to our use of cookies. You can customize your preferences or 
-                      learn more by reading our{' '}
-                      <Link to="/privacy" className="text-primary hover:underline font-medium">
-                        Privacy Policy
+                    <p className="font-paragraph text-xs text-secondary leading-tight">
+                      We use cookies to enhance your experience and analyze traffic. 
+                      <Link to="/privacy" className="text-primary hover:underline font-medium ml-1">
+                        Learn more
                       </Link>
-                      .
                     </p>
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto flex-shrink-0">
+                <div className="flex flex-wrap gap-2 justify-end">
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={() => setShowDetails(true)}
-                    className="text-xs sm:text-sm h-9 sm:h-10 border-gray-300 text-foreground hover:bg-light-gray"
+                    className="text-xs h-8 sm:h-9 border-gray-300 text-foreground hover:bg-light-gray px-2 sm:px-3"
+                    aria-label="Customize cookie preferences"
                   >
                     Customize
                   </Button>
@@ -162,131 +160,134 @@ export default function CookieConsentBanner() {
                     variant="outline"
                     size="sm"
                     onClick={handleRejectAll}
-                    className="text-xs sm:text-sm h-9 sm:h-10 border-gray-300 text-foreground hover:bg-light-gray"
+                    className="text-xs h-8 sm:h-9 border-gray-300 text-foreground hover:bg-light-gray px-2 sm:px-3"
+                    aria-label="Reject all cookies"
                   >
-                    Reject All
+                    Reject
                   </Button>
                   <Button
                     size="sm"
                     onClick={handleAcceptAll}
-                    className="text-xs sm:text-sm h-9 sm:h-10 bg-primary hover:bg-primary/90 text-white"
+                    className="text-xs h-8 sm:h-9 bg-primary hover:bg-primary/90 text-white px-2 sm:px-3"
+                    aria-label="Accept all cookies"
                   >
                     Accept All
                   </Button>
                 </div>
               </div>
             ) : (
-              // Detailed Preferences
+              // Detailed Preferences - Compact Mobile
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-heading text-base font-semibold text-foreground">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="font-heading text-sm font-semibold text-foreground">
                     Cookie Preferences
                   </h3>
                   <button
                     onClick={() => setShowDetails(false)}
-                    className="text-secondary hover:text-foreground transition-colors"
+                    className="text-secondary hover:text-foreground transition-colors flex-shrink-0"
                     aria-label="Close preferences"
                   >
-                    <X className="h-5 w-5" />
+                    <X className="h-4 w-4" />
                   </button>
                 </div>
 
-                <p className="font-paragraph text-sm text-secondary mb-6 leading-relaxed">
-                  We use different types of cookies to improve your browsing experience. Choose which cookies you'd like to allow:
+                <p className="font-paragraph text-xs text-secondary mb-3 leading-tight">
+                  Choose which cookies you'd like to allow:
                 </p>
 
-                <div className="space-y-4 mb-6">
+                <div className="space-y-2 mb-4 max-h-40 overflow-y-auto">
                   {/* Necessary Cookies */}
-                  <div className="flex items-start gap-3 p-3 bg-light-gray rounded-lg border border-gray-200">
+                  <div className="flex items-start gap-2 p-2 bg-light-gray rounded border border-gray-200">
                     <input
                       type="checkbox"
                       id="necessary"
                       checked={true}
                       disabled
-                      className="mt-1 h-4 w-4 text-primary bg-white border-gray-300 rounded cursor-not-allowed"
+                      className="mt-0.5 h-3 w-3 text-primary bg-white border-gray-300 rounded cursor-not-allowed flex-shrink-0"
                     />
-                    <div className="flex-1">
-                      <label htmlFor="necessary" className="font-heading text-sm font-semibold text-foreground block mb-1">
-                        Necessary Cookies
+                    <div className="flex-1 min-w-0">
+                      <label htmlFor="necessary" className="font-heading text-xs font-semibold text-foreground block mb-0.5">
+                        Necessary
                       </label>
                       <p className="font-paragraph text-xs text-secondary">
-                        Essential for the website to function properly. These cookies enable core functionality such as security, network management, and accessibility. You cannot opt-out of these cookies as they are required for the site to work.
+                        Essential for website function.
                       </p>
-                      <span className="inline-block mt-2 px-2 py-1 bg-primary/10 text-primary text-xs font-medium rounded">
+                      <span className="inline-block mt-1 px-1.5 py-0.5 bg-primary/10 text-primary text-xs font-medium rounded">
                         Always Active
                       </span>
                     </div>
                   </div>
 
                   {/* Analytics Cookies */}
-                  <div className="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:border-primary/30 transition-colors">
+                  <div className="flex items-start gap-2 p-2 bg-white rounded border border-gray-200 hover:border-primary/30 transition-colors">
                     <input
                       type="checkbox"
                       id="analytics"
                       checked={preferences.analytics}
                       onChange={() => togglePreference('analytics')}
-                      className="mt-1 h-4 w-4 text-primary bg-white border-gray-300 rounded cursor-pointer"
+                      className="mt-0.5 h-3 w-3 text-primary bg-white border-gray-300 rounded cursor-pointer flex-shrink-0"
                     />
-                    <div className="flex-1">
-                      <label htmlFor="analytics" className="font-heading text-sm font-semibold text-foreground block mb-1 cursor-pointer">
-                        Analytics Cookies
+                    <div className="flex-1 min-w-0">
+                      <label htmlFor="analytics" className="font-heading text-xs font-semibold text-foreground block mb-0.5 cursor-pointer">
+                        Analytics
                       </label>
                       <p className="font-paragraph text-xs text-secondary">
-                        Help us understand how visitors use our website. We use Google Analytics to collect anonymous data about page views, user interactions, and traffic sources. This helps us improve our content and user experience.
+                        Help us understand site usage.
                       </p>
                     </div>
                   </div>
 
                   {/* Marketing Cookies */}
-                  <div className="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:border-primary/30 transition-colors">
+                  <div className="flex items-start gap-2 p-2 bg-white rounded border border-gray-200 hover:border-primary/30 transition-colors">
                     <input
                       type="checkbox"
                       id="marketing"
                       checked={preferences.marketing}
                       onChange={() => togglePreference('marketing')}
-                      className="mt-1 h-4 w-4 text-primary bg-white border-gray-300 rounded cursor-pointer"
+                      className="mt-0.5 h-3 w-3 text-primary bg-white border-gray-300 rounded cursor-pointer flex-shrink-0"
                     />
-                    <div className="flex-1">
-                      <label htmlFor="marketing" className="font-heading text-sm font-semibold text-foreground block mb-1 cursor-pointer">
-                        Marketing Cookies
+                    <div className="flex-1 min-w-0">
+                      <label htmlFor="marketing" className="font-heading text-xs font-semibold text-foreground block mb-0.5 cursor-pointer">
+                        Marketing
                       </label>
                       <p className="font-paragraph text-xs text-secondary">
-                        Used to track visitors across websites and display personalized advertisements. These cookies help us show you relevant content and offers based on your interests and browsing behavior.
+                        Personalized ads and content.
                       </p>
                     </div>
                   </div>
 
                   {/* Preference Cookies */}
-                  <div className="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:border-primary/30 transition-colors">
+                  <div className="flex items-start gap-2 p-2 bg-white rounded border border-gray-200 hover:border-primary/30 transition-colors">
                     <input
                       type="checkbox"
                       id="preferences"
                       checked={preferences.preferences}
                       onChange={() => togglePreference('preferences')}
-                      className="mt-1 h-4 w-4 text-primary bg-white border-gray-300 rounded cursor-pointer"
+                      className="mt-0.5 h-3 w-3 text-primary bg-white border-gray-300 rounded cursor-pointer flex-shrink-0"
                     />
-                    <div className="flex-1">
-                      <label htmlFor="preferences" className="font-heading text-sm font-semibold text-foreground block mb-1 cursor-pointer">
-                        Preference Cookies
+                    <div className="flex-1 min-w-0">
+                      <label htmlFor="preferences" className="font-heading text-xs font-semibold text-foreground block mb-0.5 cursor-pointer">
+                        Preferences
                       </label>
                       <p className="font-paragraph text-xs text-secondary">
-                        Remember your preferences and choices to provide a personalized experience. These cookies store information about your language preferences, theme selection, and other customizations.
+                        Remember your choices.
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-2 justify-end">
+                <div className="flex flex-wrap gap-2 justify-end">
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={() => setShowDetails(false)}
-                    className="text-sm h-10 border-gray-300 text-foreground hover:bg-light-gray"
+                    className="text-xs h-8 border-gray-300 text-foreground hover:bg-light-gray px-2"
+                    aria-label="Back to main banner"
                   >
                     Back
                   </Button>
@@ -294,26 +295,20 @@ export default function CookieConsentBanner() {
                     variant="outline"
                     size="sm"
                     onClick={handleRejectAll}
-                    className="text-sm h-10 border-gray-300 text-foreground hover:bg-light-gray"
+                    className="text-xs h-8 border-gray-300 text-foreground hover:bg-light-gray px-2"
+                    aria-label="Reject all cookies"
                   >
-                    Reject All
+                    Reject
                   </Button>
                   <Button
                     size="sm"
                     onClick={handleSavePreferences}
-                    className="text-sm h-10 bg-primary hover:bg-primary/90 text-white"
+                    className="text-xs h-8 bg-primary hover:bg-primary/90 text-white px-2"
+                    aria-label="Save cookie preferences"
                   >
-                    Save Preferences
+                    Save
                   </Button>
                 </div>
-
-                <p className="font-paragraph text-xs text-secondary mt-4 text-center">
-                  You can change your cookie preferences at any time by visiting our{' '}
-                  <Link to="/privacy" className="text-primary hover:underline font-medium">
-                    Privacy Policy
-                  </Link>
-                  .
-                </p>
               </motion.div>
             )}
           </div>
