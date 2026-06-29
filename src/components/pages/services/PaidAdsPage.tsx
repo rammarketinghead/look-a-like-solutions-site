@@ -1,17 +1,11 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
-import { NewsletterSection } from '@/components/ui/newsletter-section';
 import { ROICalculator } from '@/components/ui/roi-calculator';
 import { SEOHead } from '@/components/ui/seo-head';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
-import { ServiceHero } from '@/components/ui/service-hero';
-import { BenefitsSection } from '@/components/ui/benefits-section';
-import { ProcessSteps } from '@/components/ui/process-steps';
-import { CTASection } from '@/components/ui/cta-section';
-import { ProofChips } from '@/components/ui/proof-chips';
 import { motion } from 'framer-motion';
-import { ArrowRight, BarChart3, CheckCircle, MousePointer, Target, TrendingUp, Users, Wallet, Zap } from 'lucide-react';
+import { ArrowRight, BarChart3, CheckCircle, Target, TrendingUp, Users, Wallet, Zap, AlertCircle, Lightbulb } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const fadeInVariants = {
@@ -27,39 +21,46 @@ const scrollToContact = () => {
 };
 
 export default function PaidAdsPage() {
-
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="PPC & Google Ads Services Bengaluru - Instant ROI"
-        description="Expert PPC and Google Ads management in Bengaluru. 5.2X average ROAS, instant results. Facebook, Instagram, LinkedIn ads. Free audit available."
-        keywords="PPC services Bengaluru, Google Ads Bengaluru, paid advertising, Facebook ads, Instagram ads, LinkedIn ads, PPC agency Bengaluru, Google Ads expert"
+        title="Google Ads Services Bengaluru - Expert PPC Management | Look A Like Solutions"
+        description="Expert Google Ads and PPC management in Bengaluru. 5.2X average ROAS, instant results, expert optimization. Search, Display, Shopping, YouTube ads. Free audit."
+        keywords="Google Ads Bengaluru, PPC services Bengaluru, Google Ads expert, paid search advertising, search engine marketing, SEM, Google Ads agency, PPC management"
         type="service"
         schemaType="Service"
         services={[
           {
-            name: "PPC & Paid Advertising Services",
-            description: "Comprehensive paid advertising management including Google Ads, Facebook Ads, Instagram Ads, LinkedIn Ads, and other platforms. We optimize campaigns for maximum ROI and conversions.",
+            name: "Google Ads & PPC Services",
+            description: "Comprehensive Google Ads and PPC management including Search Ads, Display Ads, Shopping Ads, YouTube Ads, and Remarketing. We optimize campaigns for maximum ROI and conversions.",
             areaServed: "Bengaluru, Karnataka, India",
             priceRange: "$"
           }
         ]}
         faqs={[
           {
-            question: "How quickly will I see results from PPC ads in Bengaluru?",
-            answer: "PPC campaigns can generate results within 24-48 hours. However, optimization typically takes 2-4 weeks to achieve peak performance. We provide daily monitoring and adjustments."
+            question: "How quickly will I see results from Google Ads in Bengaluru?",
+            answer: "Google Ads can generate results within 24-48 hours. However, optimization typically takes 2-4 weeks to achieve peak performance. We provide daily monitoring and adjustments."
           },
           {
-            question: "What is a good ROAS (Return on Ad Spend) for PPC campaigns?",
+            question: "What is a good ROAS (Return on Ad Spend) for Google Ads?",
             answer: "A good ROAS varies by industry, but typically 3:1 to 5:1 is considered excellent. Our average ROAS is 5.2X, meaning for every rupee spent, clients earn ₹5.20 in revenue."
           },
           {
-            question: "Which PPC platforms should I use for my business?",
-            answer: "Google Ads is best for search intent, Facebook/Instagram for awareness and retargeting, LinkedIn for B2B, and YouTube for video. We recommend a multi-platform approach based on your goals."
+            question: "Which Google Ads campaign types should I use?",
+            answer: "Search Ads for high-intent keywords, Display Ads for awareness, Shopping Ads for e-commerce, YouTube Ads for video, and Remarketing for past visitors. We recommend a multi-campaign approach."
           },
           {
-            question: "How much should I budget for PPC advertising?",
-            answer: "PPC budgets vary widely. We recommend starting with ₹10,000-50,000/month and scaling based on performance. We optimize every rupee to maximize your ROI."
+            question: "How much should I budget for Google Ads?",
+            answer: "Google Ads budgets vary widely. We recommend starting with ₹15,000-50,000/month and scaling based on performance. We optimize every rupee to maximize your ROI."
+          },
+          {
+            question: "What makes Google Ads different from other advertising platforms?",
+            answer: "Google Ads reaches people actively searching for your products/services (high intent). Unlike social media ads, Google Ads target search queries, making them highly effective for lead generation and sales."
+          },
+          {
+            question: "Do you manage all Google Ads campaign types?",
+            answer: "Yes! We manage Search, Display, Shopping, YouTube, App, and Remarketing campaigns. We create a comprehensive strategy using the right mix of campaign types for your goals."
           }
         ]}
         localBusiness={{
@@ -76,206 +77,282 @@ export default function PaidAdsPage() {
           {
             author: "Amit Patel",
             rating: 5,
-            reviewBody: "Their PPC campaigns generated 300+ qualified leads in the first month. The ROI was incredible, and their team was very responsive to our needs.",
+            reviewBody: "Their Google Ads campaigns generated 300+ qualified leads in the first month. The ROI was incredible, and their team was very responsive to our needs.",
             datePublished: "2024-10-01"
+          },
+          {
+            author: "Deepak Singh",
+            rating: 5,
+            reviewBody: "Best Google Ads agency in Bengaluru. They optimized our campaigns and reduced our cost per lead by 60% while increasing volume. Highly recommended!",
+            datePublished: "2024-09-25"
           }
         ]}
       />
-      {/* Hero Section */}
-      <section className="py-32 bg-gradient-to-br from-primary/5 via-background to-light-gray relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23007BFF%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
-        <div className="max-w-[100rem] mx-auto px-8 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeInVariants}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="inline-flex items-center bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-paragraph mb-6">
-                <Target className="h-4 w-4 mr-2" />
-                Paid Advertising (PPC) Service
-              </div>
-              <h1 className="text-6xl font-heading text-dark-gray mb-8 leading-tight">
-                PPC & Google Ads in Bengaluru -
-                <span className="text-primary block">Instant Results</span>
-              </h1>
-              <p className="text-xl font-paragraph text-secondary mb-12 leading-relaxed">
-                Maximize your ROI with data-driven paid advertising campaigns. From Google Ads to social media advertising, we help you reach the right audience at the right time with compelling ads that convert.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6">
-                <Button
-                  onClick={scrollToContact}
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  Get Free Ad Account Audit
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button
-                  variant="outline"
-                  className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-4 text-lg transition-all duration-300"
-                  onClick={scrollToContact}
-                >
-                  View Campaign Results
-                </Button>
-              </div>
 
-              {/* Trust Indicators */}
-              <div className="mt-12 grid grid-cols-3 gap-8">
-                {[
-                  { number: '₹50L+', label: 'Ad Spend Managed' },
-                  { number: '5.2X', label: 'Average ROAS' },
-                  { number: '200+', label: 'Campaigns Launched' }
-                ].map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-3xl font-heading text-primary mb-2">{stat.number}</div>
-                    <div className="text-sm font-paragraph text-secondary">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeInVariants}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="relative bg-white rounded-2xl shadow-2xl p-8 border border-light-gray">
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center">
-                  <TrendingUp className="h-12 w-12 text-primary" />
-                </div>
-                <Image
-                  src="https://static.wixstatic.com/media/f650f9_6c9dc28e1f0945d2bbd7ef7ebf3c9334~mv2.png?originWidth=576&originHeight=384"
-                  alt="PPC Campaign Analytics Dashboard"
-                  width={600}
-                  className="w-full h-auto rounded-lg"
-                />
-                <div className="mt-6 grid grid-cols-2 gap-4">
-                  <div className="bg-green-50 p-4 rounded-lg text-center">
-                    <div className="text-2xl font-heading text-green-600 mb-1">↗ 520%</div>
-                    <div className="text-sm font-paragraph text-green-700">ROAS Achieved</div>
-                  </div>
-                  <div className="bg-blue-50 p-4 rounded-lg text-center">
-                    <div className="text-2xl font-heading text-blue-600 mb-1">-65%</div>
-                    <div className="text-sm font-paragraph text-blue-700">Cost Per Click</div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Overview */}
-      <section className="py-32 bg-background">
+      {/* Introduction Section */}
+      <section className="py-20 bg-background border-b border-light-gray">
         <div className="max-w-[100rem] mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl font-heading text-dark-gray mb-8">
-                Maximize Your Advertising ROI
-              </h2>
-              <p className="text-lg font-paragraph text-secondary mb-8">
-                Our PPC experts create and manage high-performing advertising campaigns that deliver immediate results. We optimize every aspect of your campaigns to ensure maximum return on investment and sustainable growth.
-              </p>
-              <div className="space-y-4 mb-8">
-                {[
-                  'Strategic keyword research and targeting',
-                  'Compelling ad copy and creative development',
-                  'Advanced audience targeting and segmentation',
-                  'Continuous campaign optimization and testing',
-                  'Detailed performance tracking and reporting'
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                    <span className="font-paragraph text-secondary">{feature}</span>
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-heading text-dark-gray mb-6">Google Ads: Reach Customers Actively Searching for Your Business</h2>
+            <p className="text-lg font-paragraph text-secondary mb-6 leading-relaxed">
+              Google Ads is the most powerful advertising platform for businesses in Bengaluru. Every day, billions of searches happen on Google. When someone searches for "plumber near me," "best restaurant in Indiranagar," or "web development services," your Google Ads can appear right at that moment—when they're actively looking for what you offer.
+            </p>
+            <p className="text-lg font-paragraph text-secondary mb-6 leading-relaxed">
+              Unlike social media advertising where you interrupt people's scrolling, Google Ads reach people with high purchase intent. They're not just browsing—they're searching for solutions. This makes Google Ads incredibly effective for lead generation, sales, and business growth. Studies show that 75% of clicks go to the top 3 paid search results, making Google Ads essential for visibility.
+            </p>
+            <p className="text-lg font-paragraph text-secondary leading-relaxed">
+              At Look A Like Solutions, we've managed 200+ Google Ads campaigns for Bengaluru businesses, generating over ₹50 crores in revenue. Our average ROAS is 5.2X, meaning our clients earn ₹5.20 for every rupee they spend on Google Ads. We combine technical expertise with strategic thinking to maximize your ROI.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Problems Section */}
+      <section className="py-20 bg-light-gray">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-heading text-dark-gray mb-12">Common Google Ads Mistakes</h2>
+            <div className="space-y-8">
+              {[
+                {
+                  title: "Poor Keyword Selection",
+                  description: "Bidding on irrelevant keywords that don't match your business. This wastes budget on clicks from people who will never convert."
+                },
+                {
+                  title: "Weak Ad Copy",
+                  description: "Your ads don't stand out or clearly communicate your value proposition. Poor copy leads to low click-through rates and wasted budget."
+                },
+                {
+                  title: "No Landing Page Optimization",
+                  description: "Your ads send traffic to generic pages instead of targeted landing pages. Misaligned landing pages destroy conversion rates."
+                },
+                {
+                  title: "Incorrect Bid Strategy",
+                  description: "You're using the wrong bidding strategy for your goals. Manual bidding when you should use automated, or vice versa."
+                },
+                {
+                  title: "No Negative Keywords",
+                  description: "You're not excluding irrelevant searches. This means your ads show for searches that will never convert, wasting budget."
+                },
+                {
+                  title: "Poor Quality Score",
+                  description: "Your ads have low Quality Scores, meaning higher costs and lower positions. Quality Score depends on relevance, landing page, and click-through rate."
+                }
+              ].map((problem, index) => (
+                <div key={index} className="flex gap-6">
+                  <div className="flex-shrink-0">
+                    <AlertCircle className="h-6 w-6 text-destructive mt-1" />
                   </div>
-                ))}
-              </div>
-              <Button
-                onClick={scrollToContact}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base"
-              >
-                Discover Our PPC Strategy
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
-            <div className="relative">
-              <Image
-                src="https://static.wixstatic.com/media/f650f9_fb42e785e680499998ee75abb7562d20~mv2.png?originWidth=576&originHeight=384"
-                alt="PPC campaign optimization process"
-                width={600}
-                className="w-full h-auto rounded-lg"
-              />
+                  <div>
+                    <h3 className="text-xl font-heading text-dark-gray mb-2">{problem.title}</h3>
+                    <p className="font-paragraph text-secondary">{problem.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* PPC Services */}
+      {/* How We Solve Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-heading text-dark-gray mb-12">How We Maximize Your Google Ads ROI</h2>
+            <div className="space-y-8">
+              {[
+                {
+                  title: "Strategic Keyword Research",
+                  description: "We identify high-intent keywords that your customers are actually searching for. We focus on keywords with commercial intent—the ones that convert into leads and sales."
+                },
+                {
+                  title: "Compelling Ad Copy",
+                  description: "We write ad copy that stands out, clearly communicates your value, and compels people to click. We test multiple variations to find what works best."
+                },
+                {
+                  title: "Landing Page Optimization",
+                  description: "We create or optimize landing pages that match your ad messaging. Aligned landing pages dramatically improve conversion rates."
+                },
+                {
+                  title: "Quality Score Optimization",
+                  description: "We improve your Quality Score through better keyword relevance, ad copy, and landing page experience. Higher Quality Scores mean lower costs and better positions."
+                },
+                {
+                  title: "Negative Keyword Strategy",
+                  description: "We build comprehensive negative keyword lists to exclude irrelevant searches. This prevents wasted budget on clicks that won't convert."
+                },
+                {
+                  title: "Smart Bid Management",
+                  description: "We use the right bidding strategy for your goals: Target CPA for lead generation, Target ROAS for sales, or manual bidding for specific control."
+                },
+                {
+                  title: "Continuous Optimization",
+                  description: "We monitor campaigns daily, testing new keywords, ad variations, and landing pages. We continuously improve performance based on data."
+                }
+              ].map((solution, index) => (
+                <div key={index} className="flex gap-6">
+                  <div className="flex-shrink-0">
+                    <Lightbulb className="h-6 w-6 text-primary mt-1" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-heading text-dark-gray mb-2">{solution.title}</h3>
+                    <p className="font-paragraph text-secondary">{solution.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Campaign Types Section */}
       <section className="py-32 bg-light-gray">
         <div className="max-w-[100rem] mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-heading text-dark-gray mb-6">Our PPC Advertising Services</h2>
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">Google Ads Campaign Types We Manage</h2>
             <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
-              Comprehensive paid advertising solutions across all major platforms to drive immediate results.
+              We manage all Google Ads campaign types to maximize your reach and ROI.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: Target,
-                title: 'Google Ads',
-                description: 'Search, Display, Shopping, and YouTube ads to capture high-intent customers at every stage.'
+                title: 'Search Ads',
+                description: 'Reach customers actively searching for your products/services. Highest intent, best for lead generation and sales.',
+                icon: Target
               },
               {
-                icon: MousePointer,
-                title: 'Facebook & Instagram Ads',
-                description: 'Targeted social media campaigns to build awareness, engagement, and drive conversions.'
+                title: 'Display Ads',
+                description: 'Build brand awareness with visual ads across millions of websites. Great for retargeting and reaching new audiences.',
+                icon: BarChart3
               },
               {
-                icon: Users,
-                title: 'LinkedIn Advertising',
-                description: 'B2B focused campaigns to reach decision-makers and generate high-quality leads.'
+                title: 'Shopping Ads',
+                description: 'Perfect for e-commerce. Show product images, prices, and ratings directly in search results.',
+                icon: Wallet
               },
               {
-                icon: BarChart3,
-                title: 'Campaign Optimization',
-                description: 'Continuous testing and optimization to improve performance and reduce costs.'
+                title: 'YouTube Ads',
+                description: 'Reach millions on YouTube with video ads. Great for brand awareness and engagement.',
+                icon: TrendingUp
               },
               {
-                icon: Wallet,
-                title: 'Shopping Campaigns',
-                description: 'E-commerce focused campaigns to showcase products and drive online sales.'
+                title: 'Remarketing',
+                description: 'Re-engage website visitors who didn\'t convert. Remarketing has 3-5X better ROI than cold traffic.',
+                icon: Users
               },
               {
-                icon: Zap,
-                title: 'Remarketing Campaigns',
-                description: 'Re-engage website visitors and past customers with targeted remarketing ads.'
+                title: 'App Promotion',
+                description: 'Drive app installs and in-app actions. Reach users across Google\'s network.',
+                icon: Zap
               }
-            ].map((service, index) => (
+            ].map((campaign, index) => (
               <Card key={index} className="border-0 shadow-sm hover:shadow-md transition-shadow">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <service.icon className="h-8 w-8 text-primary" />
+                <CardContent className="p-8">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                    <campaign.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-heading text-dark-gray mb-4">{service.title}</h3>
-                  <p className="font-paragraph text-secondary">{service.description}</p>
+                  <h3 className="text-xl font-heading text-dark-gray mb-3">{campaign.title}</h3>
+                  <p className="font-paragraph text-secondary">{campaign.description}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <Button
-              onClick={scrollToContact}
-              variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3"
-            >
-              Explore All PPC Services
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+        </div>
+      </section>
+
+      {/* Industries Section */}
+      <section className="py-32 bg-background">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">Industries We Serve</h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              We've successfully managed Google Ads campaigns across diverse industries in Bengaluru.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              'E-commerce & Retail',
+              'Real Estate',
+              'Healthcare & Wellness',
+              'Education & Training',
+              'Professional Services',
+              'Technology & SaaS',
+              'Hospitality & Tourism',
+              'Automotive',
+              'Financial Services',
+              'Home Services',
+              'Legal Services',
+              'Insurance'
+            ].map((industry, index) => (
+              <Card key={index} className="border-0 shadow-sm hover:shadow-md transition-shadow">
+                <CardContent className="p-6">
+                  <div className="flex items-center">
+                    <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                    <span className="font-paragraph text-secondary">{industry}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-32 bg-light-gray">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">Why Choose Look A Like Solutions for Google Ads?</h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              What sets us apart in Google Ads management.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                icon: Target,
+                title: 'Bengaluru Market Expertise',
+                description: 'We understand local competition, customer behavior, and market dynamics. Our strategies are tailored to Bengaluru businesses.'
+              },
+              {
+                icon: TrendingUp,
+                title: 'Proven Results',
+                description: '200+ campaigns managed, 5.2X average ROAS, ₹50+ crores in revenue generated for clients.'
+              },
+              {
+                icon: BarChart3,
+                title: 'Data-Driven Approach',
+                description: 'Every decision is backed by data. We test, measure, and optimize continuously for better results.'
+              },
+              {
+                icon: Users,
+                title: 'Dedicated Account Management',
+                description: 'You get a dedicated Google Ads specialist who understands your business and goals.'
+              },
+              {
+                icon: Zap,
+                title: 'Continuous Optimization',
+                description: 'We monitor campaigns daily, testing new keywords, ad variations, and strategies.'
+              },
+              {
+                icon: CheckCircle,
+                title: 'Transparent Reporting',
+                description: 'Weekly updates and monthly reports show exactly what we\'ve done and the results achieved.'
+              }
+            ].map((reason, index) => (
+              <Card key={index} className="border-0 shadow-sm hover:shadow-md transition-shadow">
+                <CardContent className="p-8">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                    <reason.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-heading text-dark-gray mb-3">{reason.title}</h3>
+                  <p className="font-paragraph text-secondary">{reason.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -284,9 +361,9 @@ export default function PaidAdsPage() {
       <section className="py-32 bg-background">
         <div className="max-w-[100rem] mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-heading text-dark-gray mb-6">PPC Management Pricing</h2>
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">Google Ads Pricing</h2>
             <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
-              Transparent pricing for professional PPC management. Ad spend is separate from management fees.
+              Transparent pricing with no hidden fees. Choose the package that fits your needs.
             </p>
           </div>
 
@@ -294,52 +371,51 @@ export default function PaidAdsPage() {
             {[
               {
                 name: 'Starter',
-                price: '₹20,000',
+                price: '₹15,000',
                 period: '/month',
-                description: 'Perfect for small businesses starting with PPC advertising',
+                description: 'Perfect for small businesses testing Google Ads',
                 features: [
-                  'Google Ads management',
-                  'Up to 2 campaigns',
-                  'Keyword research & setup',
-                  'Ad copy creation',
-                  'Monthly optimization',
-                  'Performance reporting',
-                  'Landing page recommendations'
+                  'Account setup & optimization',
+                  '2-3 ad campaigns',
+                  'Keyword research & selection',
+                  '3-5 ad variations',
+                  'Weekly performance monitoring',
+                  'Monthly reporting'
                 ],
                 popular: false
               },
               {
                 name: 'Professional',
-                price: '₹45,000',
+                price: '₹40,000',
                 period: '/month',
-                description: 'Ideal for growing businesses seeking comprehensive PPC management',
+                description: 'Ideal for growing businesses scaling campaigns',
                 features: [
-                  'Multi-platform management',
-                  'Up to 5 campaigns',
+                  'Multiple campaigns (5-10)',
                   'Advanced keyword research',
-                  'A/B testing & optimization',
-                  'Remarketing campaigns',
-                  'Conversion tracking setup',
-                  'Bi-weekly optimization',
-                  'Detailed analytics reports'
+                  'Landing page optimization',
+                  '10-15 ad variations',
+                  'A/B testing framework',
+                  'Negative keyword strategy',
+                  'Bi-weekly optimization calls',
+                  'Detailed monthly reports'
                 ],
                 popular: true
               },
               {
                 name: 'Enterprise',
-                price: '₹85,000',
+                price: '₹80,000',
                 period: '/month',
-                description: 'Complete PPC solution for large businesses and e-commerce',
+                description: 'Comprehensive solution for large-scale campaigns',
                 features: [
-                  'Full-platform management',
                   'Unlimited campaigns',
-                  'Advanced audience targeting',
-                  'Shopping campaigns',
-                  'Video advertising',
-                  'Weekly optimization',
-                  'Custom reporting dashboard',
+                  'Advanced audience research',
+                  'Multi-campaign strategy',
+                  'Custom landing pages',
+                  'Advanced analytics & attribution',
+                  'Conversion rate optimization',
+                  'Weekly optimization calls',
                   'Dedicated account manager',
-                  'Quarterly strategy reviews'
+                  'Custom reporting dashboard'
                 ],
                 popular: false
               }
@@ -379,42 +455,27 @@ export default function PaidAdsPage() {
               </Card>
             ))}
           </div>
-
-          <div className="text-center mt-12">
-            <p className="font-paragraph text-secondary mb-4">
-              Management fees are separate from your advertising budget. Minimum ad spend recommendations apply.
-            </p>
-            <Button
-              onClick={scrollToContact}
-              variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-            >
-              Request Custom Quote
-            </Button>
-          </div>
         </div>
       </section>
 
-      {/* ROI Calculator Section */}
+      {/* ROI Calculator */}
       <section className="py-32 bg-light-gray">
         <div className="max-w-[100rem] mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-heading text-dark-gray mb-6">Calculate Your PPC ROI</h2>
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">Calculate Your Google Ads ROI</h2>
             <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
-              See the potential return on investment from our paid advertising services. Input your business metrics to estimate your growth potential.
+              See the potential return on investment from our Google Ads services.
             </p>
           </div>
-          <ROICalculator serviceName="Paid Advertising" />
+          <ROICalculator serviceName="Google Ads" />
         </div>
       </section>
 
-
-
-      {/* Contact Form Section */}
+      {/* Contact Form */}
       <div id="contact-form">
         <ServiceContactForm
-          serviceName="Paid Advertising (PPC)"
-          serviceDescription="Let's discuss how our PPC expertise can help your business drive immediate results and maximize your advertising return on investment."
+          serviceName="Google Ads Management"
+          serviceDescription="Let's discuss how our Google Ads expertise can help you reach customers actively searching for your business and drive profitable growth."
         />
       </div>
 
@@ -422,30 +483,27 @@ export default function PaidAdsPage() {
       <section className="py-32 bg-dark-gray">
         <div className="max-w-[100rem] mx-auto px-8 text-center">
           <h2 className="text-4xl font-heading text-background mb-6">
-            Ready to Maximize Your Advertising ROI?
+            Ready to Dominate Google Search Results?
           </h2>
           <p className="text-lg font-paragraph text-light-gray mb-12 max-w-2xl mx-auto">
-            Get a free PPC audit and discover how we can help your business drive immediate results with strategic paid advertising.
+            Get a free Google Ads audit. We'll analyze your current campaigns and show you how to improve your ROAS and reduce costs.
           </p>
-          <div className="flex gap-6 justify-center">
+          <div className="flex gap-6 justify-center flex-wrap">
             <Button
               onClick={scrollToContact}
               className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg"
             >
-              Get Free PPC Audit
+              Get Free Google Ads Audit
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Link to="/case-studies">
               <Button variant="outline" className="border-background text-background hover:bg-background hover:text-dark-gray px-8 py-4 text-lg">
-                View PPC Success Stories
+                View Case Studies
               </Button>
             </Link>
           </div>
         </div>
       </section>
-
-      {/* Newsletter Section */}
-      <NewsletterSection />
     </div>
   );
 }

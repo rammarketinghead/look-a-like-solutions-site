@@ -74,6 +74,9 @@ const DoctorLeadGenerationPage = lazy(() => import('@/components/pages/DoctorLea
 const RealEstateLeadGenerationPage = lazy(() => import('@/components/pages/RealEstateLeadGenerationPage'));
 const EducationLeadGenerationPage = lazy(() => import('@/components/pages/EducationLeadGenerationPage'));
 const RestaurantHotelLeadGenerationPage = lazy(() => import('@/components/pages/RestaurantHotelLeadGenerationPage'));
+const MetaAdsPage = lazy(() => import('@/components/pages/services/MetaAdsPage'));
+const LocalSEOPage = lazy(() => import('@/components/pages/services/LocalSEOPage'));
+const PerformanceMarketingPage = lazy(() => import('@/components/pages/services/PerformanceMarketingPage'));
 
 // Fallback component for lazy loading
 function PageFallback() {
@@ -413,6 +416,30 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<PageFallback />}>
             <LookALikeSolutionsPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "services/meta-ads",
+        element: (
+          <Suspense fallback={<PageFallback />}>
+            <MetaAdsPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "services/local-seo",
+        element: (
+          <Suspense fallback={<PageFallback />}>
+            <LocalSEOPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "services/performance-marketing",
+        element: (
+          <Suspense fallback={<PageFallback />}>
+            <PerformanceMarketingPage />
           </Suspense>
         ),
       },

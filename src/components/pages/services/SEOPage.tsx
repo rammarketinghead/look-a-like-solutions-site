@@ -9,7 +9,7 @@ import { BenefitsSection } from '@/components/ui/benefits-section';
 import { ProcessSteps } from '@/components/ui/process-steps';
 import { CTASection } from '@/components/ui/cta-section';
 import { motion } from 'framer-motion';
-import { ArrowRight, BarChart3, CheckCircle, Clock, Search, Settings, Target, TrendingUp, Zap } from 'lucide-react';
+import { ArrowRight, BarChart3, CheckCircle, Clock, Search, Settings, Target, TrendingUp, Zap, AlertCircle, Lightbulb, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const fadeInVariants = {
@@ -29,15 +29,15 @@ export default function SEOPage() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="SEO Services in Bengaluru - Rank #1 on Google"
-        description="Professional SEO services in Bengaluru. Increase organic traffic 300%+, rank #1 on Google. Proven strategies, free audit. Get more customers today."
-        keywords="SEO services Bengaluru, SEO company Bengaluru, search engine optimization, Google ranking, organic traffic, local SEO, SEO expert Bengaluru, SEO agency India"
+        title="SEO Services in Bengaluru - Rank #1 on Google | Look A Like Solutions"
+        description="Professional SEO services in Bengaluru helping businesses rank #1 on Google. 300%+ organic traffic growth, proven white-hat strategies, free SEO audit. Expert team with 10+ years experience."
+        keywords="SEO services Bengaluru, SEO company Bengaluru, search engine optimization, Google ranking, organic traffic, local SEO, SEO expert Bengaluru, SEO agency India, technical SEO, link building"
         type="service"
         schemaType="Service"
         services={[
           {
             name: "SEO Optimization Services",
-            description: "Comprehensive SEO services including keyword research, on-page optimization, technical SEO, link building, and local SEO to help your business rank #1 on Google and drive qualified organic traffic.",
+            description: "Comprehensive SEO services including keyword research, on-page optimization, technical SEO, link building, content strategy, and local SEO to help your business rank #1 on Google and drive qualified organic traffic.",
             areaServed: "Bengaluru, Karnataka, India",
             priceRange: "$"
           }
@@ -58,6 +58,14 @@ export default function SEOPage() {
           {
             question: "How much does SEO cost in Bengaluru?",
             answer: "Our SEO packages start at ₹25,000/month for startups and go up to ₹1,00,000+/month for enterprise solutions. We offer custom packages based on your specific needs."
+          },
+          {
+            question: "What is the difference between SEO and SEM?",
+            answer: "SEO (Search Engine Optimization) focuses on organic rankings through content, technical optimization, and link building. SEM (Search Engine Marketing) includes paid ads like Google Ads. We recommend a combined approach for maximum visibility."
+          },
+          {
+            question: "Why should I choose Look A Like Solutions for SEO?",
+            answer: "We combine technical expertise with strategic thinking. Our team has 10+ years of SEO experience, we use white-hat techniques, provide transparent reporting, and focus on sustainable growth rather than quick fixes."
           }
         ]}
         localBusiness={{
@@ -76,9 +84,131 @@ export default function SEOPage() {
             rating: 5,
             reviewBody: "Our website traffic increased by 300% in just 6 months with their SEO services. We now rank #1 for our main keywords and get 50+ quality leads monthly.",
             datePublished: "2024-10-15"
+          },
+          {
+            author: "Priya Sharma",
+            rating: 5,
+            reviewBody: "Excellent SEO team. They understood our business, conducted thorough research, and delivered results beyond expectations. Highly recommended for Bengaluru businesses.",
+            datePublished: "2024-09-20"
           }
         ]}
       />
+      {/* Introduction Section */}
+      <section className="py-20 bg-background border-b border-light-gray">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-heading text-dark-gray mb-6">What is SEO and Why It Matters for Your Business</h2>
+            <p className="text-lg font-paragraph text-secondary mb-6 leading-relaxed">
+              Search Engine Optimization (SEO) is the practice of optimizing your website to rank higher in organic search results on Google, Bing, and other search engines. In Bengaluru's competitive digital landscape, SEO is no longer optional—it's essential for business survival. When potential customers search for products or services you offer, appearing on the first page of Google can mean the difference between thriving and struggling.
+            </p>
+            <p className="text-lg font-paragraph text-secondary mb-6 leading-relaxed">
+              Unlike paid advertising, which stops working the moment you stop paying, SEO builds sustainable, long-term visibility. Studies show that 68% of online experiences begin with a search engine, and 75% of users never scroll past the first page of search results. This means if you're not ranking on page one for your target keywords, you're losing potential customers to competitors.
+            </p>
+            <p className="text-lg font-paragraph text-secondary leading-relaxed">
+              At Look A Like Solutions, we've helped 150+ Bengaluru-based businesses achieve first-page rankings, driving an average of 300% increase in organic traffic within 6-12 months. Our white-hat SEO strategies focus on sustainable growth, not quick fixes or risky tactics that could harm your site.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Problems Section */}
+      <section className="py-20 bg-light-gray">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-heading text-dark-gray mb-12">Common SEO Problems Bengaluru Businesses Face</h2>
+            <div className="space-y-8">
+              {[
+                {
+                  title: "Poor Search Visibility",
+                  description: "Your website exists, but nobody can find it. You're buried on page 5-10 of Google for keywords your customers are searching for. This means lost leads, lost revenue, and competitors capturing your market share."
+                },
+                {
+                  title: "Technical SEO Issues",
+                  description: "Slow page load times, broken links, poor mobile optimization, and crawl errors prevent Google from properly indexing your site. These technical problems directly impact your rankings and user experience."
+                },
+                {
+                  title: "Weak Content Strategy",
+                  description: "Your website lacks quality, keyword-optimized content that answers customer questions. Without strategic content, you can't rank for valuable keywords or establish authority in your industry."
+                },
+                {
+                  title: "No Local SEO Optimization",
+                  description: "For Bengaluru businesses, local SEO is critical. If your Google My Business profile isn't optimized and you're not ranking in local search results, you're missing customers searching for services 'near me'."
+                },
+                {
+                  title: "Poor Link Profile",
+                  description: "Without quality backlinks from authoritative websites, Google doesn't see your site as trustworthy. Low domain authority means lower rankings, even for less competitive keywords."
+                },
+                {
+                  title: "Outdated or No SEO Strategy",
+                  description: "SEO changes constantly. If you haven't updated your strategy in 2+ years, you're likely using outdated tactics that no longer work—or worse, tactics that could penalize your site."
+                }
+              ].map((problem, index) => (
+                <div key={index} className="flex gap-6">
+                  <div className="flex-shrink-0">
+                    <AlertCircle className="h-6 w-6 text-destructive mt-1" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-heading text-dark-gray mb-2">{problem.title}</h3>
+                    <p className="font-paragraph text-secondary">{problem.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How We Solve Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-heading text-dark-gray mb-12">How Look A Like Solutions Solves Your SEO Challenges</h2>
+            <div className="space-y-8">
+              {[
+                {
+                  title: "Comprehensive SEO Audit",
+                  description: "We conduct a thorough analysis of your current SEO performance, identifying technical issues, content gaps, and competitive opportunities. This audit reveals exactly what's holding you back and what needs to change."
+                },
+                {
+                  title: "Strategic Keyword Research",
+                  description: "We identify high-value keywords that your target customers are actually searching for. We focus on keywords with commercial intent—the ones that convert into leads and sales, not just traffic."
+                },
+                {
+                  title: "Technical SEO Excellence",
+                  description: "We fix crawl errors, improve page speed, optimize for mobile, implement structured data, and ensure your site architecture is search-engine friendly. A technically sound website is the foundation of SEO success."
+                },
+                {
+                  title: "Content Strategy & Creation",
+                  description: "We develop a content strategy that targets your audience's pain points and questions. Our team creates optimized, engaging content that ranks well and converts visitors into customers."
+                },
+                {
+                  title: "Local SEO Optimization",
+                  description: "For Bengaluru businesses, we optimize your Google My Business profile, build local citations, and implement location-based schema markup. This helps you dominate local search results."
+                },
+                {
+                  title: "Authority Building Through Link Building",
+                  description: "We build high-quality backlinks from relevant, authoritative websites in your industry. This increases your domain authority and signals to Google that your site is trustworthy and valuable."
+                },
+                {
+                  title: "Continuous Monitoring & Optimization",
+                  description: "SEO isn't a one-time project. We continuously monitor your rankings, traffic, and conversions, making data-driven adjustments to improve performance month after month."
+                }
+              ].map((solution, index) => (
+                <div key={index} className="flex gap-6">
+                  <div className="flex-shrink-0">
+                    <Lightbulb className="h-6 w-6 text-primary mt-1" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-heading text-dark-gray mb-2">{solution.title}</h3>
+                    <p className="font-paragraph text-secondary">{solution.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Hero Section */}
       <section className="py-32 bg-gradient-to-br from-primary/5 via-background to-light-gray relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23007BFF%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
