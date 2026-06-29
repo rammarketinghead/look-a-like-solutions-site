@@ -10,6 +10,7 @@ import { SEOHead } from '@/components/ui/seo-head';
 import { NewsletterSection } from '@/components/ui/newsletter-section';
 import { CTASection } from '@/components/ui/cta-section';
 import { fixSlug, isValidSlug } from '@/utils/slugUtils';
+import { getRewrittenBlogPost, type RewrittenBlogPost } from '@/content/rewrittenBlogPosts';
 
 import { BlogSidebar } from '@/components/ui/blog-sidebar';
 import { 
@@ -55,6 +56,7 @@ const scaleInVariants = {
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<BlogPosts | null>(null);
+  const [rewrittenPost, setRewrittenPost] = useState<RewrittenBlogPost | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogPosts[]>([]);
   const [loading, setLoading] = useState(true);
   const [isLiked, setIsLiked] = useState(false);
@@ -83,6 +85,15 @@ export default function BlogPostPage() {
   useEffect(() => {
     const fetchPost = async () => {
       try {
+        // Check if this slug has a rewritten version
+        const rewritten = getRewrittenBlogPost(slug || '');
+        if (rewritten) {
+          setRewrittenPost(rewritten);
+          setPost(null); // Don't fetch from CMS if rewritten version exists
+          setLoading(false);
+          return;
+        }
+
         const { items } = await BaseCrudService.getAll<BlogPosts>('blogposts');
         
         // First try to find by exact slug match
@@ -212,7 +223,7 @@ export default function BlogPostPage() {
     );
   }
 
-  if (!post) {
+  if (!post && !rewrittenPost) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center mobile-container">
@@ -229,14 +240,35 @@ export default function BlogPostPage() {
     );
   }
 
-  const readingTime = calculateReadingTime(post.content || '');
+  // Use rewritten post if available, otherwise use CMS post
+  const displayPost = rewrittenPost || post;
+  const readingTime = rewrittenPost ? rewrittenPost.readingTime : calculateReadingTime(post?.content || '');
 
   return (
     <div className="min-h-screen bg-background">
-      {post && (
+      {rewrittenPost ? (
         <SEOHead 
-          title={post.title || 'Blog Post'}
-          description={post.metaDescription || post.excerpt || 'Read our latest insights on digital marketing, SEO, and business growth strategies.'}
+          title={rewrittenPost.title}
+          description={rewrittenPost.metaDescription}
+          keywords={`${rewrittenPost.title}, digital marketing, SEO, social media marketing, content marketing, online marketing`}
+          image={post?.featuredImage}
+          type="article"
+          author={rewrittenPost.articleSchema.author}
+          publishedTime={rewrittenPost.articleSchema.datePublished}
+          modifiedTime={rewrittenPost.articleSchema.datePublished}
+        />
+      ) : (
+        <SEOHead 
+          title={post?.title || 'Blog Post'}
+          description={post?.metaDescription || post?.excerpt || 'Read our latest insights on digital marketing, SEO, and business growth strategies.'}
+          keywords={`${post?.title}, digital marketing, SEO, social media marketing, content marketing, online marketing`}
+          image={post?.featuredImage}
+          type="article"
+          author={post?.author}
+          publishedTime={post?.publishedDate ? new Date(post.publishedDate).toISOString() : undefined}
+          modifiedTime={post?._updatedDate ? new Date(post._updatedDate).toISOString() : undefined}
+        />
+      )}
           keywords={`${post.title}, digital marketing, SEO, social media marketing, content marketing, online marketing`}
           image={post.featuredImage}
           type="article"
