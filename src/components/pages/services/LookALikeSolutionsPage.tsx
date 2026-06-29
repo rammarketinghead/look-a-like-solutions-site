@@ -112,11 +112,16 @@ export default function LookALikeSolutionsPage() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
-                Get Visible. Get Calls. Get Growing.
+                Your Bengaluru Business Deserves Better Visibility
               </h1>
               <p className="font-paragraph text-lg md:text-xl text-slate-200 mb-8 leading-relaxed">
-                Stop being invisible online. Look A Like Solutions helps business owners like you get found by the right customers, turn them into qualified leads, and get the calls that actually matter.
+                In a city where competition is fierce and attention spans are short, we help Bengaluru entrepreneurs and business owners cut through the noise. Get discovered by customers actively searching for your services, convert them into qualified leads, and watch your phone ring with serious buyers ready to do business.
               </p>
+              <div className="mt-6 p-4 bg-blue-900 bg-opacity-50 rounded-lg border border-blue-400">
+                <p className="font-paragraph text-sm text-blue-100">
+                  <span className="font-bold">Why Bengaluru businesses choose us:</span> We understand your market. We've helped 50+ local businesses get more visibility, leads, and revenue.
+                </p>
+              </div>
               <div className="flex flex-col sm:flex-row gap-4">
                 <motion.div
                   onHoverStart={() => setIsCtaHovered(true)}
@@ -160,15 +165,15 @@ export default function LookALikeSolutionsPage() {
           </div>
         </div>
       </section>
-      {/* The Problem Section */}
-      <section className="w-full py-20 md:py-28 bg-white">
+      {/* The Problem Section - Bengaluru Specific */}
+      <section className="w-full py-20 md:py-28 bg-slate-50">
         <div className="max-w-[100rem] mx-auto px-4 md:px-8">
           <motion.div {...fadeInUp} className="mb-16">
             <h2 className="font-heading text-4xl md:text-5xl mb-6 text-slate-900">
-              The Struggle Is Real
+              The Bengaluru Business Challenge
             </h2>
             <p className="font-paragraph text-lg text-slate-600 max-w-3xl">
-              We talk to business owners every day. They tell us the same story: they're working hard, but nobody's finding them online. Their ads aren't working. And worst of all? The phone isn't ringing.
+              Bengaluru's business landscape is unique. You've got talent, you've got ambition, but you're competing against hundreds of others doing the exact same thing. Your ideal customers are out there—they're just not finding you. Meanwhile, your competitors are capturing the leads that should be yours.
             </p>
           </motion.div>
 
@@ -176,25 +181,25 @@ export default function LookALikeSolutionsPage() {
             {[
               {
                 icon: <Users className="w-12 h-12 text-red-500" />,
-                title: "Online Invisibility",
-                description: "Your competitors show up first. Your ideal customers never find you. You're losing business to people who are just better at being visible."
+                title: "Lost in the Noise",
+                description: "Bengaluru's market is saturated. Your competitors rank higher on Google. Your ideal customers scroll past you on social media. You're working hard but staying invisible."
               },
               {
                 icon: <Target className="w-12 h-12 text-red-500" />,
-                title: "Wasted Ad Spend",
-                description: "You're throwing money at ads that don't convert. You get clicks, but not the right kind. Lots of tire-kickers, zero serious prospects."
+                title: "Ad Spend Without Results",
+                description: "You've tried Google Ads, Facebook Ads, Instagram. You get clicks, but not conversions. Your cost per lead keeps climbing. Your ROI keeps dropping."
               },
               {
                 icon: <Phone className="w-12 h-12 text-red-500" />,
-                title: "No Quality Leads",
-                description: "The phone used to ring. Now? Silence. Or worse, you get inquiries from people who can't afford you or aren't a good fit."
+                title: "The Phone Isn't Ringing",
+                description: "You used to get inquiries. Now? Silence. Or worse, you get tire-kickers who waste your time and don't convert. Your sales pipeline is unpredictable."
               }
             ].map((problem, index) => (
               <motion.div
                 key={index}
                 {...fadeInUp}
                 transition={{ ...fadeInUp.transition, delay: index * 0.1 }}
-                className="bg-slate-50 p-8 rounded-xl border border-slate-200"
+                className="bg-white p-8 rounded-xl border border-slate-200"
               >
                 <div className="mb-4">{problem.icon}</div>
                 <h3 className="font-heading text-xl mb-3 text-slate-900">{problem.title}</h3>
@@ -203,9 +208,9 @@ export default function LookALikeSolutionsPage() {
             ))}
           </div>
 
-          <motion.div {...fadeInUp} className="mt-12 bg-blue-50 border-l-4 border-blue-600 p-8 rounded-r-lg">
+          <motion.div {...fadeInUp} className="mt-12 bg-red-50 border-l-4 border-red-600 p-8 rounded-r-lg">
             <p className="font-paragraph text-lg text-slate-800">
-              <span className="font-bold">Here's the thing:</span> This isn't about working harder. It's about working smarter. It's about being strategic with your visibility, your ads, and your lead generation. And that's exactly what we do.
+              <span className="font-bold">The Real Problem:</span> It's not that you're not good enough. It's that you're not visible enough. And visibility is something we can fix.
             </p>
           </motion.div>
 
@@ -219,21 +224,17 @@ export default function LookALikeSolutionsPage() {
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </motion.div>
-
-          <motion.div {...fadeInUp} className="mt-16">
-
-          </motion.div>
         </div>
       </section>
       {/* What We Do Section */}
-      <section className="w-full py-20 md:py-28 bg-slate-50">
+      <section className="w-full py-20 md:py-28 bg-white">
         <div className="max-w-[100rem] mx-auto px-4 md:px-8">
           <motion.div {...fadeInUp} className="mb-16">
             <h2 className="font-heading text-4xl md:text-5xl mb-6 text-slate-900">
-              How We Fix It
+              Our Proven Process
             </h2>
             <p className="font-paragraph text-lg text-slate-600 max-w-3xl">
-              Look A Like Solutions uses a proven three-step approach to turn your invisibility into visibility, and visibility into calls.
+              We follow a systematic approach to turn your invisibility into visibility, and visibility into qualified leads and calls.
             </p>
           </motion.div>
 
@@ -242,7 +243,7 @@ export default function LookALikeSolutionsPage() {
               {
                 number: "01",
                 title: "Strategic Visibility",
-                description: "We make sure you show up where your customers are looking. Through smart SEO, targeted search ads, and strategic positioning, we get you in front of the right people at the right time. No more hiding in the shadows.",
+                description: "We make sure you show up where your customers are looking. Through smart SEO, targeted search ads, and strategic positioning, we get you in front of the right people at the right time.",
                 benefits: ["Higher search rankings", "Targeted ad placement", "Right audience, right time"],
                 image: "https://static.wixstatic.com/media/f650f9_d81afce18e134223a6774b87aa0005b7~mv2.png",
                 imageAlt: "SEO optimization concept with search results and ranking improvements"
@@ -250,7 +251,7 @@ export default function LookALikeSolutionsPage() {
               {
                 number: "02",
                 title: "Lead Generation That Works",
-                description: "Visibility is only half the battle. We turn that visibility into actual leads. Through optimized landing pages, strategic campaigns, and smart targeting, we bring qualified prospects to your door—people who are actually interested in what you offer.",
+                description: "Visibility is only half the battle. We turn that visibility into actual leads. Through optimized landing pages, strategic campaigns, and smart targeting, we bring qualified prospects to your door.",
                 benefits: ["Qualified leads only", "Higher conversion rates", "Lower cost per lead"],
                 image: "https://static.wixstatic.com/media/f650f9_04674e2fa77a4949a9b24a7579327862~mv2.png",
                 imageAlt: "Lead generation funnel visualization with conversion metrics"
@@ -258,7 +259,7 @@ export default function LookALikeSolutionsPage() {
               {
                 number: "03",
                 title: "Calls and Conversions",
-                description: "At the end of the day, you need calls. We structure everything—from ad copy to landing pages to follow-up—to get the phone ringing with serious prospects ready to do business. We measure success by your results, not just clicks.",
+                description: "At the end of the day, you need calls. We structure everything—from ad copy to landing pages to follow-up—to get the phone ringing with serious prospects ready to do business.",
                 benefits: ["More phone calls", "Better-qualified prospects", "Higher close rates"],
                 image: "https://static.wixstatic.com/media/f650f9_fa5d8866300347c89f792235a718f326~mv2.png",
                 imageAlt: "Success metrics dashboard showing increased calls and revenue growth"
@@ -303,11 +304,11 @@ export default function LookALikeSolutionsPage() {
         </div>
       </section>
       {/* Success Stories Section */}
-      <section className="w-full py-20 md:py-28 bg-white">
+      <section className="w-full py-20 md:py-28 bg-slate-50">
         <div className="max-w-[100rem] mx-auto px-4 md:px-8">
           <motion.div {...fadeInUp} className="mb-16">
             <h2 className="font-heading text-4xl md:text-5xl mb-6 text-slate-900">
-              Real Results. Real Businesses.
+              Real Results from Bengaluru Businesses
             </h2>
             <p className="font-paragraph text-lg text-slate-600 max-w-3xl">
               Don't just take our word for it. Here's what we've done for businesses like yours.
@@ -482,7 +483,7 @@ export default function LookALikeSolutionsPage() {
         <div className="max-w-[100rem] mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             {[
-              { number: "50+", label: "Businesses Helped" },
+              { number: "50+", label: "Bengaluru Businesses Helped" },
               { number: "340%", label: "Avg. Call Increase" },
               { number: "8 Years", label: "Industry Experience" },
               { number: "100%", label: "Results-Focused" }
@@ -505,7 +506,7 @@ export default function LookALikeSolutionsPage() {
           <div className="max-w-[100rem] mx-auto px-4 md:px-8">
             <motion.div {...fadeInUp} className="text-center mb-12">
               <h2 className="font-heading text-3xl md:text-4xl mb-4 text-slate-900">
-                Trusted by Leading Brands
+                Trusted by Leading Bengaluru Brands
               </h2>
               <p className="font-paragraph text-lg text-slate-600 max-w-2xl mx-auto">
                 We've helped these businesses get more visibility, leads, and revenue
@@ -746,8 +747,8 @@ export default function LookALikeSolutionsPage() {
                 answer: "We guarantee effort and expertise. We can't guarantee specific results (no honest agency can), but we do guarantee we'll work hard and measure everything. If it's not working, we'll pivot."
               },
               {
-                question: "What industries do you work with?",
-                answer: "We work with service-based businesses, contractors, consultants, agencies, and more. If you're a B2B or B2C business that needs leads, we can likely help."
+                question: "What makes you different from other agencies?",
+                answer: "We focus on results, not vanity metrics. We understand Bengaluru's market. We work as partners, not vendors. And we're transparent about what's working and what's not."
               },
               {
                 question: "Can you help if I have a small budget?",
