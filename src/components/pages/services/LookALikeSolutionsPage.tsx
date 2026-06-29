@@ -10,6 +10,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { BaseCrudService } from '@/integrations';
 import { TrustedBusinesses } from '@/entities';
 import Head from '@/components/Head';
+import { ServiceHero } from '@/components/ui/service-hero';
+import { BenefitsSection } from '@/components/ui/benefits-section';
+import { ProcessSteps } from '@/components/ui/process-steps';
+import { CTASection } from '@/components/ui/cta-section';
+import { ProofChips } from '@/components/ui/proof-chips';
 
 interface ContactFormData {
   fullName: string;

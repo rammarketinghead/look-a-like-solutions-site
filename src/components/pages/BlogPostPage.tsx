@@ -8,6 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
 import { SEOHead } from '@/components/ui/seo-head';
 import { NewsletterSection } from '@/components/ui/newsletter-section';
+import { CTASection } from '@/components/ui/cta-section';
 import { fixSlug, isValidSlug } from '@/utils/slugUtils';
 
 import { BlogSidebar } from '@/components/ui/blog-sidebar';

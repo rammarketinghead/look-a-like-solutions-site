@@ -6,6 +6,8 @@ import { Image } from '@/components/ui/image';
 import { SEOHead } from '@/components/ui/seo-head';
 import { TrustedBusinessesCarousel } from '@/components/ui/trusted-businesses-carousel';
 import { NewsletterSection } from '@/components/ui/newsletter-section';
+import { ProofChips } from '@/components/ui/proof-chips';
+import { CTASection } from '@/components/ui/cta-section';
 import { BaseCrudService } from '@/integrations';
 import { TeamMembers, JobOpenings } from '@/entities';
 import { Link } from 'react-router-dom';

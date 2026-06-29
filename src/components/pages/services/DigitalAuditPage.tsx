@@ -2,7 +2,11 @@ import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
-
+import { ServiceHero } from '@/components/ui/service-hero';
+import { BenefitsSection } from '@/components/ui/benefits-section';
+import { ProcessSteps } from '@/components/ui/process-steps';
+import { CTASection } from '@/components/ui/cta-section';
+import { ProofChips } from '@/components/ui/proof-chips';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
 import { ROICalculator } from '@/components/ui/roi-calculator';
 import { TrustedBusinessesCarousel } from '@/components/ui/trusted-businesses-carousel';
