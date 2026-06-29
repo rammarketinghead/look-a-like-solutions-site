@@ -78,6 +78,7 @@ const MetaAdsPage = lazy(() => import('@/components/pages/services/MetaAdsPage')
 const LocalSEOPage = lazy(() => import('@/components/pages/services/LocalSEOPage'));
 const PerformanceMarketingPage = lazy(() => import('@/components/pages/services/PerformanceMarketingPage'));
 const BlogMigrationAdminPage = lazy(() => import('@/components/pages/BlogMigrationAdminPage'));
+const BlogContentAuditPage = lazy(() => import('@/components/pages/BlogContentAuditPage'));
 
 // Fallback component for lazy loading
 function PageFallback() {
@@ -657,6 +658,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<PageFallback />}>
             <BlogMigrationAdminPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "admin/blog-content-audit",
+        element: (
+          <Suspense fallback={<PageFallback />}>
+            <BlogContentAuditPage />
           </Suspense>
         ),
       },
