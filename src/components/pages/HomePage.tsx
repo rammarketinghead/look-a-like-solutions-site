@@ -305,9 +305,7 @@ export default function HomePage() {
             </motion.div>
 
             {/* Sharp Headline */}
-            <h1 className="mobile-h1 text-dark-gray mb-6 font-bold leading-tight">
-              Get More Customers & Grow Revenue
-            </h1>
+            <h1 className="mobile-h1 text-dark-gray mb-6 font-bold leading-tight">Get More Customers and Grow Revenue</h1>
 
             {/* Benefit-Driven Subheading */}
             <p className="mobile-body-lg text-secondary max-w-2xl mx-auto mb-8">
@@ -357,7 +355,6 @@ export default function HomePage() {
           speed={25}
         />
       </section>
-
       {/* Services Section - Scannable Cards */}
       <section className="mobile-section bg-background">
         <div className="mobile-container">
@@ -641,7 +638,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* CTA Section - Conversion Focused */}
       <CTASection
         title="Ready to Transform Your Digital Presence?"
