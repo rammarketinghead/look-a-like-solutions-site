@@ -104,11 +104,11 @@ export default function AboutPage() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link to="#team">
+              <a href="#team">
                 <Button variant="outline" className="mobile-btn-secondary">
                   Meet Our Team
                 </Button>
-              </Link>
+              </a>
             </div>
           </motion.div>
         </div>

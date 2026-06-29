@@ -445,7 +445,7 @@ export default function GoogleAdsTrainingPage() {
       </section>
 
       {/* Registration Form */}
-      <section className="py-16 md:py-24 bg-background">
+      <section id="reserve-spot" className="py-16 md:py-24 bg-background">
         <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
