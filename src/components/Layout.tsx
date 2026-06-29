@@ -12,7 +12,7 @@ import { SEOHead } from '@/components/ui/seo-head';
 import { useSitemapUpdater } from '@/hooks/useSitemapUpdater';
 import { BaseCrudService } from '@/integrations';
 import { ArrowRight, ChevronDown, ChevronRight, Facebook, Heart, Instagram, Linkedin, Mail, MapPin, Menu, Phone, Youtube } from 'lucide-react';
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, lazy, Suspense } from 'react';
 
 function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -617,14 +617,18 @@ function Layout() {
         actionLabel="Get Session"
       />
 
-      {/* WhatsApp Floating Button */}
-      <WhatsAppButton
-        phoneNumber="+919731588244"
-        message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
-      />
+      {/* WhatsApp Floating Button - Lazy loaded */}
+      <Suspense fallback={null}>
+        <WhatsAppButton
+          phoneNumber="+919731588244"
+          message="Hi! I'm interested in your digital marketing services. Can we discuss my requirements?"
+        />
+      </Suspense>
 
-      {/* Cookie Consent Banner */}
-      <CookieConsentBanner />
+      {/* Cookie Consent Banner - Lazy loaded */}
+      <Suspense fallback={null}>
+        <CookieConsentBanner />
+      </Suspense>
     </div>
   );
 }

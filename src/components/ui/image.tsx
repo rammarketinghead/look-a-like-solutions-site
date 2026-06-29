@@ -87,7 +87,9 @@ export const Image = forwardRef<HTMLImageElement, ImageProps>(({ src, loading = 
     style: {
       ...(props.style || {}),
       contentVisibility: 'auto' as const,
-      contain: 'layout style paint' as const
+      contain: 'layout style paint' as const,
+      /* Prevent layout shift */
+      aspectRatio: props.width && props.height ? `${props.width}/${props.height}` : 'auto'
     }
   }
   const imageData = getImageData(imgSrc)
