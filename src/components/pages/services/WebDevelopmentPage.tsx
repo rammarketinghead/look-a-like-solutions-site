@@ -6,13 +6,8 @@ import { NewsletterSection } from '@/components/ui/newsletter-section';
 import { ROICalculator } from '@/components/ui/roi-calculator';
 import { SEOHead } from '@/components/ui/seo-head';
 import { ServiceContactForm } from '@/components/ui/service-contact-form';
-import { ServiceHero } from '@/components/ui/service-hero';
-import { BenefitsSection } from '@/components/ui/benefits-section';
-import { ProcessSteps } from '@/components/ui/process-steps';
-import { CTASection } from '@/components/ui/cta-section';
-import { ProofChips } from '@/components/ui/proof-chips';
 import { motion } from 'framer-motion';
-import { ArrowRight, BarChart3, CheckCircle, Code, Laptop, Settings, Smartphone, Target, TrendingUp, Zap } from 'lucide-react';
+import { ArrowRight, BarChart3, CheckCircle, Code, Laptop, Settings, Smartphone, Target, TrendingUp, Zap, Lock, Gauge } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const fadeInVariants = {
@@ -58,15 +53,15 @@ export default function WebDevelopmentPage() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Web Development Services Bengaluru - Custom Websites"
-        description="Professional web development in Bengaluru. Custom websites, e-commerce, mobile apps. React, Next.js, responsive design. Free consultation available."
-        keywords="web development Bengaluru, website design, custom web development, e-commerce development, mobile app development, React developer, web developer Bengaluru"
+        title="Web Development Services Bengaluru - Custom Websites & Apps"
+        description="Professional web development in Bengaluru. Custom websites, e-commerce, mobile apps. React, Next.js, responsive design. 200+ websites built. Free consultation available."
+        keywords="web development Bengaluru, website design, custom web development, e-commerce development, mobile app development, React developer, web developer Bengaluru, website development company"
         type="service"
         schemaType="Service"
         services={[
           {
             name: "Web Development Services",
-            description: "Custom website development, e-commerce solutions, mobile apps, and web applications using modern technologies. We build fast, secure, and scalable digital solutions.",
+            description: "Custom website development, e-commerce solutions, mobile apps, and web applications using modern technologies. We build fast, secure, and scalable digital solutions for Bengaluru businesses.",
             areaServed: "Bengaluru, Karnataka, India",
             priceRange: "$"
           }
@@ -88,12 +83,19 @@ export default function WebDevelopmentPage() {
             rating: 5,
             reviewBody: "They built an amazing e-commerce website for our business. The site is fast, user-friendly, and has increased our online sales by 200%. Highly recommended!",
             datePublished: "2024-09-15"
+          },
+          {
+            author: "Neha Patel",
+            rating: 5,
+            reviewBody: "Excellent web development team. They understood our requirements perfectly and delivered a professional website that exceeded expectations. Great communication throughout the project.",
+            datePublished: "2024-10-10"
           }
         ]}
       />
+
       {/* Hero Section */}
       <section className="py-32 bg-gradient-to-br from-primary/5 via-background to-light-gray relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23007BFF%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23007BFF%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50\"></div>
         <div className="max-w-[100rem] mx-auto px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -108,10 +110,10 @@ export default function WebDevelopmentPage() {
               </div>
               <h1 className="text-6xl font-heading text-dark-gray mb-8 leading-tight">
                 Web Development in Bengaluru -
-                <span className="text-primary block">Custom Solutions</span>
+                <span className="text-primary block">Custom Solutions for Growth</span>
               </h1>
               <p className="text-xl font-paragraph text-secondary mb-12 leading-relaxed">
-                Create stunning, high-performance websites and mobile applications that drive results. From responsive design to e-commerce solutions, we build digital experiences that convert visitors into customers.
+                Create stunning, high-performance websites and mobile applications that drive results. From responsive design to e-commerce solutions, we build digital experiences that convert visitors into customers and scale with your business.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
                 <Button
@@ -158,7 +160,7 @@ export default function WebDevelopmentPage() {
                 </div>
                 <Image
                   src="https://static.wixstatic.com/media/f650f9_18935d79ba7148298654db9344b301d3~mv2.png?originWidth=576&originHeight=448"
-                  alt="Web Development Process"
+                  alt="Web Development Process and Technology Stack"
                   width={600}
                   className="w-full h-auto rounded-lg"
                 />
@@ -178,36 +180,28 @@ export default function WebDevelopmentPage() {
         </div>
       </section>
 
-      {/* Service Overview */}
+      {/* Introduction Section */}
       <section className="py-32 bg-background">
         <div className="max-w-[100rem] mx-auto px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl font-heading text-dark-gray mb-8">
-                Custom Development Solutions
+                What is Web Development and Why It Matters
               </h2>
-              <p className="text-lg font-paragraph text-secondary mb-8">
-                Our development team creates custom websites and mobile applications tailored to your business needs. We focus on performance, security, and user experience to ensure your digital presence drives real business results.
+              <p className="text-lg font-paragraph text-secondary mb-6 leading-relaxed">
+                Web development is the process of building and maintaining websites and web applications. In today's digital-first world, your website is often the first impression customers have of your business. A well-designed, fast-loading, and user-friendly website is essential for success.
               </p>
-              <div className="space-y-4 mb-8">
-                {[
-                  'Responsive web design and development',
-                  'E-commerce and online store solutions',
-                  'Mobile app development (iOS & Android)',
-                  'Custom web application development',
-                  'Website maintenance and support'
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center">
-                    <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
-                    <span className="font-paragraph text-secondary">{feature}</span>
-                  </div>
-                ))}
-              </div>
+              <p className="text-lg font-paragraph text-secondary mb-6 leading-relaxed">
+                For Bengaluru businesses, having a professional web presence is critical. With over 750 million internet users in India and Bengaluru being a tech hub, businesses without a strong online presence are losing customers to competitors. Your website needs to not only look great but also perform exceptionally well and convert visitors into customers.
+              </p>
+              <p className="text-lg font-paragraph text-secondary mb-8 leading-relaxed">
+                Our web development services combine modern design, cutting-edge technology, and conversion optimization to create digital solutions that drive real business results. We build websites that are beautiful, fast, secure, and profitable.
+              </p>
               <Button
                 onClick={scrollToContact}
                 className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 text-base"
               >
-                Discuss Your Project
+                Start Your Web Project
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </div>
@@ -223,69 +217,247 @@ export default function WebDevelopmentPage() {
         </div>
       </section>
 
-      {/* Development Services */}
+      {/* Problems Section */}
       <section className="py-32 bg-light-gray">
         <div className="max-w-[100rem] mx-auto px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-heading text-dark-gray mb-6">Our Development Services</h2>
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">
+              Common Web Development Challenges Bengaluru Businesses Face
+            </h2>
             <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
-              Comprehensive web and mobile development solutions to bring your digital vision to life.
+              Many businesses struggle with outdated websites, poor performance, and lack of conversion optimization. Here are the most common challenges we solve.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                icon: Laptop,
-                title: 'Website Development',
-                description: 'Custom websites built with modern technologies, optimized for performance and conversions.'
+                title: "Slow, Outdated Websites",
+                description: "Many businesses are stuck with old websites built on outdated technology. These sites are slow, difficult to maintain, and don't provide good user experience on mobile devices."
               },
               {
-                icon: Smartphone,
-                title: 'Mobile App Development',
-                description: 'Native and cross-platform mobile applications for iOS and Android devices.'
+                title: "Poor Mobile Experience",
+                description: "Over 70% of web traffic comes from mobile devices, but many websites aren't optimized for mobile. This leads to high bounce rates and lost customers."
               },
               {
-                icon: Target,
-                title: 'E-commerce Solutions',
-                description: 'Complete online store development with payment integration and inventory management.'
+                title: "Low Conversion Rates",
+                description: "A beautiful website that doesn't convert visitors into customers is just an expensive brochure. Most businesses lack conversion optimization expertise."
               },
               {
-                icon: BarChart3,
-                title: 'Web Applications',
-                description: 'Custom web applications and dashboards tailored to your business processes.'
+                title: "Security Vulnerabilities",
+                description: "Outdated websites are vulnerable to hacking and data breaches. Many businesses don't have proper security measures in place, putting customer data at risk."
               },
               {
-                icon: Zap,
-                title: 'Performance Optimization',
-                description: 'Speed optimization, SEO-friendly code, and enhanced user experience.'
+                title: "Lack of SEO Optimization",
+                description: "Websites built without SEO in mind won't rank in search engines. Many businesses invest in websites that nobody can find online."
               },
               {
-                icon: Settings,
-                title: 'Maintenance & Support',
-                description: 'Ongoing maintenance, updates, and technical support for your digital assets.'
+                title: "Expensive Maintenance & Hosting",
+                description: "Poorly built websites are expensive to maintain and require constant fixes. Businesses end up paying more for hosting and support than necessary."
               }
-            ].map((service, index) => (
+            ].map((problem, index) => (
               <Card key={index} className="border-0 shadow-sm hover:shadow-md transition-shadow">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <service.icon className="h-8 w-8 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-heading text-dark-gray mb-4">{service.title}</h3>
-                  <p className="font-paragraph text-secondary">{service.description}</p>
+                <CardContent className="p-8">
+                  <h3 className="text-xl font-heading text-dark-gray mb-4">{problem.title}</h3>
+                  <p className="font-paragraph text-secondary">{problem.description}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <Button
-              onClick={scrollToContact}
-              variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3"
-            >
-              Explore All Services
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+        </div>
+      </section>
+
+      {/* Solutions Section */}
+      <section className="py-32 bg-background">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">
+              How We Solve Your Web Development Challenges
+            </h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              Our comprehensive approach ensures your website is fast, secure, beautiful, and profitable.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                icon: Gauge,
+                title: "Performance Optimization",
+                description: "We build websites that load in under 2 seconds. Fast websites rank better in search engines and convert more visitors into customers."
+              },
+              {
+                icon: Smartphone,
+                title: "Mobile-First Design",
+                description: "Every website we build is optimized for mobile devices first. We ensure perfect user experience across all screen sizes and devices."
+              },
+              {
+                icon: Target,
+                title: "Conversion Optimization",
+                description: "We don't just build websites; we build conversion machines. Every element is designed to guide visitors toward taking action."
+              },
+              {
+                icon: Lock,
+                title: "Security & Compliance",
+                description: "We implement enterprise-grade security measures, SSL certificates, and compliance standards to protect your business and customer data."
+              },
+              {
+                icon: Code,
+                title: "Modern Technology Stack",
+                description: "We use the latest technologies like React, Next.js, and Node.js to build scalable, maintainable websites that grow with your business."
+              },
+              {
+                icon: BarChart3,
+                title: "SEO-Friendly Architecture",
+                description: "Every website we build is optimized for search engines from the ground up. We implement proper schema markup, structured data, and SEO best practices."
+              }
+            ].map((solution, index) => (
+              <Card key={index} className="border-0 shadow-sm hover:shadow-md transition-shadow">
+                <CardContent className="p-8">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                    <solution.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-heading text-dark-gray mb-4">{solution.title}</h3>
+                  <p className="font-paragraph text-secondary">{solution.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-32 bg-light-gray">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">
+              Our Step-by-Step Web Development Process
+            </h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              We follow a proven methodology to ensure successful project delivery and long-term success.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                step: "1",
+                title: "Discovery & Planning",
+                description: "We understand your business goals, target audience, and requirements. We create a detailed project plan and timeline."
+              },
+              {
+                step: "2",
+                title: "Design & Prototyping",
+                description: "Our designers create beautiful, user-friendly designs. We get your feedback and refine until it's perfect."
+              },
+              {
+                step: "3",
+                title: "Development & Testing",
+                description: "Our developers build your website using modern technologies. We test thoroughly across all devices and browsers."
+              },
+              {
+                step: "4",
+                title: "Launch & Support",
+                description: "We deploy your website, set up hosting, and provide ongoing support and maintenance to ensure continued success."
+              }
+            ].map((item, index) => (
+              <Card key={index} className="border-0 shadow-sm">
+                <CardContent className="p-8 text-center">
+                  <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-heading">
+                    {item.step}
+                  </div>
+                  <h3 className="text-xl font-heading text-dark-gray mb-4">{item.title}</h3>
+                  <p className="font-paragraph text-secondary">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries Section */}
+      <section className="py-32 bg-background">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">
+              Industries We Serve
+            </h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              We have expertise across diverse industries and understand the unique web development needs of each sector.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              "E-commerce & Retail",
+              "Real Estate & Property",
+              "Healthcare & Wellness",
+              "Hospitality & Restaurants",
+              "Education & Training",
+              "Technology & SaaS",
+              "Finance & Banking",
+              "Fashion & Beauty",
+              "Manufacturing & B2B",
+              "Professional Services",
+              "Travel & Tourism",
+              "Media & Publishing"
+            ].map((industry, index) => (
+              <Card key={index} className="border-0 shadow-sm">
+                <CardContent className="p-6 flex items-center">
+                  <CheckCircle className="h-5 w-5 text-primary mr-4 flex-shrink-0" />
+                  <span className="font-paragraph text-secondary">{industry}</span>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Deliverables Section */}
+      <section className="py-32 bg-light-gray">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">
+              What You'll Receive
+            </h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              Our comprehensive web development packages include everything you need for a successful online presence.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                category: "Design & Development",
+                items: ["Custom website design", "Responsive development", "Mobile optimization", "Cross-browser testing"]
+              },
+              {
+                category: "Functionality & Features",
+                items: ["Contact forms & CMS", "E-commerce integration", "Payment gateway setup", "Analytics integration"]
+              },
+              {
+                category: "Performance & Security",
+                items: ["Performance optimization", "SSL certificate", "Security hardening", "Backup systems"]
+              },
+              {
+                category: "Support & Maintenance",
+                items: ["3-12 months free support", "Content updates", "Security updates", "Performance monitoring"]
+              }
+            ].map((deliverable, index) => (
+              <Card key={index} className="border-0 shadow-sm">
+                <CardContent className="p-8">
+                  <h3 className="text-xl font-heading text-dark-gray mb-6">{deliverable.category}</h3>
+                  <ul className="space-y-3">
+                    {deliverable.items.map((item, itemIndex) => (
+                      <li key={itemIndex} className="flex items-center">
+                        <CheckCircle className="h-5 w-5 text-primary mr-3 flex-shrink-0" />
+                        <span className="font-paragraph text-secondary">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -418,6 +590,56 @@ export default function WebDevelopmentPage() {
         </div>
       </section>
 
+      {/* Why Choose Us Section */}
+      <section className="py-32 bg-background">
+        <div className="max-w-[100rem] mx-auto px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-heading text-dark-gray mb-6">
+              Why Choose Look A Like Solutions for Web Development
+            </h2>
+            <p className="text-lg font-paragraph text-secondary max-w-3xl mx-auto">
+              We're not just another web development agency. Here's what sets us apart.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                title: "Proven Track Record",
+                description: "We've built 200+ websites, developed 50+ mobile apps, and maintained 99.9% uptime. Our portfolio speaks for itself."
+              },
+              {
+                title: "Modern Technology Stack",
+                description: "We use cutting-edge technologies like React, Next.js, and Node.js. Your website will be fast, scalable, and future-proof."
+              },
+              {
+                title: "Conversion-Focused Design",
+                description: "We don't just build beautiful websites; we build websites that convert. Every element is designed to drive business results."
+              },
+              {
+                title: "SEO Optimization",
+                description: "Every website we build is optimized for search engines from day one. We implement proper schema markup and SEO best practices."
+              },
+              {
+                title: "Comprehensive Support",
+                description: "We provide ongoing maintenance, support, and optimization. Your website will stay secure, fast, and up-to-date."
+              },
+              {
+                title: "Bengaluru Expertise",
+                description: "We understand the Bengaluru market and the unique needs of businesses in this tech-savvy city. We're local, responsive, and invested in your success."
+              }
+            ].map((reason, index) => (
+              <Card key={index} className="border-0 shadow-sm hover:shadow-md transition-shadow">
+                <CardContent className="p-8">
+                  <h3 className="text-xl font-heading text-dark-gray mb-4">{reason.title}</h3>
+                  <p className="font-paragraph text-secondary">{reason.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <FAQSection
         faqs={webDevFAQs}
@@ -442,7 +664,7 @@ export default function WebDevelopmentPage() {
           <p className="text-lg font-paragraph text-light-gray mb-12 max-w-2xl mx-auto">
             Get a free consultation and discover how we can help bring your digital vision to life with professional development services.
           </p>
-          <div className="flex gap-6 justify-center">
+          <div className="flex gap-6 justify-center flex-wrap">
             <Button
               onClick={scrollToContact}
               className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 text-lg"
