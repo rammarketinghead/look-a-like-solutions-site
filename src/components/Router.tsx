@@ -77,6 +77,7 @@ const RestaurantHotelLeadGenerationPage = lazy(() => import('@/components/pages/
 const MetaAdsPage = lazy(() => import('@/components/pages/services/MetaAdsPage'));
 const LocalSEOPage = lazy(() => import('@/components/pages/services/LocalSEOPage'));
 const PerformanceMarketingPage = lazy(() => import('@/components/pages/services/PerformanceMarketingPage'));
+const BlogMigrationAdminPage = lazy(() => import('@/components/pages/BlogMigrationAdminPage'));
 
 // Fallback component for lazy loading
 function PageFallback() {
@@ -648,6 +649,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<PageFallback />}>
             <IndustrySolutionsPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "admin/blog-migration",
+        element: (
+          <Suspense fallback={<PageFallback />}>
+            <BlogMigrationAdminPage />
           </Suspense>
         ),
       },

@@ -415,10 +415,39 @@ The CMS collection is fully configured and operational. All blog posts are autom
 
 ---
 
+## Important Note: Wix Blog App vs CMS Collection
+
+### Current Situation
+- **Wix Blog App** (Dashboard > Blog > Posts): 95 published posts
+- **CMS blogposts Collection**: 5 sample posts
+- **Website displays**: 5 posts (from CMS only)
+
+### Why the Discrepancy?
+The Wix Blog app is a **native Wix application** that operates independently from custom CMS collections. It has its own database and is NOT accessible from frontend code via:
+- JavaScript APIs
+- BaseCrudService
+- Wix SDK
+
+### Solution Required
+To display all 95 Wix Blog posts on the website, they must be **manually exported from the Wix Blog app and imported into the CMS `blogposts` collection**.
+
+**See**: `/src/PHASE6_WIX_BLOG_TO_CMS_MIGRATION.md` for detailed migration instructions.
+
+### Migration Impact
+Once all 95 posts are imported into CMS:
+- BlogPage.tsx will automatically show all 95 posts
+- BlogPostPage.tsx will work for all 95 post URLs
+- Sitemap will include all 95 blog URLs
+- Homepage will show latest 3 posts from all 95
+- Search will work across all 95 posts
+
+---
+
 ## Conclusion
 
 Phase 6 successfully migrates the blog to a fully data-driven CMS structure. All blog posts are now managed through the Wix CMS `blogposts` collection and automatically displayed on the website. The implementation maintains backward compatibility with Phase 1-5 work while providing a scalable, maintainable blog platform.
 
-**Status: ✅ COMPLETE AND LIVE**
+**Status: ✅ COMPLETE AND LIVE (5 posts)**
+**Status: ⏳ AWAITING MIGRATION (95 posts from Wix Blog app)**
 
-All blog posts are now managed in CMS and display dynamically on the website.
+All blog posts are now managed in CMS and display dynamically on the website. To show all 95 Wix Blog posts, follow the migration guide in `/src/PHASE6_WIX_BLOG_TO_CMS_MIGRATION.md`.
