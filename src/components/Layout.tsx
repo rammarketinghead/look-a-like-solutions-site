@@ -182,7 +182,7 @@ function Layout() {
       )}
       {/* Mobile-First Header */}
       {!isSitemapPage && (
-      <header className={`mobile-sticky-header transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''}`}>
+      <header className={`mobile-sticky-header transition-all duration-300 ${isScrolled ? 'shadow-lg' : ''} relative z-40`}>
         <div className="mobile-container">
           {/* Main Header Row */}
           <div className="flex justify-between items-center py-4">
@@ -212,7 +212,7 @@ function Layout() {
                       {item.name}
                       <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
                     </Link>
-                    <div className="absolute top-full left-0 w-64 bg-background border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="absolute top-full left-0 w-64 bg-background border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto">
                       <div className="p-2">
                         <Link
                           to={item.href}
