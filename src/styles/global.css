@@ -12,6 +12,7 @@
     -webkit-tap-highlight-color: transparent;
     /* Reduce memory usage */
     -webkit-text-size-adjust: 100%;
+    overflow-y: scroll;
   }
   
   body {
@@ -19,11 +20,13 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeSpeed;
     font-feature-settings: 'kern' 1;
-    overscroll-behavior: none;
     /* Reduce repaints and reflows */
-    contain: layout style paint;
+    contain: layout style;
     /* Prevent layout shift */
     scrollbar-gutter: stable;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
   }
 
   /* Mobile-first focus styles */
@@ -273,12 +276,25 @@
   .mobile-container,
   .mobile-card,
   .mobile-section {
-    contain: layout style paint;
+    contain: layout style;
   }
 
   /* Optimize form inputs for mobile */
   input, textarea, select {
     font-size: 16px; /* Prevent iOS zoom */
+  }
+
+  /* Ensure scrolling works */
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  main {
+    flex: 1;
+    width: 100%;
+    overflow: visible;
   }
 }
 
@@ -360,10 +376,5 @@
     max-width: 100%;
     height: auto;
     display: block;
-  }
-
-  /* Prevent layout shift from scrollbar */
-  html {
-    overflow-y: scroll;
   }
 }

@@ -143,12 +143,12 @@ function Layout() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen bg-background w-full overflow-x-hidden">
       {/* Default SEO for pages that don't have specific SEO */}
       <SEOHead />
       {/* Top Contact Bar - Hidden on mobile for cleaner look */}
       {!isSitemapPage && (
-      <div className="hidden sm:block bg-dark-gray text-background py-2">
+      <div className="hidden sm:block bg-dark-gray text-background py-2 w-full">
         <div className="mobile-container">
           <div className="flex justify-between items-center mobile-caption">
             <div className="flex items-center space-x-6">
@@ -400,7 +400,7 @@ function Layout() {
       {/* Breadcrumb */}
       <Breadcrumb />
       {/* Main Content */}
-      <main>
+      <main className="flex-1 w-full overflow-visible">
         <Outlet />
       </main>
       {/* Mobile-First Footer */}
