@@ -34,6 +34,9 @@ export default {
                 'primary-foreground': '#FFFFFF',
                 primary: '#007BFF'
             },
+            zIndex: {
+                '9999': '9999',
+            },
         },
     },
     future: {
